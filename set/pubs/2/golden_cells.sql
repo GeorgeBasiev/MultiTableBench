@@ -1,0 +1,1 @@
+SELECT titles.price, publishers.city, roysched.royalty FROM titles JOIN publishers ON titles.pub_id = publishers.pub_id JOIN roysched ON titles.title_id = roysched.title_id WHERE publishers.city = 'Boston' AND roysched.royalty > 10;

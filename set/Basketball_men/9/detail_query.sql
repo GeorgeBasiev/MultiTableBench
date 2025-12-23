@@ -1,0 +1,1 @@
+SELECT * FROM awards_players ap JOIN players p ON ap.playerID = p.playerID JOIN players_teams pt ON p.playerID = pt.playerID WHERE ap.award = 'All-NBA First Team' AND ap.year = 1970 AND pt.year = 1970 AND pt.tmID = 'LAL'

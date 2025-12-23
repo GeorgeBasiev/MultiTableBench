@@ -1,0 +1,1 @@
+SELECT ch.charge_amt, cat.category_desc, r.region_name FROM charge ch JOIN category cat ON ch.category_no = cat.category_no JOIN provider pr ON ch.provider_no = pr.provider_no JOIN region r ON pr.region_no = r.region_no WHERE cat.category_desc = 'Meals' AND r.region_name LIKE 'M%'

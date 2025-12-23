@@ -1,0 +1,1 @@
+SELECT cs.*, r.*, c.* FROM constructorStandings cs JOIN races r ON cs.raceId = r.raceId JOIN circuits c ON r.circuitId = c.circuitId WHERE c.country = 'Germany' AND r.year BETWEEN 2000 AND 2020;

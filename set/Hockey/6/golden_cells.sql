@@ -1,0 +1,1 @@
+SELECT m.playerID, ap.award, sc.GP FROM Master m JOIN AwardsPlayers ap ON m.playerID = ap.playerID JOIN Scoring sc ON m.playerID = sc.playerID WHERE ap.award = 'Calder' AND sc.GP > 50;

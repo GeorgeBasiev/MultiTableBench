@@ -1,0 +1,1 @@
+SELECT s.*, t.*, d.* FROM sales s JOIN titles t ON s.title_id = t.title_id JOIN discounts d ON s.stor_id = d.stor_id WHERE s.ord_date >= '1993-01-01' AND s.ord_date <= '1993-12-31' AND t.type = 'business';

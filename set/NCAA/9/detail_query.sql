@@ -1,0 +1,1 @@
+SELECT * FROM target ta JOIN teams t ON ta.team_id1 = t.team_id JOIN regular_season_compact_results rc ON ta.team_id1 = rc.wteam WHERE ta.id = '2011_1155_1452';

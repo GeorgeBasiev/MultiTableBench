@@ -1,0 +1,1 @@
+SELECT e.GDP FROM country c JOIN politics p ON c.Code = p.Country JOIN economy e ON c.Code = e.Country WHERE p.Dependent IS NULL AND e.GDP IS NOT NULL;

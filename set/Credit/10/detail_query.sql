@@ -1,0 +1,1 @@
+SELECT * FROM charge c JOIN member m ON c.member_no = m.member_no JOIN category ca ON c.category_no = ca.category_no WHERE c.charge_no = 1855040;

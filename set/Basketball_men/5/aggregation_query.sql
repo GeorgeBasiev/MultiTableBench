@@ -1,0 +1,1 @@
+SELECT AVG(pt.points) AS avg_points FROM player_allstar pt JOIN players p ON pt.playerID = p.playerID JOIN awards_players ap ON p.playerID = ap.playerID WHERE pt.season_id = ap.year AND ap.award LIKE '%All-Defensive%';

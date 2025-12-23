@@ -1,0 +1,1 @@
+SELECT * FROM players p JOIN schoolsplayers sp ON p.playerID = sp.playerID JOIN schools s ON sp.schoolID = s.schoolID WHERE s.schoolState = 'CA';

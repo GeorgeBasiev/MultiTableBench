@@ -1,0 +1,1 @@
+SELECT * FROM salaries s JOIN players p ON s.playerID = p.playerID JOIN teams t ON s.teamID = t.teamID WHERE p.birthCountry = 'USA' AND t.name = 'Boston Red Sox';

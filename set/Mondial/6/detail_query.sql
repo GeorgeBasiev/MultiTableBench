@@ -1,0 +1,1 @@
+SELECT c.Name AS country_name, c2.Name AS neighbor_country, b.Length AS border_length, e.GDP AS neighbor_gdp FROM country c JOIN borders b ON c.Code = b.Country1 JOIN country c2 ON b.Country2 = c2.Code JOIN economy e ON c2.Code = e.Country WHERE c.Name = 'France' AND e.GDP > 0;

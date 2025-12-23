@@ -1,0 +1,1 @@
+SELECT charge.charge_amt, charge.category_no, category.category_no, charge.member_no, member.member_no, member.region_no, region.region_no, region.region_name FROM charge JOIN category ON charge.category_no = category.category_no JOIN member ON charge.member_no = member.member_no JOIN region ON member.region_no = region.region_no WHERE region.region_name = 'Eastern Europea'

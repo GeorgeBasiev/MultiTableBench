@@ -1,0 +1,1 @@
+SELECT ch.charge_amt, cat.category_no FROM charge ch JOIN category cat ON ch.category_no = cat.category_no

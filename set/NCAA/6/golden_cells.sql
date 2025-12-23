@@ -1,0 +1,1 @@
+SELECT rdr.wast, t.team_id, ta.team_id1, ta.team_id1_wins FROM regular_season_detailed_results rdr JOIN teams t ON rdr.wteam = t.team_id JOIN target ta ON ta.team_id1 = t.team_id WHERE ta.team_id1_wins = 1;

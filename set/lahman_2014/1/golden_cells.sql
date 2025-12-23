@@ -1,0 +1,1 @@
+SELECT ap.playerID, p.hofID, h.inducted FROM awardsplayers ap JOIN players p ON ap.playerID = p.playerID JOIN halloffame h ON p.hofID = h.hofID WHERE h.inducted = 'Y'

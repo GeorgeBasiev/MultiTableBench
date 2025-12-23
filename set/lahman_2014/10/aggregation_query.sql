@@ -1,0 +1,1 @@
+SELECT p.nameFirst, p.nameLast FROM players p JOIN awardsplayers ap ON p.playerID = ap.playerID JOIN batting b ON p.playerID = b.playerID WHERE p.playerID = 'willite01' AND ap.yearID = 1950 AND b.yearID = 1950 LIMIT 1;

@@ -1,0 +1,6 @@
+SELECT SUM(cr.points) AS constructor_total_points
+    FROM constructorResults cr
+    JOIN circuits ci ON cr.raceId = (SELECT raceId FROM races WHERE circuitId = ci.circuitId ORDER BY raceId LIMIT 1)
+    JOIN constructors con ON cr.constructorId = con.constructorId
+    WHERE ci.country = 'Italy'
+      AND con.nationality = 'Italian';

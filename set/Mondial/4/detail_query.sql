@@ -1,0 +1,1 @@
+SELECT p.*, c.*, e.* FROM population p JOIN country c ON p.Country = c.Code JOIN economy e ON c.Code = e.Country WHERE p.Infant_Mortality > 50;

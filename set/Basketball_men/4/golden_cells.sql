@@ -1,0 +1,1 @@
+SELECT pt.points, pt.season_id, p.playerID, ap.playerID, ap.year, ap.award FROM player_allstar pt JOIN players p ON pt.playerID = p.playerID JOIN awards_players ap ON p.playerID = ap.playerID WHERE pt.season_id = ap.year AND ap.award = 'All-NBA First Team'

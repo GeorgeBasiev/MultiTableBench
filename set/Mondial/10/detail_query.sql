@@ -1,0 +1,1 @@
+SELECT * FROM country c JOIN politics p ON c.Code = p.Country JOIN city ci ON c.Capital = ci.Name WHERE c.Code = 'TT';

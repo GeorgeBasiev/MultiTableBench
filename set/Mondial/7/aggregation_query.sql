@@ -1,0 +1,1 @@
+SELECT AVG(e.GDP) AS avg_gdp FROM country c JOIN encompasses e2c ON c.Code = e2c.Country JOIN economy e ON c.Code = e.Country WHERE e2c.Continent = 'Asia' AND c.Population > 10000000;

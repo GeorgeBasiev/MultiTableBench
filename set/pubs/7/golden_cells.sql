@@ -1,0 +1,1 @@
+SELECT ta.royaltyper, ta.title_id, t.title_id, t.pub_id, p.pub_id, p.country, t.type FROM titleauthor ta JOIN titles t ON ta.title_id = t.title_id JOIN publishers p ON t.pub_id = p.pub_id WHERE p.country = 'USA' AND t.type = 'business'

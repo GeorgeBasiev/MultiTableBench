@@ -1,0 +1,1 @@
+SELECT m.firstName, m.lastName FROM AwardsPlayers ap JOIN Master m ON ap.playerID = m.playerID WHERE ap.award = 'All-Rookie' AND ap.year = 2007 LIMIT 1;

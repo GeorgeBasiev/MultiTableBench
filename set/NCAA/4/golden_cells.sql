@@ -1,0 +1,1 @@
+SELECT t.pred, t.team_id1, rsdr.wteam, rsdr.lteam, rsdr.season, rsdr.wfgm, rsdr.lfgm, tm.team_id FROM target t JOIN regular_season_detailed_results rsdr ON (t.team_id1 = rsdr.wteam OR t.team_id1 = rsdr.lteam) JOIN teams tm ON t.team_id1 = tm.team_id WHERE t.season = 2014 AND rsdr.season = t.season AND rsdr.wfgm > rsdr.lfgm;

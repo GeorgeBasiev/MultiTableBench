@@ -1,0 +1,1 @@
+SELECT p.nameFirst, p.nameLast FROM players p JOIN schoolsplayers sp ON p.playerID = sp.playerID JOIN schools s ON sp.schoolID = s.schoolID WHERE s.schoolName = 'Stony Brook University' LIMIT 1;

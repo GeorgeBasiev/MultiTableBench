@@ -1,0 +1,1 @@
+SELECT t.price, a.city, t.pub_id FROM titles t JOIN titleauthor ta ON t.title_id = ta.title_id JOIN authors a ON ta.au_id = a.au_id WHERE a.city = 'Corvallis' AND t.pub_id = '0877'

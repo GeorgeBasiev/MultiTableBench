@@ -1,0 +1,1 @@
+SELECT pt.*, ap.*, pa.* FROM players_teams pt JOIN awards_players ap ON pt.playerID = ap.playerID AND pt.year = ap.year JOIN player_allstar pa ON pt.playerID = pa.playerID AND pt.year = pa.season_id WHERE ap.award = 'All-Defensive First Team' AND pt.GP > 0;

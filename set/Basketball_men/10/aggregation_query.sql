@@ -1,0 +1,1 @@
+SELECT p.firstName, p.lastName FROM awards_players ap JOIN players p ON ap.playerID = p.playerID JOIN awards_coaches ac ON ap.year = ac.year WHERE ap.award = 'Most Valuable Player' AND ac.award = 'NBA Coach of the Year' LIMIT 1;

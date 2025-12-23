@@ -1,0 +1,1 @@
+SELECT * FROM country c JOIN economy e ON c.Code = e.Country JOIN politics p ON c.Code = p.Country WHERE p.Government = 'constitutional monarchy' AND c.Code = 'MAL';

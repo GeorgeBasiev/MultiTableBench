@@ -1,0 +1,1 @@
+SELECT c.*, m.*, r.*, ct.* FROM charge c JOIN member m ON c.member_no = m.member_no JOIN region r ON m.region_no = r.region_no JOIN category ct ON c.category_no = ct.category_no WHERE ct.category_desc = 'Entertainment' AND r.region_no = 9;

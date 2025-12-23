@@ -1,0 +1,1 @@
+SELECT AVG(e.GDP) AS average_gdp_of_countries_with_high_infant_mortality FROM population p JOIN country c ON p.Country = c.Code JOIN economy e ON c.Code = e.Country WHERE p.Infant_Mortality > 50;

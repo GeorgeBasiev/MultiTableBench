@@ -1,0 +1,1 @@
+SELECT SUM(cr.points) AS total_points FROM constructorResults cr JOIN races r ON cr.raceId = r.raceId JOIN circuits c ON r.circuitId = c.circuitId WHERE c.country = 'USA' AND r.year = 2007;

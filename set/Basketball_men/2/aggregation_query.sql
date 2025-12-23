@@ -1,0 +1,1 @@
+SELECT AVG(pt.points) AS avg_points_per_all_star FROM player_allstar pa JOIN players p ON pa.playerID = p.playerID JOIN players_teams pt ON p.playerID = pt.playerID WHERE pa.season_id = pt.year AND pt.GP > 0 AND pa.games_played > 0;

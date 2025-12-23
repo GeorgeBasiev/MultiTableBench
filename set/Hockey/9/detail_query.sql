@@ -1,0 +1,1 @@
+SELECT * FROM Master m JOIN AwardsPlayers ap ON m.playerID = ap.playerID JOIN Teams t ON ap.lgID = t.lgID WHERE ap.award = 'First Team All-Star' AND ap.year = 1937 AND t.tmID = 'MTL';

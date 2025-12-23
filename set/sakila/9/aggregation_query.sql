@@ -1,0 +1,1 @@
+SELECT c.first_name, c.last_name, a.phone FROM customer c JOIN address a ON c.address_id = a.address_id JOIN city ci ON a.city_id = ci.city_id WHERE ci.city = 'San Bernardino' AND c.active = 1 LIMIT 1;

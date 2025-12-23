@@ -1,0 +1,1 @@
+SELECT AVG(pt.points) AS avg_points FROM players_teams pt JOIN awards_players ap ON pt.playerID = ap.playerID AND pt.year = ap.year JOIN player_allstar pa ON pt.playerID = pa.playerID AND pt.year = pa.season_id WHERE ap.award = 'All-NBA First Team' AND pa.conference = 'East';

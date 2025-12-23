@@ -1,0 +1,1 @@
+SELECT * FROM races r JOIN circuits c ON r.circuitId = c.circuitId JOIN results res ON r.raceId = res.raceId WHERE r.raceId = 112 AND res.positionOrder = 1;

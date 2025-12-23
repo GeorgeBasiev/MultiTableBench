@@ -1,0 +1,1 @@
+SELECT a.*, ap.*, s.* FROM allstarfull a JOIN awardsplayers ap ON a.playerID = ap.playerID JOIN salaries s ON a.playerID = s.playerID AND a.yearID = s.yearID WHERE a.yearID >= 1990 AND s.salary > 1000000;

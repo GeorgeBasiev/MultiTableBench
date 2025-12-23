@@ -1,0 +1,1 @@
+SELECT c.Name, c.Code, c.Population, e2c.Continent, e2c.Percentage, e.GDP FROM country c JOIN encompasses e2c ON c.Code = e2c.Country JOIN economy e ON c.Code = e.Country WHERE e2c.Continent = 'Asia' AND c.Population > 10000000;

@@ -1,0 +1,1 @@
+SELECT c.Code, c.Area, p.Government, e.GDP FROM country c JOIN politics p ON c.Code = p.Country JOIN economy e ON c.Code = e.Country WHERE p.Government LIKE '%republic%' AND c.Area > 100000;

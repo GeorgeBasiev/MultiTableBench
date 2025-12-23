@@ -1,0 +1,1 @@
+SELECT pt.points, pa.season_id, pt.year, pt.GP, pa.games_played FROM player_allstar pa JOIN players p ON pa.playerID = p.playerID JOIN players_teams pt ON p.playerID = pt.playerID WHERE pa.season_id = pt.year AND pt.GP > 0 AND pa.games_played > 0;

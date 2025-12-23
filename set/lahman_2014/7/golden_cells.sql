@@ -1,0 +1,1 @@
+SELECT a.playerID, a.yearID FROM awardsplayers a JOIN allstarfull b ON a.playerID = b.playerID WHERE a.yearID = b.yearID

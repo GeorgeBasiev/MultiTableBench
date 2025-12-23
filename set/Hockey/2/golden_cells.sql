@@ -1,0 +1,1 @@
+SELECT DISTINCT m.playerID, m.coachID FROM AwardsMisc am JOIN Master m ON am.ID = m.playerID WHERE am.award = 'Patrick' AND m.coachID IS NOT NULL;

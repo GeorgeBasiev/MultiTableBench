@@ -1,0 +1,1 @@
+SELECT COUNT(*) AS num_all_star_players_with_awards FROM (SELECT DISTINCT a.playerID FROM awardsplayers a JOIN allstarfull b ON a.playerID = b.playerID WHERE a.yearID = b.yearID) AS all_star_players_with_awards;

@@ -1,0 +1,1 @@
+SELECT * FROM awardsplayers JOIN allstarfull ON awardsplayers.playerID = allstarfull.playerID JOIN awardsshareplayers ON awardsplayers.playerID = awardsshareplayers.playerID WHERE awardsplayers.awardID = 'Most Valuable Player' AND allstarfull.yearID = awardsplayers.yearID AND awardsshareplayers.yearID = awardsplayers.yearID;

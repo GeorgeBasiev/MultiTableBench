@@ -1,0 +1,1 @@
+SELECT SUM(s.qty * t.price * (1 - d.discount/100)) AS total_sales_with_discount FROM sales s JOIN titles t ON s.title_id = t.title_id JOIN discounts d ON s.stor_id = d.stor_id WHERE s.ord_date BETWEEN '1993-01-01' AND '1993-12-31' AND d.discounttype = 'Customer Discount';

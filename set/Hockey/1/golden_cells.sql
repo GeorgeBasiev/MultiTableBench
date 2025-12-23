@@ -1,0 +1,1 @@
+SELECT ac.award, ac.coachID, c.w AS w FROM AwardsCoaches ac JOIN Coaches c ON ac.coachID = c.coachID WHERE ac.award = 'Jack Adams'

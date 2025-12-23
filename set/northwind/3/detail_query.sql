@@ -1,0 +1,1 @@
+SELECT o.*, c.*, e.* FROM Orders o JOIN Customers c ON o.CustomerID = c.CustomerID JOIN Employees e ON o.EmployeeID = e.EmployeeID WHERE c.Country = 'USA' AND e.City = 'Seattle';

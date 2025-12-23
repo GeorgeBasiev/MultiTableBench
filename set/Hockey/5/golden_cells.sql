@@ -1,0 +1,1 @@
+SELECT DISTINCT m.playerID FROM Master m JOIN AwardsPlayers ap ON m.playerID = ap.playerID JOIN Coaches c ON m.coachID = c.coachID

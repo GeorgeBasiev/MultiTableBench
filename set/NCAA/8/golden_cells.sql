@@ -1,0 +1,1 @@
+SELECT tdr.wpf FROM regular_season_detailed_results rdr JOIN teams t ON rdr.wteam = t.team_id JOIN tourney_detailed_results tdr ON t.team_id = tdr.wteam WHERE rdr.season = 2014 AND tdr.season = 2014 AND rdr.wscore > tdr.wscore;

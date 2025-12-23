@@ -1,0 +1,1 @@
+SELECT AVG(tdr.wpf) AS average_winning_team_personal_fouls FROM tourney_detailed_results tdr JOIN teams t ON tdr.wteam = t.team_id JOIN tourney_seeds ts ON t.team_id = ts.team AND tdr.season = ts.season WHERE ts.seed LIKE 'W%' AND tdr.wscore > tdr.lscore;

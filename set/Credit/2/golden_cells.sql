@@ -1,0 +1,1 @@
+SELECT p.payment_amt, m.member_no, r.region_no, r.region_name FROM payment p JOIN member m ON p.member_no = m.member_no JOIN region r ON m.region_no = r.region_no WHERE r.region_name = 'Western Europea'

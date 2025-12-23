@@ -1,0 +1,1 @@
+SELECT COUNT(DISTINCT ap.playerID) AS unique_players_with_awards_and_hof FROM AwardsPlayers ap JOIN Master m ON ap.playerID = m.playerID JOIN HOF h ON m.hofID = h.hofID WHERE ap.year >= 2000 AND h.year >= 2000;

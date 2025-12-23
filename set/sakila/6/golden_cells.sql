@@ -1,0 +1,1 @@
+SELECT p.amount, c.name, r.rental_date FROM payment p JOIN rental r ON p.rental_id = r.rental_id JOIN inventory i ON r.inventory_id = i.inventory_id JOIN film f ON i.film_id = f.film_id JOIN film_category fc ON f.film_id = fc.film_id JOIN category c ON fc.category_id = c.category_id WHERE c.name = 'Sports' AND r.rental_date BETWEEN '2005-07-01' AND '2005-07-31';

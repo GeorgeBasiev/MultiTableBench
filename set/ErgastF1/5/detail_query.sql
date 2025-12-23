@@ -1,0 +1,1 @@
+SELECT * FROM results JOIN drivers ON results.driverId = drivers.driverId JOIN races ON results.raceId = races.raceId WHERE drivers.nationality = 'British' AND races.year = 2001;

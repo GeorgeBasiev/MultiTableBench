@@ -1,0 +1,1 @@
+SELECT tdr.wscore AS winning_score, tdr.season, ts.slot, s.regionW FROM tourney_detailed_results tdr JOIN tourney_slots ts ON tdr.season = ts.season JOIN seasons s ON tdr.season = s.season WHERE ts.slot LIKE 'R1%' AND s.regionW = 'East'

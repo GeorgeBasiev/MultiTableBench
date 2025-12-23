@@ -1,0 +1,1 @@
+SELECT o.*, od.*, p.*, c.* FROM Orders o JOIN Order Details od ON o.OrderID = od.OrderID JOIN Products p ON od.ProductID = p.ProductID JOIN Categories c ON p.CategoryID = c.CategoryID WHERE o.OrderDate BETWEEN '1997-01-01' AND '1997-12-31'

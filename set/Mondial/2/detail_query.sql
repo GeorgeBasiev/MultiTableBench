@@ -1,0 +1,1 @@
+SELECT c.*, e2.*, e.* FROM country c JOIN encompasses e2 ON c.Code = e2.Country JOIN economy e ON c.Code = e.Country WHERE e2.Continent = 'Europe' AND c.Population > 10000000;

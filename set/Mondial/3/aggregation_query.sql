@@ -1,0 +1,1 @@
+SELECT SUM(e.GDP) AS total_gdp FROM country c JOIN borders b ON c.Code = b.Country1 JOIN country c2 ON b.Country2 = c2.Code JOIN economy e ON c2.Code = e.Country WHERE c.Name = 'Germany' AND e.GDP > 50000;

@@ -1,0 +1,1 @@
+SELECT AVG(s.qty * t.price * (1 - d.discount/100)) AS avg_revenue_per_sale FROM sales s JOIN titles t ON s.title_id = t.title_id JOIN discounts d ON s.stor_id = d.stor_id WHERE d.discounttype = 'Customer Discount' AND s.ord_date BETWEEN '1993-01-01' AND '1993-12-31';

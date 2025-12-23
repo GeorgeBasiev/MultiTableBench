@@ -1,0 +1,1 @@
+SELECT c.*, m.*, co.* FROM charge c JOIN member m ON c.member_no = m.member_no JOIN corporation co ON m.corp_no = co.corp_no WHERE co.corp_name = 'Corp. Giant NeedleworkCorp.' AND c.charge_dt BETWEEN '1999-10-01' AND '1999-10-31';

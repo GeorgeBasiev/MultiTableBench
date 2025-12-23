@@ -1,0 +1,1 @@
+SELECT tdr.*, tcr.*, t.team_name FROM tourney_detailed_results tdr JOIN tourney_compact_results tcr ON tdr.season = tcr.season AND tdr.daynum = tcr.daynum AND tdr.wteam = tcr.wteam AND tdr.lteam = tcr.lteam JOIN teams t ON tdr.wteam = t.team_id WHERE t.team_name = 'Duke' AND tdr.wscore > tdr.lscore;

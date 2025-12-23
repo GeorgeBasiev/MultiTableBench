@@ -1,0 +1,1 @@
+SELECT * FROM target ta JOIN teams t ON ta.team_id1 = t.team_id JOIN tourney_seeds ts ON ta.team_id1 = ts.team WHERE ta.id = '2012_1199_1382' AND ta.season = 2012 AND ts.season = 2012;

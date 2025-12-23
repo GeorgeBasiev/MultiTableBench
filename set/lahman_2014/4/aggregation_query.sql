@@ -1,0 +1,1 @@
+SELECT COUNT(*) AS total_all_star_appearances FROM allstarfull INNER JOIN players ON allstarfull.playerID = players.playerID INNER JOIN fielding ON allstarfull.playerID = fielding.playerID WHERE players.birthCountry = 'USA' AND fielding.POS = 'CF';

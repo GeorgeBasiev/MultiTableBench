@@ -1,0 +1,1 @@
+SELECT * FROM authors a JOIN titleauthor ta ON a.au_id = ta.au_id JOIN titles t ON ta.title_id = t.title_id JOIN sales s ON t.title_id = s.title_id JOIN stores st ON s.stor_id = st.stor_id WHERE st.stor_id = '8042' AND t.title_id = 'MC3021';

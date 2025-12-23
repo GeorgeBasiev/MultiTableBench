@@ -1,0 +1,1 @@
+SELECT SUM(t.price * s.qty * (1 - d.discount/100)) AS total_revenue FROM titles t JOIN sales s ON t.title_id = s.title_id JOIN discounts d ON s.stor_id = d.stor_id WHERE d.discounttype = 'Customer Discount' AND t.pub_id = '1389' AND s.ord_date BETWEEN '1993-01-01' AND '1993-12-31';

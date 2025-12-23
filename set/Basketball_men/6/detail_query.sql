@@ -1,0 +1,1 @@
+SELECT * FROM players p JOIN players_teams pt ON p.playerID = pt.playerID JOIN teams t ON pt.tmID = t.tmID AND pt.year = t.year WHERE p.playerID = 'birdla01' AND pt.year = 1983 AND t.tmID = 'BOS'

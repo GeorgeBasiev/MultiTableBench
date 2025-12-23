@@ -1,0 +1,1 @@
+SELECT * FROM regular_season_compact_results r JOIN teams t ON r.wteam = t.team_id JOIN seasons s ON r.season = s.season WHERE r.season = 2011 AND r.daynum = 11 AND r.wteam = 1145;

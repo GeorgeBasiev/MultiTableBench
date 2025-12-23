@@ -1,0 +1,1 @@
+SELECT ap.*, m.*, s.* FROM AwardsPlayers ap JOIN Master m ON ap.playerID = m.playerID JOIN Scoring s ON m.playerID = s.playerID WHERE ap.award = 'First Team All-Star' AND s.GP > 50;

@@ -1,0 +1,1 @@
+SELECT pt.points, pt.playerID, p.playerID, ptm.playerID, ptm.year, ptm.GP FROM player_allstar pt JOIN players p ON pt.playerID = p.playerID JOIN players_teams ptm ON p.playerID = ptm.playerID WHERE pt.season_id = ptm.year AND ptm.GP >= 50;
