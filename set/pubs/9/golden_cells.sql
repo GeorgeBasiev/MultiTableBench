@@ -1,1 +1,1 @@
-same
+SELECT authors.au_fname FROM authors JOIN titleauthor ON authors.au_id = titleauthor.au_id JOIN titles ON titleauthor.title_id = titles.title_id WHERE titles.title_id = 'PC1035';
