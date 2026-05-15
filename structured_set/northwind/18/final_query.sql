@@ -1,0 +1,8 @@
+SELECT AVG(leaf_1.sales_amount) AS average_sales_per_product
+FROM (SELECT p.productid, p.productname, SUM(od.quantity * od.unitprice) AS sales_amount
+FROM products p
+JOIN "order details" od ON p.productid = od.productid
+JOIN orders o ON od.orderid = o.orderid
+JOIN categories c ON p.categoryid = c.categoryid
+WHERE (c.categoryname = 'Beverages') AND (strftime('%Y', o.shippeddate) = '1997')
+GROUP BY p.productid, p.productname) AS leaf_1

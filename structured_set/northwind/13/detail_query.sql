@@ -1,0 +1,1 @@
+SELECT e.city, e.salary, t.territorydescription FROM employees e JOIN employeeterritories et ON e.employeeid = et.employeeid JOIN territories t ON et.territoryid = t.territoryid WHERE t.territorydescription LIKE '%West%' ORDER BY e.salary DESC

@@ -1,0 +1,1 @@
+SELECT e.emp_id, e.job_id, t.title_id, r.royalty, s.qty, (r.royalty * s.qty / 100) AS royalty_payment FROM employee AS e JOIN titles AS t ON e.pub_id = t.pub_id JOIN roysched AS r ON t.title_id = r.title_id JOIN sales AS s ON t.title_id = s.title_id WHERE (t.pub_id = 1389)

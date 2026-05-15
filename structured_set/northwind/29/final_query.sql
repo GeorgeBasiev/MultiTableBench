@@ -1,0 +1,8 @@
+SELECT SUM(leaf_1.quantity * leaf_1.unitprice) AS total_sales_revenue
+FROM (SELECT o.orderid, od.quantity, od.unitprice
+FROM orders AS o
+JOIN "order details" AS od ON o.orderid = od.orderid
+JOIN products AS p ON od.productid = p.productid
+JOIN categories AS c ON p.categoryid = c.categoryid
+LEFT JOIN region AS r ON o.shipregion = r.regionid
+WHERE (c.categoryname = 'Confections') AND (r.regiondescription = 'Eastern' OR r.regiondescription IS NULL) AND (strftime('%Y', o.shippeddate) = '1997')) AS leaf_1

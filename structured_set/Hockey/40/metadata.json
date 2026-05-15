@@ -1,0 +1,3186 @@
+{
+  "sample_index": 40,
+  "db_name": "Hockey",
+  "answer_mode": "aggregate",
+  "target_join_count": 4,
+  "actual_join_count": 4,
+  "numeric_answer": null,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 4,
+    "min_hops": 4,
+    "max_hops": 4,
+    "require_group_by": true,
+    "require_having": true,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Total goals scored by players who have been inducted into the Hall of Fame and have played for teams in the Eastern Conference",
+  "manifest": {
+    "db_name": "Hockey",
+    "sample_dir": "structured_set/Hockey/40",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "abbrev",
+        "remote_row_count": 58,
+        "snapshot_row_count": 58,
+        "target_limit": 58,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "type",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "code",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fullname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardscoaches",
+        "remote_row_count": 77,
+        "snapshot_row_count": 77,
+        "target_limit": 77,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsmisc",
+        "remote_row_count": 124,
+        "snapshot_row_count": 89,
+        "target_limit": 89,
+        "relational_rows_added": 2,
+        "columns": [
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsplayers",
+        "remote_row_count": 2091,
+        "snapshot_row_count": 91,
+        "target_limit": 91,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "coaches",
+        "remote_row_count": 1812,
+        "snapshot_row_count": 111,
+        "target_limit": 111,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "combinedshutouts",
+        "remote_row_count": 54,
+        "snapshot_row_count": 54,
+        "target_limit": 54,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "month",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "date",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "r/p",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie1",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie2",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goalies",
+        "remote_row_count": 4278,
+        "snapshot_row_count": 101,
+        "target_limit": 101,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "min",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "l",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "t/ol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "eng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postmin",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posteng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliessc",
+        "remote_row_count": 31,
+        "snapshot_row_count": 31,
+        "target_limit": 31,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "min",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliesshootout",
+        "remote_row_count": 480,
+        "snapshot_row_count": 101,
+        "target_limit": 101,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "hof",
+        "remote_row_count": 365,
+        "snapshot_row_count": 87,
+        "target_limit": 87,
+        "relational_rows_added": 1,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "category",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "master",
+        "remote_row_count": 7761,
+        "snapshot_row_count": 62,
+        "target_limit": 62,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenote",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namegiven",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenick",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "height",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "weight",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shootcatch",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "legendsid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ihdbid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hrefid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoring",
+        "remote_row_count": 45967,
+        "snapshot_row_count": 72,
+        "target_limit": 72,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gtg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posta",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpts",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "post+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postshg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsc",
+        "remote_row_count": 284,
+        "snapshot_row_count": 82,
+        "target_limit": 82,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringshootout",
+        "remote_row_count": 2072,
+        "snapshot_row_count": 101,
+        "target_limit": 101,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "s",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gdg",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsup",
+        "remote_row_count": 137,
+        "snapshot_row_count": 79,
+        "target_limit": 79,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "seriespost",
+        "remote_row_count": 832,
+        "snapshot_row_count": 107,
+        "target_limit": 107,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "round",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "series",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalswinner",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalsloser",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teams",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 87,
+        "target_limit": 87,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "franchid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "confid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "divid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "playoff",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sow",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamshalf",
+        "remote_row_count": 41,
+        "snapshot_row_count": 41,
+        "target_limit": 41,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "half",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "teamsplits",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 85,
+        "target_limit": 85,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ht",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sept",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "dect",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "janw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "jant",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "febw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mart",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamspost",
+        "remote_row_count": 927,
+        "snapshot_row_count": 73,
+        "target_limit": 73,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamssc",
+        "remote_row_count": 30,
+        "snapshot_row_count": 30,
+        "target_limit": 30,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamvsteam",
+        "remote_row_count": 25602,
+        "snapshot_row_count": 120,
+        "target_limit": 120,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Total goals scored by players who have been inducted into the Hall of Fame and have played for teams in the Eastern Conference",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT s.playerid, s.year, s.tmid, s.g, m.firstname, m.lastname, h.year AS hof_year, a.fullname AS conference_name FROM scoring AS s JOIN master AS m ON s.playerid = m.playerid JOIN hof AS h ON m.hofid = h.hofid JOIN teams AS t ON s.tmid = t.tmid JOIN abbrev AS a ON t.confid = a.code WHERE a.type = 'Conference' AND a.fullname = 'Eastern Conference'",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT s.playerid, s.year, s.tmid, s.g, m.firstname, m.lastname, h.year AS hof_year, a.fullname AS conference_name",
+        "from_clause": "FROM scoring AS s",
+        "join_clauses": [
+          "JOIN master AS m ON s.playerid = m.playerid",
+          "JOIN hof AS h ON m.hofid = h.hofid",
+          "JOIN teams AS t ON s.tmid = t.tmid",
+          "JOIN abbrev AS a ON t.confid = a.code"
+        ],
+        "where_clauses": [
+          "a.type = 'Conference'",
+          "a.fullname = 'Eastern Conference'"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "This block retrieves player information, including their Hall of Fame induction year, and their conference name, for players who have been inducted into the Hall of Fame and have played for teams in the Eastern Conference."
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT SUM(leaf_1.g) AS total_goals",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "This block calculates the total goals scored by players who have been inducted into the Hall of Fame and have played for teams in the Eastern Conference."
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "This block retrieves player information, including their Hall of Fame induction year, and their conference name, for players who have been inducted into the Hall of Fame and have played for teams in the Eastern Conference.",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM scoring AS s\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 31,
+            "preview": [
+              {
+                "playerid": "mcleaki01",
+                "year": 1996,
+                "stint": 1,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "pos": "G",
+                "gp": 44,
+                "g": 0,
+                "a": 2,
+                "pts": 2,
+                "pim": 2,
+                "+/-": "0",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "0",
+                "postgp": NaN,
+                "postg": NaN,
+                "posta": NaN,
+                "postpts": NaN,
+                "postpim": NaN,
+                "post+/-": NaN,
+                "postppg": NaN,
+                "postppa": NaN,
+                "postshg": NaN,
+                "postsha": NaN,
+                "postgwg": NaN,
+                "postsog": NaN
+              },
+              {
+                "playerid": "bitzby01",
+                "year": 2009,
+                "stint": 2,
+                "tmid": "FLO",
+                "lgid": "NHL",
+                "pos": "R",
+                "gp": 7,
+                "g": 1,
+                "a": 1,
+                "pts": 2,
+                "pim": 2,
+                "+/-": "1",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": NaN,
+                "sog": "7",
+                "postgp": NaN,
+                "postg": NaN,
+                "posta": NaN,
+                "postpts": NaN,
+                "postpim": NaN,
+                "post+/-": NaN,
+                "postppg": NaN,
+                "postppa": NaN,
+                "postshg": NaN,
+                "postsha": NaN,
+                "postgwg": NaN,
+                "postsog": NaN
+              },
+              {
+                "playerid": "bruneed01",
+                "year": 1948,
+                "stint": 1,
+                "tmid": "DET",
+                "lgid": "NHL",
+                "pos": "R",
+                "gp": 1,
+                "g": 0,
+                "a": 0,
+                "pts": 0,
+                "pim": 0,
+                "+/-": NaN,
+                "ppg": NaN,
+                "ppa": NaN,
+                "shg": NaN,
+                "sha": NaN,
+                "gwg": NaN,
+                "gtg": NaN,
+                "sog": NaN,
+                "postgp": NaN,
+                "postg": NaN,
+                "posta": NaN,
+                "postpts": NaN,
+                "postpim": NaN,
+                "post+/-": NaN,
+                "postppg": NaN,
+                "postppa": NaN,
+                "postshg": NaN,
+                "postsha": NaN,
+                "postgwg": NaN,
+                "postsog": NaN
+              },
+              {
+                "playerid": "hannigo01",
+                "year": 1953,
+                "stint": 1,
+                "tmid": "TOR",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 35,
+                "g": 4,
+                "a": 4,
+                "pts": 8,
+                "pim": 18,
+                "+/-": NaN,
+                "ppg": NaN,
+                "ppa": NaN,
+                "shg": NaN,
+                "sha": NaN,
+                "gwg": NaN,
+                "gtg": NaN,
+                "sog": NaN,
+                "postgp": "5",
+                "postg": "2",
+                "posta": "0",
+                "postpts": "2",
+                "postpim": "4",
+                "post+/-": NaN,
+                "postppg": NaN,
+                "postppa": NaN,
+                "postshg": NaN,
+                "postsha": NaN,
+                "postgwg": NaN,
+                "postsog": NaN
+              },
+              {
+                "playerid": "krusepa01",
+                "year": 1994,
+                "stint": 1,
+                "tmid": "CAL",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 45,
+                "g": 11,
+                "a": 5,
+                "pts": 16,
+                "pim": 141,
+                "+/-": "13",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "2",
+                "gtg": "0",
+                "sog": "52",
+                "postgp": "7",
+                "postg": "4",
+                "posta": "2",
+                "postpts": "6",
+                "postpim": "10",
+                "post+/-": "2",
+                "postppg": "0",
+                "postppa": "0",
+                "postshg": "1",
+                "postsha": "0",
+                "postgwg": "0",
+                "postsog": "18"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN master AS m ON s.playerid = m.playerid",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 62,
+            "preview": [
+              {
+                "playerid": "schulda01",
+                "year": 1978,
+                "stint": 2,
+                "tmid": "BUF",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 28,
+                "g": 2,
+                "a": 3,
+                "pts": 5,
+                "pim": 86,
+                "+/-": "-12",
+                "ppg": "0",
+                "ppa": null,
+                "shg": "0",
+                "sha": null,
+                "gwg": "0",
+                "gtg": "1",
+                "sog": "16",
+                "postgp": "3",
+                "postg": "0",
+                "posta": "2",
+                "postpts": "2",
+                "postpim": "4",
+                "post+/-": null,
+                "postppg": "0",
+                "postppa": null,
+                "postshg": "0",
+                "postsha": null,
+                "postgwg": "0",
+                "postsog": null,
+                "playerid__dup1": "schulda01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Dave",
+                "lastname": "Schultz",
+                "namenote": null,
+                "namegiven": "David William",
+                "namenick": "The Hammer",
+                "height": "73",
+                "weight": "190",
+                "shootcatch": "L",
+                "legendsid": "14254",
+                "ihdbid": "4826",
+                "hrefid": "schulda01",
+                "firstnhl": "1971",
+                "lastnhl": "1979",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "L",
+                "birthyear": "1949",
+                "birthmon": "10",
+                "birthday": "14",
+                "birthcountry": "Canada",
+                "birthstate": "SK",
+                "birthcity": "Waldheim",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN hof AS h ON m.hofid = h.hofid",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nJOIN hof AS h ON m.hofid = h.hofid\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 66,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN hof AS h ON m.hofid = h.hofid AND h.year IS NOT NULL",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nJOIN hof AS h ON m.hofid = h.hofid AND h.year IS NOT NULL\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 66,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN hof AS h ON m.hofid = h.hofid",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nJOIN hof AS h ON m.hofid = h.hofid\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 66,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "LEFT JOIN hof AS h ON m.hofid = h.hofid",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nLEFT JOIN hof AS h ON m.hofid = h.hofid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 66,
+            "preview": [
+              {
+                "playerid": "schulda01",
+                "year": 1978,
+                "stint": 2,
+                "tmid": "BUF",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 28,
+                "g": 2,
+                "a": 3,
+                "pts": 5,
+                "pim": 86,
+                "+/-": "-12",
+                "ppg": "0",
+                "ppa": null,
+                "shg": "0",
+                "sha": null,
+                "gwg": "0",
+                "gtg": "1",
+                "sog": "16",
+                "postgp": "3",
+                "postg": "0",
+                "posta": "2",
+                "postpts": "2",
+                "postpim": "4",
+                "post+/-": null,
+                "postppg": "0",
+                "postppa": null,
+                "postshg": "0",
+                "postsha": null,
+                "postgwg": "0",
+                "postsog": null,
+                "playerid__dup1": "schulda01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Dave",
+                "lastname": "Schultz",
+                "namenote": null,
+                "namegiven": "David William",
+                "namenick": "The Hammer",
+                "height": "73",
+                "weight": "190",
+                "shootcatch": "L",
+                "legendsid": "14254",
+                "ihdbid": "4826",
+                "hrefid": "schulda01",
+                "firstnhl": "1971",
+                "lastnhl": "1979",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "L",
+                "birthyear": "1949",
+                "birthmon": "10",
+                "birthday": "14",
+                "birthcountry": "Canada",
+                "birthstate": "SK",
+                "birthcity": "Waldheim",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": null,
+                "hofid__dup1": null,
+                "name": null,
+                "category": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN teams AS t ON s.tmid = t.tmid",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nLEFT JOIN hof AS h ON m.hofid = h.hofid\nJOIN teams AS t ON s.tmid = t.tmid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 93,
+            "preview": [
+              {
+                "playerid": "schulda01",
+                "year": 1978,
+                "stint": 2,
+                "tmid": "BUF",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 28,
+                "g": 2,
+                "a": 3,
+                "pts": 5,
+                "pim": 86,
+                "+/-": "-12",
+                "ppg": "0",
+                "ppa": null,
+                "shg": "0",
+                "sha": null,
+                "gwg": "0",
+                "gtg": "1",
+                "sog": "16",
+                "postgp": "3",
+                "postg": "0",
+                "posta": "2",
+                "postpts": "2",
+                "postpim": "4",
+                "post+/-": null,
+                "postppg": "0",
+                "postppa": null,
+                "postshg": "0",
+                "postsha": null,
+                "postgwg": "0",
+                "postsog": null,
+                "playerid__dup1": "schulda01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Dave",
+                "lastname": "Schultz",
+                "namenote": null,
+                "namegiven": "David William",
+                "namenick": "The Hammer",
+                "height": "73",
+                "weight": "190",
+                "shootcatch": "L",
+                "legendsid": "14254",
+                "ihdbid": "4826",
+                "hrefid": "schulda01",
+                "firstnhl": "1971",
+                "lastnhl": "1979",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "L",
+                "birthyear": "1949",
+                "birthmon": "10",
+                "birthday": "14",
+                "birthcountry": "Canada",
+                "birthstate": "SK",
+                "birthcity": "Waldheim",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": null,
+                "hofid__dup1": null,
+                "name": null,
+                "category": null,
+                "year__dup2": 1982,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BUF",
+                "franchid": "BUF",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 3,
+                "playoff": "DF",
+                "g__dup1": 80,
+                "w": 38,
+                "l": 29,
+                "t": 13,
+                "otl": null,
+                "pts__dup1": 89,
+                "sow": null,
+                "sol": null,
+                "gf": 318,
+                "ga": 285,
+                "name__dup1": "Buffalo Sabres",
+                "pim__dup1": "1031",
+                "benchminor": "34",
+                "ppg__dup1": "67",
+                "ppc": "311",
+                "sha__dup1": "9",
+                "pkg": "48",
+                "pkc": "274",
+                "shf": "12"
+              },
+              {
+                "playerid": "schulda01",
+                "year": 1978,
+                "stint": 2,
+                "tmid": "BUF",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 28,
+                "g": 2,
+                "a": 3,
+                "pts": 5,
+                "pim": 86,
+                "+/-": "-12",
+                "ppg": "0",
+                "ppa": null,
+                "shg": "0",
+                "sha": null,
+                "gwg": "0",
+                "gtg": "1",
+                "sog": "16",
+                "postgp": "3",
+                "postg": "0",
+                "posta": "2",
+                "postpts": "2",
+                "postpim": "4",
+                "post+/-": null,
+                "postppg": "0",
+                "postppa": null,
+                "postshg": "0",
+                "postsha": null,
+                "postgwg": "0",
+                "postsog": null,
+                "playerid__dup1": "schulda01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Dave",
+                "lastname": "Schultz",
+                "namenote": null,
+                "namegiven": "David William",
+                "namenick": "The Hammer",
+                "height": "73",
+                "weight": "190",
+                "shootcatch": "L",
+                "legendsid": "14254",
+                "ihdbid": "4826",
+                "hrefid": "schulda01",
+                "firstnhl": "1971",
+                "lastnhl": "1979",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "L",
+                "birthyear": "1949",
+                "birthmon": "10",
+                "birthday": "14",
+                "birthcountry": "Canada",
+                "birthstate": "SK",
+                "birthcity": "Waldheim",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": null,
+                "hofid__dup1": null,
+                "name": null,
+                "category": null,
+                "year__dup2": 1983,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BUF",
+                "franchid": "BUF",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "DSF",
+                "g__dup1": 80,
+                "w": 48,
+                "l": 25,
+                "t": 7,
+                "otl": null,
+                "pts__dup1": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 315,
+                "ga": 257,
+                "name__dup1": "Buffalo Sabres",
+                "pim__dup1": "1190",
+                "benchminor": "8",
+                "ppg__dup1": "71",
+                "ppc": "329",
+                "sha__dup1": "14",
+                "pkg": "50",
+                "pkc": "277",
+                "shf": "11"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN abbrev AS a ON t.confid = a.code",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nLEFT JOIN hof AS h ON m.hofid = h.hofid\nJOIN teams AS t ON s.tmid = t.tmid\nJOIN abbrev AS a ON t.confid = a.code\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 96,
+            "preview": [
+              {
+                "playerid": "schulda01",
+                "year": 1978,
+                "stint": 2,
+                "tmid": "BUF",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 28,
+                "g": 2,
+                "a": 3,
+                "pts": 5,
+                "pim": 86,
+                "+/-": "-12",
+                "ppg": "0",
+                "ppa": null,
+                "shg": "0",
+                "sha": null,
+                "gwg": "0",
+                "gtg": "1",
+                "sog": "16",
+                "postgp": "3",
+                "postg": "0",
+                "posta": "2",
+                "postpts": "2",
+                "postpim": "4",
+                "post+/-": null,
+                "postppg": "0",
+                "postppa": null,
+                "postshg": "0",
+                "postsha": null,
+                "postgwg": "0",
+                "postsog": null,
+                "playerid__dup1": "schulda01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Dave",
+                "lastname": "Schultz",
+                "namenote": null,
+                "namegiven": "David William",
+                "namenick": "The Hammer",
+                "height": "73",
+                "weight": "190",
+                "shootcatch": "L",
+                "legendsid": "14254",
+                "ihdbid": "4826",
+                "hrefid": "schulda01",
+                "firstnhl": "1971",
+                "lastnhl": "1979",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "L",
+                "birthyear": "1949",
+                "birthmon": "10",
+                "birthday": "14",
+                "birthcountry": "Canada",
+                "birthstate": "SK",
+                "birthcity": "Waldheim",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": null,
+                "hofid__dup1": null,
+                "name": null,
+                "category": null,
+                "year__dup2": 1982,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BUF",
+                "franchid": "BUF",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 3,
+                "playoff": "DF",
+                "g__dup1": 80,
+                "w": 38,
+                "l": 29,
+                "t": 13,
+                "otl": null,
+                "pts__dup1": 89,
+                "sow": null,
+                "sol": null,
+                "gf": 318,
+                "ga": 285,
+                "name__dup1": "Buffalo Sabres",
+                "pim__dup1": "1031",
+                "benchminor": "34",
+                "ppg__dup1": "67",
+                "ppc": "311",
+                "sha__dup1": "9",
+                "pkg": "48",
+                "pkc": "274",
+                "shf": "12",
+                "type": "Conference",
+                "code": "WA",
+                "fullname": "Wales Conference"
+              },
+              {
+                "playerid": "schulda01",
+                "year": 1978,
+                "stint": 2,
+                "tmid": "BUF",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 28,
+                "g": 2,
+                "a": 3,
+                "pts": 5,
+                "pim": 86,
+                "+/-": "-12",
+                "ppg": "0",
+                "ppa": null,
+                "shg": "0",
+                "sha": null,
+                "gwg": "0",
+                "gtg": "1",
+                "sog": "16",
+                "postgp": "3",
+                "postg": "0",
+                "posta": "2",
+                "postpts": "2",
+                "postpim": "4",
+                "post+/-": null,
+                "postppg": "0",
+                "postppa": null,
+                "postshg": "0",
+                "postsha": null,
+                "postgwg": "0",
+                "postsog": null,
+                "playerid__dup1": "schulda01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Dave",
+                "lastname": "Schultz",
+                "namenote": null,
+                "namegiven": "David William",
+                "namenick": "The Hammer",
+                "height": "73",
+                "weight": "190",
+                "shootcatch": "L",
+                "legendsid": "14254",
+                "ihdbid": "4826",
+                "hrefid": "schulda01",
+                "firstnhl": "1971",
+                "lastnhl": "1979",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "L",
+                "birthyear": "1949",
+                "birthmon": "10",
+                "birthday": "14",
+                "birthcountry": "Canada",
+                "birthstate": "SK",
+                "birthcity": "Waldheim",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": null,
+                "hofid__dup1": null,
+                "name": null,
+                "category": null,
+                "year__dup2": 1983,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BUF",
+                "franchid": "BUF",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "DSF",
+                "g__dup1": 80,
+                "w": 48,
+                "l": 25,
+                "t": 7,
+                "otl": null,
+                "pts__dup1": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 315,
+                "ga": 257,
+                "name__dup1": "Buffalo Sabres",
+                "pim__dup1": "1190",
+                "benchminor": "8",
+                "ppg__dup1": "71",
+                "ppc": "329",
+                "sha__dup1": "14",
+                "pkg": "50",
+                "pkc": "277",
+                "shf": "11",
+                "type": "Conference",
+                "code": "WA",
+                "fullname": "Wales Conference"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "a.type = 'Conference'",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nLEFT JOIN hof AS h ON m.hofid = h.hofid\nJOIN teams AS t ON s.tmid = t.tmid\nJOIN abbrev AS a ON t.confid = a.code\nWHERE (a.type = 'Conference')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 96,
+            "preview": [
+              {
+                "playerid": "schulda01",
+                "year": 1978,
+                "stint": 2,
+                "tmid": "BUF",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 28,
+                "g": 2,
+                "a": 3,
+                "pts": 5,
+                "pim": 86,
+                "+/-": "-12",
+                "ppg": "0",
+                "ppa": null,
+                "shg": "0",
+                "sha": null,
+                "gwg": "0",
+                "gtg": "1",
+                "sog": "16",
+                "postgp": "3",
+                "postg": "0",
+                "posta": "2",
+                "postpts": "2",
+                "postpim": "4",
+                "post+/-": null,
+                "postppg": "0",
+                "postppa": null,
+                "postshg": "0",
+                "postsha": null,
+                "postgwg": "0",
+                "postsog": null,
+                "playerid__dup1": "schulda01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Dave",
+                "lastname": "Schultz",
+                "namenote": null,
+                "namegiven": "David William",
+                "namenick": "The Hammer",
+                "height": "73",
+                "weight": "190",
+                "shootcatch": "L",
+                "legendsid": "14254",
+                "ihdbid": "4826",
+                "hrefid": "schulda01",
+                "firstnhl": "1971",
+                "lastnhl": "1979",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "L",
+                "birthyear": "1949",
+                "birthmon": "10",
+                "birthday": "14",
+                "birthcountry": "Canada",
+                "birthstate": "SK",
+                "birthcity": "Waldheim",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": null,
+                "hofid__dup1": null,
+                "name": null,
+                "category": null,
+                "year__dup2": 1982,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BUF",
+                "franchid": "BUF",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 3,
+                "playoff": "DF",
+                "g__dup1": 80,
+                "w": 38,
+                "l": 29,
+                "t": 13,
+                "otl": null,
+                "pts__dup1": 89,
+                "sow": null,
+                "sol": null,
+                "gf": 318,
+                "ga": 285,
+                "name__dup1": "Buffalo Sabres",
+                "pim__dup1": "1031",
+                "benchminor": "34",
+                "ppg__dup1": "67",
+                "ppc": "311",
+                "sha__dup1": "9",
+                "pkg": "48",
+                "pkc": "274",
+                "shf": "12",
+                "type": "Conference",
+                "code": "WA",
+                "fullname": "Wales Conference"
+              },
+              {
+                "playerid": "schulda01",
+                "year": 1978,
+                "stint": 2,
+                "tmid": "BUF",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 28,
+                "g": 2,
+                "a": 3,
+                "pts": 5,
+                "pim": 86,
+                "+/-": "-12",
+                "ppg": "0",
+                "ppa": null,
+                "shg": "0",
+                "sha": null,
+                "gwg": "0",
+                "gtg": "1",
+                "sog": "16",
+                "postgp": "3",
+                "postg": "0",
+                "posta": "2",
+                "postpts": "2",
+                "postpim": "4",
+                "post+/-": null,
+                "postppg": "0",
+                "postppa": null,
+                "postshg": "0",
+                "postsha": null,
+                "postgwg": "0",
+                "postsog": null,
+                "playerid__dup1": "schulda01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Dave",
+                "lastname": "Schultz",
+                "namenote": null,
+                "namegiven": "David William",
+                "namenick": "The Hammer",
+                "height": "73",
+                "weight": "190",
+                "shootcatch": "L",
+                "legendsid": "14254",
+                "ihdbid": "4826",
+                "hrefid": "schulda01",
+                "firstnhl": "1971",
+                "lastnhl": "1979",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "L",
+                "birthyear": "1949",
+                "birthmon": "10",
+                "birthday": "14",
+                "birthcountry": "Canada",
+                "birthstate": "SK",
+                "birthcity": "Waldheim",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": null,
+                "hofid__dup1": null,
+                "name": null,
+                "category": null,
+                "year__dup2": 1983,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BUF",
+                "franchid": "BUF",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "DSF",
+                "g__dup1": 80,
+                "w": 48,
+                "l": 25,
+                "t": 7,
+                "otl": null,
+                "pts__dup1": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 315,
+                "ga": 257,
+                "name__dup1": "Buffalo Sabres",
+                "pim__dup1": "1190",
+                "benchminor": "8",
+                "ppg__dup1": "71",
+                "ppc": "329",
+                "sha__dup1": "14",
+                "pkg": "50",
+                "pkc": "277",
+                "shf": "11",
+                "type": "Conference",
+                "code": "WA",
+                "fullname": "Wales Conference"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "a.fullname = 'Eastern Conference'",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nLEFT JOIN hof AS h ON m.hofid = h.hofid\nJOIN teams AS t ON s.tmid = t.tmid\nJOIN abbrev AS a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname = 'Eastern Conference')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 96,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "a.fullname LIKE '%Eastern Conference%' OR a.fullname = 'Eastern Conference'",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nLEFT JOIN hof AS h ON m.hofid = h.hofid\nJOIN teams AS t ON s.tmid = t.tmid\nJOIN abbrev AS a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname LIKE '%Eastern Conference%' OR a.fullname = 'Eastern Conference')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 96,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "a.fullname LIKE '%Eastern%' OR a.fullname = 'Eastern Conference'",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nLEFT JOIN hof AS h ON m.hofid = h.hofid\nJOIN teams AS t ON s.tmid = t.tmid\nJOIN abbrev AS a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname LIKE '%Eastern%' OR a.fullname = 'Eastern Conference')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 96,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "a.fullname = 'Eastern Conference'",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nLEFT JOIN hof AS h ON m.hofid = h.hofid\nJOIN teams AS t ON s.tmid = t.tmid\nJOIN abbrev AS a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname = 'Eastern Conference')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 96,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "a.fullname IN ('Eastern Conference', 'Campbell Conference', 'Wales Conference')",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nLEFT JOIN hof AS h ON m.hofid = h.hofid\nJOIN teams AS t ON s.tmid = t.tmid\nJOIN abbrev AS a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname IN ('Eastern Conference', 'Campbell Conference', 'Wales Conference'))\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 96,
+            "preview": [
+              {
+                "playerid": "schulda01",
+                "year": 1978,
+                "stint": 2,
+                "tmid": "BUF",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 28,
+                "g": 2,
+                "a": 3,
+                "pts": 5,
+                "pim": 86,
+                "+/-": "-12",
+                "ppg": "0",
+                "ppa": null,
+                "shg": "0",
+                "sha": null,
+                "gwg": "0",
+                "gtg": "1",
+                "sog": "16",
+                "postgp": "3",
+                "postg": "0",
+                "posta": "2",
+                "postpts": "2",
+                "postpim": "4",
+                "post+/-": null,
+                "postppg": "0",
+                "postppa": null,
+                "postshg": "0",
+                "postsha": null,
+                "postgwg": "0",
+                "postsog": null,
+                "playerid__dup1": "schulda01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Dave",
+                "lastname": "Schultz",
+                "namenote": null,
+                "namegiven": "David William",
+                "namenick": "The Hammer",
+                "height": "73",
+                "weight": "190",
+                "shootcatch": "L",
+                "legendsid": "14254",
+                "ihdbid": "4826",
+                "hrefid": "schulda01",
+                "firstnhl": "1971",
+                "lastnhl": "1979",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "L",
+                "birthyear": "1949",
+                "birthmon": "10",
+                "birthday": "14",
+                "birthcountry": "Canada",
+                "birthstate": "SK",
+                "birthcity": "Waldheim",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": null,
+                "hofid__dup1": null,
+                "name": null,
+                "category": null,
+                "year__dup2": 1982,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BUF",
+                "franchid": "BUF",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 3,
+                "playoff": "DF",
+                "g__dup1": 80,
+                "w": 38,
+                "l": 29,
+                "t": 13,
+                "otl": null,
+                "pts__dup1": 89,
+                "sow": null,
+                "sol": null,
+                "gf": 318,
+                "ga": 285,
+                "name__dup1": "Buffalo Sabres",
+                "pim__dup1": "1031",
+                "benchminor": "34",
+                "ppg__dup1": "67",
+                "ppc": "311",
+                "sha__dup1": "9",
+                "pkg": "48",
+                "pkc": "274",
+                "shf": "12",
+                "type": "Conference",
+                "code": "WA",
+                "fullname": "Wales Conference"
+              },
+              {
+                "playerid": "schulda01",
+                "year": 1978,
+                "stint": 2,
+                "tmid": "BUF",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 28,
+                "g": 2,
+                "a": 3,
+                "pts": 5,
+                "pim": 86,
+                "+/-": "-12",
+                "ppg": "0",
+                "ppa": null,
+                "shg": "0",
+                "sha": null,
+                "gwg": "0",
+                "gtg": "1",
+                "sog": "16",
+                "postgp": "3",
+                "postg": "0",
+                "posta": "2",
+                "postpts": "2",
+                "postpim": "4",
+                "post+/-": null,
+                "postppg": "0",
+                "postppa": null,
+                "postshg": "0",
+                "postsha": null,
+                "postgwg": "0",
+                "postsog": null,
+                "playerid__dup1": "schulda01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Dave",
+                "lastname": "Schultz",
+                "namenote": null,
+                "namegiven": "David William",
+                "namenick": "The Hammer",
+                "height": "73",
+                "weight": "190",
+                "shootcatch": "L",
+                "legendsid": "14254",
+                "ihdbid": "4826",
+                "hrefid": "schulda01",
+                "firstnhl": "1971",
+                "lastnhl": "1979",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "L",
+                "birthyear": "1949",
+                "birthmon": "10",
+                "birthday": "14",
+                "birthcountry": "Canada",
+                "birthstate": "SK",
+                "birthcity": "Waldheim",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": null,
+                "hofid__dup1": null,
+                "name": null,
+                "category": null,
+                "year__dup2": 1983,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BUF",
+                "franchid": "BUF",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "DSF",
+                "g__dup1": 80,
+                "w": 48,
+                "l": 25,
+                "t": 7,
+                "otl": null,
+                "pts__dup1": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 315,
+                "ga": 257,
+                "name__dup1": "Buffalo Sabres",
+                "pim__dup1": "1190",
+                "benchminor": "8",
+                "ppg__dup1": "71",
+                "ppc": "329",
+                "sha__dup1": "14",
+                "pkg": "50",
+                "pkc": "277",
+                "shf": "11",
+                "type": "Conference",
+                "code": "WA",
+                "fullname": "Wales Conference"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT s.playerid, s.year, s.tmid, s.g, m.firstname, m.lastname, h.year AS hof_year, a.fullname AS conference_name\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nLEFT JOIN hof AS h ON m.hofid = h.hofid\nJOIN teams AS t ON s.tmid = t.tmid\nJOIN abbrev AS a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname IN ('Eastern Conference', 'Campbell Conference', 'Wales Conference'))",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 8,
+            "preview": [
+              {
+                "playerid": "schulda01",
+                "year": 1978,
+                "tmid": "BUF",
+                "g": 2,
+                "firstname": "Dave",
+                "lastname": "Schultz",
+                "hof_year": null,
+                "conference_name": "Wales Conference"
+              },
+              {
+                "playerid": "schulda01",
+                "year": 1978,
+                "tmid": "BUF",
+                "g": 2,
+                "firstname": "Dave",
+                "lastname": "Schultz",
+                "hof_year": null,
+                "conference_name": "Wales Conference"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "This block calculates the total goals scored by players who have been inducted into the Hall of Fame and have played for teams in the Eastern Conference.",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT s.playerid, s.year, s.tmid, s.g, m.firstname, m.lastname, h.year AS hof_year, a.fullname AS conference_name\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nLEFT JOIN hof AS h ON m.hofid = h.hofid\nJOIN teams AS t ON s.tmid = t.tmid\nJOIN abbrev AS a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname IN ('Eastern Conference', 'Campbell Conference', 'Wales Conference'))) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 8,
+            "preview": [
+              {
+                "playerid": "schulda01",
+                "year": 1978,
+                "tmid": "BUF",
+                "g": 2,
+                "firstname": "Dave",
+                "lastname": "Schultz",
+                "hof_year": null,
+                "conference_name": "Wales Conference"
+              },
+              {
+                "playerid": "schulda01",
+                "year": 1978,
+                "tmid": "BUF",
+                "g": 2,
+                "firstname": "Dave",
+                "lastname": "Schultz",
+                "hof_year": null,
+                "conference_name": "Wales Conference"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT SUM(leaf_1.g) AS total_goals\nFROM (SELECT s.playerid, s.year, s.tmid, s.g, m.firstname, m.lastname, h.year AS hof_year, a.fullname AS conference_name\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nLEFT JOIN hof AS h ON m.hofid = h.hofid\nJOIN teams AS t ON s.tmid = t.tmid\nJOIN abbrev AS a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname IN ('Eastern Conference', 'Campbell Conference', 'Wales Conference'))) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "total_goals": 4
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 7,
+  "sample_retry": 5,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.7083181818181816,
+    "nearest": {
+      "sample_index": 3,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "similarity": 0.7083181818181816,
+      "sql": "SELECT SUM(leaf_1.g) AS total_goals\nFROM (SELECT m.playerid, s.year, s.g\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname IN ('Campbell Conference', 'Wales Conference'))) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": null,
+    "nearest": null,
+    "reason": "not numeric"
+  },
+  "question": "What is the total number of goals scored by all players in the Eastern Conference, Campbell Conference, or Wales Conference?",
+  "answer": "4"
+}

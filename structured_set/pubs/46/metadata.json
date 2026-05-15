@@ -1,0 +1,903 @@
+{
+  "sample_index": 46,
+  "db_name": "pubs",
+  "answer_mode": "text",
+  "target_join_count": 4,
+  "actual_join_count": 4,
+  "numeric_answer": null,
+  "constraints": {
+    "answer_mode": "text",
+    "target_join_count": 4,
+    "min_hops": 4,
+    "max_hops": 4,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Identify the city where the publisher of the book with the highest number of authors has its headquarters.",
+  "manifest": {
+    "db_name": "pubs",
+    "sample_dir": "structured_set/pubs/46",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "authors",
+        "remote_row_count": 23,
+        "snapshot_row_count": 23,
+        "target_limit": 23,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "au_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_lname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_fname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "zip",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contract",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "discounts",
+        "remote_row_count": 3,
+        "snapshot_row_count": 3,
+        "target_limit": 3,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "discounttype",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lowqty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "highqty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discount",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          }
+        ]
+      },
+      {
+        "table_name": "employee",
+        "remote_row_count": 43,
+        "snapshot_row_count": 43,
+        "target_limit": 43,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "emp_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "minit",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "job_id",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "job_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hire_date",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "jobs",
+        "remote_row_count": 14,
+        "snapshot_row_count": 14,
+        "target_limit": 14,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "job_id",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "job_desc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "min_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "max_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "publishers",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pub_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "pub_info",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "logo",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          },
+          {
+            "name": "pr_info",
+            "mysql_type": "longtext",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "roysched",
+        "remote_row_count": 86,
+        "snapshot_row_count": 72,
+        "target_limit": 72,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lorange",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hirange",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "royalty",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "sales",
+        "remote_row_count": 21,
+        "snapshot_row_count": 21,
+        "target_limit": 21,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ord_num",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ord_date",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "qty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "payterms",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "stores",
+        "remote_row_count": 6,
+        "snapshot_row_count": 6,
+        "target_limit": 6,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "zip",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "titleauthor",
+        "remote_row_count": 25,
+        "snapshot_row_count": 25,
+        "target_limit": 25,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "au_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_ord",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "royaltyper",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "titles",
+        "remote_row_count": 18,
+        "snapshot_row_count": 18,
+        "target_limit": 18,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "type",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "price",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "advance",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "royalty",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ytd_sales",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pubdate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Identify the city where the publisher of the book with the highest number of authors has its headquarters.",
+    "answer_mode": "text",
+    "final_block_name": "root",
+    "detail_query": "SELECT pub.pub_id, pub.pub_name, pub.city, COUNT(DISTINCT ta.au_id) AS author_count\nFROM publishers pub\nJOIN titles t ON pub.pub_id = t.pub_id\nJOIN titleauthor ta ON t.title_id = ta.title_id\nGROUP BY pub.pub_id, pub.pub_name, pub.city\nORDER BY author_count DESC",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT pub.pub_id, pub.pub_name, pub.city, COUNT(DISTINCT ta.au_id) AS author_count",
+        "from_clause": "FROM publishers pub",
+        "join_clauses": [
+          "JOIN titles t ON pub.pub_id = t.pub_id",
+          "JOIN titleauthor ta ON t.title_id = ta.title_id"
+        ],
+        "where_clauses": [],
+        "group_by_clause": "GROUP BY pub.pub_id, pub.pub_name, pub.city",
+        "having_clauses": [],
+        "notes": "Counts the number of distinct authors for each publisher"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT leaf_1.city",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [
+          "leaf_1.author_count = (SELECT MAX(author_count) FROM {{leaf_1}})"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Final scalar block returning the city of the publisher with the highest number of authors"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "Counts the number of distinct authors for each publisher",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM publishers pub\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 5,
+            "preview": [
+              {
+                "pub_id": "0736",
+                "pub_name": "New Moon Books",
+                "city": "Boston",
+                "state": "MA",
+                "country": "USA"
+              },
+              {
+                "pub_id": "0877",
+                "pub_name": "Binnet & Hardley",
+                "city": "Washington",
+                "state": "DC",
+                "country": "USA"
+              },
+              {
+                "pub_id": "1389",
+                "pub_name": "Algodata Infosystems",
+                "city": "Berkeley",
+                "state": "CA",
+                "country": "USA"
+              },
+              {
+                "pub_id": "1622",
+                "pub_name": "Five Lakes Publishing",
+                "city": "Chicago",
+                "state": "IL",
+                "country": "USA"
+              },
+              {
+                "pub_id": "1756",
+                "pub_name": "Ramona Publishers",
+                "city": "Dallas",
+                "state": "TX",
+                "country": "USA"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN titles t ON pub.pub_id = t.pub_id",
+          "sql": "SELECT *\nFROM publishers pub\nJOIN titles t ON pub.pub_id = t.pub_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 15,
+            "preview": [
+              {
+                "pub_id": "1389",
+                "pub_name": "Algodata Infosystems",
+                "city": "Berkeley",
+                "state": "CA",
+                "country": "USA",
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00"
+              },
+              {
+                "pub_id": "1389",
+                "pub_name": "Algodata Infosystems",
+                "city": "Berkeley",
+                "state": "CA",
+                "country": "USA",
+                "title_id": "BU1111",
+                "title": "Cooking with Computers: Surreptitious Balance Sheets",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 11.95,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 3876,
+                "notes": "Helpful hints on how to use your electronic resources to the best advantage.",
+                "pubdate": "1991-06-09T00:00:00"
+              },
+              {
+                "pub_id": "0736",
+                "pub_name": "New Moon Books",
+                "city": "Boston",
+                "state": "MA",
+                "country": "USA",
+                "title_id": "BU2075",
+                "title": "You Can Combat Computer Stress!",
+                "type": "business",
+                "pub_id__dup1": "0736",
+                "price": 2.99,
+                "advance": 10125.0,
+                "royalty": 24,
+                "ytd_sales": 18722,
+                "notes": "The latest medical and psychological techniques for living with the electronic office. Easy-to-understand explanations.",
+                "pubdate": "1991-06-30T00:00:00"
+              },
+              {
+                "pub_id": "1389",
+                "pub_name": "Algodata Infosystems",
+                "city": "Berkeley",
+                "state": "CA",
+                "country": "USA",
+                "title_id": "BU7832",
+                "title": "Straight Talk About Computers",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Annotated analysis of what computers can do for you: a no-hype guide for the critical user.",
+                "pubdate": "1991-06-22T00:00:00"
+              },
+              {
+                "pub_id": "0877",
+                "pub_name": "Binnet & Hardley",
+                "city": "Washington",
+                "state": "DC",
+                "country": "USA",
+                "title_id": "MC2222",
+                "title": "Silicon Valley Gastronomic Treats",
+                "type": "mod_cook",
+                "pub_id__dup1": "0877",
+                "price": 19.99,
+                "advance": 0.0,
+                "royalty": 12,
+                "ytd_sales": 2032,
+                "notes": "Favorite recipes for quick, easy, and elegant meals.",
+                "pubdate": "1991-06-09T00:00:00"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN titleauthor ta ON t.title_id = ta.title_id",
+          "sql": "SELECT *\nFROM publishers pub\nJOIN titles t ON pub.pub_id = t.pub_id\nJOIN titleauthor ta ON t.title_id = ta.title_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 19,
+            "preview": [
+              {
+                "pub_id": "0736",
+                "pub_name": "New Moon Books",
+                "city": "Boston",
+                "state": "MA",
+                "country": "USA",
+                "title_id": "PS3333",
+                "title": "Prolonged Data Deprivation: Four Case Studies",
+                "type": "psychology",
+                "pub_id__dup1": "0736",
+                "price": 19.99,
+                "advance": 2000.0,
+                "royalty": 10,
+                "ytd_sales": 4072,
+                "notes": "What happens when the data runs dry?  Searching evaluations of information-shortage effects.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "172-32-1176",
+                "title_id__dup1": "PS3333",
+                "au_ord": 1,
+                "royaltyper": 100
+              },
+              {
+                "pub_id": "1389",
+                "pub_name": "Algodata Infosystems",
+                "city": "Berkeley",
+                "state": "CA",
+                "country": "USA",
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "213-46-8915",
+                "title_id__dup1": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40
+              },
+              {
+                "pub_id": "0736",
+                "pub_name": "New Moon Books",
+                "city": "Boston",
+                "state": "MA",
+                "country": "USA",
+                "title_id": "BU2075",
+                "title": "You Can Combat Computer Stress!",
+                "type": "business",
+                "pub_id__dup1": "0736",
+                "price": 2.99,
+                "advance": 10125.0,
+                "royalty": 24,
+                "ytd_sales": 18722,
+                "notes": "The latest medical and psychological techniques for living with the electronic office. Easy-to-understand explanations.",
+                "pubdate": "1991-06-30T00:00:00",
+                "au_id": "213-46-8915",
+                "title_id__dup1": "BU2075",
+                "au_ord": 1,
+                "royaltyper": 100
+              },
+              {
+                "pub_id": "1389",
+                "pub_name": "Algodata Infosystems",
+                "city": "Berkeley",
+                "state": "CA",
+                "country": "USA",
+                "title_id": "PC1035",
+                "title": "But Is It User Friendly?",
+                "type": "popular_comp",
+                "pub_id__dup1": "1389",
+                "price": 22.95,
+                "advance": 7000.0,
+                "royalty": 16,
+                "ytd_sales": 8780,
+                "notes": "A survey of software for the naive user, focusing on the 'friendliness' of each.",
+                "pubdate": "1991-06-30T00:00:00",
+                "au_id": "238-95-7766",
+                "title_id__dup1": "PC1035",
+                "au_ord": 1,
+                "royaltyper": 100
+              },
+              {
+                "pub_id": "1389",
+                "pub_name": "Algodata Infosystems",
+                "city": "Berkeley",
+                "state": "CA",
+                "country": "USA",
+                "title_id": "BU1111",
+                "title": "Cooking with Computers: Surreptitious Balance Sheets",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 11.95,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 3876,
+                "notes": "Helpful hints on how to use your electronic resources to the best advantage.",
+                "pubdate": "1991-06-09T00:00:00",
+                "au_id": "267-41-2394",
+                "title_id__dup1": "BU1111",
+                "au_ord": 2,
+                "royaltyper": 40
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT pub.pub_id, pub.pub_name, pub.city, COUNT(DISTINCT ta.au_id) AS author_count\nFROM publishers pub\nJOIN titles t ON pub.pub_id = t.pub_id\nJOIN titleauthor ta ON t.title_id = ta.title_id\nGROUP BY pub.pub_id, pub.pub_name, pub.city",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 3,
+            "column_count": 4,
+            "preview": [
+              {
+                "pub_id": "0736",
+                "pub_name": "New Moon Books",
+                "city": "Boston",
+                "author_count": 5
+              },
+              {
+                "pub_id": "0877",
+                "pub_name": "Binnet & Hardley",
+                "city": "Washington",
+                "author_count": 10
+              },
+              {
+                "pub_id": "1389",
+                "pub_name": "Algodata Infosystems",
+                "city": "Berkeley",
+                "author_count": 9
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "Final scalar block returning the city of the publisher with the highest number of authors",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT pub.pub_id, pub.pub_name, pub.city, COUNT(DISTINCT ta.au_id) AS author_count\nFROM publishers pub\nJOIN titles t ON pub.pub_id = t.pub_id\nJOIN titleauthor ta ON t.title_id = ta.title_id\nGROUP BY pub.pub_id, pub.pub_name, pub.city) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 3,
+            "column_count": 4,
+            "preview": [
+              {
+                "pub_id": "0736",
+                "pub_name": "New Moon Books",
+                "city": "Boston",
+                "author_count": 5
+              },
+              {
+                "pub_id": "0877",
+                "pub_name": "Binnet & Hardley",
+                "city": "Washington",
+                "author_count": 10
+              },
+              {
+                "pub_id": "1389",
+                "pub_name": "Algodata Infosystems",
+                "city": "Berkeley",
+                "author_count": 9
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "leaf_1.author_count = (SELECT MAX(author_count) FROM {{leaf_1}})",
+          "sql": "SELECT *\nFROM (SELECT pub.pub_id, pub.pub_name, pub.city, COUNT(DISTINCT ta.au_id) AS author_count\nFROM publishers pub\nJOIN titles t ON pub.pub_id = t.pub_id\nJOIN titleauthor ta ON t.title_id = ta.title_id\nGROUP BY pub.pub_id, pub.pub_name, pub.city) AS leaf_1\nWHERE (leaf_1.author_count = (SELECT MAX(author_count) FROM (SELECT pub.pub_id, pub.pub_name, pub.city, COUNT(DISTINCT ta.au_id) AS author_count\nFROM publishers pub\nJOIN titles t ON pub.pub_id = t.pub_id\nJOIN titleauthor ta ON t.title_id = ta.title_id\nGROUP BY pub.pub_id, pub.pub_name, pub.city)))\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 4,
+            "preview": [
+              {
+                "pub_id": "0877",
+                "pub_name": "Binnet & Hardley",
+                "city": "Washington",
+                "author_count": 10
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT leaf_1.city\nFROM (SELECT pub.pub_id, pub.pub_name, pub.city, COUNT(DISTINCT ta.au_id) AS author_count\nFROM publishers pub\nJOIN titles t ON pub.pub_id = t.pub_id\nJOIN titleauthor ta ON t.title_id = ta.title_id\nGROUP BY pub.pub_id, pub.pub_name, pub.city) AS leaf_1\nWHERE (leaf_1.author_count = (SELECT MAX(author_count) FROM (SELECT pub.pub_id, pub.pub_name, pub.city, COUNT(DISTINCT ta.au_id) AS author_count\nFROM publishers pub\nJOIN titles t ON pub.pub_id = t.pub_id\nJOIN titleauthor ta ON t.title_id = ta.title_id\nGROUP BY pub.pub_id, pub.pub_name, pub.city)))",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "city": "Washington"
+              }
+            ],
+            "scalar": true,
+            "text_scalar": true
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 13,
+  "sample_retry": 2,
+  "detail_fallback_used": false,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.5394444444444444,
+    "nearest": {
+      "sample_index": 48,
+      "answer_mode": "aggregate",
+      "target_join_count": 2,
+      "similarity": 0.5394444444444444,
+      "sql": "SELECT AVG(author_count) AS avg_authors_per_title\nFROM (SELECT titles.title_id, titles.title, publishers.pub_name, publishers.city, publishers.state, COUNT(titleauthor.au_id) AS author_count\nFROM titles\nJOIN publishers ON titles.pub_id = publishers.pub_id\nJOIN titleauthor ON titles.title_id = titleauthor.title_id\nWHERE (publishers.state = 'CA')\nGROUP BY titles.title_id, titles.title, publishers.pub_name, publishers.city, publishers.state) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": null,
+    "nearest": null,
+    "reason": "not numeric"
+  },
+  "question": "Which cities have publishers with the highest number of distinct authors?",
+  "answer": "Washington"
+}

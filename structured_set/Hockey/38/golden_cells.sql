@@ -1,0 +1,1 @@
+SELECT g.tmid, g.year, t.g, t.ga, CAST(t.ga AS REAL) / CAST(t.g AS REAL) AS avg_goals_against_per_game FROM goalies g JOIN teams t ON g.tmid = t.tmid JOIN abbrev a ON t.confid = a.code WHERE (a.type = 'Conference') AND (a.fullname = 'Campbell Conference') AND (g.year = 1982 OR g.year = 1983)

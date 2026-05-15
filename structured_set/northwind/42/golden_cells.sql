@@ -1,0 +1,1 @@
+SELECT p.productname, p.unitprice, s.companyname, c.categoryname FROM products p JOIN suppliers s ON p.supplierid = s.supplierid JOIN categories c ON p.categoryid = c.categoryid WHERE c.categoryname = 'Confections'

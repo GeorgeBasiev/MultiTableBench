@@ -1,0 +1,1329 @@
+{
+  "sample_index": 50,
+  "db_name": "ErgastF1",
+  "answer_mode": "text",
+  "target_join_count": 4,
+  "actual_join_count": 4,
+  "numeric_answer": null,
+  "constraints": {
+    "answer_mode": "text",
+    "target_join_count": 4,
+    "min_hops": 4,
+    "max_hops": 4,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Identify the nationality of the constructor who achieved the highest cumulative points in the 2008 season",
+  "manifest": {
+    "db_name": "ErgastF1",
+    "sample_dir": "structured_set/ErgastF1/50",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "circuits",
+        "remote_row_count": 73,
+        "snapshot_row_count": 73,
+        "target_limit": 73,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "circuitid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "circuitref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "location",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lat",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "lng",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "alt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructorresults",
+        "remote_row_count": 11082,
+        "snapshot_row_count": 103,
+        "target_limit": 103,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "constructorresultsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "status",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructors",
+        "remote_row_count": 208,
+        "snapshot_row_count": 102,
+        "target_limit": 102,
+        "relational_rows_added": 53,
+        "columns": [
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "nationality",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructorstandings",
+        "remote_row_count": 11836,
+        "snapshot_row_count": 91,
+        "target_limit": 91,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "constructorstandingsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "wins",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "drivers",
+        "remote_row_count": 840,
+        "snapshot_row_count": 80,
+        "target_limit": 80,
+        "relational_rows_added": 675,
+        "columns": [
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "code",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "forename",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "surname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "dob",
+            "mysql_type": "date",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "nationality",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "driverstandings",
+        "remote_row_count": 31578,
+        "snapshot_row_count": 109,
+        "target_limit": 109,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "driverstandingsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "wins",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "laptimes",
+        "remote_row_count": 420369,
+        "snapshot_row_count": 94,
+        "target_limit": 94,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "pitstops",
+        "remote_row_count": 6070,
+        "snapshot_row_count": 85,
+        "target_limit": 85,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stop",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "time",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "duration",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "qualifying",
+        "remote_row_count": 7397,
+        "snapshot_row_count": 93,
+        "target_limit": 93,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "qualifyid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "q1",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "q2",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "q3",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "races",
+        "remote_row_count": 976,
+        "snapshot_row_count": 106,
+        "target_limit": 106,
+        "relational_rows_added": 1824,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "round",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "circuitid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "date",
+            "mysql_type": "date",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "time",
+            "mysql_type": "time",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "results",
+        "remote_row_count": 23657,
+        "snapshot_row_count": 115,
+        "target_limit": 115,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "resultid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "grid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "positionorder",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "laps",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "fastestlap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "fastestlaptime",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fastestlapspeed",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "statusid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "seasons",
+        "remote_row_count": 68,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "status",
+        "remote_row_count": 134,
+        "snapshot_row_count": 118,
+        "target_limit": 118,
+        "relational_rows_added": 2,
+        "columns": [
+          {
+            "name": "statusid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "status",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "target",
+        "remote_row_count": 31578,
+        "snapshot_row_count": 82,
+        "target_limit": 82,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "targetid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "win",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Identify the nationality of the constructor who achieved the highest cumulative points in the 2008 season",
+    "answer_mode": "text",
+    "final_block_name": "root",
+    "detail_query": "SELECT c.name, c.nationality, SUM(cr.points) AS total_points FROM constructors c JOIN constructorresults cr ON c.constructorid = cr.constructorid JOIN races r ON cr.raceid = r.raceid WHERE r.year = 2008 GROUP BY c.constructorid, c.name, c.nationality ORDER BY total_points DESC LIMIT 1",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT c.constructorid, c.name, c.nationality, SUM(cr.points) AS total_points",
+        "from_clause": "FROM constructors c",
+        "join_clauses": [
+          "JOIN constructorresults cr ON c.constructorid = cr.constructorid",
+          "JOIN races r ON cr.raceid = r.raceid"
+        ],
+        "where_clauses": [
+          "r.year = 2008"
+        ],
+        "group_by_clause": "GROUP BY c.constructorid, c.name, c.nationality",
+        "having_clauses": [],
+        "notes": "Calculates the total points for each constructor in the 2008 season"
+      },
+      {
+        "name": "leaf_2",
+        "role": "leaf",
+        "select_clause": "SELECT MAX(total_points) AS max_points",
+        "from_clause": "FROM ({{leaf_1}}) AS constructor_points",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Finds the maximum points achieved by any constructor in the 2008 season"
+      },
+      {
+        "name": "leaf_3",
+        "role": "leaf",
+        "select_clause": "SELECT constructorid, name, nationality",
+        "from_clause": "FROM ({{leaf_1}}) AS constructor_points",
+        "join_clauses": [],
+        "where_clauses": [
+          "total_points = ({{leaf_2}})"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Identifies the constructor(s) who achieved the maximum points in the 2008 season"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT nationality",
+        "from_clause": "FROM ({{leaf_3}}) AS top_constructor",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Returns the nationality of the constructor with the highest cumulative points in the 2008 season"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "Calculates the total points for each constructor in the 2008 season",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM constructors c\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 5,
+            "preview": [
+              {
+                "constructorid": 1,
+                "constructorref": "mclaren",
+                "name": "McLaren",
+                "nationality": "British",
+                "url": "http://en.wikipedia.org/wiki/McLaren"
+              },
+              {
+                "constructorid": 2,
+                "constructorref": "bmw_sauber",
+                "name": "BMW Sauber",
+                "nationality": "German",
+                "url": "http://en.wikipedia.org/wiki/BMW_Sauber"
+              },
+              {
+                "constructorid": 3,
+                "constructorref": "williams",
+                "name": "Williams",
+                "nationality": "British",
+                "url": "http://en.wikipedia.org/wiki/Williams_Grand_Prix_Engineering"
+              },
+              {
+                "constructorid": 4,
+                "constructorref": "renault",
+                "name": "Renault",
+                "nationality": "French",
+                "url": "http://en.wikipedia.org/wiki/Renault_F1"
+              },
+              {
+                "constructorid": 5,
+                "constructorref": "toro_rosso",
+                "name": "Toro Rosso",
+                "nationality": "Italian",
+                "url": "http://en.wikipedia.org/wiki/Scuderia_Toro_Rosso"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN constructorresults cr ON c.constructorid = cr.constructorid",
+          "sql": "SELECT *\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 10,
+            "preview": [
+              {
+                "constructorid": 11,
+                "constructorref": "honda",
+                "name": "Honda",
+                "nationality": "Japanese",
+                "url": "http://en.wikipedia.org/wiki/Honda_Racing_F1",
+                "constructorresultsid": 18,
+                "raceid": 19,
+                "constructorid__dup1": 11,
+                "points": 0.0,
+                "status": null
+              },
+              {
+                "constructorid": 4,
+                "constructorref": "renault",
+                "name": "Renault",
+                "nationality": "French",
+                "url": "http://en.wikipedia.org/wiki/Renault_F1",
+                "constructorresultsid": 340,
+                "raceid": 50,
+                "constructorid__dup1": 4,
+                "points": 12.0,
+                "status": null
+              },
+              {
+                "constructorid": 11,
+                "constructorref": "honda",
+                "name": "Honda",
+                "nationality": "Japanese",
+                "url": "http://en.wikipedia.org/wiki/Honda_Racing_F1",
+                "constructorresultsid": 384,
+                "raceid": 54,
+                "constructorid__dup1": 11,
+                "points": 6.0,
+                "status": null
+              },
+              {
+                "constructorid": 11,
+                "constructorref": "honda",
+                "name": "Honda",
+                "nationality": "Japanese",
+                "url": "http://en.wikipedia.org/wiki/Honda_Racing_F1",
+                "constructorresultsid": 550,
+                "raceid": 69,
+                "constructorid__dup1": 11,
+                "points": 5.0,
+                "status": null
+              },
+              {
+                "constructorid": 17,
+                "constructorref": "jordan",
+                "name": "Jordan",
+                "nationality": "Irish",
+                "url": "http://en.wikipedia.org/wiki/Jordan_Grand_Prix",
+                "constructorresultsid": 578,
+                "raceid": 71,
+                "constructorid__dup1": 17,
+                "points": 0.0,
+                "status": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN races r ON cr.raceid = r.raceid",
+          "sql": "SELECT *\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 18,
+            "preview": [
+              {
+                "constructorid": 4,
+                "constructorref": "renault",
+                "name": "Renault",
+                "nationality": "French",
+                "url": "http://en.wikipedia.org/wiki/Renault_F1",
+                "constructorresultsid": 340,
+                "raceid": 50,
+                "constructorid__dup1": 4,
+                "points": 12.0,
+                "status": null,
+                "raceid__dup1": 50,
+                "year": 2007,
+                "round": 15,
+                "circuitid": 16,
+                "name__dup1": "Japanese Grand Prix",
+                "date": "2007-09-30",
+                "time": "04:30:00",
+                "url__dup1": "http://en.wikipedia.org/wiki/2007_Japanese_Grand_Prix"
+              },
+              {
+                "constructorid": 29,
+                "constructorref": "footwork",
+                "name": "Footwork",
+                "nationality": "British",
+                "url": "http://en.wikipedia.org/wiki/Footwork_Arrows",
+                "constructorresultsid": 2884,
+                "raceid": 279,
+                "constructorid__dup1": 29,
+                "points": 0.0,
+                "status": null,
+                "raceid__dup1": 279,
+                "year": 1993,
+                "round": 7,
+                "circuitid": 7,
+                "name__dup1": "Canadian Grand Prix",
+                "date": "1993-06-13",
+                "time": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/1993_Canadian_Grand_Prix"
+              },
+              {
+                "constructorid": 36,
+                "constructorref": "fondmetal",
+                "name": "Fondmetal",
+                "nationality": "Italian",
+                "url": "http://en.wikipedia.org/wiki/Fondmetal",
+                "constructorresultsid": 3016,
+                "raceid": 289,
+                "constructorid__dup1": 36,
+                "points": 0.0,
+                "status": null,
+                "raceid__dup1": 289,
+                "year": 1992,
+                "round": 1,
+                "circuitid": 30,
+                "name__dup1": "South African Grand Prix",
+                "date": "1992-03-01",
+                "time": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/1992_South_African_Grand_Prix"
+              },
+              {
+                "constructorid": 18,
+                "constructorref": "minardi",
+                "name": "Minardi",
+                "nationality": "Italian",
+                "url": "http://en.wikipedia.org/wiki/Minardi",
+                "constructorresultsid": 3376,
+                "raceid": 312,
+                "constructorid__dup1": 18,
+                "points": 0.0,
+                "status": null,
+                "raceid__dup1": 312,
+                "year": 1991,
+                "round": 8,
+                "circuitid": 9,
+                "name__dup1": "British Grand Prix",
+                "date": "1991-07-14",
+                "time": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/1991_British_Grand_Prix"
+              },
+              {
+                "constructorid": 54,
+                "constructorref": "ats",
+                "name": "ATS",
+                "nationality": "Italian",
+                "url": "http://en.wikipedia.org/wiki/ATS_(wheels)",
+                "constructorresultsid": 5618,
+                "raceid": 459,
+                "constructorid__dup1": 54,
+                "points": 0.0,
+                "status": null,
+                "raceid__dup1": 459,
+                "year": 1983,
+                "round": 8,
+                "circuitid": 7,
+                "name__dup1": "Canadian Grand Prix",
+                "date": "1983-06-12",
+                "time": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/1983_Canadian_Grand_Prix"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "r.year = 2008",
+          "sql": "SELECT *\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nWHERE (r.year = 2008)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 18,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "r.year = 2009",
+          "sql": "SELECT *\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nWHERE (r.year = 2009)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 18,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "r.year = 2008",
+          "sql": "SELECT *\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nWHERE (r.year = 2008)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 18,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "r.year = 2020",
+          "sql": "SELECT *\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nWHERE (r.year = 2020)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 18,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "r.year = 2008",
+          "sql": "SELECT *\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nWHERE (r.year = 2008)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 18,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "r.year >= 2008",
+          "sql": "SELECT *\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nWHERE (r.year >= 2008)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 18,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where_skipped",
+          "clause": "r.year = 2008",
+          "last_candidate": "r.year = 2008",
+          "reason": "where predicate made the probe empty"
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT c.constructorid, c.name, c.nationality, SUM(cr.points) AS total_points\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nGROUP BY c.constructorid, c.name, c.nationality",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 8,
+            "column_count": 4,
+            "preview": [
+              {
+                "constructorid": 4,
+                "name": "Renault",
+                "nationality": "French",
+                "total_points": 12.0
+              },
+              {
+                "constructorid": 18,
+                "name": "Minardi",
+                "nationality": "Italian",
+                "total_points": 0.0
+              },
+              {
+                "constructorid": 29,
+                "name": "Footwork",
+                "nationality": "British",
+                "total_points": 0.0
+              },
+              {
+                "constructorid": 32,
+                "name": "Team Lotus",
+                "nationality": "British",
+                "total_points": 9.0
+              },
+              {
+                "constructorid": 36,
+                "name": "Fondmetal",
+                "nationality": "Italian",
+                "total_points": 0.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "leaf_2",
+      "notes": "Finds the maximum points achieved by any constructor in the 2008 season",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM ((SELECT c.constructorid, c.name, c.nationality, SUM(cr.points) AS total_points\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nGROUP BY c.constructorid, c.name, c.nationality)) AS constructor_points\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 4,
+            "preview": [
+              {
+                "constructorid": 4,
+                "name": "Renault",
+                "nationality": "French",
+                "total_points": 12.0
+              },
+              {
+                "constructorid": 18,
+                "name": "Minardi",
+                "nationality": "Italian",
+                "total_points": 0.0
+              },
+              {
+                "constructorid": 29,
+                "name": "Footwork",
+                "nationality": "British",
+                "total_points": 0.0
+              },
+              {
+                "constructorid": 32,
+                "name": "Team Lotus",
+                "nationality": "British",
+                "total_points": 9.0
+              },
+              {
+                "constructorid": 36,
+                "name": "Fondmetal",
+                "nationality": "Italian",
+                "total_points": 0.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT MAX(total_points) AS max_points\nFROM ((SELECT c.constructorid, c.name, c.nationality, SUM(cr.points) AS total_points\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nGROUP BY c.constructorid, c.name, c.nationality)) AS constructor_points",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "max_points": 12.0
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "leaf_3",
+      "notes": "Identifies the constructor(s) who achieved the maximum points in the 2008 season",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM ((SELECT c.constructorid, c.name, c.nationality, SUM(cr.points) AS total_points\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nGROUP BY c.constructorid, c.name, c.nationality)) AS constructor_points\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 4,
+            "preview": [
+              {
+                "constructorid": 4,
+                "name": "Renault",
+                "nationality": "French",
+                "total_points": 12.0
+              },
+              {
+                "constructorid": 18,
+                "name": "Minardi",
+                "nationality": "Italian",
+                "total_points": 0.0
+              },
+              {
+                "constructorid": 29,
+                "name": "Footwork",
+                "nationality": "British",
+                "total_points": 0.0
+              },
+              {
+                "constructorid": 32,
+                "name": "Team Lotus",
+                "nationality": "British",
+                "total_points": 9.0
+              },
+              {
+                "constructorid": 36,
+                "name": "Fondmetal",
+                "nationality": "Italian",
+                "total_points": 0.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "total_points = ({{leaf_2}})",
+          "sql": "SELECT *\nFROM ((SELECT c.constructorid, c.name, c.nationality, SUM(cr.points) AS total_points\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nGROUP BY c.constructorid, c.name, c.nationality)) AS constructor_points\nWHERE (total_points = ((SELECT MAX(total_points) AS max_points\nFROM ((SELECT c.constructorid, c.name, c.nationality, SUM(cr.points) AS total_points\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nGROUP BY c.constructorid, c.name, c.nationality)) AS constructor_points)))\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 4,
+            "preview": [
+              {
+                "constructorid": 4,
+                "name": "Renault",
+                "nationality": "French",
+                "total_points": 12.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT constructorid, name, nationality\nFROM ((SELECT c.constructorid, c.name, c.nationality, SUM(cr.points) AS total_points\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nGROUP BY c.constructorid, c.name, c.nationality)) AS constructor_points\nWHERE (total_points = ((SELECT MAX(total_points) AS max_points\nFROM ((SELECT c.constructorid, c.name, c.nationality, SUM(cr.points) AS total_points\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nGROUP BY c.constructorid, c.name, c.nationality)) AS constructor_points)))",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 3,
+            "preview": [
+              {
+                "constructorid": 4,
+                "name": "Renault",
+                "nationality": "French"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "Returns the nationality of the constructor with the highest cumulative points in the 2008 season",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM ((SELECT constructorid, name, nationality\nFROM ((SELECT c.constructorid, c.name, c.nationality, SUM(cr.points) AS total_points\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nGROUP BY c.constructorid, c.name, c.nationality)) AS constructor_points\nWHERE (total_points = ((SELECT MAX(total_points) AS max_points\nFROM ((SELECT c.constructorid, c.name, c.nationality, SUM(cr.points) AS total_points\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nGROUP BY c.constructorid, c.name, c.nationality)) AS constructor_points))))) AS top_constructor\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 3,
+            "preview": [
+              {
+                "constructorid": 4,
+                "name": "Renault",
+                "nationality": "French"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT nationality\nFROM ((SELECT constructorid, name, nationality\nFROM ((SELECT c.constructorid, c.name, c.nationality, SUM(cr.points) AS total_points\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nGROUP BY c.constructorid, c.name, c.nationality)) AS constructor_points\nWHERE (total_points = ((SELECT MAX(total_points) AS max_points\nFROM ((SELECT c.constructorid, c.name, c.nationality, SUM(cr.points) AS total_points\nFROM constructors c\nJOIN constructorresults cr ON c.constructorid = cr.constructorid\nJOIN races r ON cr.raceid = r.raceid\nGROUP BY c.constructorid, c.name, c.nationality)) AS constructor_points))))) AS top_constructor",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "nationality": "French"
+              }
+            ],
+            "scalar": true,
+            "text_scalar": true
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 8,
+  "sample_retry": 1,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.6347983870967743,
+    "nearest": {
+      "sample_index": 46,
+      "answer_mode": "text",
+      "target_join_count": 4,
+      "similarity": 0.6347983870967743,
+      "sql": "SELECT nationality\nFROM (SELECT constructorid, nationality\nFROM (SELECT c.constructorid, c.nationality, AVG(cr.points) AS avg_points_per_race\nFROM constructors AS c\nJOIN constructorresults AS cr ON c.constructorid = cr.constructorid\nJOIN races AS r ON cr.raceid = r.raceid\nGROUP BY c.constructorid) AS leaf_1\nWHERE (avg_points_per_race = (SELECT max_avg_points FROM (SELECT MAX(avg_points_per_race) AS max_avg_points\nFROM (SELECT c.constructorid, c.nationality, AVG(cr.points) AS avg_points_per_race\nFROM constructors AS c\nJOIN constructorresults AS cr ON c.constructorid = cr.constructorid\nJOIN races AS r ON cr.raceid = r.raceid\nGROUP BY c.constructorid) AS leaf_1)))) AS leaf_3"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": null,
+    "nearest": null,
+    "reason": "not numeric"
+  },
+  "question": "What is the nationality of the constructor(s) with the highest total points?",
+  "answer": "French"
+}

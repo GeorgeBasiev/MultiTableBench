@@ -1,0 +1,1781 @@
+{
+  "sample_index": 15,
+  "db_name": "pubs",
+  "answer_mode": "aggregate",
+  "target_join_count": 4,
+  "actual_join_count": 4,
+  "numeric_answer": 72.72727272727273,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 4,
+    "min_hops": 4,
+    "max_hops": 4,
+    "require_group_by": false,
+    "require_having": true,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Calculate the average royalty percentage for authors who have written books sold in stores located in California, where the books have a royalty percentage greater than 40.",
+  "manifest": {
+    "db_name": "pubs",
+    "sample_dir": "structured_set/pubs/15",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "authors",
+        "remote_row_count": 23,
+        "snapshot_row_count": 23,
+        "target_limit": 23,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "au_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_lname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_fname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "zip",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contract",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "discounts",
+        "remote_row_count": 3,
+        "snapshot_row_count": 3,
+        "target_limit": 3,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "discounttype",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lowqty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "highqty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discount",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          }
+        ]
+      },
+      {
+        "table_name": "employee",
+        "remote_row_count": 43,
+        "snapshot_row_count": 43,
+        "target_limit": 43,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "emp_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "minit",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "job_id",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "job_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hire_date",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "jobs",
+        "remote_row_count": 14,
+        "snapshot_row_count": 14,
+        "target_limit": 14,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "job_id",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "job_desc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "min_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "max_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "publishers",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pub_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "pub_info",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "logo",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          },
+          {
+            "name": "pr_info",
+            "mysql_type": "longtext",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "roysched",
+        "remote_row_count": 86,
+        "snapshot_row_count": 86,
+        "target_limit": 86,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lorange",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hirange",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "royalty",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "sales",
+        "remote_row_count": 21,
+        "snapshot_row_count": 21,
+        "target_limit": 21,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ord_num",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ord_date",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "qty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "payterms",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "stores",
+        "remote_row_count": 6,
+        "snapshot_row_count": 6,
+        "target_limit": 6,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "zip",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "titleauthor",
+        "remote_row_count": 25,
+        "snapshot_row_count": 25,
+        "target_limit": 25,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "au_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_ord",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "royaltyper",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "titles",
+        "remote_row_count": 18,
+        "snapshot_row_count": 18,
+        "target_limit": 18,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "type",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "price",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "advance",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "royalty",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ytd_sales",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pubdate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Calculate the average royalty percentage for authors who have written books sold in stores located in California, where the books have a royalty percentage greater than 40.",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT a.au_id, a.au_lname, a.au_fname, t.title_id, t.title, t.royalty, ta.royaltyper, s.stor_id, s.city, s.state\nFROM authors a\nJOIN titleauthor ta ON a.au_id = ta.au_id\nJOIN titles t ON ta.title_id = t.title_id\nJOIN sales sa ON t.title_id = sa.title_id\nJOIN stores s ON sa.stor_id = s.stor_id\nWHERE (s.state = 'CA') AND (ta.royaltyper > 40)\nGROUP BY a.au_id, a.au_lname, a.au_fname, t.title_id, t.title, t.royalty, ta.royaltyper, s.stor_id, s.city, s.state",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT a.au_id, a.au_lname, a.au_fname, t.title_id, t.title, t.royalty, ta.royaltyper, s.stor_id, s.city, s.state",
+        "from_clause": "FROM authors a",
+        "join_clauses": [
+          "JOIN titleauthor ta ON a.au_id = ta.au_id",
+          "JOIN titles t ON ta.title_id = t.title_id",
+          "JOIN sales sa ON t.title_id = sa.title_id",
+          "JOIN stores s ON sa.stor_id = s.stor_id"
+        ],
+        "where_clauses": [
+          "s.state = 'CA'",
+          "ta.royaltyper > 40"
+        ],
+        "group_by_clause": "GROUP BY a.au_id, a.au_lname, a.au_fname, t.title_id, t.title, t.royalty, ta.royaltyper, s.stor_id, s.city, s.state",
+        "having_clauses": [],
+        "notes": "This block returns authors, their titles, and the stores in California where the titles were sold, with a royalty percentage greater than 40."
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT AVG(leaf_1.royaltyper) AS avg_author_royaltyper",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "This block calculates the average royalty percentage for the authors and titles identified in the leaf block."
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "This block returns authors, their titles, and the stores in California where the titles were sold, with a royalty percentage greater than 40.",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM authors a\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 9,
+            "preview": [
+              {
+                "au_id": "172-32-1176",
+                "au_lname": "White",
+                "au_fname": "Johnson",
+                "phone": "408 496-7223",
+                "address": "10932 Bigge Rd.",
+                "city": "Menlo Park",
+                "state": "CA",
+                "zip": "94025",
+                "contract": 1
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1
+              },
+              {
+                "au_id": "238-95-7766",
+                "au_lname": "Carson",
+                "au_fname": "Cheryl",
+                "phone": "415 548-7723",
+                "address": "589 Darwin Ln.",
+                "city": "Berkeley",
+                "state": "CA",
+                "zip": "94705",
+                "contract": 1
+              },
+              {
+                "au_id": "267-41-2394",
+                "au_lname": "O'Leary",
+                "au_fname": "Michael",
+                "phone": "408 286-2428",
+                "address": "22 Cleveland Av. #14",
+                "city": "San Jose",
+                "state": "CA",
+                "zip": "95128",
+                "contract": 1
+              },
+              {
+                "au_id": "274-80-9391",
+                "au_lname": "Straight",
+                "au_fname": "Dean",
+                "phone": "415 834-2919",
+                "address": "5420 College Av.",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94609",
+                "contract": 1
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN titleauthor ta ON a.au_id = ta.au_id",
+          "sql": "SELECT *\nFROM authors a\nJOIN titleauthor ta ON a.au_id = ta.au_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 13,
+            "preview": [
+              {
+                "au_id": "172-32-1176",
+                "au_lname": "White",
+                "au_fname": "Johnson",
+                "phone": "408 496-7223",
+                "address": "10932 Bigge Rd.",
+                "city": "Menlo Park",
+                "state": "CA",
+                "zip": "94025",
+                "contract": 1,
+                "au_id__dup1": "172-32-1176",
+                "title_id": "PS3333",
+                "au_ord": 1,
+                "royaltyper": 100
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "au_id__dup1": "213-46-8915",
+                "title_id": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "au_id__dup1": "213-46-8915",
+                "title_id": "BU2075",
+                "au_ord": 1,
+                "royaltyper": 100
+              },
+              {
+                "au_id": "238-95-7766",
+                "au_lname": "Carson",
+                "au_fname": "Cheryl",
+                "phone": "415 548-7723",
+                "address": "589 Darwin Ln.",
+                "city": "Berkeley",
+                "state": "CA",
+                "zip": "94705",
+                "contract": 1,
+                "au_id__dup1": "238-95-7766",
+                "title_id": "PC1035",
+                "au_ord": 1,
+                "royaltyper": 100
+              },
+              {
+                "au_id": "267-41-2394",
+                "au_lname": "O'Leary",
+                "au_fname": "Michael",
+                "phone": "408 286-2428",
+                "address": "22 Cleveland Av. #14",
+                "city": "San Jose",
+                "state": "CA",
+                "zip": "95128",
+                "contract": 1,
+                "au_id__dup1": "267-41-2394",
+                "title_id": "BU1111",
+                "au_ord": 2,
+                "royaltyper": 40
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN titles t ON ta.title_id = t.title_id",
+          "sql": "SELECT *\nFROM authors a\nJOIN titleauthor ta ON a.au_id = ta.au_id\nJOIN titles t ON ta.title_id = t.title_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 23,
+            "preview": [
+              {
+                "au_id": "172-32-1176",
+                "au_lname": "White",
+                "au_fname": "Johnson",
+                "phone": "408 496-7223",
+                "address": "10932 Bigge Rd.",
+                "city": "Menlo Park",
+                "state": "CA",
+                "zip": "94025",
+                "contract": 1,
+                "au_id__dup1": "172-32-1176",
+                "title_id": "PS3333",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "PS3333",
+                "title": "Prolonged Data Deprivation: Four Case Studies",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 19.99,
+                "advance": 2000.0,
+                "royalty": 10,
+                "ytd_sales": 4072,
+                "notes": "What happens when the data runs dry?  Searching evaluations of information-shortage effects.",
+                "pubdate": "1991-06-12T00:00:00"
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "au_id__dup1": "213-46-8915",
+                "title_id": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40,
+                "title_id__dup1": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00"
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "au_id__dup1": "213-46-8915",
+                "title_id": "BU2075",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "BU2075",
+                "title": "You Can Combat Computer Stress!",
+                "type": "business",
+                "pub_id": "0736",
+                "price": 2.99,
+                "advance": 10125.0,
+                "royalty": 24,
+                "ytd_sales": 18722,
+                "notes": "The latest medical and psychological techniques for living with the electronic office. Easy-to-understand explanations.",
+                "pubdate": "1991-06-30T00:00:00"
+              },
+              {
+                "au_id": "238-95-7766",
+                "au_lname": "Carson",
+                "au_fname": "Cheryl",
+                "phone": "415 548-7723",
+                "address": "589 Darwin Ln.",
+                "city": "Berkeley",
+                "state": "CA",
+                "zip": "94705",
+                "contract": 1,
+                "au_id__dup1": "238-95-7766",
+                "title_id": "PC1035",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "PC1035",
+                "title": "But Is It User Friendly?",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 22.95,
+                "advance": 7000.0,
+                "royalty": 16,
+                "ytd_sales": 8780,
+                "notes": "A survey of software for the naive user, focusing on the 'friendliness' of each.",
+                "pubdate": "1991-06-30T00:00:00"
+              },
+              {
+                "au_id": "267-41-2394",
+                "au_lname": "O'Leary",
+                "au_fname": "Michael",
+                "phone": "408 286-2428",
+                "address": "22 Cleveland Av. #14",
+                "city": "San Jose",
+                "state": "CA",
+                "zip": "95128",
+                "contract": 1,
+                "au_id__dup1": "267-41-2394",
+                "title_id": "BU1111",
+                "au_ord": 2,
+                "royaltyper": 40,
+                "title_id__dup1": "BU1111",
+                "title": "Cooking with Computers: Surreptitious Balance Sheets",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 11.95,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 3876,
+                "notes": "Helpful hints on how to use your electronic resources to the best advantage.",
+                "pubdate": "1991-06-09T00:00:00"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN sales sa ON t.title_id = sa.title_id",
+          "sql": "SELECT *\nFROM authors a\nJOIN titleauthor ta ON a.au_id = ta.au_id\nJOIN titles t ON ta.title_id = t.title_id\nJOIN sales sa ON t.title_id = sa.title_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 29,
+            "preview": [
+              {
+                "au_id": "172-32-1176",
+                "au_lname": "White",
+                "au_fname": "Johnson",
+                "phone": "408 496-7223",
+                "address": "10932 Bigge Rd.",
+                "city": "Menlo Park",
+                "state": "CA",
+                "zip": "94025",
+                "contract": 1,
+                "au_id__dup1": "172-32-1176",
+                "title_id": "PS3333",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "PS3333",
+                "title": "Prolonged Data Deprivation: Four Case Studies",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 19.99,
+                "advance": 2000.0,
+                "royalty": 10,
+                "ytd_sales": 4072,
+                "notes": "What happens when the data runs dry?  Searching evaluations of information-shortage effects.",
+                "pubdate": "1991-06-12T00:00:00",
+                "stor_id": "7131",
+                "ord_num": "P3087a",
+                "ord_date": "1993-05-29T00:00:00",
+                "qty": 15,
+                "payterms": "Net 60",
+                "title_id__dup2": "PS3333"
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "au_id__dup1": "213-46-8915",
+                "title_id": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40,
+                "title_id__dup1": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "stor_id": "6380",
+                "ord_num": "6871",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 5,
+                "payterms": "Net 60",
+                "title_id__dup2": "BU1032"
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "au_id__dup1": "213-46-8915",
+                "title_id": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40,
+                "title_id__dup1": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "stor_id": "8042",
+                "ord_num": "423LL930",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 10,
+                "payterms": "ON invoice",
+                "title_id__dup2": "BU1032"
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "au_id__dup1": "213-46-8915",
+                "title_id": "BU2075",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "BU2075",
+                "title": "You Can Combat Computer Stress!",
+                "type": "business",
+                "pub_id": "0736",
+                "price": 2.99,
+                "advance": 10125.0,
+                "royalty": 24,
+                "ytd_sales": 18722,
+                "notes": "The latest medical and psychological techniques for living with the electronic office. Easy-to-understand explanations.",
+                "pubdate": "1991-06-30T00:00:00",
+                "stor_id": "7896",
+                "ord_num": "X999",
+                "ord_date": "1993-02-21T00:00:00",
+                "qty": 35,
+                "payterms": "ON invoice",
+                "title_id__dup2": "BU2075"
+              },
+              {
+                "au_id": "238-95-7766",
+                "au_lname": "Carson",
+                "au_fname": "Cheryl",
+                "phone": "415 548-7723",
+                "address": "589 Darwin Ln.",
+                "city": "Berkeley",
+                "state": "CA",
+                "zip": "94705",
+                "contract": 1,
+                "au_id__dup1": "238-95-7766",
+                "title_id": "PC1035",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "PC1035",
+                "title": "But Is It User Friendly?",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 22.95,
+                "advance": 7000.0,
+                "royalty": 16,
+                "ytd_sales": 8780,
+                "notes": "A survey of software for the naive user, focusing on the 'friendliness' of each.",
+                "pubdate": "1991-06-30T00:00:00",
+                "stor_id": "8042",
+                "ord_num": "QA879.1",
+                "ord_date": "1993-05-22T00:00:00",
+                "qty": 30,
+                "payterms": "Net 30",
+                "title_id__dup2": "PC1035"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN stores s ON sa.stor_id = s.stor_id",
+          "sql": "SELECT *\nFROM authors a\nJOIN titleauthor ta ON a.au_id = ta.au_id\nJOIN titles t ON ta.title_id = t.title_id\nJOIN sales sa ON t.title_id = sa.title_id\nJOIN stores s ON sa.stor_id = s.stor_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 35,
+            "preview": [
+              {
+                "au_id": "172-32-1176",
+                "au_lname": "White",
+                "au_fname": "Johnson",
+                "phone": "408 496-7223",
+                "address": "10932 Bigge Rd.",
+                "city": "Menlo Park",
+                "state": "CA",
+                "zip": "94025",
+                "contract": 1,
+                "au_id__dup1": "172-32-1176",
+                "title_id": "PS3333",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "PS3333",
+                "title": "Prolonged Data Deprivation: Four Case Studies",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 19.99,
+                "advance": 2000.0,
+                "royalty": 10,
+                "ytd_sales": 4072,
+                "notes": "What happens when the data runs dry?  Searching evaluations of information-shortage effects.",
+                "pubdate": "1991-06-12T00:00:00",
+                "stor_id": "7131",
+                "ord_num": "P3087a",
+                "ord_date": "1993-05-29T00:00:00",
+                "qty": 15,
+                "payterms": "Net 60",
+                "title_id__dup2": "PS3333",
+                "stor_id__dup1": "7131",
+                "stor_name": "Doc-U-Mat: Quality Laundry and Books",
+                "stor_address": "24-A Avogadro Way",
+                "city__dup1": "Remulade",
+                "state__dup1": "WA",
+                "zip__dup1": "98014"
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "au_id__dup1": "213-46-8915",
+                "title_id": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40,
+                "title_id__dup1": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "stor_id": "6380",
+                "ord_num": "6871",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 5,
+                "payterms": "Net 60",
+                "title_id__dup2": "BU1032",
+                "stor_id__dup1": "6380",
+                "stor_name": "Eric the Read Books",
+                "stor_address": "788 Catamaugus Ave.",
+                "city__dup1": "Seattle",
+                "state__dup1": "WA",
+                "zip__dup1": "98056"
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "au_id__dup1": "213-46-8915",
+                "title_id": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40,
+                "title_id__dup1": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "stor_id": "8042",
+                "ord_num": "423LL930",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 10,
+                "payterms": "ON invoice",
+                "title_id__dup2": "BU1032",
+                "stor_id__dup1": "8042",
+                "stor_name": "Bookbeat",
+                "stor_address": "679 Carson St.",
+                "city__dup1": "Portland",
+                "state__dup1": "OR",
+                "zip__dup1": "89076"
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "au_id__dup1": "213-46-8915",
+                "title_id": "BU2075",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "BU2075",
+                "title": "You Can Combat Computer Stress!",
+                "type": "business",
+                "pub_id": "0736",
+                "price": 2.99,
+                "advance": 10125.0,
+                "royalty": 24,
+                "ytd_sales": 18722,
+                "notes": "The latest medical and psychological techniques for living with the electronic office. Easy-to-understand explanations.",
+                "pubdate": "1991-06-30T00:00:00",
+                "stor_id": "7896",
+                "ord_num": "X999",
+                "ord_date": "1993-02-21T00:00:00",
+                "qty": 35,
+                "payterms": "ON invoice",
+                "title_id__dup2": "BU2075",
+                "stor_id__dup1": "7896",
+                "stor_name": "Fricative Bookshop",
+                "stor_address": "89 Madison St.",
+                "city__dup1": "Fremont",
+                "state__dup1": "CA",
+                "zip__dup1": "90019"
+              },
+              {
+                "au_id": "238-95-7766",
+                "au_lname": "Carson",
+                "au_fname": "Cheryl",
+                "phone": "415 548-7723",
+                "address": "589 Darwin Ln.",
+                "city": "Berkeley",
+                "state": "CA",
+                "zip": "94705",
+                "contract": 1,
+                "au_id__dup1": "238-95-7766",
+                "title_id": "PC1035",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "PC1035",
+                "title": "But Is It User Friendly?",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 22.95,
+                "advance": 7000.0,
+                "royalty": 16,
+                "ytd_sales": 8780,
+                "notes": "A survey of software for the naive user, focusing on the 'friendliness' of each.",
+                "pubdate": "1991-06-30T00:00:00",
+                "stor_id": "8042",
+                "ord_num": "QA879.1",
+                "ord_date": "1993-05-22T00:00:00",
+                "qty": 30,
+                "payterms": "Net 30",
+                "title_id__dup2": "PC1035",
+                "stor_id__dup1": "8042",
+                "stor_name": "Bookbeat",
+                "stor_address": "679 Carson St.",
+                "city__dup1": "Portland",
+                "state__dup1": "OR",
+                "zip__dup1": "89076"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.state = 'CA'",
+          "sql": "SELECT *\nFROM authors a\nJOIN titleauthor ta ON a.au_id = ta.au_id\nJOIN titles t ON ta.title_id = t.title_id\nJOIN sales sa ON t.title_id = sa.title_id\nJOIN stores s ON sa.stor_id = s.stor_id\nWHERE (s.state = 'CA')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 35,
+            "preview": [
+              {
+                "au_id": "427-17-2319",
+                "au_lname": "Dull",
+                "au_fname": "Ann",
+                "phone": "415 836-7128",
+                "address": "3410 Blonde St.",
+                "city": "Palo Alto",
+                "state": "CA",
+                "zip": "94301",
+                "contract": 1,
+                "au_id__dup1": "427-17-2319",
+                "title_id": "PC8888",
+                "au_ord": 1,
+                "royaltyper": 50,
+                "title_id__dup1": "PC8888",
+                "title": "Secrets of Silicon Valley",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 20.0,
+                "advance": 8000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Muckraking reporting on the world's largest computer hardware and software manufacturers.",
+                "pubdate": "1994-06-12T00:00:00",
+                "stor_id": "7066",
+                "ord_num": "A2976",
+                "ord_date": "1993-05-24T00:00:00",
+                "qty": 50,
+                "payterms": "Net 30",
+                "title_id__dup2": "PC8888",
+                "stor_id__dup1": "7066",
+                "stor_name": "Barnum's",
+                "stor_address": "567 Pasadena Ave.",
+                "city__dup1": "Tustin",
+                "state__dup1": "CA",
+                "zip__dup1": "92789"
+              },
+              {
+                "au_id": "846-92-7186",
+                "au_lname": "Hunter",
+                "au_fname": "Sheryl",
+                "phone": "415 836-7128",
+                "address": "3410 Blonde St.",
+                "city": "Palo Alto",
+                "state": "CA",
+                "zip": "94301",
+                "contract": 1,
+                "au_id__dup1": "846-92-7186",
+                "title_id": "PC8888",
+                "au_ord": 2,
+                "royaltyper": 50,
+                "title_id__dup1": "PC8888",
+                "title": "Secrets of Silicon Valley",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 20.0,
+                "advance": 8000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Muckraking reporting on the world's largest computer hardware and software manufacturers.",
+                "pubdate": "1994-06-12T00:00:00",
+                "stor_id": "7066",
+                "ord_num": "A2976",
+                "ord_date": "1993-05-24T00:00:00",
+                "qty": 50,
+                "payterms": "Net 30",
+                "title_id__dup2": "PC8888",
+                "stor_id__dup1": "7066",
+                "stor_name": "Barnum's",
+                "stor_address": "567 Pasadena Ave.",
+                "city__dup1": "Tustin",
+                "state__dup1": "CA",
+                "zip__dup1": "92789"
+              },
+              {
+                "au_id": "899-46-2035",
+                "au_lname": "Ringer",
+                "au_fname": "Anne",
+                "phone": "801 826-0752",
+                "address": "67 Seventh Av.",
+                "city": "Salt Lake City",
+                "state": "UT",
+                "zip": "84152",
+                "contract": 1,
+                "au_id__dup1": "899-46-2035",
+                "title_id": "PS2091",
+                "au_ord": 2,
+                "royaltyper": 50,
+                "title_id__dup1": "PS2091",
+                "title": "Is Anger the Enemy?",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 10.95,
+                "advance": 2275.0,
+                "royalty": 12,
+                "ytd_sales": 2045,
+                "notes": "Carefully researched study of the effects of strong emotions on the body. Metabolic charts included.",
+                "pubdate": "1991-06-15T00:00:00",
+                "stor_id": "7066",
+                "ord_num": "QA7442.3",
+                "ord_date": "1994-09-13T00:00:00",
+                "qty": 75,
+                "payterms": "ON invoice",
+                "title_id__dup2": "PS2091",
+                "stor_id__dup1": "7066",
+                "stor_name": "Barnum's",
+                "stor_address": "567 Pasadena Ave.",
+                "city__dup1": "Tustin",
+                "state__dup1": "CA",
+                "zip__dup1": "92789"
+              },
+              {
+                "au_id": "998-72-3567",
+                "au_lname": "Ringer",
+                "au_fname": "Albert",
+                "phone": "801 826-0752",
+                "address": "67 Seventh Av.",
+                "city": "Salt Lake City",
+                "state": "UT",
+                "zip": "84152",
+                "contract": 1,
+                "au_id__dup1": "998-72-3567",
+                "title_id": "PS2091",
+                "au_ord": 1,
+                "royaltyper": 50,
+                "title_id__dup1": "PS2091",
+                "title": "Is Anger the Enemy?",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 10.95,
+                "advance": 2275.0,
+                "royalty": 12,
+                "ytd_sales": 2045,
+                "notes": "Carefully researched study of the effects of strong emotions on the body. Metabolic charts included.",
+                "pubdate": "1991-06-15T00:00:00",
+                "stor_id": "7066",
+                "ord_num": "QA7442.3",
+                "ord_date": "1994-09-13T00:00:00",
+                "qty": 75,
+                "payterms": "ON invoice",
+                "title_id__dup2": "PS2091",
+                "stor_id__dup1": "7066",
+                "stor_name": "Barnum's",
+                "stor_address": "567 Pasadena Ave.",
+                "city__dup1": "Tustin",
+                "state__dup1": "CA",
+                "zip__dup1": "92789"
+              },
+              {
+                "au_id": "899-46-2035",
+                "au_lname": "Ringer",
+                "au_fname": "Anne",
+                "phone": "801 826-0752",
+                "address": "67 Seventh Av.",
+                "city": "Salt Lake City",
+                "state": "UT",
+                "zip": "84152",
+                "contract": 1,
+                "au_id__dup1": "899-46-2035",
+                "title_id": "PS2091",
+                "au_ord": 2,
+                "royaltyper": 50,
+                "title_id__dup1": "PS2091",
+                "title": "Is Anger the Enemy?",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 10.95,
+                "advance": 2275.0,
+                "royalty": 12,
+                "ytd_sales": 2045,
+                "notes": "Carefully researched study of the effects of strong emotions on the body. Metabolic charts included.",
+                "pubdate": "1991-06-15T00:00:00",
+                "stor_id": "7067",
+                "ord_num": "D4482",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 10,
+                "payterms": "Net 60",
+                "title_id__dup2": "PS2091",
+                "stor_id__dup1": "7067",
+                "stor_name": "News & Brews",
+                "stor_address": "577 First St.",
+                "city__dup1": "Los Gatos",
+                "state__dup1": "CA",
+                "zip__dup1": "96745"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "ta.royaltyper > 40",
+          "sql": "SELECT *\nFROM authors a\nJOIN titleauthor ta ON a.au_id = ta.au_id\nJOIN titles t ON ta.title_id = t.title_id\nJOIN sales sa ON t.title_id = sa.title_id\nJOIN stores s ON sa.stor_id = s.stor_id\nWHERE (s.state = 'CA') AND (ta.royaltyper > 40)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 35,
+            "preview": [
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "au_id__dup1": "213-46-8915",
+                "title_id": "BU2075",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "BU2075",
+                "title": "You Can Combat Computer Stress!",
+                "type": "business",
+                "pub_id": "0736",
+                "price": 2.99,
+                "advance": 10125.0,
+                "royalty": 24,
+                "ytd_sales": 18722,
+                "notes": "The latest medical and psychological techniques for living with the electronic office. Easy-to-understand explanations.",
+                "pubdate": "1991-06-30T00:00:00",
+                "stor_id": "7896",
+                "ord_num": "X999",
+                "ord_date": "1993-02-21T00:00:00",
+                "qty": 35,
+                "payterms": "ON invoice",
+                "title_id__dup2": "BU2075",
+                "stor_id__dup1": "7896",
+                "stor_name": "Fricative Bookshop",
+                "stor_address": "89 Madison St.",
+                "city__dup1": "Fremont",
+                "state__dup1": "CA",
+                "zip__dup1": "90019"
+              },
+              {
+                "au_id": "274-80-9391",
+                "au_lname": "Straight",
+                "au_fname": "Dean",
+                "phone": "415 834-2919",
+                "address": "5420 College Av.",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94609",
+                "contract": 1,
+                "au_id__dup1": "274-80-9391",
+                "title_id": "BU7832",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "BU7832",
+                "title": "Straight Talk About Computers",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Annotated analysis of what computers can do for you: a no-hype guide for the critical user.",
+                "pubdate": "1991-06-22T00:00:00",
+                "stor_id": "7896",
+                "ord_num": "QQ2299",
+                "ord_date": "1993-10-28T00:00:00",
+                "qty": 15,
+                "payterms": "Net 60",
+                "title_id__dup2": "BU7832",
+                "stor_id__dup1": "7896",
+                "stor_name": "Fricative Bookshop",
+                "stor_address": "89 Madison St.",
+                "city__dup1": "Fremont",
+                "state__dup1": "CA",
+                "zip__dup1": "90019"
+              },
+              {
+                "au_id": "427-17-2319",
+                "au_lname": "Dull",
+                "au_fname": "Ann",
+                "phone": "415 836-7128",
+                "address": "3410 Blonde St.",
+                "city": "Palo Alto",
+                "state": "CA",
+                "zip": "94301",
+                "contract": 1,
+                "au_id__dup1": "427-17-2319",
+                "title_id": "PC8888",
+                "au_ord": 1,
+                "royaltyper": 50,
+                "title_id__dup1": "PC8888",
+                "title": "Secrets of Silicon Valley",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 20.0,
+                "advance": 8000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Muckraking reporting on the world's largest computer hardware and software manufacturers.",
+                "pubdate": "1994-06-12T00:00:00",
+                "stor_id": "7066",
+                "ord_num": "A2976",
+                "ord_date": "1993-05-24T00:00:00",
+                "qty": 50,
+                "payterms": "Net 30",
+                "title_id__dup2": "PC8888",
+                "stor_id__dup1": "7066",
+                "stor_name": "Barnum's",
+                "stor_address": "567 Pasadena Ave.",
+                "city__dup1": "Tustin",
+                "state__dup1": "CA",
+                "zip__dup1": "92789"
+              },
+              {
+                "au_id": "648-92-1872",
+                "au_lname": "Blotchet-Halls",
+                "au_fname": "Reginald",
+                "phone": "503 745-6402",
+                "address": "55 Hillsdale Bl.",
+                "city": "Corvallis",
+                "state": "OR",
+                "zip": "97330",
+                "contract": 1,
+                "au_id__dup1": "648-92-1872",
+                "title_id": "TC4203",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "TC4203",
+                "title": "Fifty Years in Buckingham Palace Kitchens",
+                "type": "trad_cook",
+                "pub_id": "0877",
+                "price": 11.95,
+                "advance": 4000.0,
+                "royalty": 14,
+                "ytd_sales": 15096,
+                "notes": "More anecdotes from the Queen's favorite cook describing life among English royalty. Recipes, techniques, tender vignettes.",
+                "pubdate": "1991-06-12T00:00:00",
+                "stor_id": "7067",
+                "ord_num": "P2121",
+                "ord_date": "1992-06-15T00:00:00",
+                "qty": 20,
+                "payterms": "Net 30",
+                "title_id__dup2": "TC4203",
+                "stor_id__dup1": "7067",
+                "stor_name": "News & Brews",
+                "stor_address": "577 First St.",
+                "city__dup1": "Los Gatos",
+                "state__dup1": "CA",
+                "zip__dup1": "96745"
+              },
+              {
+                "au_id": "712-45-1867",
+                "au_lname": "del Castillo",
+                "au_fname": "Innes",
+                "phone": "615 996-8275",
+                "address": "2286 Cram Pl. #86",
+                "city": "Ann Arbor",
+                "state": "MI",
+                "zip": "48105",
+                "contract": 1,
+                "au_id__dup1": "712-45-1867",
+                "title_id": "MC2222",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "MC2222",
+                "title": "Silicon Valley Gastronomic Treats",
+                "type": "mod_cook",
+                "pub_id": "0877",
+                "price": 19.99,
+                "advance": 0.0,
+                "royalty": 12,
+                "ytd_sales": 2032,
+                "notes": "Favorite recipes for quick, easy, and elegant meals.",
+                "pubdate": "1991-06-09T00:00:00",
+                "stor_id": "7896",
+                "ord_num": "TQ456",
+                "ord_date": "1993-12-12T00:00:00",
+                "qty": 10,
+                "payterms": "Net 60",
+                "title_id__dup2": "MC2222",
+                "stor_id__dup1": "7896",
+                "stor_name": "Fricative Bookshop",
+                "stor_address": "89 Madison St.",
+                "city__dup1": "Fremont",
+                "state__dup1": "CA",
+                "zip__dup1": "90019"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT a.au_id, a.au_lname, a.au_fname, t.title_id, t.title, t.royalty, ta.royaltyper, s.stor_id, s.city, s.state\nFROM authors a\nJOIN titleauthor ta ON a.au_id = ta.au_id\nJOIN titles t ON ta.title_id = t.title_id\nJOIN sales sa ON t.title_id = sa.title_id\nJOIN stores s ON sa.stor_id = s.stor_id\nWHERE (s.state = 'CA') AND (ta.royaltyper > 40)\nGROUP BY a.au_id, a.au_lname, a.au_fname, t.title_id, t.title, t.royalty, ta.royaltyper, s.stor_id, s.city, s.state",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 11,
+            "column_count": 10,
+            "preview": [
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "title_id": "BU2075",
+                "title": "You Can Combat Computer Stress!",
+                "royalty": 24,
+                "royaltyper": 100,
+                "stor_id": "7896",
+                "city": "Fremont",
+                "state": "CA"
+              },
+              {
+                "au_id": "274-80-9391",
+                "au_lname": "Straight",
+                "au_fname": "Dean",
+                "title_id": "BU7832",
+                "title": "Straight Talk About Computers",
+                "royalty": 10,
+                "royaltyper": 100,
+                "stor_id": "7896",
+                "city": "Fremont",
+                "state": "CA"
+              },
+              {
+                "au_id": "427-17-2319",
+                "au_lname": "Dull",
+                "au_fname": "Ann",
+                "title_id": "PC8888",
+                "title": "Secrets of Silicon Valley",
+                "royalty": 10,
+                "royaltyper": 50,
+                "stor_id": "7066",
+                "city": "Tustin",
+                "state": "CA"
+              },
+              {
+                "au_id": "648-92-1872",
+                "au_lname": "Blotchet-Halls",
+                "au_fname": "Reginald",
+                "title_id": "TC4203",
+                "title": "Fifty Years in Buckingham Palace Kitchens",
+                "royalty": 14,
+                "royaltyper": 100,
+                "stor_id": "7067",
+                "city": "Los Gatos",
+                "state": "CA"
+              },
+              {
+                "au_id": "712-45-1867",
+                "au_lname": "del Castillo",
+                "au_fname": "Innes",
+                "title_id": "MC2222",
+                "title": "Silicon Valley Gastronomic Treats",
+                "royalty": 12,
+                "royaltyper": 100,
+                "stor_id": "7896",
+                "city": "Fremont",
+                "state": "CA"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "This block calculates the average royalty percentage for the authors and titles identified in the leaf block.",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT a.au_id, a.au_lname, a.au_fname, t.title_id, t.title, t.royalty, ta.royaltyper, s.stor_id, s.city, s.state\nFROM authors a\nJOIN titleauthor ta ON a.au_id = ta.au_id\nJOIN titles t ON ta.title_id = t.title_id\nJOIN sales sa ON t.title_id = sa.title_id\nJOIN stores s ON sa.stor_id = s.stor_id\nWHERE (s.state = 'CA') AND (ta.royaltyper > 40)\nGROUP BY a.au_id, a.au_lname, a.au_fname, t.title_id, t.title, t.royalty, ta.royaltyper, s.stor_id, s.city, s.state) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 10,
+            "preview": [
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "title_id": "BU2075",
+                "title": "You Can Combat Computer Stress!",
+                "royalty": 24,
+                "royaltyper": 100,
+                "stor_id": "7896",
+                "city": "Fremont",
+                "state": "CA"
+              },
+              {
+                "au_id": "274-80-9391",
+                "au_lname": "Straight",
+                "au_fname": "Dean",
+                "title_id": "BU7832",
+                "title": "Straight Talk About Computers",
+                "royalty": 10,
+                "royaltyper": 100,
+                "stor_id": "7896",
+                "city": "Fremont",
+                "state": "CA"
+              },
+              {
+                "au_id": "427-17-2319",
+                "au_lname": "Dull",
+                "au_fname": "Ann",
+                "title_id": "PC8888",
+                "title": "Secrets of Silicon Valley",
+                "royalty": 10,
+                "royaltyper": 50,
+                "stor_id": "7066",
+                "city": "Tustin",
+                "state": "CA"
+              },
+              {
+                "au_id": "648-92-1872",
+                "au_lname": "Blotchet-Halls",
+                "au_fname": "Reginald",
+                "title_id": "TC4203",
+                "title": "Fifty Years in Buckingham Palace Kitchens",
+                "royalty": 14,
+                "royaltyper": 100,
+                "stor_id": "7067",
+                "city": "Los Gatos",
+                "state": "CA"
+              },
+              {
+                "au_id": "712-45-1867",
+                "au_lname": "del Castillo",
+                "au_fname": "Innes",
+                "title_id": "MC2222",
+                "title": "Silicon Valley Gastronomic Treats",
+                "royalty": 12,
+                "royaltyper": 100,
+                "stor_id": "7896",
+                "city": "Fremont",
+                "state": "CA"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT AVG(leaf_1.royaltyper) AS avg_author_royaltyper\nFROM (SELECT a.au_id, a.au_lname, a.au_fname, t.title_id, t.title, t.royalty, ta.royaltyper, s.stor_id, s.city, s.state\nFROM authors a\nJOIN titleauthor ta ON a.au_id = ta.au_id\nJOIN titles t ON ta.title_id = t.title_id\nJOIN sales sa ON t.title_id = sa.title_id\nJOIN stores s ON sa.stor_id = s.stor_id\nWHERE (s.state = 'CA') AND (ta.royaltyper > 40)\nGROUP BY a.au_id, a.au_lname, a.au_fname, t.title_id, t.title, t.royalty, ta.royaltyper, s.stor_id, s.city, s.state) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "avg_author_royaltyper": 72.72727272727273
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 18,
+  "sample_retry": 1,
+  "detail_fallback_used": false,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.7318805328176318,
+    "nearest": {
+      "sample_index": 40,
+      "answer_mode": "aggregate",
+      "target_join_count": 4,
+      "similarity": 0.7318805328176318,
+      "sql": "SELECT COUNT(DISTINCT au_id) AS author_count\nFROM (SELECT a.au_id, a.au_lname, a.au_fname, s.stor_id, s.city, s.state, t.title_id, t.title, t.ytd_sales\nFROM authors a\nJOIN titleauthor ta ON a.au_id = ta.au_id\nJOIN titles t ON ta.title_id = t.title_id\nJOIN sales sa ON t.title_id = sa.title_id\nJOIN stores s ON sa.stor_id = s.stor_id\nWHERE (s.state = 'CA') AND (t.ytd_sales > 1000)\nGROUP BY a.au_id, a.au_lname, a.au_fname, s.stor_id, s.city, s.state, t.title_id, t.title, t.ytd_sales) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 72.72727272727273,
+    "nearest": {
+      "sample_index": 10,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "numeric_answer": 66.66666666666667,
+      "delta": 6.060606060606062,
+      "sql": "SELECT AVG(leaf_1.royaltyper)\nFROM (SELECT a.au_id, a.au_lname, a.au_fname, ta.royaltyper\nFROM authors a\nJOIN titleauthor ta ON a.au_id = ta.au_id\nJOIN titles t ON ta.title_id = t.title_id\nJOIN publishers p ON t.pub_id = p.pub_id\nWHERE (p.state = 'CA')\nGROUP BY a.au_id, a.au_lname, a.au_fname, ta.royaltyper\nHAVING (COUNT(DISTINCT t.title_id) > 0)) AS leaf_1"
+    },
+    "min_value": 7.0,
+    "tolerance": 3.0,
+    "reason": "ok"
+  },
+  "question": "What is the average royalty percentage across all author-title pairs where the author's royalty percentage exceeds 40% and the sale occurred in California?",
+  "answer": "72.7272727273"
+}

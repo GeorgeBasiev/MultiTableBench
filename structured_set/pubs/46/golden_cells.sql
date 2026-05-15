@@ -1,0 +1,1 @@
+SELECT pub.pub_id, pub.pub_name, pub.city, ta.au_id FROM publishers pub JOIN titles t ON pub.pub_id = t.pub_id JOIN titleauthor ta ON t.title_id = ta.title_id GROUP BY pub.pub_id, pub.pub_name, pub.city, ta.au_id

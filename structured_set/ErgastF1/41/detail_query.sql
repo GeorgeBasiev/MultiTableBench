@@ -1,0 +1,8 @@
+SELECT constructor_name
+FROM (SELECT constructor_name, win_count FROM (SELECT constructor.name AS constructor_name, COUNT(target.win) AS win_count
+FROM constructors AS constructor
+JOIN results AS result ON constructor.constructorid = result.constructorid
+JOIN races AS race ON result.raceid = race.raceid
+JOIN target AS target ON result.driverid = target.driverid AND result.raceid = target.raceid
+WHERE (race.year <= 2008) AND (target.win >= 0)
+GROUP BY constructor.name) ORDER BY win_count DESC LIMIT 1) AS leaf_1

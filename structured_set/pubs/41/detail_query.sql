@@ -1,0 +1,1 @@
+SELECT t.title_id, t.title, t.pub_id, p.pub_name, p.city, SUM(s.qty) AS total_sales FROM titles t JOIN sales s ON t.title_id = s.title_id JOIN publishers p ON t.pub_id = p.pub_id GROUP BY t.title_id, t.title, t.pub_id, p.pub_name, p.city ORDER BY total_sales DESC

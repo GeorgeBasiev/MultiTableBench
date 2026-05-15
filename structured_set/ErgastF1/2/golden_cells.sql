@@ -1,0 +1,1 @@
+SELECT d.driverid, r.raceid, r.points FROM drivers AS d JOIN results AS r ON d.driverid = r.driverid JOIN races AS ra ON r.raceid = ra.raceid JOIN constructors AS c ON r.constructorid = c.constructorid JOIN constructorstandings AS cs ON c.constructorid = cs.constructorid WHERE (ra.year >= 2009) AND (cs.wins >= 0)

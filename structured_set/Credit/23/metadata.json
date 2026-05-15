@@ -1,0 +1,1127 @@
+{
+  "sample_index": 23,
+  "db_name": "Credit",
+  "answer_mode": "text",
+  "target_join_count": 3,
+  "actual_join_count": 3,
+  "numeric_answer": null,
+  "constraints": {
+    "answer_mode": "text",
+    "target_join_count": 3,
+    "min_hops": 3,
+    "max_hops": 3,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "The name of the member who made the highest payment in the region with the most providers",
+  "manifest": {
+    "db_name": "Credit",
+    "sample_dir": "structured_set/Credit/23",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "category",
+        "remote_row_count": 10,
+        "snapshot_row_count": 10,
+        "target_limit": 10,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "category_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "category_desc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "category_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "charge",
+        "remote_row_count": 1600000,
+        "snapshot_row_count": 105,
+        "target_limit": 105,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "charge_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "provider_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "category_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "charge_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "charge_amt",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "statement_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "charge_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "corporation",
+        "remote_row_count": 500,
+        "snapshot_row_count": 101,
+        "target_limit": 101,
+        "relational_rows_added": 30,
+        "columns": [
+          {
+            "name": "corp_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "corp_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "expr_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "corp_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "member",
+        "remote_row_count": 10000,
+        "snapshot_row_count": 80,
+        "target_limit": 80,
+        "relational_rows_added": 524,
+        "columns": [
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lastname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "middleinitial",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "photograph",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          },
+          {
+            "name": "issue_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "expr_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "corp_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "prev_balance",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "curr_balance",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "member_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "payment",
+        "remote_row_count": 15554,
+        "snapshot_row_count": 61,
+        "target_limit": 61,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "payment_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "payment_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "payment_amt",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "statement_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "payment_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "provider",
+        "remote_row_count": 500,
+        "snapshot_row_count": 97,
+        "target_limit": 97,
+        "relational_rows_added": 58,
+        "columns": [
+          {
+            "name": "provider_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "provider_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "issue_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "expr_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "provider_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "region",
+        "remote_row_count": 9,
+        "snapshot_row_count": 9,
+        "target_limit": 9,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "region_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "statement",
+        "remote_row_count": 20000,
+        "snapshot_row_count": 64,
+        "target_limit": 64,
+        "relational_rows_added": 63,
+        "columns": [
+          {
+            "name": "statement_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "statement_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "due_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "statement_amt",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "statement_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "The name of the member who made the highest payment in the region with the most providers",
+    "answer_mode": "text",
+    "final_block_name": "root",
+    "detail_query": "SELECT p.payment_no, p.member_no, m.lastname, m.firstname, r.region_name FROM {{leaf_1}} AS leaf_1 JOIN payment AS p ON leaf_1.member_no = p.member_no JOIN member AS m ON p.member_no = m.member_no JOIN region AS r ON m.region_no = r.region_no ORDER BY p.payment_amt DESC LIMIT 1",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT r.region_no, r.region_name, COUNT(p.provider_no) AS provider_count",
+        "from_clause": "FROM region AS r",
+        "join_clauses": [
+          "JOIN provider AS p ON r.region_no = p.region_no"
+        ],
+        "where_clauses": [],
+        "group_by_clause": "GROUP BY r.region_no, r.region_name",
+        "having_clauses": [],
+        "notes": "Counts providers per region"
+      },
+      {
+        "name": "leaf_2",
+        "role": "leaf",
+        "select_clause": "SELECT m.member_no, m.region_no",
+        "from_clause": "FROM member AS m",
+        "join_clauses": [],
+        "where_clauses": [
+          "m.region_no = (SELECT leaf_1.region_no FROM {{leaf_1}} AS leaf_1 ORDER BY leaf_1.provider_count DESC LIMIT 1)"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Selects members in the region with the most providers"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT m.lastname || ' ' || m.firstname",
+        "from_clause": "FROM {{leaf_2}} AS leaf_2 JOIN payment AS p ON leaf_2.member_no = p.member_no JOIN member AS m ON p.member_no = m.member_no",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Final scalar block returning the name of the member with the highest payment in the region with the most providers"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "Counts providers per region",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM region AS r\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 9,
+            "preview": [
+              {
+                "region_no": 1,
+                "region_name": "North American",
+                "street": "111 First St.",
+                "city": "Toronto",
+                "state_prov": "ON",
+                "country": "Ca",
+                "mail_code": "",
+                "phone_no": "",
+                "region_code": ""
+              },
+              {
+                "region_no": 2,
+                "region_name": "South American",
+                "street": "222 Second St.",
+                "city": "Sao Paulo",
+                "state_prov": "",
+                "country": "Br",
+                "mail_code": "",
+                "phone_no": "",
+                "region_code": ""
+              },
+              {
+                "region_no": 3,
+                "region_name": "Scandanavian",
+                "street": "333 Third St.",
+                "city": "Goteborg",
+                "state_prov": "",
+                "country": "Sw",
+                "mail_code": "",
+                "phone_no": "",
+                "region_code": ""
+              },
+              {
+                "region_no": 4,
+                "region_name": "Western Europea",
+                "street": "444 Fourth St.",
+                "city": "Brussels",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "region_code": ""
+              },
+              {
+                "region_no": 5,
+                "region_name": "Eastern Europea",
+                "street": "555 Fifth St St",
+                "city": "Budapest",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "region_code": ""
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN provider AS p ON r.region_no = p.region_no",
+          "sql": "SELECT *\nFROM region AS r\nJOIN provider AS p ON r.region_no = p.region_no\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 21,
+            "preview": [
+              {
+                "region_no": 9,
+                "region_name": "Africa",
+                "street": "999 Ninth St.",
+                "city": "Mombassa",
+                "state_prov": "",
+                "country": "Ke",
+                "mail_code": "",
+                "phone_no": "",
+                "region_code": "",
+                "provider_no": 5,
+                "provider_name": "Prov. Apex Oper",
+                "street__dup1": " ",
+                "city__dup1": " ",
+                "state_prov__dup1": "",
+                "mail_code__dup1": "",
+                "country__dup1": "",
+                "phone_no__dup1": "",
+                "issue_dt": "1999-10-13T10:41:18",
+                "expr_dt": "2000-10-12T10:41:18",
+                "region_no__dup1": 9,
+                "provider_code": ""
+              },
+              {
+                "region_no": 9,
+                "region_name": "Africa",
+                "street": "999 Ninth St.",
+                "city": "Mombassa",
+                "state_prov": "",
+                "country": "Ke",
+                "mail_code": "",
+                "phone_no": "",
+                "region_code": "",
+                "provider_no": 10,
+                "provider_name": "Prov. Apex Tran",
+                "street__dup1": " ",
+                "city__dup1": " ",
+                "state_prov__dup1": "",
+                "mail_code__dup1": "",
+                "country__dup1": "",
+                "phone_no__dup1": "",
+                "issue_dt": "1999-10-13T10:41:18",
+                "expr_dt": "2000-10-12T10:41:18",
+                "region_no__dup1": 9,
+                "provider_code": ""
+              },
+              {
+                "region_no": 9,
+                "region_name": "Africa",
+                "street": "999 Ninth St.",
+                "city": "Mombassa",
+                "state_prov": "",
+                "country": "Ke",
+                "mail_code": "",
+                "phone_no": "",
+                "region_code": "",
+                "provider_no": 12,
+                "provider_name": "Prov. Boston Li",
+                "street__dup1": " ",
+                "city__dup1": " ",
+                "state_prov__dup1": "",
+                "mail_code__dup1": "",
+                "country__dup1": "",
+                "phone_no__dup1": "",
+                "issue_dt": "1999-10-13T10:41:18",
+                "expr_dt": "2000-10-12T10:41:18",
+                "region_no__dup1": 9,
+                "provider_code": ""
+              },
+              {
+                "region_no": 9,
+                "region_name": "Africa",
+                "street": "999 Ninth St.",
+                "city": "Mombassa",
+                "state_prov": "",
+                "country": "Ke",
+                "mail_code": "",
+                "phone_no": "",
+                "region_code": "",
+                "provider_no": 35,
+                "provider_name": "Prov. Driven Op",
+                "street__dup1": " ",
+                "city__dup1": " ",
+                "state_prov__dup1": "",
+                "mail_code__dup1": "",
+                "country__dup1": "",
+                "phone_no__dup1": "",
+                "issue_dt": "1999-10-13T10:41:18",
+                "expr_dt": "2000-10-12T10:41:18",
+                "region_no__dup1": 9,
+                "provider_code": ""
+              },
+              {
+                "region_no": 9,
+                "region_name": "Africa",
+                "street": "999 Ninth St.",
+                "city": "Mombassa",
+                "state_prov": "",
+                "country": "Ke",
+                "mail_code": "",
+                "phone_no": "",
+                "region_code": "",
+                "provider_no": 60,
+                "provider_name": "Prov. Famous Tr",
+                "street__dup1": " ",
+                "city__dup1": " ",
+                "state_prov__dup1": "",
+                "mail_code__dup1": "",
+                "country__dup1": "",
+                "phone_no__dup1": "",
+                "issue_dt": "1999-10-13T10:41:19",
+                "expr_dt": "2000-10-12T10:41:19",
+                "region_no__dup1": 9,
+                "provider_code": ""
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT r.region_no, r.region_name, COUNT(p.provider_no) AS provider_count\nFROM region AS r\nJOIN provider AS p ON r.region_no = p.region_no\nGROUP BY r.region_no, r.region_name",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 7,
+            "column_count": 3,
+            "preview": [
+              {
+                "region_no": 3,
+                "region_name": "Scandanavian",
+                "provider_count": 1
+              },
+              {
+                "region_no": 4,
+                "region_name": "Western Europea",
+                "provider_count": 3
+              },
+              {
+                "region_no": 5,
+                "region_name": "Eastern Europea",
+                "provider_count": 5
+              },
+              {
+                "region_no": 6,
+                "region_name": "Japan",
+                "provider_count": 8
+              },
+              {
+                "region_no": 7,
+                "region_name": "China",
+                "provider_count": 18
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "leaf_2",
+      "notes": "Selects members in the region with the most providers",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM member AS m\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 18,
+            "preview": [
+              {
+                "member_no": 343,
+                "lastname": "EFLIN",
+                "firstname": "CVTJKCORUDWWKN",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:41:37",
+                "expr_dt": "2000-10-12T10:41:37",
+                "region_no": 3,
+                "corp_no": 375.0,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": ""
+              },
+              {
+                "member_no": 831,
+                "lastname": "YEONG",
+                "firstname": "JUNGGWVBBTG",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:41:42",
+                "expr_dt": "2000-10-12T10:41:42",
+                "region_no": 5,
+                "corp_no": NaN,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": ""
+              },
+              {
+                "member_no": 1238,
+                "lastname": "PAYNTER",
+                "firstname": "FPDURGPMIY",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:41:48",
+                "expr_dt": "2000-10-12T10:41:48",
+                "region_no": 2,
+                "corp_no": NaN,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": ""
+              },
+              {
+                "member_no": 1946,
+                "lastname": "VANN",
+                "firstname": "WTVNFF",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:41:57",
+                "expr_dt": "2000-10-12T10:41:57",
+                "region_no": 5,
+                "corp_no": NaN,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": ""
+              },
+              {
+                "member_no": 1986,
+                "lastname": "JONES",
+                "firstname": "YEJKOKEHBXKHSX",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:41:57",
+                "expr_dt": "2000-10-12T10:41:57",
+                "region_no": 6,
+                "corp_no": NaN,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": ""
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "m.region_no = (SELECT leaf_1.region_no FROM {{leaf_1}} AS leaf_1 ORDER BY leaf_1.provider_count DESC LIMIT 1)",
+          "sql": "SELECT *\nFROM member AS m\nWHERE (m.region_no = (SELECT leaf_1.region_no FROM (SELECT r.region_no, r.region_name, COUNT(p.provider_no) AS provider_count\nFROM region AS r\nJOIN provider AS p ON r.region_no = p.region_no\nGROUP BY r.region_no, r.region_name) AS leaf_1 ORDER BY leaf_1.provider_count DESC LIMIT 1))\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 18,
+            "preview": [
+              {
+                "member_no": 3019,
+                "lastname": "CHEN",
+                "firstname": "RNSKHUNELGAQBB",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:42:10",
+                "expr_dt": "2000-10-12T10:42:10",
+                "region_no": 9,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": ""
+              },
+              {
+                "member_no": 3532,
+                "lastname": "VANN",
+                "firstname": "LSVUT",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:42:17",
+                "expr_dt": "2000-10-12T10:42:17",
+                "region_no": 9,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": ""
+              },
+              {
+                "member_no": 6727,
+                "lastname": "STEIN",
+                "firstname": "OHYCDBNLCLQ",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:42:56",
+                "expr_dt": "2000-10-12T10:42:56",
+                "region_no": 9,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": ""
+              },
+              {
+                "member_no": 8097,
+                "lastname": "KAHRMANN",
+                "firstname": "HUBXKKYWXDYGDH",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:43:13",
+                "expr_dt": "2000-10-12T10:43:13",
+                "region_no": 9,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": ""
+              },
+              {
+                "member_no": 8208,
+                "lastname": "RYAN",
+                "firstname": "LNBPGXOI",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:43:15",
+                "expr_dt": "2000-10-12T10:43:15",
+                "region_no": 9,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": ""
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT m.member_no, m.region_no\nFROM member AS m\nWHERE (m.region_no = (SELECT leaf_1.region_no FROM (SELECT r.region_no, r.region_name, COUNT(p.provider_no) AS provider_count\nFROM region AS r\nJOIN provider AS p ON r.region_no = p.region_no\nGROUP BY r.region_no, r.region_name) AS leaf_1 ORDER BY leaf_1.provider_count DESC LIMIT 1))",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 9,
+            "column_count": 2,
+            "preview": [
+              {
+                "member_no": 3019,
+                "region_no": 9
+              },
+              {
+                "member_no": 3532,
+                "region_no": 9
+              },
+              {
+                "member_no": 6727,
+                "region_no": 9
+              },
+              {
+                "member_no": 8097,
+                "region_no": 9
+              },
+              {
+                "member_no": 8208,
+                "region_no": 9
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "Final scalar block returning the name of the member with the highest payment in the region with the most providers",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT m.member_no, m.region_no\nFROM member AS m\nWHERE (m.region_no = (SELECT leaf_1.region_no FROM (SELECT r.region_no, r.region_name, COUNT(p.provider_no) AS provider_count\nFROM region AS r\nJOIN provider AS p ON r.region_no = p.region_no\nGROUP BY r.region_no, r.region_name) AS leaf_1 ORDER BY leaf_1.provider_count DESC LIMIT 1))) AS leaf_2 JOIN payment AS p ON leaf_2.member_no = p.member_no JOIN member AS m ON p.member_no = m.member_no\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 26,
+            "preview": [
+              {
+                "member_no": 3532,
+                "region_no": 9,
+                "payment_no": 1971,
+                "member_no__dup1": 3532,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 2931.0,
+                "statement_no": 0,
+                "payment_code": "",
+                "member_no__dup2": 3532,
+                "lastname": "VANN",
+                "firstname": "LSVUT",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:42:17",
+                "expr_dt": "2000-10-12T10:42:17",
+                "region_no__dup1": 9,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": ""
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT m.lastname || ' ' || m.firstname\nFROM (SELECT m.member_no, m.region_no\nFROM member AS m\nWHERE (m.region_no = (SELECT leaf_1.region_no FROM (SELECT r.region_no, r.region_name, COUNT(p.provider_no) AS provider_count\nFROM region AS r\nJOIN provider AS p ON r.region_no = p.region_no\nGROUP BY r.region_no, r.region_name) AS leaf_1 ORDER BY leaf_1.provider_count DESC LIMIT 1))) AS leaf_2 JOIN payment AS p ON leaf_2.member_no = p.member_no JOIN member AS m ON p.member_no = m.member_no",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "m.lastname || ' ' || m.firstname": "VANN LSVUT"
+              }
+            ],
+            "scalar": true,
+            "text_scalar": true
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 22,
+  "sample_retry": 1,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.4533801169590643,
+    "nearest": {
+      "sample_index": 11,
+      "answer_mode": "text",
+      "target_join_count": 3,
+      "similarity": 0.4533801169590643,
+      "sql": "SELECT leaf_1.provider_name\nFROM (SELECT p.provider_name\nFROM (SELECT ch.charge_amt, ch.provider_no FROM (SELECT m.member_no FROM member m JOIN region r ON m.region_no = r.region_no WHERE r.region_name = 'South American') AS south_american_members JOIN charge ch ON south_american_members.member_no = ch.member_no ORDER BY ch.charge_amt DESC LIMIT 1) AS max_charge\nJOIN provider p ON max_charge.provider_no = p.provider_no) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": null,
+    "nearest": null,
+    "reason": "not numeric"
+  },
+  "question": "What are the full names of members who are in the region with the highest number of providers and have made at least one payment?",
+  "answer": "VANN LSVUT"
+}

@@ -1,0 +1,7 @@
+SELECT SUM(leaf_1.unitprice * leaf_1.quantity * (1 - leaf_1.discount)) AS total_sales_revenue
+FROM (SELECT e.employeeid, e.firstname, e.lastname, o.orderid, o.orderdate, o.shippeddate, od.unitprice, od.quantity, od.discount
+FROM employees e
+JOIN orders o ON e.employeeid = o.employeeid
+JOIN "order details" od ON o.orderid = od.orderid
+JOIN employeeterritories et ON e.employeeid = et.employeeid
+WHERE (et.territoryid IN (SELECT territoryid FROM territories WHERE regionid = 2)) AND (strftime('%Y', o.shippeddate) = '1997')) AS leaf_1

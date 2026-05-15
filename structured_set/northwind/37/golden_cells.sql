@@ -1,0 +1,1 @@
+SELECT o.orderid, od.unitprice, od.quantity, (od.unitprice * od.quantity) AS revenue FROM orders o JOIN "order details" od ON o.orderid = od.orderid JOIN products p ON od.productid = p.productid JOIN categories c ON p.categoryid = c.categoryid WHERE (c.categoryname = 'Beverages') AND (strftime('%Y', o.orderdate) = '1997')

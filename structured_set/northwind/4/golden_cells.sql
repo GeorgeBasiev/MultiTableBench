@@ -1,0 +1,1 @@
+SELECT e.employeeid, e.firstname, e.lastname, od.quantity, od.unitprice FROM employees e JOIN orders o ON e.employeeid = o.employeeid JOIN "order details" od ON o.orderid = od.orderid JOIN products p ON od.productid = p.productid WHERE (e.region = 'WA') AND (strftime('%Y', o.orderdate) = '1997') AND (p.discontinued = 1)

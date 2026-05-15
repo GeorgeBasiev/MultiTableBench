@@ -1,0 +1,1431 @@
+{
+  "sample_index": 23,
+  "db_name": "ErgastF1",
+  "answer_mode": "text",
+  "target_join_count": 3,
+  "actual_join_count": 3,
+  "numeric_answer": null,
+  "constraints": {
+    "answer_mode": "text",
+    "target_join_count": 3,
+    "min_hops": 3,
+    "max_hops": 3,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Identify the nationality of the constructor that won the most races in the 2005 season",
+  "manifest": {
+    "db_name": "ErgastF1",
+    "sample_dir": "structured_set/ErgastF1/23",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "circuits",
+        "remote_row_count": 73,
+        "snapshot_row_count": 73,
+        "target_limit": 73,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "circuitid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "circuitref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "location",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lat",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "lng",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "alt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructorresults",
+        "remote_row_count": 11082,
+        "snapshot_row_count": 85,
+        "target_limit": 85,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "constructorresultsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "status",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructors",
+        "remote_row_count": 208,
+        "snapshot_row_count": 106,
+        "target_limit": 106,
+        "relational_rows_added": 44,
+        "columns": [
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "nationality",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructorstandings",
+        "remote_row_count": 11836,
+        "snapshot_row_count": 96,
+        "target_limit": 96,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "constructorstandingsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "wins",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "drivers",
+        "remote_row_count": 840,
+        "snapshot_row_count": 89,
+        "target_limit": 89,
+        "relational_rows_added": 602,
+        "columns": [
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "code",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "forename",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "surname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "dob",
+            "mysql_type": "date",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "nationality",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "driverstandings",
+        "remote_row_count": 31578,
+        "snapshot_row_count": 94,
+        "target_limit": 94,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "driverstandingsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "wins",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "laptimes",
+        "remote_row_count": 420369,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "pitstops",
+        "remote_row_count": 6070,
+        "snapshot_row_count": 65,
+        "target_limit": 65,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stop",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "time",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "duration",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "qualifying",
+        "remote_row_count": 7397,
+        "snapshot_row_count": 80,
+        "target_limit": 80,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "qualifyid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "q1",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "q2",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "q3",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "races",
+        "remote_row_count": 976,
+        "snapshot_row_count": 112,
+        "target_limit": 112,
+        "relational_rows_added": 1526,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "round",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "circuitid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "date",
+            "mysql_type": "date",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "time",
+            "mysql_type": "time",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "results",
+        "remote_row_count": 23657,
+        "snapshot_row_count": 72,
+        "target_limit": 72,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "resultid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "grid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "positionorder",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "laps",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "fastestlap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "fastestlaptime",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fastestlapspeed",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "statusid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "seasons",
+        "remote_row_count": 68,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "status",
+        "remote_row_count": 134,
+        "snapshot_row_count": 85,
+        "target_limit": 85,
+        "relational_rows_added": 12,
+        "columns": [
+          {
+            "name": "statusid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "status",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "target",
+        "remote_row_count": 31578,
+        "snapshot_row_count": 75,
+        "target_limit": 75,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "targetid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "win",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Identify the nationality of the constructor that won the most races in the 2005 season",
+    "answer_mode": "text",
+    "final_block_name": "root",
+    "detail_query": "SELECT race.year, race.name, constructor.name AS constructor_name, constructor.nationality, COUNT(results.resultid) AS race_wins FROM races AS race JOIN results ON race.raceid = results.raceid JOIN constructors AS constructor ON results.constructorid = constructor.constructorid WHERE race.year = 2005 AND results.position = 1 GROUP BY race.raceid, constructor.constructorid ORDER BY race_wins DESC LIMIT 1",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT race.year, constructor.constructorid, COUNT(results.resultid) AS race_wins",
+        "from_clause": "FROM races AS race",
+        "join_clauses": [
+          "JOIN results ON race.raceid = results.raceid",
+          "JOIN constructors AS constructor ON results.constructorid = constructor.constructorid"
+        ],
+        "where_clauses": [
+          "race.year = 2005",
+          "results.position = 1"
+        ],
+        "group_by_clause": "GROUP BY race.year, constructor.constructorid",
+        "having_clauses": [],
+        "notes": "Counts the number of race wins per constructor in the 2005 season"
+      },
+      {
+        "name": "leaf_2",
+        "role": "leaf",
+        "select_clause": "SELECT constructor.constructorid, constructor.nationality",
+        "from_clause": "FROM constructors AS constructor",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Retrieves the nationality of each constructor"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT leaf_1.nationality",
+        "from_clause": "FROM (SELECT leaf_1.year, leaf_1.constructorid, leaf_1.race_wins, leaf_2.nationality FROM {{leaf_1}} AS leaf_1 JOIN {{leaf_2}} AS leaf_2 ON leaf_1.constructorid = leaf_2.constructorid) AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Final scalar block that retrieves the nationality of the constructor with the most race wins in the 2005 season"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "Counts the number of race wins per constructor in the 2005 season",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM races AS race\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 8,
+            "preview": [
+              {
+                "raceid": 3,
+                "year": 2009,
+                "round": 3,
+                "circuitid": 17,
+                "name": "Chinese Grand Prix",
+                "date": "2009-04-19",
+                "time": "07:00:00",
+                "url": "http://en.wikipedia.org/wiki/2009_Chinese_Grand_Prix"
+              },
+              {
+                "raceid": 9,
+                "year": 2009,
+                "round": 9,
+                "circuitid": 20,
+                "name": "German Grand Prix",
+                "date": "2009-07-12",
+                "time": "12:00:00",
+                "url": "http://en.wikipedia.org/wiki/2009_German_Grand_Prix"
+              },
+              {
+                "raceid": 17,
+                "year": 2009,
+                "round": 17,
+                "circuitid": 24,
+                "name": "Abu Dhabi Grand Prix",
+                "date": "2009-11-01",
+                "time": "11:00:00",
+                "url": "http://en.wikipedia.org/wiki/2009_Abu_Dhabi_Grand_Prix"
+              },
+              {
+                "raceid": 25,
+                "year": 2008,
+                "round": 8,
+                "circuitid": 8,
+                "name": "French Grand Prix",
+                "date": "2008-06-22",
+                "time": "12:00:00",
+                "url": "http://en.wikipedia.org/wiki/2008_French_Grand_Prix"
+              },
+              {
+                "raceid": 37,
+                "year": 2007,
+                "round": 2,
+                "circuitid": 2,
+                "name": "Malaysian Grand Prix",
+                "date": "2007-04-08",
+                "time": "07:00:00",
+                "url": "http://en.wikipedia.org/wiki/2007_Malaysian_Grand_Prix"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN results ON race.raceid = results.raceid",
+          "sql": "SELECT *\nFROM races AS race\nJOIN results ON race.raceid = results.raceid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 26,
+            "preview": [
+              {
+                "raceid": 25,
+                "year": 2008,
+                "round": 8,
+                "circuitid": 8,
+                "name": "French Grand Prix",
+                "date": "2008-06-22",
+                "time": "12:00:00",
+                "url": "http://en.wikipedia.org/wiki/2008_French_Grand_Prix",
+                "resultid": 153,
+                "raceid__dup1": 25,
+                "driverid": 9,
+                "constructorid": 2,
+                "number": 4,
+                "grid": 5,
+                "position": 5.0,
+                "positiontext": "5",
+                "positionorder": 5,
+                "points": 4.0,
+                "laps": 70,
+                "time__dup1": "+30.512",
+                "milliseconds": 5540757.0,
+                "fastestlap": 16.0,
+                "rank": 4.0,
+                "fastestlaptime": "1:17.172",
+                "fastestlapspeed": "205.768",
+                "statusid": 1
+              },
+              {
+                "raceid": 37,
+                "year": 2007,
+                "round": 2,
+                "circuitid": 2,
+                "name": "Malaysian Grand Prix",
+                "date": "2007-04-08",
+                "time": "07:00:00",
+                "url": "http://en.wikipedia.org/wiki/2007_Malaysian_Grand_Prix",
+                "resultid": 398,
+                "raceid__dup1": 37,
+                "driverid": 5,
+                "constructorid": 4,
+                "number": 4,
+                "grid": 11,
+                "position": 8.0,
+                "positiontext": "8",
+                "positionorder": 8,
+                "points": 1.0,
+                "laps": 56,
+                "time__dup1": "+1:12.015",
+                "milliseconds": 5606945.0,
+                "fastestlap": 41.0,
+                "rank": 7.0,
+                "fastestlaptime": "1:37.810",
+                "fastestlapspeed": "204.015",
+                "statusid": 1
+              },
+              {
+                "raceid": 47,
+                "year": 2007,
+                "round": 12,
+                "circuitid": 5,
+                "name": "Turkish Grand Prix",
+                "date": "2007-08-26",
+                "time": "12:00:00",
+                "url": "http://en.wikipedia.org/wiki/2007_Turkish_Grand_Prix",
+                "resultid": 612,
+                "raceid__dup1": 47,
+                "driverid": 8,
+                "constructorid": 6,
+                "number": 6,
+                "grid": 3,
+                "position": 2.0,
+                "positiontext": "2",
+                "positionorder": 2,
+                "points": 8.0,
+                "laps": 58,
+                "time__dup1": "+2.275",
+                "milliseconds": 5204436.0,
+                "fastestlap": 57.0,
+                "rank": 1.0,
+                "fastestlaptime": "1:27.295",
+                "fastestlapspeed": "220.136",
+                "statusid": 1
+              },
+              {
+                "raceid": 75,
+                "year": 2005,
+                "round": 5,
+                "circuitid": 4,
+                "name": "Spanish Grand Prix",
+                "date": "2005-05-08",
+                "time": "14:00:00",
+                "url": "http://en.wikipedia.org/wiki/2005_Spanish_Grand_Prix",
+                "resultid": 1236,
+                "raceid__dup1": 75,
+                "driverid": 24,
+                "constructorid": 9,
+                "number": 15,
+                "grid": 11,
+                "position": NaN,
+                "positiontext": "R",
+                "positionorder": 18,
+                "points": 0.0,
+                "laps": 9,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": 9.0,
+                "rank": 15.0,
+                "fastestlaptime": "1:19.435",
+                "fastestlapspeed": "209.695",
+                "statusid": 20
+              },
+              {
+                "raceid": 109,
+                "year": 2003,
+                "round": 2,
+                "circuitid": 2,
+                "name": "Malaysian Grand Prix",
+                "date": "2003-03-23",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/2003_Malaysian_Grand_Prix",
+                "resultid": 1902,
+                "raceid__dup1": 109,
+                "driverid": 2,
+                "constructorid": 15,
+                "number": 9,
+                "grid": 6,
+                "position": 8.0,
+                "positiontext": "8",
+                "positionorder": 8,
+                "points": 1.0,
+                "laps": 55,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": NaN,
+                "rank": NaN,
+                "fastestlaptime": NaN,
+                "fastestlapspeed": NaN,
+                "statusid": 11
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN constructors AS constructor ON results.constructorid = constructor.constructorid",
+          "sql": "SELECT *\nFROM races AS race\nJOIN results ON race.raceid = results.raceid\nJOIN constructors AS constructor ON results.constructorid = constructor.constructorid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 31,
+            "preview": [
+              {
+                "raceid": 25,
+                "year": 2008,
+                "round": 8,
+                "circuitid": 8,
+                "name": "French Grand Prix",
+                "date": "2008-06-22",
+                "time": "12:00:00",
+                "url": "http://en.wikipedia.org/wiki/2008_French_Grand_Prix",
+                "resultid": 153,
+                "raceid__dup1": 25,
+                "driverid": 9,
+                "constructorid": 2,
+                "number": 4,
+                "grid": 5,
+                "position": 5.0,
+                "positiontext": "5",
+                "positionorder": 5,
+                "points": 4.0,
+                "laps": 70,
+                "time__dup1": "+30.512",
+                "milliseconds": 5540757.0,
+                "fastestlap": 16.0,
+                "rank": 4.0,
+                "fastestlaptime": "1:17.172",
+                "fastestlapspeed": "205.768",
+                "statusid": 1,
+                "constructorid__dup1": 2,
+                "constructorref": "bmw_sauber",
+                "name__dup1": "BMW Sauber",
+                "nationality": "German",
+                "url__dup1": "http://en.wikipedia.org/wiki/BMW_Sauber"
+              },
+              {
+                "raceid": 37,
+                "year": 2007,
+                "round": 2,
+                "circuitid": 2,
+                "name": "Malaysian Grand Prix",
+                "date": "2007-04-08",
+                "time": "07:00:00",
+                "url": "http://en.wikipedia.org/wiki/2007_Malaysian_Grand_Prix",
+                "resultid": 398,
+                "raceid__dup1": 37,
+                "driverid": 5,
+                "constructorid": 4,
+                "number": 4,
+                "grid": 11,
+                "position": 8.0,
+                "positiontext": "8",
+                "positionorder": 8,
+                "points": 1.0,
+                "laps": 56,
+                "time__dup1": "+1:12.015",
+                "milliseconds": 5606945.0,
+                "fastestlap": 41.0,
+                "rank": 7.0,
+                "fastestlaptime": "1:37.810",
+                "fastestlapspeed": "204.015",
+                "statusid": 1,
+                "constructorid__dup1": 4,
+                "constructorref": "renault",
+                "name__dup1": "Renault",
+                "nationality": "French",
+                "url__dup1": "http://en.wikipedia.org/wiki/Renault_F1"
+              },
+              {
+                "raceid": 47,
+                "year": 2007,
+                "round": 12,
+                "circuitid": 5,
+                "name": "Turkish Grand Prix",
+                "date": "2007-08-26",
+                "time": "12:00:00",
+                "url": "http://en.wikipedia.org/wiki/2007_Turkish_Grand_Prix",
+                "resultid": 612,
+                "raceid__dup1": 47,
+                "driverid": 8,
+                "constructorid": 6,
+                "number": 6,
+                "grid": 3,
+                "position": 2.0,
+                "positiontext": "2",
+                "positionorder": 2,
+                "points": 8.0,
+                "laps": 58,
+                "time__dup1": "+2.275",
+                "milliseconds": 5204436.0,
+                "fastestlap": 57.0,
+                "rank": 1.0,
+                "fastestlaptime": "1:27.295",
+                "fastestlapspeed": "220.136",
+                "statusid": 1,
+                "constructorid__dup1": 6,
+                "constructorref": "ferrari",
+                "name__dup1": "Ferrari",
+                "nationality": "Italian",
+                "url__dup1": "http://en.wikipedia.org/wiki/Scuderia_Ferrari"
+              },
+              {
+                "raceid": 75,
+                "year": 2005,
+                "round": 5,
+                "circuitid": 4,
+                "name": "Spanish Grand Prix",
+                "date": "2005-05-08",
+                "time": "14:00:00",
+                "url": "http://en.wikipedia.org/wiki/2005_Spanish_Grand_Prix",
+                "resultid": 1236,
+                "raceid__dup1": 75,
+                "driverid": 24,
+                "constructorid": 9,
+                "number": 15,
+                "grid": 11,
+                "position": NaN,
+                "positiontext": "R",
+                "positionorder": 18,
+                "points": 0.0,
+                "laps": 9,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": 9.0,
+                "rank": 15.0,
+                "fastestlaptime": "1:19.435",
+                "fastestlapspeed": "209.695",
+                "statusid": 20,
+                "constructorid__dup1": 9,
+                "constructorref": "red_bull",
+                "name__dup1": "Red Bull",
+                "nationality": "Austrian",
+                "url__dup1": "http://en.wikipedia.org/wiki/Red_Bull_Racing"
+              },
+              {
+                "raceid": 109,
+                "year": 2003,
+                "round": 2,
+                "circuitid": 2,
+                "name": "Malaysian Grand Prix",
+                "date": "2003-03-23",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/2003_Malaysian_Grand_Prix",
+                "resultid": 1902,
+                "raceid__dup1": 109,
+                "driverid": 2,
+                "constructorid": 15,
+                "number": 9,
+                "grid": 6,
+                "position": 8.0,
+                "positiontext": "8",
+                "positionorder": 8,
+                "points": 1.0,
+                "laps": 55,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": NaN,
+                "rank": NaN,
+                "fastestlaptime": NaN,
+                "fastestlapspeed": NaN,
+                "statusid": 11,
+                "constructorid__dup1": 15,
+                "constructorref": "sauber",
+                "name__dup1": "Sauber",
+                "nationality": "Swiss",
+                "url__dup1": "http://en.wikipedia.org/wiki/Sauber"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "race.year = 2005",
+          "sql": "SELECT *\nFROM races AS race\nJOIN results ON race.raceid = results.raceid\nJOIN constructors AS constructor ON results.constructorid = constructor.constructorid\nWHERE (race.year = 2005)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 31,
+            "preview": [
+              {
+                "raceid": 75,
+                "year": 2005,
+                "round": 5,
+                "circuitid": 4,
+                "name": "Spanish Grand Prix",
+                "date": "2005-05-08",
+                "time": "14:00:00",
+                "url": "http://en.wikipedia.org/wiki/2005_Spanish_Grand_Prix",
+                "resultid": 1236,
+                "raceid__dup1": 75,
+                "driverid": 24,
+                "constructorid": 9,
+                "number": 15,
+                "grid": 11,
+                "position": null,
+                "positiontext": "R",
+                "positionorder": 18,
+                "points": 0.0,
+                "laps": 9,
+                "time__dup1": null,
+                "milliseconds": null,
+                "fastestlap": 9,
+                "rank": 15,
+                "fastestlaptime": "1:19.435",
+                "fastestlapspeed": "209.695",
+                "statusid": 20,
+                "constructorid__dup1": 9,
+                "constructorref": "red_bull",
+                "name__dup1": "Red Bull",
+                "nationality": "Austrian",
+                "url__dup1": "http://en.wikipedia.org/wiki/Red_Bull_Racing"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "results.position = 1",
+          "sql": "SELECT *\nFROM races AS race\nJOIN results ON race.raceid = results.raceid\nJOIN constructors AS constructor ON results.constructorid = constructor.constructorid\nWHERE (race.year = 2005) AND (results.position = 1)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 31,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "results.positiontext = '1'",
+          "sql": "SELECT *\nFROM races AS race\nJOIN results ON race.raceid = results.raceid\nJOIN constructors AS constructor ON results.constructorid = constructor.constructorid\nWHERE (race.year = 2005) AND (results.positiontext = '1')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 31,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "results.position = 1",
+          "sql": "SELECT *\nFROM races AS race\nJOIN results ON race.raceid = results.raceid\nJOIN constructors AS constructor ON results.constructorid = constructor.constructorid\nWHERE (race.year = 2005) AND (results.position = 1)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 31,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "results.positiontext = 1",
+          "sql": "SELECT *\nFROM races AS race\nJOIN results ON race.raceid = results.raceid\nJOIN constructors AS constructor ON results.constructorid = constructor.constructorid\nWHERE (race.year = 2005) AND (results.positiontext = 1)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 31,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "results.position = 1",
+          "sql": "SELECT *\nFROM races AS race\nJOIN results ON race.raceid = results.raceid\nJOIN constructors AS constructor ON results.constructorid = constructor.constructorid\nWHERE (race.year = 2005) AND (results.position = 1)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 31,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "results.positiontext = '1'",
+          "sql": "SELECT *\nFROM races AS race\nJOIN results ON race.raceid = results.raceid\nJOIN constructors AS constructor ON results.constructorid = constructor.constructorid\nWHERE (race.year = 2005) AND (results.positiontext = '1')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 31,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where_skipped",
+          "clause": "results.position = 1",
+          "last_candidate": "results.position = 1",
+          "reason": "where predicate made the probe empty"
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT race.year, constructor.constructorid, COUNT(results.resultid) AS race_wins\nFROM races AS race\nJOIN results ON race.raceid = results.raceid\nJOIN constructors AS constructor ON results.constructorid = constructor.constructorid\nWHERE (race.year = 2005)\nGROUP BY race.year, constructor.constructorid",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 3,
+            "preview": [
+              {
+                "year": 2005,
+                "constructorid": 9,
+                "race_wins": 1
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "leaf_2",
+      "notes": "Retrieves the nationality of each constructor",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM constructors AS constructor\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 5,
+            "preview": [
+              {
+                "constructorid": 1,
+                "constructorref": "mclaren",
+                "name": "McLaren",
+                "nationality": "British",
+                "url": "http://en.wikipedia.org/wiki/McLaren"
+              },
+              {
+                "constructorid": 2,
+                "constructorref": "bmw_sauber",
+                "name": "BMW Sauber",
+                "nationality": "German",
+                "url": "http://en.wikipedia.org/wiki/BMW_Sauber"
+              },
+              {
+                "constructorid": 3,
+                "constructorref": "williams",
+                "name": "Williams",
+                "nationality": "British",
+                "url": "http://en.wikipedia.org/wiki/Williams_Grand_Prix_Engineering"
+              },
+              {
+                "constructorid": 4,
+                "constructorref": "renault",
+                "name": "Renault",
+                "nationality": "French",
+                "url": "http://en.wikipedia.org/wiki/Renault_F1"
+              },
+              {
+                "constructorid": 5,
+                "constructorref": "toro_rosso",
+                "name": "Toro Rosso",
+                "nationality": "Italian",
+                "url": "http://en.wikipedia.org/wiki/Scuderia_Toro_Rosso"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT constructor.constructorid, constructor.nationality\nFROM constructors AS constructor",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 106,
+            "column_count": 2,
+            "preview": [
+              {
+                "constructorid": 1,
+                "nationality": "British"
+              },
+              {
+                "constructorid": 2,
+                "nationality": "German"
+              },
+              {
+                "constructorid": 3,
+                "nationality": "British"
+              },
+              {
+                "constructorid": 4,
+                "nationality": "French"
+              },
+              {
+                "constructorid": 5,
+                "nationality": "Italian"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "Final scalar block that retrieves the nationality of the constructor with the most race wins in the 2005 season",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT leaf_1.year, leaf_1.constructorid, leaf_1.race_wins, leaf_2.nationality FROM (SELECT race.year, constructor.constructorid, COUNT(results.resultid) AS race_wins\nFROM races AS race\nJOIN results ON race.raceid = results.raceid\nJOIN constructors AS constructor ON results.constructorid = constructor.constructorid\nWHERE (race.year = 2005)\nGROUP BY race.year, constructor.constructorid) AS leaf_1 JOIN (SELECT constructor.constructorid, constructor.nationality\nFROM constructors AS constructor) AS leaf_2 ON leaf_1.constructorid = leaf_2.constructorid) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 4,
+            "preview": [
+              {
+                "year": 2005,
+                "constructorid": 9,
+                "race_wins": 1,
+                "nationality": "Austrian"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT leaf_1.nationality\nFROM (SELECT leaf_1.year, leaf_1.constructorid, leaf_1.race_wins, leaf_2.nationality FROM (SELECT race.year, constructor.constructorid, COUNT(results.resultid) AS race_wins\nFROM races AS race\nJOIN results ON race.raceid = results.raceid\nJOIN constructors AS constructor ON results.constructorid = constructor.constructorid\nWHERE (race.year = 2005)\nGROUP BY race.year, constructor.constructorid) AS leaf_1 JOIN (SELECT constructor.constructorid, constructor.nationality\nFROM constructors AS constructor) AS leaf_2 ON leaf_1.constructorid = leaf_2.constructorid) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "nationality": "Austrian"
+              }
+            ],
+            "scalar": true,
+            "text_scalar": true
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 7,
+  "sample_retry": 2,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.47669354838709677,
+    "nearest": {
+      "sample_index": 13,
+      "answer_mode": "text",
+      "target_join_count": 2,
+      "similarity": 0.47669354838709677,
+      "sql": "SELECT nationality\nFROM (SELECT c.name AS constructor_name, COUNT(r.raceid) AS race_wins, c.nationality\nFROM constructors c\nJOIN results rs ON c.constructorid = rs.constructorid\nJOIN races r ON rs.raceid = r.raceid\nWHERE (rs.positionorder = 1)\nGROUP BY c.constructorid, c.name, c.nationality) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": null,
+    "nearest": null,
+    "reason": "not numeric"
+  },
+  "question": "Which nationality had at least one constructor that won races in 2005?",
+  "answer": "Austrian"
+}

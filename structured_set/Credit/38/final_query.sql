@@ -1,0 +1,7 @@
+SELECT AVG(leaf_1.avg_charge_amt) AS average_charge_amount
+FROM (SELECT c.category_desc, AVG(ch.charge_amt) AS avg_charge_amt
+FROM charge AS ch
+JOIN member AS m ON ch.member_no = m.member_no
+JOIN category AS c ON ch.category_no = c.category_no
+WHERE (m.region_no IN (1, 2, 3, 4, 5, 6, 7, 8, 9))
+GROUP BY c.category_desc) AS leaf_1

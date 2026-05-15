@@ -1,0 +1,1 @@
+SELECT g.tmid, g.year, CAST(g.ga AS FLOAT) AS ga FROM goalies g JOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2 JOIN teams t ON g.tmid = t.tmid JOIN teamvsteam tvt ON t.tmid = tvt.tmid AND t.year = tvt.year JOIN teamvsteam opp ON tvt.oppid = opp.tmid WHERE (tvt.w > 0) AND (tvt.l >= 0)

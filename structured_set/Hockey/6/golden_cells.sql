@@ -1,0 +1,1 @@
+SELECT g.playerid, g.year, g.ga FROM goalies g JOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2 JOIN teams t ON g.tmid = t.tmid JOIN abbrev a ON t.confid = a.code WHERE (a.type = 'Conference') AND (a.fullname = 'Campbell Conference')

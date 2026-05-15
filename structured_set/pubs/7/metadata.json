@@ -1,0 +1,1076 @@
+{
+  "sample_index": 7,
+  "db_name": "pubs",
+  "answer_mode": "aggregate",
+  "target_join_count": 2,
+  "actual_join_count": 2,
+  "numeric_answer": null,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 2,
+    "min_hops": 2,
+    "max_hops": 2,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "What is the total number of authors who have written books that sold more than 1000 copies in the year-to-date sales?",
+  "manifest": {
+    "db_name": "pubs",
+    "sample_dir": "structured_set/pubs/7",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "authors",
+        "remote_row_count": 23,
+        "snapshot_row_count": 23,
+        "target_limit": 23,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "au_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_lname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_fname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "zip",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contract",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "discounts",
+        "remote_row_count": 3,
+        "snapshot_row_count": 3,
+        "target_limit": 3,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "discounttype",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lowqty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "highqty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discount",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          }
+        ]
+      },
+      {
+        "table_name": "employee",
+        "remote_row_count": 43,
+        "snapshot_row_count": 43,
+        "target_limit": 43,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "emp_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "minit",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "job_id",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "job_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hire_date",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "jobs",
+        "remote_row_count": 14,
+        "snapshot_row_count": 14,
+        "target_limit": 14,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "job_id",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "job_desc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "min_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "max_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "publishers",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pub_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "pub_info",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "logo",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          },
+          {
+            "name": "pr_info",
+            "mysql_type": "longtext",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "roysched",
+        "remote_row_count": 86,
+        "snapshot_row_count": 86,
+        "target_limit": 86,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lorange",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hirange",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "royalty",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "sales",
+        "remote_row_count": 21,
+        "snapshot_row_count": 21,
+        "target_limit": 21,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ord_num",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ord_date",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "qty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "payterms",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "stores",
+        "remote_row_count": 6,
+        "snapshot_row_count": 6,
+        "target_limit": 6,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "zip",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "titleauthor",
+        "remote_row_count": 25,
+        "snapshot_row_count": 25,
+        "target_limit": 25,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "au_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_ord",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "royaltyper",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "titles",
+        "remote_row_count": 18,
+        "snapshot_row_count": 18,
+        "target_limit": 18,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "type",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "price",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "advance",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "royalty",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ytd_sales",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pubdate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "What is the total number of authors who have written books that sold more than 1000 copies in the year-to-date sales?",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT a.au_id, a.au_lname, a.au_fname, t.title_id, t.title, t.ytd_sales FROM authors a JOIN titleauthor ta ON a.au_id = ta.au_id JOIN titles t ON ta.title_id = t.title_id WHERE t.ytd_sales > 1000",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT a.au_id, a.au_lname, a.au_fname, t.ytd_sales",
+        "from_clause": "FROM authors a",
+        "join_clauses": [
+          "JOIN titleauthor ta ON a.au_id = ta.au_id",
+          "JOIN titles t ON ta.title_id = t.title_id"
+        ],
+        "where_clauses": [
+          "t.ytd_sales > 1000"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Returns authors and their year-to-date sales for books that sold more than 1000 copies"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT COUNT(DISTINCT leaf_1.au_id)",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Final scalar block counting distinct authors"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "Returns authors and their year-to-date sales for books that sold more than 1000 copies",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM authors a\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 9,
+            "preview": [
+              {
+                "au_id": "172-32-1176",
+                "au_lname": "White",
+                "au_fname": "Johnson",
+                "phone": "408 496-7223",
+                "address": "10932 Bigge Rd.",
+                "city": "Menlo Park",
+                "state": "CA",
+                "zip": "94025",
+                "contract": 1
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1
+              },
+              {
+                "au_id": "238-95-7766",
+                "au_lname": "Carson",
+                "au_fname": "Cheryl",
+                "phone": "415 548-7723",
+                "address": "589 Darwin Ln.",
+                "city": "Berkeley",
+                "state": "CA",
+                "zip": "94705",
+                "contract": 1
+              },
+              {
+                "au_id": "267-41-2394",
+                "au_lname": "O'Leary",
+                "au_fname": "Michael",
+                "phone": "408 286-2428",
+                "address": "22 Cleveland Av. #14",
+                "city": "San Jose",
+                "state": "CA",
+                "zip": "95128",
+                "contract": 1
+              },
+              {
+                "au_id": "274-80-9391",
+                "au_lname": "Straight",
+                "au_fname": "Dean",
+                "phone": "415 834-2919",
+                "address": "5420 College Av.",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94609",
+                "contract": 1
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN titleauthor ta ON a.au_id = ta.au_id",
+          "sql": "SELECT *\nFROM authors a\nJOIN titleauthor ta ON a.au_id = ta.au_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 13,
+            "preview": [
+              {
+                "au_id": "172-32-1176",
+                "au_lname": "White",
+                "au_fname": "Johnson",
+                "phone": "408 496-7223",
+                "address": "10932 Bigge Rd.",
+                "city": "Menlo Park",
+                "state": "CA",
+                "zip": "94025",
+                "contract": 1,
+                "au_id__dup1": "172-32-1176",
+                "title_id": "PS3333",
+                "au_ord": 1,
+                "royaltyper": 100
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "au_id__dup1": "213-46-8915",
+                "title_id": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "au_id__dup1": "213-46-8915",
+                "title_id": "BU2075",
+                "au_ord": 1,
+                "royaltyper": 100
+              },
+              {
+                "au_id": "238-95-7766",
+                "au_lname": "Carson",
+                "au_fname": "Cheryl",
+                "phone": "415 548-7723",
+                "address": "589 Darwin Ln.",
+                "city": "Berkeley",
+                "state": "CA",
+                "zip": "94705",
+                "contract": 1,
+                "au_id__dup1": "238-95-7766",
+                "title_id": "PC1035",
+                "au_ord": 1,
+                "royaltyper": 100
+              },
+              {
+                "au_id": "267-41-2394",
+                "au_lname": "O'Leary",
+                "au_fname": "Michael",
+                "phone": "408 286-2428",
+                "address": "22 Cleveland Av. #14",
+                "city": "San Jose",
+                "state": "CA",
+                "zip": "95128",
+                "contract": 1,
+                "au_id__dup1": "267-41-2394",
+                "title_id": "BU1111",
+                "au_ord": 2,
+                "royaltyper": 40
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN titles t ON ta.title_id = t.title_id",
+          "sql": "SELECT *\nFROM authors a\nJOIN titleauthor ta ON a.au_id = ta.au_id\nJOIN titles t ON ta.title_id = t.title_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 23,
+            "preview": [
+              {
+                "au_id": "172-32-1176",
+                "au_lname": "White",
+                "au_fname": "Johnson",
+                "phone": "408 496-7223",
+                "address": "10932 Bigge Rd.",
+                "city": "Menlo Park",
+                "state": "CA",
+                "zip": "94025",
+                "contract": 1,
+                "au_id__dup1": "172-32-1176",
+                "title_id": "PS3333",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "PS3333",
+                "title": "Prolonged Data Deprivation: Four Case Studies",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 19.99,
+                "advance": 2000.0,
+                "royalty": 10,
+                "ytd_sales": 4072,
+                "notes": "What happens when the data runs dry?  Searching evaluations of information-shortage effects.",
+                "pubdate": "1991-06-12T00:00:00"
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "au_id__dup1": "213-46-8915",
+                "title_id": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40,
+                "title_id__dup1": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00"
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "au_id__dup1": "213-46-8915",
+                "title_id": "BU2075",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "BU2075",
+                "title": "You Can Combat Computer Stress!",
+                "type": "business",
+                "pub_id": "0736",
+                "price": 2.99,
+                "advance": 10125.0,
+                "royalty": 24,
+                "ytd_sales": 18722,
+                "notes": "The latest medical and psychological techniques for living with the electronic office. Easy-to-understand explanations.",
+                "pubdate": "1991-06-30T00:00:00"
+              },
+              {
+                "au_id": "238-95-7766",
+                "au_lname": "Carson",
+                "au_fname": "Cheryl",
+                "phone": "415 548-7723",
+                "address": "589 Darwin Ln.",
+                "city": "Berkeley",
+                "state": "CA",
+                "zip": "94705",
+                "contract": 1,
+                "au_id__dup1": "238-95-7766",
+                "title_id": "PC1035",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "PC1035",
+                "title": "But Is It User Friendly?",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 22.95,
+                "advance": 7000.0,
+                "royalty": 16,
+                "ytd_sales": 8780,
+                "notes": "A survey of software for the naive user, focusing on the 'friendliness' of each.",
+                "pubdate": "1991-06-30T00:00:00"
+              },
+              {
+                "au_id": "267-41-2394",
+                "au_lname": "O'Leary",
+                "au_fname": "Michael",
+                "phone": "408 286-2428",
+                "address": "22 Cleveland Av. #14",
+                "city": "San Jose",
+                "state": "CA",
+                "zip": "95128",
+                "contract": 1,
+                "au_id__dup1": "267-41-2394",
+                "title_id": "BU1111",
+                "au_ord": 2,
+                "royaltyper": 40,
+                "title_id__dup1": "BU1111",
+                "title": "Cooking with Computers: Surreptitious Balance Sheets",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 11.95,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 3876,
+                "notes": "Helpful hints on how to use your electronic resources to the best advantage.",
+                "pubdate": "1991-06-09T00:00:00"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "t.ytd_sales > 1000",
+          "sql": "SELECT *\nFROM authors a\nJOIN titleauthor ta ON a.au_id = ta.au_id\nJOIN titles t ON ta.title_id = t.title_id\nWHERE (t.ytd_sales > 1000)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 23,
+            "preview": [
+              {
+                "au_id": "172-32-1176",
+                "au_lname": "White",
+                "au_fname": "Johnson",
+                "phone": "408 496-7223",
+                "address": "10932 Bigge Rd.",
+                "city": "Menlo Park",
+                "state": "CA",
+                "zip": "94025",
+                "contract": 1,
+                "au_id__dup1": "172-32-1176",
+                "title_id": "PS3333",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "PS3333",
+                "title": "Prolonged Data Deprivation: Four Case Studies",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 19.99,
+                "advance": 2000.0,
+                "royalty": 10,
+                "ytd_sales": 4072,
+                "notes": "What happens when the data runs dry?  Searching evaluations of information-shortage effects.",
+                "pubdate": "1991-06-12T00:00:00"
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "au_id__dup1": "213-46-8915",
+                "title_id": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40,
+                "title_id__dup1": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00"
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "au_id__dup1": "213-46-8915",
+                "title_id": "BU2075",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "BU2075",
+                "title": "You Can Combat Computer Stress!",
+                "type": "business",
+                "pub_id": "0736",
+                "price": 2.99,
+                "advance": 10125.0,
+                "royalty": 24,
+                "ytd_sales": 18722,
+                "notes": "The latest medical and psychological techniques for living with the electronic office. Easy-to-understand explanations.",
+                "pubdate": "1991-06-30T00:00:00"
+              },
+              {
+                "au_id": "238-95-7766",
+                "au_lname": "Carson",
+                "au_fname": "Cheryl",
+                "phone": "415 548-7723",
+                "address": "589 Darwin Ln.",
+                "city": "Berkeley",
+                "state": "CA",
+                "zip": "94705",
+                "contract": 1,
+                "au_id__dup1": "238-95-7766",
+                "title_id": "PC1035",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "title_id__dup1": "PC1035",
+                "title": "But Is It User Friendly?",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 22.95,
+                "advance": 7000.0,
+                "royalty": 16,
+                "ytd_sales": 8780,
+                "notes": "A survey of software for the naive user, focusing on the 'friendliness' of each.",
+                "pubdate": "1991-06-30T00:00:00"
+              },
+              {
+                "au_id": "267-41-2394",
+                "au_lname": "O'Leary",
+                "au_fname": "Michael",
+                "phone": "408 286-2428",
+                "address": "22 Cleveland Av. #14",
+                "city": "San Jose",
+                "state": "CA",
+                "zip": "95128",
+                "contract": 1,
+                "au_id__dup1": "267-41-2394",
+                "title_id": "BU1111",
+                "au_ord": 2,
+                "royaltyper": 40,
+                "title_id__dup1": "BU1111",
+                "title": "Cooking with Computers: Surreptitious Balance Sheets",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 11.95,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 3876,
+                "notes": "Helpful hints on how to use your electronic resources to the best advantage.",
+                "pubdate": "1991-06-09T00:00:00"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT a.au_id, a.au_lname, a.au_fname, t.ytd_sales\nFROM authors a\nJOIN titleauthor ta ON a.au_id = ta.au_id\nJOIN titles t ON ta.title_id = t.title_id\nWHERE (t.ytd_sales > 1000)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 20,
+            "column_count": 4,
+            "preview": [
+              {
+                "au_id": "172-32-1176",
+                "au_lname": "White",
+                "au_fname": "Johnson",
+                "ytd_sales": 4072
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "ytd_sales": 4095
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "ytd_sales": 18722
+              },
+              {
+                "au_id": "238-95-7766",
+                "au_lname": "Carson",
+                "au_fname": "Cheryl",
+                "ytd_sales": 8780
+              },
+              {
+                "au_id": "267-41-2394",
+                "au_lname": "O'Leary",
+                "au_fname": "Michael",
+                "ytd_sales": 3876
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "Final scalar block counting distinct authors",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT a.au_id, a.au_lname, a.au_fname, t.ytd_sales\nFROM authors a\nJOIN titleauthor ta ON a.au_id = ta.au_id\nJOIN titles t ON ta.title_id = t.title_id\nWHERE (t.ytd_sales > 1000)) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 4,
+            "preview": [
+              {
+                "au_id": "172-32-1176",
+                "au_lname": "White",
+                "au_fname": "Johnson",
+                "ytd_sales": 4072
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "ytd_sales": 4095
+              },
+              {
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "ytd_sales": 18722
+              },
+              {
+                "au_id": "238-95-7766",
+                "au_lname": "Carson",
+                "au_fname": "Cheryl",
+                "ytd_sales": 8780
+              },
+              {
+                "au_id": "267-41-2394",
+                "au_lname": "O'Leary",
+                "au_fname": "Michael",
+                "ytd_sales": 3876
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT COUNT(DISTINCT leaf_1.au_id)\nFROM (SELECT a.au_id, a.au_lname, a.au_fname, t.ytd_sales\nFROM authors a\nJOIN titleauthor ta ON a.au_id = ta.au_id\nJOIN titles t ON ta.title_id = t.title_id\nWHERE (t.ytd_sales > 1000)) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "COUNT(DISTINCT leaf_1.au_id)": 17
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 1,
+  "sample_retry": 1,
+  "detail_fallback_used": false,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.6574761904761905,
+    "nearest": {
+      "sample_index": 21,
+      "answer_mode": "aggregate",
+      "target_join_count": 2,
+      "similarity": 0.6574761904761905,
+      "sql": "SELECT COUNT(DISTINCT leaf_1.au_id)\nFROM (SELECT authors.au_id, authors.au_lname, authors.au_fname, authors.contract\nFROM authors\nWHERE (authors.contract = 1)) AS leaf_1\nJOIN (SELECT titleauthor.au_id, titleauthor.title_id\nFROM titleauthor\nJOIN titles ON titleauthor.title_id = titles.title_id\nWHERE (titles.type = 'business')) AS leaf_2 ON leaf_1.au_id = leaf_2.au_id"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": null,
+    "nearest": null,
+    "reason": "not numeric"
+  },
+  "question": "How many distinct authors have at least one book with more than 1,000 copies sold this year?",
+  "answer": "17"
+}

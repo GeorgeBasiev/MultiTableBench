@@ -1,0 +1,1 @@
+SELECT provider.provider_name, category.category_desc, charge.charge_amt FROM charge JOIN provider ON charge.provider_no = provider.provider_no JOIN category ON charge.category_no = category.category_no WHERE category.category_desc = 'Meals'

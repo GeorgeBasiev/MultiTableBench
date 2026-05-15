@@ -1,0 +1,1 @@
+SELECT s.stor_id, t.title_id, sa.qty, t.price, t.royalty, ta.royaltyper, (sa.qty * t.price * t.royalty / 100 * ta.royaltyper / 100) AS revenue FROM stores s JOIN sales sa ON s.stor_id = sa.stor_id JOIN titles t ON sa.title_id = t.title_id JOIN titleauthor ta ON t.title_id = ta.title_id WHERE ((t.type = 'business')) AND ((s.state = 'CA'))

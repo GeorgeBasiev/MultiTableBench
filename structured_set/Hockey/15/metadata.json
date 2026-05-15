@@ -1,0 +1,4116 @@
+{
+  "sample_index": 15,
+  "db_name": "Hockey",
+  "answer_mode": "aggregate",
+  "target_join_count": 4,
+  "actual_join_count": 4,
+  "numeric_answer": 161.0,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 4,
+    "min_hops": 4,
+    "max_hops": 4,
+    "require_group_by": false,
+    "require_having": true,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Average goals allowed by goalies who have recorded at least one shutout in a game where their team won, grouped by team and year, and then filtered to only include teams that had an average of more than 100 goals allowed in the year",
+  "manifest": {
+    "db_name": "Hockey",
+    "sample_dir": "structured_set/Hockey/15",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "abbrev",
+        "remote_row_count": 58,
+        "snapshot_row_count": 58,
+        "target_limit": 58,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "type",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "code",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fullname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardscoaches",
+        "remote_row_count": 77,
+        "snapshot_row_count": 77,
+        "target_limit": 77,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsmisc",
+        "remote_row_count": 124,
+        "snapshot_row_count": 81,
+        "target_limit": 81,
+        "relational_rows_added": 7,
+        "columns": [
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsplayers",
+        "remote_row_count": 2091,
+        "snapshot_row_count": 85,
+        "target_limit": 85,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "coaches",
+        "remote_row_count": 1812,
+        "snapshot_row_count": 97,
+        "target_limit": 97,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "combinedshutouts",
+        "remote_row_count": 54,
+        "snapshot_row_count": 54,
+        "target_limit": 54,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "month",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "date",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "r/p",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie1",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie2",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goalies",
+        "remote_row_count": 4278,
+        "snapshot_row_count": 109,
+        "target_limit": 109,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "min",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "l",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "t/ol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "eng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postmin",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posteng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliessc",
+        "remote_row_count": 31,
+        "snapshot_row_count": 31,
+        "target_limit": 31,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "min",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliesshootout",
+        "remote_row_count": 480,
+        "snapshot_row_count": 71,
+        "target_limit": 71,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "hof",
+        "remote_row_count": 365,
+        "snapshot_row_count": 106,
+        "target_limit": 106,
+        "relational_rows_added": 1,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "category",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "master",
+        "remote_row_count": 7761,
+        "snapshot_row_count": 95,
+        "target_limit": 95,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenote",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namegiven",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenick",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "height",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "weight",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shootcatch",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "legendsid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ihdbid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hrefid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoring",
+        "remote_row_count": 45967,
+        "snapshot_row_count": 100,
+        "target_limit": 100,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gtg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posta",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpts",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "post+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postshg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsc",
+        "remote_row_count": 284,
+        "snapshot_row_count": 81,
+        "target_limit": 81,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringshootout",
+        "remote_row_count": 2072,
+        "snapshot_row_count": 95,
+        "target_limit": 95,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "s",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gdg",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsup",
+        "remote_row_count": 137,
+        "snapshot_row_count": 89,
+        "target_limit": 89,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "seriespost",
+        "remote_row_count": 832,
+        "snapshot_row_count": 63,
+        "target_limit": 63,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "round",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "series",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalswinner",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalsloser",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teams",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 98,
+        "target_limit": 98,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "franchid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "confid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "divid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "playoff",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sow",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamshalf",
+        "remote_row_count": 41,
+        "snapshot_row_count": 41,
+        "target_limit": 41,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "half",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "teamsplits",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 84,
+        "target_limit": 84,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ht",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sept",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "dect",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "janw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "jant",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "febw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mart",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamspost",
+        "remote_row_count": 927,
+        "snapshot_row_count": 61,
+        "target_limit": 61,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamssc",
+        "remote_row_count": 30,
+        "snapshot_row_count": 30,
+        "target_limit": 30,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamvsteam",
+        "remote_row_count": 25602,
+        "snapshot_row_count": 86,
+        "target_limit": 86,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Average goals allowed by goalies who have recorded at least one shutout in a game where their team won, grouped by team and year, and then filtered to only include teams that had an average of more than 100 goals allowed in the year",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT leaf_1.tmid, leaf_1.year, leaf_1.avg_ga FROM (SELECT g.tmid, g.year, AVG(CAST(g.ga AS FLOAT)) AS avg_ga FROM goalies g JOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2 JOIN teams t ON g.tmid = t.tmid JOIN teamvsteam tvt ON t.tmid = tvt.tmid AND t.year = tvt.year JOIN teams opp ON tvt.oppid = opp.tmid AND tvt.year = opp.year WHERE (tvt.w > 0) AND (tvt.l = 0) GROUP BY g.tmid, g.year) AS leaf_1 GROUP BY leaf_1.tmid, leaf_1.year HAVING AVG(leaf_1.avg_ga) > 100",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT g.tmid, g.year, AVG(CAST(g.ga AS FLOAT)) AS avg_ga",
+        "from_clause": "FROM goalies g",
+        "join_clauses": [
+          "JOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2",
+          "JOIN teams t ON g.tmid = t.tmid",
+          "JOIN teamvsteam tvt ON t.tmid = tvt.tmid AND t.year = tvt.year",
+          "JOIN teams opp ON tvt.oppid = opp.tmid AND tvt.year = opp.year"
+        ],
+        "where_clauses": [
+          "tvt.w > 0",
+          "tvt.l = 0"
+        ],
+        "group_by_clause": "GROUP BY g.tmid, g.year",
+        "having_clauses": [],
+        "notes": "Average goals allowed by goalies who have recorded at least one shutout in a game where their team won"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT AVG(leaf_1.avg_ga) AS avg_ga_over_teams",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "GROUP BY leaf_1.tmid, leaf_1.year",
+        "having_clauses": [
+          "AVG(leaf_1.avg_ga) > 100"
+        ],
+        "notes": "Final scalar block with the average goals allowed by teams that had an average of more than 100 goals allowed in the year"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "Average goals allowed by goalies who have recorded at least one shutout in a game where their team won",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM goalies g\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 23,
+            "preview": [
+              {
+                "playerid": "lockhho01",
+                "year": 1916,
+                "stint": 1,
+                "tmid": "TOB",
+                "lgid": "NHA",
+                "gp": "12",
+                "min": "720",
+                "w": "7",
+                "l": "5",
+                "t/ol": "0",
+                "eng": NaN,
+                "sho": "1",
+                "ga": "69",
+                "sa": NaN,
+                "postgp": NaN,
+                "postmin": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": null,
+                "posteng": NaN,
+                "postsho": NaN,
+                "postga": NaN,
+                "postsa": NaN
+              },
+              {
+                "playerid": "whitmka01",
+                "year": 1994,
+                "stint": 1,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "gp": "11",
+                "min": "558",
+                "w": "0",
+                "l": "6",
+                "t/ol": "2",
+                "eng": "1",
+                "sho": "0",
+                "ga": "37",
+                "sa": "279",
+                "postgp": "1",
+                "postmin": "20",
+                "postw": "0",
+                "postl": "0",
+                "postt": null,
+                "posteng": "0",
+                "postsho": "0",
+                "postga": "2",
+                "postsa": "18"
+              },
+              {
+                "playerid": "fitzpma01",
+                "year": 1990,
+                "stint": 1,
+                "tmid": "NYI",
+                "lgid": "NHL",
+                "gp": "2",
+                "min": "120",
+                "w": "1",
+                "l": "1",
+                "t/ol": "0",
+                "eng": "0",
+                "sho": "0",
+                "ga": "6",
+                "sa": "60",
+                "postgp": NaN,
+                "postmin": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": null,
+                "posteng": NaN,
+                "postsho": NaN,
+                "postga": NaN,
+                "postsa": NaN
+              },
+              {
+                "playerid": "takkoka01",
+                "year": 1989,
+                "stint": 1,
+                "tmid": "MNS",
+                "lgid": "NHL",
+                "gp": "21",
+                "min": "1012",
+                "w": "4",
+                "l": "12",
+                "t/ol": "0",
+                "eng": "4",
+                "sho": "0",
+                "ga": "68",
+                "sa": "482",
+                "postgp": "1",
+                "postmin": "4",
+                "postw": "0",
+                "postl": "0",
+                "postt": null,
+                "posteng": "0",
+                "postsho": "0",
+                "postga": "0",
+                "postsa": "0"
+              },
+              {
+                "playerid": "bachry01",
+                "year": 1998,
+                "stint": 1,
+                "tmid": "LAK",
+                "lgid": "NHL",
+                "gp": "3",
+                "min": "108",
+                "w": "0",
+                "l": "3",
+                "t/ol": "0",
+                "eng": "0",
+                "sho": "0",
+                "ga": "8",
+                "sa": "66",
+                "postgp": NaN,
+                "postmin": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": null,
+                "posteng": NaN,
+                "postsho": NaN,
+                "postga": NaN,
+                "postsa": NaN
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2",
+          "sql": "SELECT *\nFROM goalies g\nJOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 31,
+            "preview": [
+              {
+                "playerid": "hodgech01",
+                "year": 1970,
+                "stint": 1,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "gp": "35",
+                "min": "1967",
+                "w": "15",
+                "l": "13",
+                "t/ol": "5",
+                "eng": "0",
+                "sho": "0",
+                "ga": "112",
+                "sa": null,
+                "postgp": NaN,
+                "postmin": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": null,
+                "posteng": NaN,
+                "postsho": NaN,
+                "postga": NaN,
+                "postsa": null,
+                "year__dup1": 1955,
+                "month": 3,
+                "date": 22,
+                "tmid__dup1": "MTL",
+                "oppid": "BOS",
+                "r/p": "P",
+                "idgoalie1": "plantja01",
+                "idgoalie2": "hodgech01"
+              },
+              {
+                "playerid": "plantja01",
+                "year": 1959,
+                "stint": 1,
+                "tmid": "MTL",
+                "lgid": "NHL",
+                "gp": "69",
+                "min": "4140",
+                "w": "40",
+                "l": "17",
+                "t/ol": "12",
+                "eng": NaN,
+                "sho": "3",
+                "ga": "175",
+                "sa": null,
+                "postgp": "8",
+                "postmin": "489",
+                "postw": "8",
+                "postl": "0",
+                "postt": null,
+                "posteng": NaN,
+                "postsho": "3",
+                "postga": "11",
+                "postsa": null,
+                "year__dup1": 1955,
+                "month": 3,
+                "date": 22,
+                "tmid__dup1": "MTL",
+                "oppid": "BOS",
+                "r/p": "P",
+                "idgoalie1": "plantja01",
+                "idgoalie2": "hodgech01"
+              },
+              {
+                "playerid": "hodgech01",
+                "year": 1970,
+                "stint": 1,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "gp": "35",
+                "min": "1967",
+                "w": "15",
+                "l": "13",
+                "t/ol": "5",
+                "eng": "0",
+                "sho": "0",
+                "ga": "112",
+                "sa": null,
+                "postgp": NaN,
+                "postmin": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": null,
+                "posteng": NaN,
+                "postsho": NaN,
+                "postga": NaN,
+                "postsa": null,
+                "year__dup1": 1968,
+                "month": 2,
+                "date": 14,
+                "tmid__dup1": "OAK",
+                "oppid": "PHI",
+                "r/p": "R",
+                "idgoalie1": "smithga01",
+                "idgoalie2": "hodgech01"
+              },
+              {
+                "playerid": "smithga01",
+                "year": 1965,
+                "stint": 1,
+                "tmid": "TOR",
+                "lgid": "NHL",
+                "gp": "3",
+                "min": "118",
+                "w": "0",
+                "l": "2",
+                "t/ol": "0",
+                "eng": "0",
+                "sho": "0",
+                "ga": "7",
+                "sa": null,
+                "postgp": NaN,
+                "postmin": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": null,
+                "posteng": NaN,
+                "postsho": NaN,
+                "postga": NaN,
+                "postsa": null,
+                "year__dup1": 1968,
+                "month": 2,
+                "date": 14,
+                "tmid__dup1": "OAK",
+                "oppid": "PHI",
+                "r/p": "R",
+                "idgoalie1": "smithga01",
+                "idgoalie2": "hodgech01"
+              },
+              {
+                "playerid": "hallgl01",
+                "year": 1965,
+                "stint": 1,
+                "tmid": "CHI",
+                "lgid": "NHL",
+                "gp": "64",
+                "min": "3747",
+                "w": "34",
+                "l": "21",
+                "t/ol": "7",
+                "eng": "0",
+                "sho": "4",
+                "ga": "164",
+                "sa": null,
+                "postgp": "6",
+                "postmin": "347",
+                "postw": "2",
+                "postl": "4",
+                "postt": null,
+                "posteng": "0",
+                "postsho": "0",
+                "postga": "22",
+                "postsa": null,
+                "year__dup1": 1970,
+                "month": 11,
+                "date": 5,
+                "tmid__dup1": "STL",
+                "oppid": "BOS",
+                "r/p": "R",
+                "idgoalie1": "hallgl01",
+                "idgoalie2": "wakeler01"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN teams t ON g.tmid = t.tmid",
+          "sql": "SELECT *\nFROM goalies g\nJOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2\nJOIN teams t ON g.tmid = t.tmid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 58,
+            "preview": [
+              {
+                "playerid": "plantja01",
+                "year": 1959,
+                "stint": 1,
+                "tmid": "MTL",
+                "lgid": "NHL",
+                "gp": "69",
+                "min": "4140",
+                "w": "40",
+                "l": "17",
+                "t/ol": "12",
+                "eng": null,
+                "sho": "3",
+                "ga": "175",
+                "sa": null,
+                "postgp": "8",
+                "postmin": "489",
+                "postw": "8",
+                "postl": "0",
+                "postt": null,
+                "posteng": null,
+                "postsho": "3",
+                "postga": "11",
+                "postsa": null,
+                "year__dup1": 1955,
+                "month": 3,
+                "date": 22,
+                "tmid__dup1": "MTL",
+                "oppid": "BOS",
+                "r/p": "P",
+                "idgoalie1": "plantja01",
+                "idgoalie2": "hodgech01",
+                "year__dup2": 1917,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "MTL",
+                "franchid": "MTL",
+                "confid": null,
+                "divid": null,
+                "rank": 1,
+                "playoff": "NHLF",
+                "g": 22,
+                "w__dup1": 13,
+                "l__dup1": 9,
+                "t": 0,
+                "otl": null,
+                "pts": 26,
+                "sow": null,
+                "sol": null,
+                "gf": 115,
+                "ga__dup1": 84,
+                "name": "Montreal Canadiens",
+                "pim": "336",
+                "benchminor": null,
+                "ppg": null,
+                "ppc": null,
+                "sha": null,
+                "pkg": null,
+                "pkc": null,
+                "shf": null
+              },
+              {
+                "playerid": "plantja01",
+                "year": 1959,
+                "stint": 1,
+                "tmid": "MTL",
+                "lgid": "NHL",
+                "gp": "69",
+                "min": "4140",
+                "w": "40",
+                "l": "17",
+                "t/ol": "12",
+                "eng": null,
+                "sho": "3",
+                "ga": "175",
+                "sa": null,
+                "postgp": "8",
+                "postmin": "489",
+                "postw": "8",
+                "postl": "0",
+                "postt": null,
+                "posteng": null,
+                "postsho": "3",
+                "postga": "11",
+                "postsa": null,
+                "year__dup1": 1955,
+                "month": 3,
+                "date": 22,
+                "tmid__dup1": "MTL",
+                "oppid": "BOS",
+                "r/p": "P",
+                "idgoalie1": "plantja01",
+                "idgoalie2": "hodgech01",
+                "year__dup2": 1919,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "MTL",
+                "franchid": "MTL",
+                "confid": null,
+                "divid": null,
+                "rank": 2,
+                "playoff": NaN,
+                "g": 24,
+                "w__dup1": 13,
+                "l__dup1": 11,
+                "t": 0,
+                "otl": null,
+                "pts": 26,
+                "sow": null,
+                "sol": null,
+                "gf": 129,
+                "ga__dup1": 113,
+                "name": "Montreal Canadiens",
+                "pim": "297",
+                "benchminor": null,
+                "ppg": null,
+                "ppc": null,
+                "sha": null,
+                "pkg": null,
+                "pkc": null,
+                "shf": null
+              },
+              {
+                "playerid": "plantja01",
+                "year": 1959,
+                "stint": 1,
+                "tmid": "MTL",
+                "lgid": "NHL",
+                "gp": "69",
+                "min": "4140",
+                "w": "40",
+                "l": "17",
+                "t/ol": "12",
+                "eng": null,
+                "sho": "3",
+                "ga": "175",
+                "sa": null,
+                "postgp": "8",
+                "postmin": "489",
+                "postw": "8",
+                "postl": "0",
+                "postt": null,
+                "posteng": null,
+                "postsho": "3",
+                "postga": "11",
+                "postsa": null,
+                "year__dup1": 1955,
+                "month": 3,
+                "date": 22,
+                "tmid__dup1": "MTL",
+                "oppid": "BOS",
+                "r/p": "P",
+                "idgoalie1": "plantja01",
+                "idgoalie2": "hodgech01",
+                "year__dup2": 1940,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "MTL",
+                "franchid": "MTL",
+                "confid": null,
+                "divid": null,
+                "rank": 6,
+                "playoff": "QF",
+                "g": 48,
+                "w__dup1": 16,
+                "l__dup1": 26,
+                "t": 6,
+                "otl": null,
+                "pts": 38,
+                "sow": null,
+                "sol": null,
+                "gf": 121,
+                "ga__dup1": 147,
+                "name": "Montreal Canadiens",
+                "pim": "461",
+                "benchminor": null,
+                "ppg": null,
+                "ppc": null,
+                "sha": null,
+                "pkg": null,
+                "pkc": null,
+                "shf": null
+              },
+              {
+                "playerid": "plantja01",
+                "year": 1959,
+                "stint": 1,
+                "tmid": "MTL",
+                "lgid": "NHL",
+                "gp": "69",
+                "min": "4140",
+                "w": "40",
+                "l": "17",
+                "t/ol": "12",
+                "eng": null,
+                "sho": "3",
+                "ga": "175",
+                "sa": null,
+                "postgp": "8",
+                "postmin": "489",
+                "postw": "8",
+                "postl": "0",
+                "postt": null,
+                "posteng": null,
+                "postsho": "3",
+                "postga": "11",
+                "postsa": null,
+                "year__dup1": 1955,
+                "month": 3,
+                "date": 22,
+                "tmid__dup1": "MTL",
+                "oppid": "BOS",
+                "r/p": "P",
+                "idgoalie1": "plantja01",
+                "idgoalie2": "hodgech01",
+                "year__dup2": 1944,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "MTL",
+                "franchid": "MTL",
+                "confid": null,
+                "divid": null,
+                "rank": 1,
+                "playoff": "SF",
+                "g": 50,
+                "w__dup1": 38,
+                "l__dup1": 8,
+                "t": 4,
+                "otl": null,
+                "pts": 80,
+                "sow": null,
+                "sol": null,
+                "gf": 228,
+                "ga__dup1": 121,
+                "name": "Montreal Canadiens",
+                "pim": "426",
+                "benchminor": null,
+                "ppg": null,
+                "ppc": null,
+                "sha": null,
+                "pkg": null,
+                "pkc": null,
+                "shf": null
+              },
+              {
+                "playerid": "plantja01",
+                "year": 1959,
+                "stint": 1,
+                "tmid": "MTL",
+                "lgid": "NHL",
+                "gp": "69",
+                "min": "4140",
+                "w": "40",
+                "l": "17",
+                "t/ol": "12",
+                "eng": null,
+                "sho": "3",
+                "ga": "175",
+                "sa": null,
+                "postgp": "8",
+                "postmin": "489",
+                "postw": "8",
+                "postl": "0",
+                "postt": null,
+                "posteng": null,
+                "postsho": "3",
+                "postga": "11",
+                "postsa": null,
+                "year__dup1": 1955,
+                "month": 3,
+                "date": 22,
+                "tmid__dup1": "MTL",
+                "oppid": "BOS",
+                "r/p": "P",
+                "idgoalie1": "plantja01",
+                "idgoalie2": "hodgech01",
+                "year__dup2": 1946,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "MTL",
+                "franchid": "MTL",
+                "confid": null,
+                "divid": null,
+                "rank": 1,
+                "playoff": "F",
+                "g": 60,
+                "w__dup1": 34,
+                "l__dup1": 16,
+                "t": 10,
+                "otl": null,
+                "pts": 78,
+                "sow": null,
+                "sol": null,
+                "gf": 189,
+                "ga__dup1": 138,
+                "name": "Montreal Canadiens",
+                "pim": "561",
+                "benchminor": null,
+                "ppg": null,
+                "ppc": null,
+                "sha": null,
+                "pkg": null,
+                "pkc": null,
+                "shf": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN teamvsteam tvt ON t.tmid = tvt.tmid AND t.year = tvt.year",
+          "sql": "SELECT *\nFROM goalies g\nJOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2\nJOIN teams t ON g.tmid = t.tmid\nJOIN teamvsteam tvt ON t.tmid = tvt.tmid AND t.year = tvt.year\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 66,
+            "preview": [
+              {
+                "playerid": "smithga01",
+                "year": 1965,
+                "stint": 1,
+                "tmid": "TOR",
+                "lgid": "NHL",
+                "gp": "3",
+                "min": "118",
+                "w": "0",
+                "l": "2",
+                "t/ol": "0",
+                "eng": "0",
+                "sho": "0",
+                "ga": "7",
+                "sa": null,
+                "postgp": NaN,
+                "postmin": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": null,
+                "posteng": NaN,
+                "postsho": NaN,
+                "postga": NaN,
+                "postsa": null,
+                "year__dup1": 1968,
+                "month": 2,
+                "date": 14,
+                "tmid__dup1": "OAK",
+                "oppid": "PHI",
+                "r/p": "R",
+                "idgoalie1": "smithga01",
+                "idgoalie2": "hodgech01",
+                "year__dup2": 2002,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TOR",
+                "franchid": "TOR",
+                "confid": "EC",
+                "divid": "NE",
+                "rank": 2,
+                "playoff": "CQF",
+                "g": 82,
+                "w__dup1": 44,
+                "l__dup1": 28,
+                "t": 7,
+                "otl": "3",
+                "pts": 98,
+                "sow": null,
+                "sol": null,
+                "gf": 236,
+                "ga__dup1": 208,
+                "name": "Toronto Maple Leafs",
+                "pim": "1390",
+                "benchminor": "22",
+                "ppg": "63",
+                "ppc": "359",
+                "sha": "7",
+                "pkg": "56",
+                "pkc": "426",
+                "shf": "11",
+                "year__dup3": 2002,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TOR",
+                "oppid__dup1": "COL",
+                "w__dup2": 0,
+                "l__dup2": 1,
+                "t__dup1": 0,
+                "otl__dup1": "0"
+              },
+              {
+                "playerid": "parenbe01",
+                "year": 1970,
+                "stint": 2,
+                "tmid": "TOR",
+                "lgid": "NHL",
+                "gp": "18",
+                "min": "1040",
+                "w": "7",
+                "l": "7",
+                "t/ol": "3",
+                "eng": "1",
+                "sho": "0",
+                "ga": "46",
+                "sa": null,
+                "postgp": "4",
+                "postmin": "235",
+                "postw": "2",
+                "postl": "2",
+                "postt": null,
+                "posteng": "0",
+                "postsho": "0",
+                "postga": "9",
+                "postsa": null,
+                "year__dup1": 1971,
+                "month": 3,
+                "date": 24,
+                "tmid__dup1": "TOR",
+                "oppid": "CLF",
+                "r/p": "R",
+                "idgoalie1": "plantja01",
+                "idgoalie2": "parenbe01",
+                "year__dup2": 2002,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TOR",
+                "franchid": "TOR",
+                "confid": "EC",
+                "divid": "NE",
+                "rank": 2,
+                "playoff": "CQF",
+                "g": 82,
+                "w__dup1": 44,
+                "l__dup1": 28,
+                "t": 7,
+                "otl": "3",
+                "pts": 98,
+                "sow": null,
+                "sol": null,
+                "gf": 236,
+                "ga__dup1": 208,
+                "name": "Toronto Maple Leafs",
+                "pim": "1390",
+                "benchminor": "22",
+                "ppg": "63",
+                "ppc": "359",
+                "sha": "7",
+                "pkg": "56",
+                "pkc": "426",
+                "shf": "11",
+                "year__dup3": 2002,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TOR",
+                "oppid__dup1": "COL",
+                "w__dup2": 0,
+                "l__dup2": 1,
+                "t__dup1": 0,
+                "otl__dup1": "0"
+              },
+              {
+                "playerid": "lowro01",
+                "year": 1972,
+                "stint": 1,
+                "tmid": "TOR",
+                "lgid": "NHL",
+                "gp": "42",
+                "min": "2343",
+                "w": "12",
+                "l": "24",
+                "t/ol": "4",
+                "eng": "1",
+                "sho": "1",
+                "ga": "152",
+                "sa": null,
+                "postgp": NaN,
+                "postmin": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": null,
+                "posteng": NaN,
+                "postsho": NaN,
+                "postga": NaN,
+                "postsa": null,
+                "year__dup1": 1972,
+                "month": 11,
+                "date": 25,
+                "tmid__dup1": "TOR",
+                "oppid": "CLF",
+                "r/p": "R",
+                "idgoalie1": "plantja01",
+                "idgoalie2": "lowro01",
+                "year__dup2": 2002,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TOR",
+                "franchid": "TOR",
+                "confid": "EC",
+                "divid": "NE",
+                "rank": 2,
+                "playoff": "CQF",
+                "g": 82,
+                "w__dup1": 44,
+                "l__dup1": 28,
+                "t": 7,
+                "otl": "3",
+                "pts": 98,
+                "sow": null,
+                "sol": null,
+                "gf": 236,
+                "ga__dup1": 208,
+                "name": "Toronto Maple Leafs",
+                "pim": "1390",
+                "benchminor": "22",
+                "ppg": "63",
+                "ppc": "359",
+                "sha": "7",
+                "pkg": "56",
+                "pkc": "426",
+                "shf": "11",
+                "year__dup3": 2002,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TOR",
+                "oppid__dup1": "COL",
+                "w__dup2": 0,
+                "l__dup2": 1,
+                "t__dup1": 0,
+                "otl__dup1": "0"
+              },
+              {
+                "playerid": "lowro01",
+                "year": 1972,
+                "stint": 1,
+                "tmid": "TOR",
+                "lgid": "NHL",
+                "gp": "42",
+                "min": "2343",
+                "w": "12",
+                "l": "24",
+                "t/ol": "4",
+                "eng": "1",
+                "sho": "1",
+                "ga": "152",
+                "sa": null,
+                "postgp": NaN,
+                "postmin": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": null,
+                "posteng": NaN,
+                "postsho": NaN,
+                "postga": NaN,
+                "postsa": null,
+                "year__dup1": 1972,
+                "month": 12,
+                "date": 29,
+                "tmid__dup1": "TOR",
+                "oppid": "PIT",
+                "r/p": "R",
+                "idgoalie1": "plantja01",
+                "idgoalie2": "lowro01",
+                "year__dup2": 2002,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TOR",
+                "franchid": "TOR",
+                "confid": "EC",
+                "divid": "NE",
+                "rank": 2,
+                "playoff": "CQF",
+                "g": 82,
+                "w__dup1": 44,
+                "l__dup1": 28,
+                "t": 7,
+                "otl": "3",
+                "pts": 98,
+                "sow": null,
+                "sol": null,
+                "gf": 236,
+                "ga__dup1": 208,
+                "name": "Toronto Maple Leafs",
+                "pim": "1390",
+                "benchminor": "22",
+                "ppg": "63",
+                "ppc": "359",
+                "sha": "7",
+                "pkg": "56",
+                "pkc": "426",
+                "shf": "11",
+                "year__dup3": 2002,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TOR",
+                "oppid__dup1": "COL",
+                "w__dup2": 0,
+                "l__dup2": 1,
+                "t__dup1": 0,
+                "otl__dup1": "0"
+              },
+              {
+                "playerid": "lowro01",
+                "year": 1972,
+                "stint": 1,
+                "tmid": "TOR",
+                "lgid": "NHL",
+                "gp": "42",
+                "min": "2343",
+                "w": "12",
+                "l": "24",
+                "t/ol": "4",
+                "eng": "1",
+                "sho": "1",
+                "ga": "152",
+                "sa": null,
+                "postgp": NaN,
+                "postmin": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": null,
+                "posteng": NaN,
+                "postsho": NaN,
+                "postga": NaN,
+                "postsa": null,
+                "year__dup1": 1977,
+                "month": 3,
+                "date": 18,
+                "tmid__dup1": "WAS",
+                "oppid": "COR",
+                "r/p": "R",
+                "idgoalie1": "croziro01",
+                "idgoalie2": "lowro01",
+                "year__dup2": 2002,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TOR",
+                "franchid": "TOR",
+                "confid": "EC",
+                "divid": "NE",
+                "rank": 2,
+                "playoff": "CQF",
+                "g": 82,
+                "w__dup1": 44,
+                "l__dup1": 28,
+                "t": 7,
+                "otl": "3",
+                "pts": 98,
+                "sow": null,
+                "sol": null,
+                "gf": 236,
+                "ga__dup1": 208,
+                "name": "Toronto Maple Leafs",
+                "pim": "1390",
+                "benchminor": "22",
+                "ppg": "63",
+                "ppc": "359",
+                "sha": "7",
+                "pkg": "56",
+                "pkc": "426",
+                "shf": "11",
+                "year__dup3": 2002,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TOR",
+                "oppid__dup1": "COL",
+                "w__dup2": 0,
+                "l__dup2": 1,
+                "t__dup1": 0,
+                "otl__dup1": "0"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN teams opp ON tvt.oppid = opp.tmid AND tvt.year = opp.year",
+          "sql": "SELECT *\nFROM goalies g\nJOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2\nJOIN teams t ON g.tmid = t.tmid\nJOIN teamvsteam tvt ON t.tmid = tvt.tmid AND t.year = tvt.year\nJOIN teams opp ON tvt.oppid = opp.tmid AND tvt.year = opp.year\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 93,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN teamvsteam opp ON tvt.oppid = opp.tmid",
+          "sql": "SELECT *\nFROM goalies g\nJOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2\nJOIN teams t ON g.tmid = t.tmid\nJOIN teamvsteam tvt ON t.tmid = tvt.tmid AND t.year = tvt.year\nJOIN teamvsteam opp ON tvt.oppid = opp.tmid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 74,
+            "preview": [
+              {
+                "playerid": "hodsoke01",
+                "year": 2002,
+                "stint": 1,
+                "tmid": "TBL",
+                "lgid": "NHL",
+                "gp": "7",
+                "min": "283",
+                "w": "0",
+                "l": "3",
+                "t/ol": "1",
+                "eng": "1",
+                "sho": "0",
+                "ga": "12",
+                "sa": "101",
+                "postgp": null,
+                "postmin": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "posteng": null,
+                "postsho": null,
+                "postga": null,
+                "postsa": null,
+                "year__dup1": 1997,
+                "month": 10,
+                "date": 18,
+                "tmid__dup1": "DET",
+                "oppid": "CAR",
+                "r/p": "R",
+                "idgoalie1": "osgooch01",
+                "idgoalie2": "hodsoke01",
+                "year__dup2": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TBL",
+                "franchid": "TBL",
+                "confid": "EC",
+                "divid": "SE",
+                "rank": 3,
+                "playoff": null,
+                "g": 82,
+                "w__dup1": 38,
+                "l__dup1": 36,
+                "t": null,
+                "otl": "8",
+                "pts": 84,
+                "sow": "3",
+                "sol": "3",
+                "gf": 235,
+                "ga__dup1": 281,
+                "name": "Tampa Bay Lightning",
+                "pim": "865",
+                "benchminor": "16",
+                "ppg": "41",
+                "ppc": "269",
+                "sha": "12",
+                "pkg": "59",
+                "pkc": "284",
+                "shf": "2",
+                "year__dup3": 2011,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TBL",
+                "oppid__dup1": "BOS",
+                "w__dup2": 2,
+                "l__dup2": 2,
+                "t__dup1": null,
+                "otl__dup1": "0",
+                "year__dup4": 1958,
+                "lgid__dup3": "NHL",
+                "tmid__dup4": "BOS",
+                "oppid__dup2": "NYR",
+                "w__dup3": 6,
+                "l__dup3": 5,
+                "t__dup2": 3,
+                "otl__dup2": null
+              },
+              {
+                "playerid": "hodsoke01",
+                "year": 2002,
+                "stint": 1,
+                "tmid": "TBL",
+                "lgid": "NHL",
+                "gp": "7",
+                "min": "283",
+                "w": "0",
+                "l": "3",
+                "t/ol": "1",
+                "eng": "1",
+                "sho": "0",
+                "ga": "12",
+                "sa": "101",
+                "postgp": null,
+                "postmin": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "posteng": null,
+                "postsho": null,
+                "postga": null,
+                "postsa": null,
+                "year__dup1": 1997,
+                "month": 10,
+                "date": 18,
+                "tmid__dup1": "DET",
+                "oppid": "CAR",
+                "r/p": "R",
+                "idgoalie1": "osgooch01",
+                "idgoalie2": "hodsoke01",
+                "year__dup2": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TBL",
+                "franchid": "TBL",
+                "confid": "EC",
+                "divid": "SE",
+                "rank": 3,
+                "playoff": null,
+                "g": 82,
+                "w__dup1": 38,
+                "l__dup1": 36,
+                "t": null,
+                "otl": "8",
+                "pts": 84,
+                "sow": "3",
+                "sol": "3",
+                "gf": 235,
+                "ga__dup1": 281,
+                "name": "Tampa Bay Lightning",
+                "pim": "865",
+                "benchminor": "16",
+                "ppg": "41",
+                "ppc": "269",
+                "sha": "12",
+                "pkg": "59",
+                "pkc": "284",
+                "shf": "2",
+                "year__dup3": 2011,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TBL",
+                "oppid__dup1": "BOS",
+                "w__dup2": 2,
+                "l__dup2": 2,
+                "t__dup1": null,
+                "otl__dup1": "0",
+                "year__dup4": 1967,
+                "lgid__dup3": "NHL",
+                "tmid__dup4": "BOS",
+                "oppid__dup2": "MNS",
+                "w__dup3": 2,
+                "l__dup3": 2,
+                "t__dup2": 0,
+                "otl__dup2": null
+              },
+              {
+                "playerid": "hodsoke01",
+                "year": 2002,
+                "stint": 1,
+                "tmid": "TBL",
+                "lgid": "NHL",
+                "gp": "7",
+                "min": "283",
+                "w": "0",
+                "l": "3",
+                "t/ol": "1",
+                "eng": "1",
+                "sho": "0",
+                "ga": "12",
+                "sa": "101",
+                "postgp": null,
+                "postmin": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "posteng": null,
+                "postsho": null,
+                "postga": null,
+                "postsa": null,
+                "year__dup1": 1997,
+                "month": 10,
+                "date": 18,
+                "tmid__dup1": "DET",
+                "oppid": "CAR",
+                "r/p": "R",
+                "idgoalie1": "osgooch01",
+                "idgoalie2": "hodsoke01",
+                "year__dup2": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TBL",
+                "franchid": "TBL",
+                "confid": "EC",
+                "divid": "SE",
+                "rank": 3,
+                "playoff": null,
+                "g": 82,
+                "w__dup1": 38,
+                "l__dup1": 36,
+                "t": null,
+                "otl": "8",
+                "pts": 84,
+                "sow": "3",
+                "sol": "3",
+                "gf": 235,
+                "ga__dup1": 281,
+                "name": "Tampa Bay Lightning",
+                "pim": "865",
+                "benchminor": "16",
+                "ppg": "41",
+                "ppc": "269",
+                "sha": "12",
+                "pkg": "59",
+                "pkc": "284",
+                "shf": "2",
+                "year__dup3": 2011,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TBL",
+                "oppid__dup1": "BOS",
+                "w__dup2": 2,
+                "l__dup2": 2,
+                "t__dup1": null,
+                "otl__dup1": "0",
+                "year__dup4": 1981,
+                "lgid__dup3": "NHL",
+                "tmid__dup4": "BOS",
+                "oppid__dup2": "HAR",
+                "w__dup3": 4,
+                "l__dup3": 2,
+                "t__dup2": 2,
+                "otl__dup2": null
+              },
+              {
+                "playerid": "hodsoke01",
+                "year": 2002,
+                "stint": 1,
+                "tmid": "TBL",
+                "lgid": "NHL",
+                "gp": "7",
+                "min": "283",
+                "w": "0",
+                "l": "3",
+                "t/ol": "1",
+                "eng": "1",
+                "sho": "0",
+                "ga": "12",
+                "sa": "101",
+                "postgp": null,
+                "postmin": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "posteng": null,
+                "postsho": null,
+                "postga": null,
+                "postsa": null,
+                "year__dup1": 1997,
+                "month": 10,
+                "date": 18,
+                "tmid__dup1": "DET",
+                "oppid": "CAR",
+                "r/p": "R",
+                "idgoalie1": "osgooch01",
+                "idgoalie2": "hodsoke01",
+                "year__dup2": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TBL",
+                "franchid": "TBL",
+                "confid": "EC",
+                "divid": "SE",
+                "rank": 3,
+                "playoff": null,
+                "g": 82,
+                "w__dup1": 38,
+                "l__dup1": 36,
+                "t": null,
+                "otl": "8",
+                "pts": 84,
+                "sow": "3",
+                "sol": "3",
+                "gf": 235,
+                "ga__dup1": 281,
+                "name": "Tampa Bay Lightning",
+                "pim": "865",
+                "benchminor": "16",
+                "ppg": "41",
+                "ppc": "269",
+                "sha": "12",
+                "pkg": "59",
+                "pkc": "284",
+                "shf": "2",
+                "year__dup3": 2011,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TBL",
+                "oppid__dup1": "BOS",
+                "w__dup2": 2,
+                "l__dup2": 2,
+                "t__dup1": null,
+                "otl__dup1": "0",
+                "year__dup4": 1984,
+                "lgid__dup3": "NHL",
+                "tmid__dup4": "BOS",
+                "oppid__dup2": "BUF",
+                "w__dup3": 3,
+                "l__dup3": 4,
+                "t__dup2": 1,
+                "otl__dup2": null
+              },
+              {
+                "playerid": "hodsoke01",
+                "year": 2002,
+                "stint": 1,
+                "tmid": "TBL",
+                "lgid": "NHL",
+                "gp": "7",
+                "min": "283",
+                "w": "0",
+                "l": "3",
+                "t/ol": "1",
+                "eng": "1",
+                "sho": "0",
+                "ga": "12",
+                "sa": "101",
+                "postgp": null,
+                "postmin": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "posteng": null,
+                "postsho": null,
+                "postga": null,
+                "postsa": null,
+                "year__dup1": 1997,
+                "month": 10,
+                "date": 18,
+                "tmid__dup1": "DET",
+                "oppid": "CAR",
+                "r/p": "R",
+                "idgoalie1": "osgooch01",
+                "idgoalie2": "hodsoke01",
+                "year__dup2": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TBL",
+                "franchid": "TBL",
+                "confid": "EC",
+                "divid": "SE",
+                "rank": 3,
+                "playoff": null,
+                "g": 82,
+                "w__dup1": 38,
+                "l__dup1": 36,
+                "t": null,
+                "otl": "8",
+                "pts": 84,
+                "sow": "3",
+                "sol": "3",
+                "gf": 235,
+                "ga__dup1": 281,
+                "name": "Tampa Bay Lightning",
+                "pim": "865",
+                "benchminor": "16",
+                "ppg": "41",
+                "ppc": "269",
+                "sha": "12",
+                "pkg": "59",
+                "pkc": "284",
+                "shf": "2",
+                "year__dup3": 2011,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TBL",
+                "oppid__dup1": "BOS",
+                "w__dup2": 2,
+                "l__dup2": 2,
+                "t__dup1": null,
+                "otl__dup1": "0",
+                "year__dup4": 1991,
+                "lgid__dup3": "NHL",
+                "tmid__dup4": "BOS",
+                "oppid__dup2": "NJD",
+                "w__dup3": 1,
+                "l__dup3": 2,
+                "t__dup2": 0,
+                "otl__dup2": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "tvt.w > 0",
+          "sql": "SELECT *\nFROM goalies g\nJOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2\nJOIN teams t ON g.tmid = t.tmid\nJOIN teamvsteam tvt ON t.tmid = tvt.tmid AND t.year = tvt.year\nJOIN teamvsteam opp ON tvt.oppid = opp.tmid\nWHERE (tvt.w > 0)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 74,
+            "preview": [
+              {
+                "playerid": "hodsoke01",
+                "year": 2002,
+                "stint": 1,
+                "tmid": "TBL",
+                "lgid": "NHL",
+                "gp": "7",
+                "min": "283",
+                "w": "0",
+                "l": "3",
+                "t/ol": "1",
+                "eng": "1",
+                "sho": "0",
+                "ga": "12",
+                "sa": "101",
+                "postgp": null,
+                "postmin": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "posteng": null,
+                "postsho": null,
+                "postga": null,
+                "postsa": null,
+                "year__dup1": 1997,
+                "month": 10,
+                "date": 18,
+                "tmid__dup1": "DET",
+                "oppid": "CAR",
+                "r/p": "R",
+                "idgoalie1": "osgooch01",
+                "idgoalie2": "hodsoke01",
+                "year__dup2": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TBL",
+                "franchid": "TBL",
+                "confid": "EC",
+                "divid": "SE",
+                "rank": 3,
+                "playoff": null,
+                "g": 82,
+                "w__dup1": 38,
+                "l__dup1": 36,
+                "t": null,
+                "otl": "8",
+                "pts": 84,
+                "sow": "3",
+                "sol": "3",
+                "gf": 235,
+                "ga__dup1": 281,
+                "name": "Tampa Bay Lightning",
+                "pim": "865",
+                "benchminor": "16",
+                "ppg": "41",
+                "ppc": "269",
+                "sha": "12",
+                "pkg": "59",
+                "pkc": "284",
+                "shf": "2",
+                "year__dup3": 2011,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TBL",
+                "oppid__dup1": "BOS",
+                "w__dup2": 2,
+                "l__dup2": 2,
+                "t__dup1": null,
+                "otl__dup1": "0",
+                "year__dup4": 1958,
+                "lgid__dup3": "NHL",
+                "tmid__dup4": "BOS",
+                "oppid__dup2": "NYR",
+                "w__dup3": 6,
+                "l__dup3": 5,
+                "t__dup2": 3,
+                "otl__dup2": null
+              },
+              {
+                "playerid": "hodsoke01",
+                "year": 2002,
+                "stint": 1,
+                "tmid": "TBL",
+                "lgid": "NHL",
+                "gp": "7",
+                "min": "283",
+                "w": "0",
+                "l": "3",
+                "t/ol": "1",
+                "eng": "1",
+                "sho": "0",
+                "ga": "12",
+                "sa": "101",
+                "postgp": null,
+                "postmin": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "posteng": null,
+                "postsho": null,
+                "postga": null,
+                "postsa": null,
+                "year__dup1": 1997,
+                "month": 10,
+                "date": 18,
+                "tmid__dup1": "DET",
+                "oppid": "CAR",
+                "r/p": "R",
+                "idgoalie1": "osgooch01",
+                "idgoalie2": "hodsoke01",
+                "year__dup2": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TBL",
+                "franchid": "TBL",
+                "confid": "EC",
+                "divid": "SE",
+                "rank": 3,
+                "playoff": null,
+                "g": 82,
+                "w__dup1": 38,
+                "l__dup1": 36,
+                "t": null,
+                "otl": "8",
+                "pts": 84,
+                "sow": "3",
+                "sol": "3",
+                "gf": 235,
+                "ga__dup1": 281,
+                "name": "Tampa Bay Lightning",
+                "pim": "865",
+                "benchminor": "16",
+                "ppg": "41",
+                "ppc": "269",
+                "sha": "12",
+                "pkg": "59",
+                "pkc": "284",
+                "shf": "2",
+                "year__dup3": 2011,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TBL",
+                "oppid__dup1": "BOS",
+                "w__dup2": 2,
+                "l__dup2": 2,
+                "t__dup1": null,
+                "otl__dup1": "0",
+                "year__dup4": 1967,
+                "lgid__dup3": "NHL",
+                "tmid__dup4": "BOS",
+                "oppid__dup2": "MNS",
+                "w__dup3": 2,
+                "l__dup3": 2,
+                "t__dup2": 0,
+                "otl__dup2": null
+              },
+              {
+                "playerid": "hodsoke01",
+                "year": 2002,
+                "stint": 1,
+                "tmid": "TBL",
+                "lgid": "NHL",
+                "gp": "7",
+                "min": "283",
+                "w": "0",
+                "l": "3",
+                "t/ol": "1",
+                "eng": "1",
+                "sho": "0",
+                "ga": "12",
+                "sa": "101",
+                "postgp": null,
+                "postmin": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "posteng": null,
+                "postsho": null,
+                "postga": null,
+                "postsa": null,
+                "year__dup1": 1997,
+                "month": 10,
+                "date": 18,
+                "tmid__dup1": "DET",
+                "oppid": "CAR",
+                "r/p": "R",
+                "idgoalie1": "osgooch01",
+                "idgoalie2": "hodsoke01",
+                "year__dup2": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TBL",
+                "franchid": "TBL",
+                "confid": "EC",
+                "divid": "SE",
+                "rank": 3,
+                "playoff": null,
+                "g": 82,
+                "w__dup1": 38,
+                "l__dup1": 36,
+                "t": null,
+                "otl": "8",
+                "pts": 84,
+                "sow": "3",
+                "sol": "3",
+                "gf": 235,
+                "ga__dup1": 281,
+                "name": "Tampa Bay Lightning",
+                "pim": "865",
+                "benchminor": "16",
+                "ppg": "41",
+                "ppc": "269",
+                "sha": "12",
+                "pkg": "59",
+                "pkc": "284",
+                "shf": "2",
+                "year__dup3": 2011,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TBL",
+                "oppid__dup1": "BOS",
+                "w__dup2": 2,
+                "l__dup2": 2,
+                "t__dup1": null,
+                "otl__dup1": "0",
+                "year__dup4": 1981,
+                "lgid__dup3": "NHL",
+                "tmid__dup4": "BOS",
+                "oppid__dup2": "HAR",
+                "w__dup3": 4,
+                "l__dup3": 2,
+                "t__dup2": 2,
+                "otl__dup2": null
+              },
+              {
+                "playerid": "hodsoke01",
+                "year": 2002,
+                "stint": 1,
+                "tmid": "TBL",
+                "lgid": "NHL",
+                "gp": "7",
+                "min": "283",
+                "w": "0",
+                "l": "3",
+                "t/ol": "1",
+                "eng": "1",
+                "sho": "0",
+                "ga": "12",
+                "sa": "101",
+                "postgp": null,
+                "postmin": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "posteng": null,
+                "postsho": null,
+                "postga": null,
+                "postsa": null,
+                "year__dup1": 1997,
+                "month": 10,
+                "date": 18,
+                "tmid__dup1": "DET",
+                "oppid": "CAR",
+                "r/p": "R",
+                "idgoalie1": "osgooch01",
+                "idgoalie2": "hodsoke01",
+                "year__dup2": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TBL",
+                "franchid": "TBL",
+                "confid": "EC",
+                "divid": "SE",
+                "rank": 3,
+                "playoff": null,
+                "g": 82,
+                "w__dup1": 38,
+                "l__dup1": 36,
+                "t": null,
+                "otl": "8",
+                "pts": 84,
+                "sow": "3",
+                "sol": "3",
+                "gf": 235,
+                "ga__dup1": 281,
+                "name": "Tampa Bay Lightning",
+                "pim": "865",
+                "benchminor": "16",
+                "ppg": "41",
+                "ppc": "269",
+                "sha": "12",
+                "pkg": "59",
+                "pkc": "284",
+                "shf": "2",
+                "year__dup3": 2011,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TBL",
+                "oppid__dup1": "BOS",
+                "w__dup2": 2,
+                "l__dup2": 2,
+                "t__dup1": null,
+                "otl__dup1": "0",
+                "year__dup4": 1984,
+                "lgid__dup3": "NHL",
+                "tmid__dup4": "BOS",
+                "oppid__dup2": "BUF",
+                "w__dup3": 3,
+                "l__dup3": 4,
+                "t__dup2": 1,
+                "otl__dup2": null
+              },
+              {
+                "playerid": "hodsoke01",
+                "year": 2002,
+                "stint": 1,
+                "tmid": "TBL",
+                "lgid": "NHL",
+                "gp": "7",
+                "min": "283",
+                "w": "0",
+                "l": "3",
+                "t/ol": "1",
+                "eng": "1",
+                "sho": "0",
+                "ga": "12",
+                "sa": "101",
+                "postgp": null,
+                "postmin": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "posteng": null,
+                "postsho": null,
+                "postga": null,
+                "postsa": null,
+                "year__dup1": 1997,
+                "month": 10,
+                "date": 18,
+                "tmid__dup1": "DET",
+                "oppid": "CAR",
+                "r/p": "R",
+                "idgoalie1": "osgooch01",
+                "idgoalie2": "hodsoke01",
+                "year__dup2": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TBL",
+                "franchid": "TBL",
+                "confid": "EC",
+                "divid": "SE",
+                "rank": 3,
+                "playoff": null,
+                "g": 82,
+                "w__dup1": 38,
+                "l__dup1": 36,
+                "t": null,
+                "otl": "8",
+                "pts": 84,
+                "sow": "3",
+                "sol": "3",
+                "gf": 235,
+                "ga__dup1": 281,
+                "name": "Tampa Bay Lightning",
+                "pim": "865",
+                "benchminor": "16",
+                "ppg": "41",
+                "ppc": "269",
+                "sha": "12",
+                "pkg": "59",
+                "pkc": "284",
+                "shf": "2",
+                "year__dup3": 2011,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TBL",
+                "oppid__dup1": "BOS",
+                "w__dup2": 2,
+                "l__dup2": 2,
+                "t__dup1": null,
+                "otl__dup1": "0",
+                "year__dup4": 1991,
+                "lgid__dup3": "NHL",
+                "tmid__dup4": "BOS",
+                "oppid__dup2": "NJD",
+                "w__dup3": 1,
+                "l__dup3": 2,
+                "t__dup2": 0,
+                "otl__dup2": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "tvt.l = 0",
+          "sql": "SELECT *\nFROM goalies g\nJOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2\nJOIN teams t ON g.tmid = t.tmid\nJOIN teamvsteam tvt ON t.tmid = tvt.tmid AND t.year = tvt.year\nJOIN teamvsteam opp ON tvt.oppid = opp.tmid\nWHERE (tvt.w > 0) AND (tvt.l = 0)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 74,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "tvt.l >= 0",
+          "sql": "SELECT *\nFROM goalies g\nJOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2\nJOIN teams t ON g.tmid = t.tmid\nJOIN teamvsteam tvt ON t.tmid = tvt.tmid AND t.year = tvt.year\nJOIN teamvsteam opp ON tvt.oppid = opp.tmid\nWHERE (tvt.w > 0) AND (tvt.l >= 0)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 74,
+            "preview": [
+              {
+                "playerid": "hodsoke01",
+                "year": 2002,
+                "stint": 1,
+                "tmid": "TBL",
+                "lgid": "NHL",
+                "gp": "7",
+                "min": "283",
+                "w": "0",
+                "l": "3",
+                "t/ol": "1",
+                "eng": "1",
+                "sho": "0",
+                "ga": "12",
+                "sa": "101",
+                "postgp": null,
+                "postmin": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "posteng": null,
+                "postsho": null,
+                "postga": null,
+                "postsa": null,
+                "year__dup1": 1997,
+                "month": 10,
+                "date": 18,
+                "tmid__dup1": "DET",
+                "oppid": "CAR",
+                "r/p": "R",
+                "idgoalie1": "osgooch01",
+                "idgoalie2": "hodsoke01",
+                "year__dup2": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TBL",
+                "franchid": "TBL",
+                "confid": "EC",
+                "divid": "SE",
+                "rank": 3,
+                "playoff": null,
+                "g": 82,
+                "w__dup1": 38,
+                "l__dup1": 36,
+                "t": null,
+                "otl": "8",
+                "pts": 84,
+                "sow": "3",
+                "sol": "3",
+                "gf": 235,
+                "ga__dup1": 281,
+                "name": "Tampa Bay Lightning",
+                "pim": "865",
+                "benchminor": "16",
+                "ppg": "41",
+                "ppc": "269",
+                "sha": "12",
+                "pkg": "59",
+                "pkc": "284",
+                "shf": "2",
+                "year__dup3": 2011,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TBL",
+                "oppid__dup1": "BOS",
+                "w__dup2": 2,
+                "l__dup2": 2,
+                "t__dup1": null,
+                "otl__dup1": "0",
+                "year__dup4": 1958,
+                "lgid__dup3": "NHL",
+                "tmid__dup4": "BOS",
+                "oppid__dup2": "NYR",
+                "w__dup3": 6,
+                "l__dup3": 5,
+                "t__dup2": 3,
+                "otl__dup2": null
+              },
+              {
+                "playerid": "hodsoke01",
+                "year": 2002,
+                "stint": 1,
+                "tmid": "TBL",
+                "lgid": "NHL",
+                "gp": "7",
+                "min": "283",
+                "w": "0",
+                "l": "3",
+                "t/ol": "1",
+                "eng": "1",
+                "sho": "0",
+                "ga": "12",
+                "sa": "101",
+                "postgp": null,
+                "postmin": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "posteng": null,
+                "postsho": null,
+                "postga": null,
+                "postsa": null,
+                "year__dup1": 1997,
+                "month": 10,
+                "date": 18,
+                "tmid__dup1": "DET",
+                "oppid": "CAR",
+                "r/p": "R",
+                "idgoalie1": "osgooch01",
+                "idgoalie2": "hodsoke01",
+                "year__dup2": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TBL",
+                "franchid": "TBL",
+                "confid": "EC",
+                "divid": "SE",
+                "rank": 3,
+                "playoff": null,
+                "g": 82,
+                "w__dup1": 38,
+                "l__dup1": 36,
+                "t": null,
+                "otl": "8",
+                "pts": 84,
+                "sow": "3",
+                "sol": "3",
+                "gf": 235,
+                "ga__dup1": 281,
+                "name": "Tampa Bay Lightning",
+                "pim": "865",
+                "benchminor": "16",
+                "ppg": "41",
+                "ppc": "269",
+                "sha": "12",
+                "pkg": "59",
+                "pkc": "284",
+                "shf": "2",
+                "year__dup3": 2011,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TBL",
+                "oppid__dup1": "BOS",
+                "w__dup2": 2,
+                "l__dup2": 2,
+                "t__dup1": null,
+                "otl__dup1": "0",
+                "year__dup4": 1967,
+                "lgid__dup3": "NHL",
+                "tmid__dup4": "BOS",
+                "oppid__dup2": "MNS",
+                "w__dup3": 2,
+                "l__dup3": 2,
+                "t__dup2": 0,
+                "otl__dup2": null
+              },
+              {
+                "playerid": "hodsoke01",
+                "year": 2002,
+                "stint": 1,
+                "tmid": "TBL",
+                "lgid": "NHL",
+                "gp": "7",
+                "min": "283",
+                "w": "0",
+                "l": "3",
+                "t/ol": "1",
+                "eng": "1",
+                "sho": "0",
+                "ga": "12",
+                "sa": "101",
+                "postgp": null,
+                "postmin": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "posteng": null,
+                "postsho": null,
+                "postga": null,
+                "postsa": null,
+                "year__dup1": 1997,
+                "month": 10,
+                "date": 18,
+                "tmid__dup1": "DET",
+                "oppid": "CAR",
+                "r/p": "R",
+                "idgoalie1": "osgooch01",
+                "idgoalie2": "hodsoke01",
+                "year__dup2": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TBL",
+                "franchid": "TBL",
+                "confid": "EC",
+                "divid": "SE",
+                "rank": 3,
+                "playoff": null,
+                "g": 82,
+                "w__dup1": 38,
+                "l__dup1": 36,
+                "t": null,
+                "otl": "8",
+                "pts": 84,
+                "sow": "3",
+                "sol": "3",
+                "gf": 235,
+                "ga__dup1": 281,
+                "name": "Tampa Bay Lightning",
+                "pim": "865",
+                "benchminor": "16",
+                "ppg": "41",
+                "ppc": "269",
+                "sha": "12",
+                "pkg": "59",
+                "pkc": "284",
+                "shf": "2",
+                "year__dup3": 2011,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TBL",
+                "oppid__dup1": "BOS",
+                "w__dup2": 2,
+                "l__dup2": 2,
+                "t__dup1": null,
+                "otl__dup1": "0",
+                "year__dup4": 1981,
+                "lgid__dup3": "NHL",
+                "tmid__dup4": "BOS",
+                "oppid__dup2": "HAR",
+                "w__dup3": 4,
+                "l__dup3": 2,
+                "t__dup2": 2,
+                "otl__dup2": null
+              },
+              {
+                "playerid": "hodsoke01",
+                "year": 2002,
+                "stint": 1,
+                "tmid": "TBL",
+                "lgid": "NHL",
+                "gp": "7",
+                "min": "283",
+                "w": "0",
+                "l": "3",
+                "t/ol": "1",
+                "eng": "1",
+                "sho": "0",
+                "ga": "12",
+                "sa": "101",
+                "postgp": null,
+                "postmin": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "posteng": null,
+                "postsho": null,
+                "postga": null,
+                "postsa": null,
+                "year__dup1": 1997,
+                "month": 10,
+                "date": 18,
+                "tmid__dup1": "DET",
+                "oppid": "CAR",
+                "r/p": "R",
+                "idgoalie1": "osgooch01",
+                "idgoalie2": "hodsoke01",
+                "year__dup2": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TBL",
+                "franchid": "TBL",
+                "confid": "EC",
+                "divid": "SE",
+                "rank": 3,
+                "playoff": null,
+                "g": 82,
+                "w__dup1": 38,
+                "l__dup1": 36,
+                "t": null,
+                "otl": "8",
+                "pts": 84,
+                "sow": "3",
+                "sol": "3",
+                "gf": 235,
+                "ga__dup1": 281,
+                "name": "Tampa Bay Lightning",
+                "pim": "865",
+                "benchminor": "16",
+                "ppg": "41",
+                "ppc": "269",
+                "sha": "12",
+                "pkg": "59",
+                "pkc": "284",
+                "shf": "2",
+                "year__dup3": 2011,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TBL",
+                "oppid__dup1": "BOS",
+                "w__dup2": 2,
+                "l__dup2": 2,
+                "t__dup1": null,
+                "otl__dup1": "0",
+                "year__dup4": 1984,
+                "lgid__dup3": "NHL",
+                "tmid__dup4": "BOS",
+                "oppid__dup2": "BUF",
+                "w__dup3": 3,
+                "l__dup3": 4,
+                "t__dup2": 1,
+                "otl__dup2": null
+              },
+              {
+                "playerid": "hodsoke01",
+                "year": 2002,
+                "stint": 1,
+                "tmid": "TBL",
+                "lgid": "NHL",
+                "gp": "7",
+                "min": "283",
+                "w": "0",
+                "l": "3",
+                "t/ol": "1",
+                "eng": "1",
+                "sho": "0",
+                "ga": "12",
+                "sa": "101",
+                "postgp": null,
+                "postmin": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "posteng": null,
+                "postsho": null,
+                "postga": null,
+                "postsa": null,
+                "year__dup1": 1997,
+                "month": 10,
+                "date": 18,
+                "tmid__dup1": "DET",
+                "oppid": "CAR",
+                "r/p": "R",
+                "idgoalie1": "osgooch01",
+                "idgoalie2": "hodsoke01",
+                "year__dup2": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup2": "TBL",
+                "franchid": "TBL",
+                "confid": "EC",
+                "divid": "SE",
+                "rank": 3,
+                "playoff": null,
+                "g": 82,
+                "w__dup1": 38,
+                "l__dup1": 36,
+                "t": null,
+                "otl": "8",
+                "pts": 84,
+                "sow": "3",
+                "sol": "3",
+                "gf": 235,
+                "ga__dup1": 281,
+                "name": "Tampa Bay Lightning",
+                "pim": "865",
+                "benchminor": "16",
+                "ppg": "41",
+                "ppc": "269",
+                "sha": "12",
+                "pkg": "59",
+                "pkc": "284",
+                "shf": "2",
+                "year__dup3": 2011,
+                "lgid__dup2": "NHL",
+                "tmid__dup3": "TBL",
+                "oppid__dup1": "BOS",
+                "w__dup2": 2,
+                "l__dup2": 2,
+                "t__dup1": null,
+                "otl__dup1": "0",
+                "year__dup4": 1991,
+                "lgid__dup3": "NHL",
+                "tmid__dup4": "BOS",
+                "oppid__dup2": "NJD",
+                "w__dup3": 1,
+                "l__dup3": 2,
+                "t__dup2": 0,
+                "otl__dup2": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT g.tmid, g.year, AVG(CAST(g.ga AS FLOAT)) AS avg_ga\nFROM goalies g\nJOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2\nJOIN teams t ON g.tmid = t.tmid\nJOIN teamvsteam tvt ON t.tmid = tvt.tmid AND t.year = tvt.year\nJOIN teamvsteam opp ON tvt.oppid = opp.tmid\nWHERE (tvt.w > 0) AND (tvt.l >= 0)\nGROUP BY g.tmid, g.year",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 3,
+            "preview": [
+              {
+                "tmid": "TBL",
+                "year": 2002,
+                "avg_ga": 12.0
+              },
+              {
+                "tmid": "TBL",
+                "year": 2005,
+                "avg_ga": 161.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "Final scalar block with the average goals allowed by teams that had an average of more than 100 goals allowed in the year",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT g.tmid, g.year, AVG(CAST(g.ga AS FLOAT)) AS avg_ga\nFROM goalies g\nJOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2\nJOIN teams t ON g.tmid = t.tmid\nJOIN teamvsteam tvt ON t.tmid = tvt.tmid AND t.year = tvt.year\nJOIN teamvsteam opp ON tvt.oppid = opp.tmid\nWHERE (tvt.w > 0) AND (tvt.l >= 0)\nGROUP BY g.tmid, g.year) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 3,
+            "preview": [
+              {
+                "tmid": "TBL",
+                "year": 2002,
+                "avg_ga": 12.0
+              },
+              {
+                "tmid": "TBL",
+                "year": 2005,
+                "avg_ga": 161.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "having",
+          "clause": "AVG(leaf_1.avg_ga) > 100",
+          "sql": "SELECT AVG(leaf_1.avg_ga) AS avg_ga_over_teams\nFROM (SELECT g.tmid, g.year, AVG(CAST(g.ga AS FLOAT)) AS avg_ga\nFROM goalies g\nJOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2\nJOIN teams t ON g.tmid = t.tmid\nJOIN teamvsteam tvt ON t.tmid = tvt.tmid AND t.year = tvt.year\nJOIN teamvsteam opp ON tvt.oppid = opp.tmid\nWHERE (tvt.w > 0) AND (tvt.l >= 0)\nGROUP BY g.tmid, g.year) AS leaf_1\nGROUP BY leaf_1.tmid, leaf_1.year\nHAVING (AVG(leaf_1.avg_ga) > 100)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "avg_ga_over_teams": 161.0
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT AVG(leaf_1.avg_ga) AS avg_ga_over_teams\nFROM (SELECT g.tmid, g.year, AVG(CAST(g.ga AS FLOAT)) AS avg_ga\nFROM goalies g\nJOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2\nJOIN teams t ON g.tmid = t.tmid\nJOIN teamvsteam tvt ON t.tmid = tvt.tmid AND t.year = tvt.year\nJOIN teamvsteam opp ON tvt.oppid = opp.tmid\nWHERE (tvt.w > 0) AND (tvt.l >= 0)\nGROUP BY g.tmid, g.year) AS leaf_1\nGROUP BY leaf_1.tmid, leaf_1.year\nHAVING (AVG(leaf_1.avg_ga) > 100)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "avg_ga_over_teams": 161.0
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 11,
+  "sample_retry": 2,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.41515213358070496,
+    "nearest": {
+      "sample_index": 6,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "similarity": 0.41515213358070496,
+      "sql": "SELECT AVG(leaf_1.ga) AS avg_goals_allowed\nFROM (SELECT g.playerid, g.year, g.ga\nFROM goalies g\nJOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2\nJOIN teams t ON g.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname = 'Campbell Conference')\nGROUP BY g.playerid, g.year, g.ga) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 161.0,
+    "nearest": {
+      "sample_index": 6,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "numeric_answer": 97.0,
+      "delta": 64.0,
+      "sql": "SELECT AVG(leaf_1.ga) AS avg_goals_allowed\nFROM (SELECT g.playerid, g.year, g.ga\nFROM goalies g\nJOIN combinedshutouts cs ON g.playerid = cs.idgoalie1 OR g.playerid = cs.idgoalie2\nJOIN teams t ON g.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname = 'Campbell Conference')\nGROUP BY g.playerid, g.year, g.ga) AS leaf_1"
+    },
+    "min_value": 7.0,
+    "tolerance": 3.0,
+    "reason": "ok"
+  },
+  "question": "What is the average of the average goals-against values across teams and years, but only include those teams and years where this average of averages exceeds 100?",
+  "answer": "161"
+}

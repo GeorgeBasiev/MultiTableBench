@@ -1,0 +1,1 @@
+SELECT d.driverid, d.forename, d.surname, r.raceid, COUNT(p.stop) AS pit_stop_count FROM drivers AS d JOIN results AS r ON d.driverid = r.driverid JOIN pitstops AS p ON r.raceid = p.raceid WHERE (d.nationality IN ('British', 'French', 'German', 'Italian', 'Spanish', 'Belgian', 'Swedish', 'Dutch', 'Austrian', 'Finnish')) GROUP BY d.driverid, d.forename, d.surname, r.raceid

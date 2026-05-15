@@ -1,0 +1,6 @@
+SELECT SUM(leaf_1.payment_amt)
+FROM (SELECT p.payment_no, p.member_no, p.payment_dt, p.payment_amt, m.curr_balance, r.region_name
+FROM payment AS p
+JOIN member AS m ON p.member_no = m.member_no
+JOIN region AS r ON m.region_no = r.region_no
+WHERE (m.curr_balance >= 0)) AS leaf_1

@@ -1,0 +1,1 @@
+SELECT a.au_id, a.au_lname, a.au_fname, t.title, t.pub_id, p.pub_name FROM authors AS a JOIN titleauthor AS ta ON a.au_id = ta.au_id JOIN titles AS t ON ta.title_id = t.title_id JOIN publishers AS p ON t.pub_id = p.pub_id WHERE p.pub_id = '1389' AND a.contract = 1

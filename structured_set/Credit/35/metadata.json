@@ -1,0 +1,2073 @@
+{
+  "sample_index": 35,
+  "db_name": "Credit",
+  "answer_mode": "aggregate",
+  "target_join_count": 4,
+  "actual_join_count": 4,
+  "numeric_answer": null,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 4,
+    "min_hops": 4,
+    "max_hops": 4,
+    "require_group_by": false,
+    "require_having": true,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Total number of members who have made payments in the 'North American' region and have charges in the 'Travel' category, grouped by region, and filtered to only include regions with more than 10 members",
+  "manifest": {
+    "db_name": "Credit",
+    "sample_dir": "structured_set/Credit/35",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "category",
+        "remote_row_count": 10,
+        "snapshot_row_count": 10,
+        "target_limit": 10,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "category_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "category_desc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "category_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "charge",
+        "remote_row_count": 1600000,
+        "snapshot_row_count": 104,
+        "target_limit": 104,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "charge_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "provider_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "category_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "charge_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "charge_amt",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "statement_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "charge_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "corporation",
+        "remote_row_count": 500,
+        "snapshot_row_count": 69,
+        "target_limit": 69,
+        "relational_rows_added": 31,
+        "columns": [
+          {
+            "name": "corp_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "corp_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "expr_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "corp_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "member",
+        "remote_row_count": 10000,
+        "snapshot_row_count": 75,
+        "target_limit": 75,
+        "relational_rows_added": 595,
+        "columns": [
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lastname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "middleinitial",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "photograph",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          },
+          {
+            "name": "issue_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "expr_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "corp_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "prev_balance",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "curr_balance",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "member_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "payment",
+        "remote_row_count": 15554,
+        "snapshot_row_count": 104,
+        "target_limit": 104,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "payment_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "payment_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "payment_amt",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "statement_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "payment_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "provider",
+        "remote_row_count": 500,
+        "snapshot_row_count": 90,
+        "target_limit": 90,
+        "relational_rows_added": 48,
+        "columns": [
+          {
+            "name": "provider_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "provider_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "issue_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "expr_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "provider_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "region",
+        "remote_row_count": 9,
+        "snapshot_row_count": 9,
+        "target_limit": 9,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "region_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "statement",
+        "remote_row_count": 20000,
+        "snapshot_row_count": 65,
+        "target_limit": 65,
+        "relational_rows_added": 64,
+        "columns": [
+          {
+            "name": "statement_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "statement_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "due_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "statement_amt",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "statement_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Total number of members who have made payments in the 'North American' region and have charges in the 'Travel' category, grouped by region, and filtered to only include regions with more than 10 members",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT m.member_no, m.lastname, m.firstname, r.region_name, c.category_desc FROM member m JOIN region r ON m.region_no = r.region_no JOIN charge ch ON m.member_no = ch.member_no JOIN category c ON ch.category_no = c.category_no JOIN payment p ON m.member_no = p.member_no WHERE r.region_name = 'North American' AND c.category_desc = 'Travel' GROUP BY m.member_no, m.lastname, m.firstname, r.region_name, c.category_desc HAVING COUNT(DISTINCT p.payment_no) > 0",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT m.member_no, r.region_name, r.region_no",
+        "from_clause": "FROM member m",
+        "join_clauses": [
+          "JOIN region r ON m.region_no = r.region_no",
+          "JOIN charge ch ON m.member_no = ch.member_no",
+          "JOIN category c ON ch.category_no = c.category_no",
+          "JOIN payment p ON m.member_no = p.member_no"
+        ],
+        "where_clauses": [
+          "r.region_name = 'North American'",
+          "c.category_desc = 'Travel'"
+        ],
+        "group_by_clause": "GROUP BY m.member_no, r.region_name, r.region_no",
+        "having_clauses": [
+          "COUNT(DISTINCT p.payment_no) > 0"
+        ],
+        "notes": "Members in the 'North American' region with charges in the 'Travel' category and at least one payment"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT COUNT(DISTINCT leaf_1.member_no)",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Total number of unique members meeting the criteria"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "Members in the 'North American' region with charges in the 'Travel' category and at least one payment",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM member m\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 18,
+            "preview": [
+              {
+                "member_no": 1148,
+                "lastname": "DORR",
+                "firstname": "FMSZQ",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:41:47",
+                "expr_dt": "2000-10-12T10:41:47",
+                "region_no": 4,
+                "corp_no": NaN,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": ""
+              },
+              {
+                "member_no": 1171,
+                "lastname": "ANDERSON",
+                "firstname": "FYTIJRLQFDMIRG",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:41:47",
+                "expr_dt": "2000-10-12T10:41:47",
+                "region_no": 9,
+                "corp_no": NaN,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": ""
+              },
+              {
+                "member_no": 1216,
+                "lastname": "TOLSKY",
+                "firstname": "PDKEOEUW",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:41:47",
+                "expr_dt": "2000-10-12T10:41:47",
+                "region_no": 3,
+                "corp_no": 367.0,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": ""
+              },
+              {
+                "member_no": 1325,
+                "lastname": "YEONG",
+                "firstname": "EBLZRBWDOXWPJC",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:41:49",
+                "expr_dt": "2000-10-12T10:41:49",
+                "region_no": 6,
+                "corp_no": 460.0,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": ""
+              },
+              {
+                "member_no": 1326,
+                "lastname": "ZUCKER",
+                "firstname": "MODHIZSCQBBFOU",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:41:49",
+                "expr_dt": "2000-10-12T10:41:49",
+                "region_no": 8,
+                "corp_no": NaN,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": ""
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN region r ON m.region_no = r.region_no",
+          "sql": "SELECT *\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 27,
+            "preview": [
+              {
+                "member_no": 1148,
+                "lastname": "DORR",
+                "firstname": "FMSZQ",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:41:47",
+                "expr_dt": "2000-10-12T10:41:47",
+                "region_no": 4,
+                "corp_no": NaN,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 4,
+                "region_name": "Western Europea",
+                "street__dup1": "444 Fourth St.",
+                "city__dup1": "Brussels",
+                "state_prov__dup1": "",
+                "country__dup1": "",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": ""
+              },
+              {
+                "member_no": 1171,
+                "lastname": "ANDERSON",
+                "firstname": "FYTIJRLQFDMIRG",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:41:47",
+                "expr_dt": "2000-10-12T10:41:47",
+                "region_no": 9,
+                "corp_no": NaN,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 9,
+                "region_name": "Africa",
+                "street__dup1": "999 Ninth St.",
+                "city__dup1": "Mombassa",
+                "state_prov__dup1": "",
+                "country__dup1": "Ke",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": ""
+              },
+              {
+                "member_no": 1216,
+                "lastname": "TOLSKY",
+                "firstname": "PDKEOEUW",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:41:47",
+                "expr_dt": "2000-10-12T10:41:47",
+                "region_no": 3,
+                "corp_no": 367.0,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 3,
+                "region_name": "Scandanavian",
+                "street__dup1": "333 Third St.",
+                "city__dup1": "Goteborg",
+                "state_prov__dup1": "",
+                "country__dup1": "Sw",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": ""
+              },
+              {
+                "member_no": 1325,
+                "lastname": "YEONG",
+                "firstname": "EBLZRBWDOXWPJC",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:41:49",
+                "expr_dt": "2000-10-12T10:41:49",
+                "region_no": 6,
+                "corp_no": 460.0,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 6,
+                "region_name": "Japan",
+                "street__dup1": "666 Sixth",
+                "city__dup1": "Tokyo",
+                "state_prov__dup1": "",
+                "country__dup1": "Ja",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": ""
+              },
+              {
+                "member_no": 1326,
+                "lastname": "ZUCKER",
+                "firstname": "MODHIZSCQBBFOU",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:41:49",
+                "expr_dt": "2000-10-12T10:41:49",
+                "region_no": 8,
+                "corp_no": NaN,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 8,
+                "region_name": "Mid East / Sout",
+                "street__dup1": "888 Eighth St.",
+                "city__dup1": "Madras",
+                "state_prov__dup1": "",
+                "country__dup1": "",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": ""
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN charge ch ON m.member_no = ch.member_no",
+          "sql": "SELECT *\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 35,
+            "preview": [
+              {
+                "member_no": 8050,
+                "lastname": "PAYNTER",
+                "firstname": "LIYFNIBKLFAEQO",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:43:13",
+                "expr_dt": "2000-10-12T10:43:13",
+                "region_no": 2,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 2,
+                "region_name": "South American",
+                "street__dup1": "222 Second St.",
+                "city__dup1": "Sao Paulo",
+                "state_prov__dup1": "",
+                "country__dup1": "Br",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 70243,
+                "member_no__dup1": 8050,
+                "provider_no": 481,
+                "category_no": 10,
+                "charge_dt": "1999-06-23T10:49:01",
+                "charge_amt": 3434.0,
+                "statement_no": 8050,
+                "charge_code": ""
+              },
+              {
+                "member_no": 5708,
+                "lastname": "NELSON",
+                "firstname": "FMAOEHNTGZTGNI",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:42:44",
+                "expr_dt": "2000-10-12T10:42:44",
+                "region_no": 4,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 4,
+                "region_name": "Western Europea",
+                "street__dup1": "444 Fourth St.",
+                "city__dup1": "Brussels",
+                "state_prov__dup1": "",
+                "country__dup1": "",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 88331,
+                "member_no__dup1": 5708,
+                "provider_no": 247,
+                "category_no": 5,
+                "charge_dt": "1999-07-15T10:50:26",
+                "charge_amt": 2075.0,
+                "statement_no": 5708,
+                "charge_code": ""
+              },
+              {
+                "member_no": 9198,
+                "lastname": "TOLSKY",
+                "firstname": "UIOHR",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:43:27",
+                "expr_dt": "2000-10-12T10:43:27",
+                "region_no": 6,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 6,
+                "region_name": "Japan",
+                "street__dup1": "666 Sixth",
+                "city__dup1": "Tokyo",
+                "state_prov__dup1": "",
+                "country__dup1": "Ja",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 538527,
+                "member_no__dup1": 9198,
+                "provider_no": 500,
+                "category_no": 7,
+                "charge_dt": "1999-06-17T10:46:35",
+                "charge_amt": 3732.0,
+                "statement_no": 9198,
+                "charge_code": ""
+              },
+              {
+                "member_no": 7414,
+                "lastname": "DORR",
+                "firstname": "RLJGOKGVX",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:43:05",
+                "expr_dt": "2000-10-12T10:43:05",
+                "region_no": 8,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 8,
+                "region_name": "Mid East / Sout",
+                "street__dup1": "888 Eighth St.",
+                "city__dup1": "Madras",
+                "state_prov__dup1": "",
+                "country__dup1": "",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 566141,
+                "member_no__dup1": 7414,
+                "provider_no": 311,
+                "category_no": 8,
+                "charge_dt": "1999-06-21T10:48:42",
+                "charge_amt": 1011.0,
+                "statement_no": 7414,
+                "charge_code": ""
+              },
+              {
+                "member_no": 8631,
+                "lastname": "YEONG",
+                "firstname": "QQLHMJLSGPLYNY",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:43:20",
+                "expr_dt": "2000-10-12T10:43:20",
+                "region_no": 3,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 3,
+                "region_name": "Scandanavian",
+                "street__dup1": "333 Third St.",
+                "city__dup1": "Goteborg",
+                "state_prov__dup1": "",
+                "country__dup1": "Sw",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 570542,
+                "member_no__dup1": 8631,
+                "provider_no": 337,
+                "category_no": 3,
+                "charge_dt": "1999-06-18T10:49:03",
+                "charge_amt": 3072.0,
+                "statement_no": 8631,
+                "charge_code": ""
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN category c ON ch.category_no = c.category_no",
+          "sql": "SELECT *\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 38,
+            "preview": [
+              {
+                "member_no": 8050,
+                "lastname": "PAYNTER",
+                "firstname": "LIYFNIBKLFAEQO",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:43:13",
+                "expr_dt": "2000-10-12T10:43:13",
+                "region_no": 2,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 2,
+                "region_name": "South American",
+                "street__dup1": "222 Second St.",
+                "city__dup1": "Sao Paulo",
+                "state_prov__dup1": "",
+                "country__dup1": "Br",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 70243,
+                "member_no__dup1": 8050,
+                "provider_no": 481,
+                "category_no": 10,
+                "charge_dt": "1999-06-23T10:49:01",
+                "charge_amt": 3434.0,
+                "statement_no": 8050,
+                "charge_code": "",
+                "category_no__dup1": 10,
+                "category_desc": "Misc",
+                "category_code": ""
+              },
+              {
+                "member_no": 5708,
+                "lastname": "NELSON",
+                "firstname": "FMAOEHNTGZTGNI",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:42:44",
+                "expr_dt": "2000-10-12T10:42:44",
+                "region_no": 4,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 4,
+                "region_name": "Western Europea",
+                "street__dup1": "444 Fourth St.",
+                "city__dup1": "Brussels",
+                "state_prov__dup1": "",
+                "country__dup1": "",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 88331,
+                "member_no__dup1": 5708,
+                "provider_no": 247,
+                "category_no": 5,
+                "charge_dt": "1999-07-15T10:50:26",
+                "charge_amt": 2075.0,
+                "statement_no": 5708,
+                "charge_code": "",
+                "category_no__dup1": 5,
+                "category_desc": "Entertainment",
+                "category_code": ""
+              },
+              {
+                "member_no": 9198,
+                "lastname": "TOLSKY",
+                "firstname": "UIOHR",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:43:27",
+                "expr_dt": "2000-10-12T10:43:27",
+                "region_no": 6,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 6,
+                "region_name": "Japan",
+                "street__dup1": "666 Sixth",
+                "city__dup1": "Tokyo",
+                "state_prov__dup1": "",
+                "country__dup1": "Ja",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 538527,
+                "member_no__dup1": 9198,
+                "provider_no": 500,
+                "category_no": 7,
+                "charge_dt": "1999-06-17T10:46:35",
+                "charge_amt": 3732.0,
+                "statement_no": 9198,
+                "charge_code": "",
+                "category_no__dup1": 7,
+                "category_desc": "Electronics",
+                "category_code": ""
+              },
+              {
+                "member_no": 7414,
+                "lastname": "DORR",
+                "firstname": "RLJGOKGVX",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:43:05",
+                "expr_dt": "2000-10-12T10:43:05",
+                "region_no": 8,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 8,
+                "region_name": "Mid East / Sout",
+                "street__dup1": "888 Eighth St.",
+                "city__dup1": "Madras",
+                "state_prov__dup1": "",
+                "country__dup1": "",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 566141,
+                "member_no__dup1": 7414,
+                "provider_no": 311,
+                "category_no": 8,
+                "charge_dt": "1999-06-21T10:48:42",
+                "charge_amt": 1011.0,
+                "statement_no": 7414,
+                "charge_code": "",
+                "category_no__dup1": 8,
+                "category_desc": "Home Supplies",
+                "category_code": ""
+              },
+              {
+                "member_no": 8631,
+                "lastname": "YEONG",
+                "firstname": "QQLHMJLSGPLYNY",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:43:20",
+                "expr_dt": "2000-10-12T10:43:20",
+                "region_no": 3,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 3,
+                "region_name": "Scandanavian",
+                "street__dup1": "333 Third St.",
+                "city__dup1": "Goteborg",
+                "state_prov__dup1": "",
+                "country__dup1": "Sw",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 570542,
+                "member_no__dup1": 8631,
+                "provider_no": 337,
+                "category_no": 3,
+                "charge_dt": "1999-06-18T10:49:03",
+                "charge_amt": 3072.0,
+                "statement_no": 8631,
+                "charge_code": "",
+                "category_no__dup1": 3,
+                "category_desc": "Lodging",
+                "category_code": ""
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN payment p ON m.member_no = p.member_no",
+          "sql": "SELECT *\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nJOIN payment p ON m.member_no = p.member_no\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 44,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "LEFT JOIN payment p ON m.member_no = p.member_no",
+          "sql": "SELECT *\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLEFT JOIN payment p ON m.member_no = p.member_no\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 44,
+            "preview": [
+              {
+                "member_no": 8050,
+                "lastname": "PAYNTER",
+                "firstname": "LIYFNIBKLFAEQO",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:43:13",
+                "expr_dt": "2000-10-12T10:43:13",
+                "region_no": 2,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 2,
+                "region_name": "South American",
+                "street__dup1": "222 Second St.",
+                "city__dup1": "Sao Paulo",
+                "state_prov__dup1": "",
+                "country__dup1": "Br",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 70243,
+                "member_no__dup1": 8050,
+                "provider_no": 481,
+                "category_no": 10,
+                "charge_dt": "1999-06-23T10:49:01",
+                "charge_amt": 3434.0,
+                "statement_no": 8050,
+                "charge_code": "",
+                "category_no__dup1": 10,
+                "category_desc": "Misc",
+                "category_code": "",
+                "payment_no": null,
+                "member_no__dup2": null,
+                "payment_dt": null,
+                "payment_amt": null,
+                "statement_no__dup1": null,
+                "payment_code": null
+              },
+              {
+                "member_no": 5708,
+                "lastname": "NELSON",
+                "firstname": "FMAOEHNTGZTGNI",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:42:44",
+                "expr_dt": "2000-10-12T10:42:44",
+                "region_no": 4,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 4,
+                "region_name": "Western Europea",
+                "street__dup1": "444 Fourth St.",
+                "city__dup1": "Brussels",
+                "state_prov__dup1": "",
+                "country__dup1": "",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 88331,
+                "member_no__dup1": 5708,
+                "provider_no": 247,
+                "category_no": 5,
+                "charge_dt": "1999-07-15T10:50:26",
+                "charge_amt": 2075.0,
+                "statement_no": 5708,
+                "charge_code": "",
+                "category_no__dup1": 5,
+                "category_desc": "Entertainment",
+                "category_code": "",
+                "payment_no": null,
+                "member_no__dup2": null,
+                "payment_dt": null,
+                "payment_amt": null,
+                "statement_no__dup1": null,
+                "payment_code": null
+              },
+              {
+                "member_no": 9198,
+                "lastname": "TOLSKY",
+                "firstname": "UIOHR",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:43:27",
+                "expr_dt": "2000-10-12T10:43:27",
+                "region_no": 6,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 6,
+                "region_name": "Japan",
+                "street__dup1": "666 Sixth",
+                "city__dup1": "Tokyo",
+                "state_prov__dup1": "",
+                "country__dup1": "Ja",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 538527,
+                "member_no__dup1": 9198,
+                "provider_no": 500,
+                "category_no": 7,
+                "charge_dt": "1999-06-17T10:46:35",
+                "charge_amt": 3732.0,
+                "statement_no": 9198,
+                "charge_code": "",
+                "category_no__dup1": 7,
+                "category_desc": "Electronics",
+                "category_code": "",
+                "payment_no": null,
+                "member_no__dup2": null,
+                "payment_dt": null,
+                "payment_amt": null,
+                "statement_no__dup1": null,
+                "payment_code": null
+              },
+              {
+                "member_no": 7414,
+                "lastname": "DORR",
+                "firstname": "RLJGOKGVX",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:43:05",
+                "expr_dt": "2000-10-12T10:43:05",
+                "region_no": 8,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 8,
+                "region_name": "Mid East / Sout",
+                "street__dup1": "888 Eighth St.",
+                "city__dup1": "Madras",
+                "state_prov__dup1": "",
+                "country__dup1": "",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 566141,
+                "member_no__dup1": 7414,
+                "provider_no": 311,
+                "category_no": 8,
+                "charge_dt": "1999-06-21T10:48:42",
+                "charge_amt": 1011.0,
+                "statement_no": 7414,
+                "charge_code": "",
+                "category_no__dup1": 8,
+                "category_desc": "Home Supplies",
+                "category_code": "",
+                "payment_no": null,
+                "member_no__dup2": null,
+                "payment_dt": null,
+                "payment_amt": null,
+                "statement_no__dup1": null,
+                "payment_code": null
+              },
+              {
+                "member_no": 8631,
+                "lastname": "YEONG",
+                "firstname": "QQLHMJLSGPLYNY",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:43:20",
+                "expr_dt": "2000-10-12T10:43:20",
+                "region_no": 3,
+                "corp_no": null,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 3,
+                "region_name": "Scandanavian",
+                "street__dup1": "333 Third St.",
+                "city__dup1": "Goteborg",
+                "state_prov__dup1": "",
+                "country__dup1": "Sw",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 570542,
+                "member_no__dup1": 8631,
+                "provider_no": 337,
+                "category_no": 3,
+                "charge_dt": "1999-06-18T10:49:03",
+                "charge_amt": 3072.0,
+                "statement_no": 8631,
+                "charge_code": "",
+                "category_no__dup1": 3,
+                "category_desc": "Lodging",
+                "category_code": "",
+                "payment_no": null,
+                "member_no__dup2": null,
+                "payment_dt": null,
+                "payment_amt": null,
+                "statement_no__dup1": null,
+                "payment_code": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "r.region_name = 'North American'",
+          "sql": "SELECT *\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLEFT JOIN payment p ON m.member_no = p.member_no\nWHERE (r.region_name = 'North American')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 44,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "r.region_name LIKE 'North American%'",
+          "sql": "SELECT *\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLEFT JOIN payment p ON m.member_no = p.member_no\nWHERE (r.region_name LIKE 'North American%')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 44,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "r.region_name = 'North American'",
+          "sql": "SELECT *\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLEFT JOIN payment p ON m.member_no = p.member_no\nWHERE (r.region_name = 'North American')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 44,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "r.region_name LIKE 'North American%'",
+          "sql": "SELECT *\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLEFT JOIN payment p ON m.member_no = p.member_no\nWHERE (r.region_name LIKE 'North American%')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 44,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "r.region_name = 'North American' OR r.region_name LIKE 'North American%'",
+          "sql": "SELECT *\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLEFT JOIN payment p ON m.member_no = p.member_no\nWHERE (r.region_name = 'North American' OR r.region_name LIKE 'North American%')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 44,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "r.region_name LIKE 'North American%' OR r.region_name LIKE '%North American%' OR r.region_name LIKE '%North American' OR r.region_name = 'North American'",
+          "sql": "SELECT *\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLEFT JOIN payment p ON m.member_no = p.member_no\nWHERE (r.region_name LIKE 'North American%' OR r.region_name LIKE '%North American%' OR r.region_name LIKE '%North American' OR r.region_name = 'North American')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 44,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where_skipped",
+          "clause": "r.region_name = 'North American'",
+          "last_candidate": "r.region_name = 'North American'",
+          "reason": "where predicate made the probe empty"
+        },
+        {
+          "stage": "where",
+          "clause": "c.category_desc = 'Travel'",
+          "sql": "SELECT *\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLEFT JOIN payment p ON m.member_no = p.member_no\nWHERE (c.category_desc = 'Travel')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 44,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.category_desc LIKE '%Travel%'",
+          "sql": "SELECT *\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLEFT JOIN payment p ON m.member_no = p.member_no\nWHERE (c.category_desc LIKE '%Travel%')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 44,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.category_desc = 'Travel'",
+          "sql": "SELECT *\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLEFT JOIN payment p ON m.member_no = p.member_no\nWHERE (c.category_desc = 'Travel')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 44,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.category_desc LIKE '%Travel%'",
+          "sql": "SELECT *\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLEFT JOIN payment p ON m.member_no = p.member_no\nWHERE (c.category_desc LIKE '%Travel%')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 44,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.category_desc = 'Travel'",
+          "sql": "SELECT *\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLEFT JOIN payment p ON m.member_no = p.member_no\nWHERE (c.category_desc = 'Travel')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 44,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.category_desc = 'Meals'",
+          "sql": "SELECT *\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLEFT JOIN payment p ON m.member_no = p.member_no\nWHERE (c.category_desc = 'Meals')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 44,
+            "preview": [
+              {
+                "member_no": 9654,
+                "lastname": "HAHN",
+                "firstname": "NDLBYTZSYMSCJX",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:43:33",
+                "expr_dt": "2000-10-12T10:43:33",
+                "region_no": 7,
+                "corp_no": NaN,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 7,
+                "region_name": "China",
+                "street__dup1": "777 Seventh St",
+                "city__dup1": "Beijing",
+                "state_prov__dup1": "",
+                "country__dup1": "",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 705897,
+                "member_no__dup1": 9654,
+                "provider_no": 499,
+                "category_no": 2,
+                "charge_dt": "1999-08-08T10:44:04",
+                "charge_amt": 2043.0,
+                "statement_no": 9654,
+                "charge_code": "",
+                "category_no__dup1": 2,
+                "category_desc": "Meals",
+                "category_code": "",
+                "payment_no": null,
+                "member_no__dup2": null,
+                "payment_dt": null,
+                "payment_amt": null,
+                "statement_no__dup1": null,
+                "payment_code": null
+              },
+              {
+                "member_no": 9726,
+                "lastname": "BARR",
+                "firstname": "PCGGWSXGDTNNTU",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:43:34",
+                "expr_dt": "2000-10-12T10:43:34",
+                "region_no": 2,
+                "corp_no": NaN,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 2,
+                "region_name": "South American",
+                "street__dup1": "222 Second St.",
+                "city__dup1": "Sao Paulo",
+                "state_prov__dup1": "",
+                "country__dup1": "Br",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 1054719,
+                "member_no__dup1": 9726,
+                "provider_no": 415,
+                "category_no": 2,
+                "charge_dt": "1999-07-28T10:47:50",
+                "charge_amt": 4625.0,
+                "statement_no": 9726,
+                "charge_code": "",
+                "category_no__dup1": 2,
+                "category_desc": "Meals",
+                "category_code": "",
+                "payment_no": null,
+                "member_no__dup2": null,
+                "payment_dt": null,
+                "payment_amt": null,
+                "statement_no__dup1": null,
+                "payment_code": null
+              },
+              {
+                "member_no": 4904,
+                "lastname": "PAYNTER",
+                "firstname": "ECWGUKMOQKQ",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:42:34",
+                "expr_dt": "2000-10-12T10:42:34",
+                "region_no": 4,
+                "corp_no": NaN,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 4,
+                "region_name": "Western Europea",
+                "street__dup1": "444 Fourth St.",
+                "city__dup1": "Brussels",
+                "state_prov__dup1": "",
+                "country__dup1": "",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 1087413,
+                "member_no__dup1": 4904,
+                "provider_no": 471,
+                "category_no": 2,
+                "charge_dt": "1999-08-11T10:50:21",
+                "charge_amt": 339.0,
+                "statement_no": 4904,
+                "charge_code": "",
+                "category_no__dup1": 2,
+                "category_desc": "Meals",
+                "category_code": "",
+                "payment_no": null,
+                "member_no__dup2": null,
+                "payment_dt": null,
+                "payment_amt": null,
+                "statement_no__dup1": null,
+                "payment_code": null
+              },
+              {
+                "member_no": 5141,
+                "lastname": "STEIN",
+                "firstname": "BVHUEJVXQBTXJD",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:42:37",
+                "expr_dt": "2000-10-12T10:42:37",
+                "region_no": 3,
+                "corp_no": NaN,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 3,
+                "region_name": "Scandanavian",
+                "street__dup1": "333 Third St.",
+                "city__dup1": "Goteborg",
+                "state_prov__dup1": "",
+                "country__dup1": "Sw",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 1167370,
+                "member_no__dup1": 5141,
+                "provider_no": 488,
+                "category_no": 2,
+                "charge_dt": "1999-08-02T10:48:48",
+                "charge_amt": 857.0,
+                "statement_no": 5141,
+                "charge_code": "",
+                "category_no__dup1": 2,
+                "category_desc": "Meals",
+                "category_code": "",
+                "payment_no": null,
+                "member_no__dup2": null,
+                "payment_dt": null,
+                "payment_amt": null,
+                "statement_no__dup1": null,
+                "payment_code": null
+              },
+              {
+                "member_no": 6244,
+                "lastname": "DORR",
+                "firstname": "FQFERXXYDMMUAP",
+                "middleinitial": "",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "country": "",
+                "mail_code": "",
+                "phone_no": "",
+                "photograph": null,
+                "issue_dt": "1999-10-13T10:42:50",
+                "expr_dt": "2000-10-12T10:42:50",
+                "region_no": 8,
+                "corp_no": 165.0,
+                "prev_balance": 0.0,
+                "curr_balance": 0.0,
+                "member_code": "",
+                "region_no__dup1": 8,
+                "region_name": "Mid East / Sout",
+                "street__dup1": "888 Eighth St.",
+                "city__dup1": "Madras",
+                "state_prov__dup1": "",
+                "country__dup1": "",
+                "mail_code__dup1": "",
+                "phone_no__dup1": "",
+                "region_code": "",
+                "charge_no": 1246959,
+                "member_no__dup1": 6244,
+                "provider_no": 327,
+                "category_no": 2,
+                "charge_dt": "1999-07-06T10:47:14",
+                "charge_amt": 845.0,
+                "statement_no": 6244,
+                "charge_code": "",
+                "category_no__dup1": 2,
+                "category_desc": "Meals",
+                "category_code": "",
+                "payment_no": null,
+                "member_no__dup2": null,
+                "payment_dt": null,
+                "payment_amt": null,
+                "statement_no__dup1": null,
+                "payment_code": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "having",
+          "clause": "COUNT(DISTINCT p.payment_no) > 0",
+          "sql": "SELECT m.member_no, r.region_name, r.region_no\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLEFT JOIN payment p ON m.member_no = p.member_no\nWHERE (c.category_desc = 'Meals')\nGROUP BY m.member_no, r.region_name, r.region_no\nHAVING (COUNT(DISTINCT p.payment_no) > 0)",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 3,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "having",
+          "clause": "COUNT(DISTINCT p.payment_no) >= 0",
+          "sql": "SELECT m.member_no, r.region_name, r.region_no\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLEFT JOIN payment p ON m.member_no = p.member_no\nWHERE (c.category_desc = 'Meals')\nGROUP BY m.member_no, r.region_name, r.region_no\nHAVING (COUNT(DISTINCT p.payment_no) >= 0)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 8,
+            "column_count": 3,
+            "preview": [
+              {
+                "member_no": 3253,
+                "region_name": "South American",
+                "region_no": 2
+              },
+              {
+                "member_no": 4904,
+                "region_name": "Western Europea",
+                "region_no": 4
+              },
+              {
+                "member_no": 5141,
+                "region_name": "Scandanavian",
+                "region_no": 3
+              },
+              {
+                "member_no": 6244,
+                "region_name": "Mid East / Sout",
+                "region_no": 8
+              },
+              {
+                "member_no": 8605,
+                "region_name": "Eastern Europea",
+                "region_no": 5
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT m.member_no, r.region_name, r.region_no\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLEFT JOIN payment p ON m.member_no = p.member_no\nWHERE (c.category_desc = 'Meals')\nGROUP BY m.member_no, r.region_name, r.region_no\nHAVING (COUNT(DISTINCT p.payment_no) >= 0)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 8,
+            "column_count": 3,
+            "preview": [
+              {
+                "member_no": 3253,
+                "region_name": "South American",
+                "region_no": 2
+              },
+              {
+                "member_no": 4904,
+                "region_name": "Western Europea",
+                "region_no": 4
+              },
+              {
+                "member_no": 5141,
+                "region_name": "Scandanavian",
+                "region_no": 3
+              },
+              {
+                "member_no": 6244,
+                "region_name": "Mid East / Sout",
+                "region_no": 8
+              },
+              {
+                "member_no": 8605,
+                "region_name": "Eastern Europea",
+                "region_no": 5
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "Total number of unique members meeting the criteria",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT m.member_no, r.region_name, r.region_no\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLEFT JOIN payment p ON m.member_no = p.member_no\nWHERE (c.category_desc = 'Meals')\nGROUP BY m.member_no, r.region_name, r.region_no\nHAVING (COUNT(DISTINCT p.payment_no) >= 0)) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 3,
+            "preview": [
+              {
+                "member_no": 3253,
+                "region_name": "South American",
+                "region_no": 2
+              },
+              {
+                "member_no": 4904,
+                "region_name": "Western Europea",
+                "region_no": 4
+              },
+              {
+                "member_no": 5141,
+                "region_name": "Scandanavian",
+                "region_no": 3
+              },
+              {
+                "member_no": 6244,
+                "region_name": "Mid East / Sout",
+                "region_no": 8
+              },
+              {
+                "member_no": 8605,
+                "region_name": "Eastern Europea",
+                "region_no": 5
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT COUNT(DISTINCT leaf_1.member_no)\nFROM (SELECT m.member_no, r.region_name, r.region_no\nFROM member m\nJOIN region r ON m.region_no = r.region_no\nJOIN charge ch ON m.member_no = ch.member_no\nJOIN category c ON ch.category_no = c.category_no\nLEFT JOIN payment p ON m.member_no = p.member_no\nWHERE (c.category_desc = 'Meals')\nGROUP BY m.member_no, r.region_name, r.region_no\nHAVING (COUNT(DISTINCT p.payment_no) >= 0)) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "COUNT(DISTINCT leaf_1.member_no)": 8
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 12,
+  "sample_retry": 1,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.6318944543828265,
+    "nearest": {
+      "sample_index": 15,
+      "answer_mode": "aggregate",
+      "target_join_count": 4,
+      "similarity": 0.6318944543828265,
+      "sql": "SELECT AVG(leaf_1.charge_amt)\nFROM (SELECT m.member_no, c.charge_no, c.charge_amt\nFROM member AS m\nJOIN charge AS c ON m.member_no = c.member_no\nLEFT JOIN payment AS p ON m.member_no = p.member_no\nJOIN region AS r ON m.region_no = r.region_no\nJOIN category AS cat ON c.category_no = cat.category_no\nWHERE (r.region_name = 'North American' OR r.region_name = 'South American') AND (cat.category_desc = 'Lodging' OR cat.category_desc = 'Meals')\nGROUP BY m.member_no, c.charge_no, c.charge_amt\nHAVING (COUNT(p.payment_no) >= 0)) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": null,
+    "nearest": null,
+    "reason": "not numeric"
+  },
+  "question": "How many distinct members have at least one charge in the 'Meals' category?",
+  "answer": "8"
+}

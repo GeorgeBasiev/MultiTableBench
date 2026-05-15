@@ -1,0 +1,1 @@
+SELECT a.au_id, a.au_lname, a.au_fname, a.state, t.title_id, t.title, s.qty, t.price, r.royalty, ta.royaltyper FROM authors a JOIN titleauthor ta ON a.au_id = ta.au_id JOIN titles t ON ta.title_id = t.title_id JOIN sales s ON t.title_id = s.title_id JOIN roysched r ON t.title_id = r.title_id AND s.qty BETWEEN r.lorange AND r.hirange WHERE (a.state = 'CA')

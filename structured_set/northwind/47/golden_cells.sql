@@ -1,0 +1,1 @@
+SELECT employees.employeeid, employees.firstname, employees.lastname, orders.orderid, orders.orderdate, "order details".unitprice, "order details".quantity FROM employees JOIN orders ON employees.employeeid = orders.employeeid JOIN "order details" ON orders.orderid = "order details".orderid WHERE (strftime('%Y', orders.orderdate) = '1996')

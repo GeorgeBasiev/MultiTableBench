@@ -1,0 +1,6 @@
+SELECT SUM(leaf_1.payment_amt)
+FROM (SELECT p.payment_no, p.payment_dt, p.payment_amt, r.region_name
+FROM payment AS p
+LEFT JOIN member AS m ON p.member_no = m.member_no
+LEFT JOIN region AS r ON m.region_no = r.region_no
+WHERE (strftime('%Y-%m', p.payment_dt) = '1999-08' OR strftime('%Y-%m', p.payment_dt) = '1999-09')) AS leaf_1

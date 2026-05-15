@@ -1,0 +1,1 @@
+SELECT c.corp_name, ch.charge_amt, ch.charge_dt FROM corporation c JOIN member m ON c.corp_no = m.corp_no JOIN charge ch ON m.member_no = ch.member_no WHERE strftime('%Y-%m', ch.charge_dt) = '1999-08'

@@ -1,0 +1,1166 @@
+{
+  "sample_index": 8,
+  "db_name": "Credit",
+  "answer_mode": "aggregate",
+  "target_join_count": 2,
+  "actual_join_count": 2,
+  "numeric_answer": 22850.0,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 2,
+    "min_hops": 2,
+    "max_hops": 2,
+    "require_group_by": true,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "total charges for meals in the North American region",
+  "manifest": {
+    "db_name": "Credit",
+    "sample_dir": "structured_set/Credit/8",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "category",
+        "remote_row_count": 10,
+        "snapshot_row_count": 10,
+        "target_limit": 10,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "category_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "category_desc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "category_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "charge",
+        "remote_row_count": 1600000,
+        "snapshot_row_count": 117,
+        "target_limit": 117,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "charge_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "provider_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "category_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "charge_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "charge_amt",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "statement_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "charge_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "corporation",
+        "remote_row_count": 500,
+        "snapshot_row_count": 78,
+        "target_limit": 78,
+        "relational_rows_added": 30,
+        "columns": [
+          {
+            "name": "corp_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "corp_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "expr_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "corp_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "member",
+        "remote_row_count": 10000,
+        "snapshot_row_count": 60,
+        "target_limit": 60,
+        "relational_rows_added": 500,
+        "columns": [
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lastname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "middleinitial",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "photograph",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          },
+          {
+            "name": "issue_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "expr_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "corp_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "prev_balance",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "curr_balance",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "member_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "payment",
+        "remote_row_count": 15554,
+        "snapshot_row_count": 69,
+        "target_limit": 69,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "payment_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "payment_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "payment_amt",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "statement_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "payment_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "provider",
+        "remote_row_count": 500,
+        "snapshot_row_count": 60,
+        "target_limit": 60,
+        "relational_rows_added": 54,
+        "columns": [
+          {
+            "name": "provider_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "provider_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "issue_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "expr_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "provider_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "region",
+        "remote_row_count": 9,
+        "snapshot_row_count": 9,
+        "target_limit": 9,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "region_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "statement",
+        "remote_row_count": 20000,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 68,
+        "columns": [
+          {
+            "name": "statement_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "statement_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "due_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "statement_amt",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "statement_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "total charges for meals in the North American region",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT leaf_1.category_no, leaf_1.region_no, leaf_1.total_charges FROM (SELECT c.category_no, p.region_no, SUM(ch.charge_amt) AS total_charges FROM charge AS ch JOIN category AS c ON ch.category_no = c.category_no JOIN provider AS p ON ch.provider_no = p.provider_no WHERE c.category_desc = 'Meals' GROUP BY c.category_no, p.region_no) AS leaf_1 WHERE leaf_1.region_no = 1",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT c.category_no, p.region_no, SUM(ch.charge_amt) AS total_charges",
+        "from_clause": "FROM charge AS ch",
+        "join_clauses": [
+          "JOIN category AS c ON ch.category_no = c.category_no",
+          "JOIN provider AS p ON ch.provider_no = p.provider_no"
+        ],
+        "where_clauses": [
+          "c.category_desc = 'Meals'"
+        ],
+        "group_by_clause": "GROUP BY c.category_no, p.region_no",
+        "having_clauses": [],
+        "notes": "sum of charges for meals grouped by category and region"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT SUM(leaf_1.total_charges) AS total_meals_charges",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [
+          "leaf_1.region_no = 1"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "total charges for meals in the North American region"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "sum of charges for meals grouped by category and region",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM charge AS ch\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 8,
+            "preview": [
+              {
+                "charge_no": 7076,
+                "member_no": 9629,
+                "provider_no": 499,
+                "category_no": 2,
+                "charge_dt": "1999-08-17T10:44:09",
+                "charge_amt": 4464.0,
+                "statement_no": 19629,
+                "charge_code": ""
+              },
+              {
+                "charge_no": 26170,
+                "member_no": 8275,
+                "provider_no": 431,
+                "category_no": 7,
+                "charge_dt": "1999-09-27T10:45:37",
+                "charge_amt": 1838.0,
+                "statement_no": 28275,
+                "charge_code": ""
+              },
+              {
+                "charge_no": 30033,
+                "member_no": 7977,
+                "provider_no": 324,
+                "category_no": 8,
+                "charge_dt": "1999-10-10T10:45:55",
+                "charge_amt": 3818.0,
+                "statement_no": 27977,
+                "charge_code": ""
+              },
+              {
+                "charge_no": 38755,
+                "member_no": 9691,
+                "provider_no": 498,
+                "category_no": 9,
+                "charge_dt": "1999-08-30T10:46:36",
+                "charge_amt": 1006.0,
+                "statement_no": 19691,
+                "charge_code": ""
+              },
+              {
+                "charge_no": 44549,
+                "member_no": 5601,
+                "provider_no": 485,
+                "category_no": 7,
+                "charge_dt": "1999-10-04T10:47:03",
+                "charge_amt": 3938.0,
+                "statement_no": 25601,
+                "charge_code": ""
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN category AS c ON ch.category_no = c.category_no",
+          "sql": "SELECT *\nFROM charge AS ch\nJOIN category AS c ON ch.category_no = c.category_no\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 11,
+            "preview": [
+              {
+                "charge_no": 7076,
+                "member_no": 9629,
+                "provider_no": 499,
+                "category_no": 2,
+                "charge_dt": "1999-08-17T10:44:09",
+                "charge_amt": 4464.0,
+                "statement_no": 19629,
+                "charge_code": "",
+                "category_no__dup1": 2,
+                "category_desc": "Meals",
+                "category_code": ""
+              },
+              {
+                "charge_no": 26170,
+                "member_no": 8275,
+                "provider_no": 431,
+                "category_no": 7,
+                "charge_dt": "1999-09-27T10:45:37",
+                "charge_amt": 1838.0,
+                "statement_no": 28275,
+                "charge_code": "",
+                "category_no__dup1": 7,
+                "category_desc": "Electronics",
+                "category_code": ""
+              },
+              {
+                "charge_no": 30033,
+                "member_no": 7977,
+                "provider_no": 324,
+                "category_no": 8,
+                "charge_dt": "1999-10-10T10:45:55",
+                "charge_amt": 3818.0,
+                "statement_no": 27977,
+                "charge_code": "",
+                "category_no__dup1": 8,
+                "category_desc": "Home Supplies",
+                "category_code": ""
+              },
+              {
+                "charge_no": 38755,
+                "member_no": 9691,
+                "provider_no": 498,
+                "category_no": 9,
+                "charge_dt": "1999-08-30T10:46:36",
+                "charge_amt": 1006.0,
+                "statement_no": 19691,
+                "charge_code": "",
+                "category_no__dup1": 9,
+                "category_desc": "Communication",
+                "category_code": ""
+              },
+              {
+                "charge_no": 44549,
+                "member_no": 5601,
+                "provider_no": 485,
+                "category_no": 7,
+                "charge_dt": "1999-10-04T10:47:03",
+                "charge_amt": 3938.0,
+                "statement_no": 25601,
+                "charge_code": "",
+                "category_no__dup1": 7,
+                "category_desc": "Electronics",
+                "category_code": ""
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN provider AS p ON ch.provider_no = p.provider_no",
+          "sql": "SELECT *\nFROM charge AS ch\nJOIN category AS c ON ch.category_no = c.category_no\nJOIN provider AS p ON ch.provider_no = p.provider_no\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 23,
+            "preview": [
+              {
+                "charge_no": 26170,
+                "member_no": 8275,
+                "provider_no": 431,
+                "category_no": 7,
+                "charge_dt": "1999-09-27T10:45:37",
+                "charge_amt": 1838.0,
+                "statement_no": 28275,
+                "charge_code": "",
+                "category_no__dup1": 7,
+                "category_desc": "Electronics",
+                "category_code": "",
+                "provider_no__dup1": 431,
+                "provider_name": "Prov. Driven Ke",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "mail_code": "",
+                "country": "",
+                "phone_no": "",
+                "issue_dt": "1999-10-13T10:41:23",
+                "expr_dt": "2000-10-12T10:41:23",
+                "region_no": 8,
+                "provider_code": ""
+              },
+              {
+                "charge_no": 30033,
+                "member_no": 7977,
+                "provider_no": 324,
+                "category_no": 8,
+                "charge_dt": "1999-10-10T10:45:55",
+                "charge_amt": 3818.0,
+                "statement_no": 27977,
+                "charge_code": "",
+                "category_no__dup1": 8,
+                "category_desc": "Home Supplies",
+                "category_code": "",
+                "provider_no__dup1": 324,
+                "provider_name": "Prov. Computer",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "mail_code": "",
+                "country": "",
+                "phone_no": "",
+                "issue_dt": "1999-10-13T10:41:22",
+                "expr_dt": "2000-10-12T10:41:22",
+                "region_no": 7,
+                "provider_code": ""
+              },
+              {
+                "charge_no": 44549,
+                "member_no": 5601,
+                "provider_no": 485,
+                "category_no": 7,
+                "charge_dt": "1999-10-04T10:47:03",
+                "charge_amt": 3938.0,
+                "statement_no": 25601,
+                "charge_code": "",
+                "category_no__dup1": 7,
+                "category_desc": "Electronics",
+                "category_code": "",
+                "provider_no__dup1": 485,
+                "provider_name": "Prov. Imperial",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "mail_code": "",
+                "country": "",
+                "phone_no": "",
+                "issue_dt": "1999-10-13T10:41:24",
+                "expr_dt": "2000-10-12T10:41:24",
+                "region_no": 8,
+                "provider_code": ""
+              },
+              {
+                "charge_no": 75357,
+                "member_no": 9489,
+                "provider_no": 320,
+                "category_no": 3,
+                "charge_dt": "1999-10-12T10:49:25",
+                "charge_amt": 4564.0,
+                "statement_no": 29489,
+                "charge_code": "",
+                "category_no__dup1": 3,
+                "category_desc": "Lodging",
+                "category_code": "",
+                "provider_no__dup1": 320,
+                "provider_name": "Prov. Boston Tr",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "mail_code": "",
+                "country": "",
+                "phone_no": "",
+                "issue_dt": "1999-10-13T10:41:22",
+                "expr_dt": "2000-10-12T10:41:22",
+                "region_no": 9,
+                "provider_code": ""
+              },
+              {
+                "charge_no": 80596,
+                "member_no": 3135,
+                "provider_no": 465,
+                "category_no": 6,
+                "charge_dt": "1999-09-18T10:49:50",
+                "charge_amt": 2705.0,
+                "statement_no": 23135,
+                "charge_code": "",
+                "category_no__dup1": 6,
+                "category_desc": "Clothing",
+                "category_code": "",
+                "provider_no__dup1": 465,
+                "provider_name": "Prov. Giant Ope",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "mail_code": "",
+                "country": "",
+                "phone_no": "",
+                "issue_dt": "1999-10-13T10:41:23",
+                "expr_dt": "2000-10-12T10:41:23",
+                "region_no": 6,
+                "provider_code": ""
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.category_desc = 'Meals'",
+          "sql": "SELECT *\nFROM charge AS ch\nJOIN category AS c ON ch.category_no = c.category_no\nJOIN provider AS p ON ch.provider_no = p.provider_no\nWHERE (c.category_desc = 'Meals')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 23,
+            "preview": [
+              {
+                "charge_no": 675736,
+                "member_no": 7858,
+                "provider_no": 477,
+                "category_no": 2,
+                "charge_dt": "1999-10-01T10:49:27",
+                "charge_amt": 86.0,
+                "statement_no": 27858,
+                "charge_code": "",
+                "category_no__dup1": 2,
+                "category_desc": "Meals",
+                "category_code": "",
+                "provider_no__dup1": 477,
+                "provider_name": "Prov. Humble Qu",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "mail_code": "",
+                "country": "",
+                "phone_no": "",
+                "issue_dt": "1999-10-13T10:41:24",
+                "expr_dt": "2000-10-12T10:41:24",
+                "region_no": 9,
+                "provider_code": ""
+              },
+              {
+                "charge_no": 1088896,
+                "member_no": 9557,
+                "provider_no": 443,
+                "category_no": 2,
+                "charge_dt": "1999-09-17T10:50:28",
+                "charge_amt": 3559.0,
+                "statement_no": 29557,
+                "charge_code": "",
+                "category_no__dup1": 2,
+                "category_desc": "Meals",
+                "category_code": "",
+                "provider_no__dup1": 443,
+                "provider_name": "Prov. Expert Ma",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "mail_code": "",
+                "country": "",
+                "phone_no": "",
+                "issue_dt": "1999-10-13T10:41:23",
+                "expr_dt": "2000-10-12T10:41:23",
+                "region_no": 6,
+                "provider_code": ""
+              },
+              {
+                "charge_no": 1181690,
+                "member_no": 9862,
+                "provider_no": 450,
+                "category_no": 2,
+                "charge_dt": "1999-09-27T10:49:55",
+                "charge_amt": 2404.0,
+                "statement_no": 29862,
+                "charge_code": "",
+                "category_no__dup1": 2,
+                "category_desc": "Meals",
+                "category_code": "",
+                "provider_no__dup1": 450,
+                "provider_name": "Prov. Expert Tr",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "mail_code": "",
+                "country": "",
+                "phone_no": "",
+                "issue_dt": "1999-10-13T10:41:23",
+                "expr_dt": "2000-10-12T10:41:23",
+                "region_no": 9,
+                "provider_code": ""
+              },
+              {
+                "charge_no": 1297894,
+                "member_no": 8551,
+                "provider_no": 469,
+                "category_no": 2,
+                "charge_dt": "1999-07-01T10:51:10",
+                "charge_amt": 4461.0,
+                "statement_no": 8551,
+                "charge_code": "",
+                "category_no__dup1": 2,
+                "category_desc": "Meals",
+                "category_code": "",
+                "provider_no__dup1": 469,
+                "provider_name": "Prov. Giant Sai",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "mail_code": "",
+                "country": "",
+                "phone_no": "",
+                "issue_dt": "1999-10-13T10:41:24",
+                "expr_dt": "2000-10-12T10:41:24",
+                "region_no": 9,
+                "provider_code": ""
+              },
+              {
+                "charge_no": 1316778,
+                "member_no": 9480,
+                "provider_no": 364,
+                "category_no": 2,
+                "charge_dt": "1999-06-24T10:44:53",
+                "charge_amt": 4145.0,
+                "statement_no": 9480,
+                "charge_code": "",
+                "category_no__dup1": 2,
+                "category_desc": "Meals",
+                "category_code": "",
+                "provider_no__dup1": 364,
+                "provider_name": "Prov. Giant Nee",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "mail_code": "",
+                "country": "",
+                "phone_no": "",
+                "issue_dt": "1999-10-13T10:41:22",
+                "expr_dt": "2000-10-12T10:41:22",
+                "region_no": 9,
+                "provider_code": ""
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT c.category_no, p.region_no, SUM(ch.charge_amt) AS total_charges\nFROM charge AS ch\nJOIN category AS c ON ch.category_no = c.category_no\nJOIN provider AS p ON ch.provider_no = p.provider_no\nWHERE (c.category_desc = 'Meals')\nGROUP BY c.category_no, p.region_no",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 3,
+            "column_count": 3,
+            "preview": [
+              {
+                "category_no": 2,
+                "region_no": 6,
+                "total_charges": 3559.0
+              },
+              {
+                "category_no": 2,
+                "region_no": 7,
+                "total_charges": 2945.0
+              },
+              {
+                "category_no": 2,
+                "region_no": 9,
+                "total_charges": 16346.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "total charges for meals in the North American region",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT c.category_no, p.region_no, SUM(ch.charge_amt) AS total_charges\nFROM charge AS ch\nJOIN category AS c ON ch.category_no = c.category_no\nJOIN provider AS p ON ch.provider_no = p.provider_no\nWHERE (c.category_desc = 'Meals')\nGROUP BY c.category_no, p.region_no) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 3,
+            "column_count": 3,
+            "preview": [
+              {
+                "category_no": 2,
+                "region_no": 6,
+                "total_charges": 3559.0
+              },
+              {
+                "category_no": 2,
+                "region_no": 7,
+                "total_charges": 2945.0
+              },
+              {
+                "category_no": 2,
+                "region_no": 9,
+                "total_charges": 16346.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "leaf_1.region_no = 1",
+          "sql": "SELECT *\nFROM (SELECT c.category_no, p.region_no, SUM(ch.charge_amt) AS total_charges\nFROM charge AS ch\nJOIN category AS c ON ch.category_no = c.category_no\nJOIN provider AS p ON ch.provider_no = p.provider_no\nWHERE (c.category_desc = 'Meals')\nGROUP BY c.category_no, p.region_no) AS leaf_1\nWHERE (leaf_1.region_no = 1)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 3,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "leaf_1.region_no = 1 OR leaf_1.region_no IS NULL",
+          "sql": "SELECT *\nFROM (SELECT c.category_no, p.region_no, SUM(ch.charge_amt) AS total_charges\nFROM charge AS ch\nJOIN category AS c ON ch.category_no = c.category_no\nJOIN provider AS p ON ch.provider_no = p.provider_no\nWHERE (c.category_desc = 'Meals')\nGROUP BY c.category_no, p.region_no) AS leaf_1\nWHERE (leaf_1.region_no = 1 OR leaf_1.region_no IS NULL)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 3,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "leaf_1.region_no = 1",
+          "sql": "SELECT *\nFROM (SELECT c.category_no, p.region_no, SUM(ch.charge_amt) AS total_charges\nFROM charge AS ch\nJOIN category AS c ON ch.category_no = c.category_no\nJOIN provider AS p ON ch.provider_no = p.provider_no\nWHERE (c.category_desc = 'Meals')\nGROUP BY c.category_no, p.region_no) AS leaf_1\nWHERE (leaf_1.region_no = 1)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 3,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "leaf_1.region_no = 3",
+          "sql": "SELECT *\nFROM (SELECT c.category_no, p.region_no, SUM(ch.charge_amt) AS total_charges\nFROM charge AS ch\nJOIN category AS c ON ch.category_no = c.category_no\nJOIN provider AS p ON ch.provider_no = p.provider_no\nWHERE (c.category_desc = 'Meals')\nGROUP BY c.category_no, p.region_no) AS leaf_1\nWHERE (leaf_1.region_no = 3)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 3,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "leaf_1.region_no = 1",
+          "sql": "SELECT *\nFROM (SELECT c.category_no, p.region_no, SUM(ch.charge_amt) AS total_charges\nFROM charge AS ch\nJOIN category AS c ON ch.category_no = c.category_no\nJOIN provider AS p ON ch.provider_no = p.provider_no\nWHERE (c.category_desc = 'Meals')\nGROUP BY c.category_no, p.region_no) AS leaf_1\nWHERE (leaf_1.region_no = 1)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 3,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "leaf_1.region_no IN (1, 2, 3, 4, 5, 6, 7, 8, 9)",
+          "sql": "SELECT *\nFROM (SELECT c.category_no, p.region_no, SUM(ch.charge_amt) AS total_charges\nFROM charge AS ch\nJOIN category AS c ON ch.category_no = c.category_no\nJOIN provider AS p ON ch.provider_no = p.provider_no\nWHERE (c.category_desc = 'Meals')\nGROUP BY c.category_no, p.region_no) AS leaf_1\nWHERE (leaf_1.region_no IN (1, 2, 3, 4, 5, 6, 7, 8, 9))\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 3,
+            "column_count": 3,
+            "preview": [
+              {
+                "category_no": 2,
+                "region_no": 6,
+                "total_charges": 3559.0
+              },
+              {
+                "category_no": 2,
+                "region_no": 7,
+                "total_charges": 2945.0
+              },
+              {
+                "category_no": 2,
+                "region_no": 9,
+                "total_charges": 16346.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT SUM(leaf_1.total_charges) AS total_meals_charges\nFROM (SELECT c.category_no, p.region_no, SUM(ch.charge_amt) AS total_charges\nFROM charge AS ch\nJOIN category AS c ON ch.category_no = c.category_no\nJOIN provider AS p ON ch.provider_no = p.provider_no\nWHERE (c.category_desc = 'Meals')\nGROUP BY c.category_no, p.region_no) AS leaf_1\nWHERE (leaf_1.region_no IN (1, 2, 3, 4, 5, 6, 7, 8, 9))",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "total_meals_charges": 22850.0
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 2,
+  "sample_retry": 1,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.2908103277060576,
+    "nearest": {
+      "sample_index": 4,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "similarity": 0.2908103277060576,
+      "sql": "SELECT SUM(leaf_1.charge_amt) AS total_charges\nFROM (SELECT c.charge_no, c.charge_dt, c.charge_amt, m.member_no, r.region_name, cat.category_desc\nFROM charge AS c\nJOIN member AS m ON c.member_no = m.member_no\nJOIN region AS r ON m.region_no = r.region_no\nJOIN category AS cat ON c.category_no = cat.category_no\nWHERE (cat.category_desc = 'Meals') AND (r.region_name IN ('North American', 'South American', 'Scandanavian')) AND (strftime('%Y-%m', c.charge_dt) = '1999-08')) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 22850.0,
+    "nearest": {
+      "sample_index": 5,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "numeric_answer": 7459.0,
+      "delta": 15391.0,
+      "sql": "SELECT SUM(leaf_1.payment_amt)\nFROM (SELECT p.payment_no, p.payment_dt, p.payment_amt, r.region_name\nFROM payment AS p\nJOIN member AS m ON p.member_no = m.member_no\nJOIN region AS r ON m.region_no = r.region_no\nJOIN charge AS c ON p.member_no = c.member_no\nGROUP BY p.payment_no, p.payment_dt, p.payment_amt, r.region_name\nHAVING (AVG(c.charge_amt) > 100)) AS leaf_1"
+    },
+    "min_value": 7.0,
+    "tolerance": 3.0,
+    "reason": "ok"
+  },
+  "question": "What is the total sum of all meal charges across regions 1 through 9?",
+  "answer": "22850"
+}

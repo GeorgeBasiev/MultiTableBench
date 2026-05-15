@@ -1,0 +1,1 @@
+SELECT t.year, t.tmid, t.name, t.gf FROM teams AS t JOIN teamvsteam AS tvt ON t.tmid = tvt.tmid AND t.year = tvt.year JOIN abbrev AS ab ON t.confid = ab.code WHERE (ab.fullname = 'Eastern Conference') AND (tvt.l >= 1)

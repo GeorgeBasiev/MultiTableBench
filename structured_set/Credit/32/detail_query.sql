@@ -1,0 +1,7 @@
+SELECT AVG(leaf_1.payment_amt)
+FROM (SELECT r.region_name, p.payment_dt, p.payment_amt, m.region_no, COUNT(c.charge_no) AS charge_count
+FROM payment AS p
+JOIN member AS m ON p.member_no = m.member_no
+JOIN region AS r ON m.region_no = r.region_no
+JOIN charge AS c ON m.member_no = c.member_no
+GROUP BY m.region_no, r.region_name, p.payment_dt, p.payment_amt) AS leaf_1

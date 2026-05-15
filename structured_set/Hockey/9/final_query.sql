@@ -1,0 +1,7 @@
+SELECT AVG(leaf_1.gf) AS avg_goals_scored
+FROM (SELECT t.name AS team_name, t.year, t.gf
+FROM teams AS t
+JOIN coaches AS c ON t.tmid = c.tmid
+JOIN awardscoaches AS a ON c.coachid = a.coachid
+JOIN abbrev AS ab ON t.confid = ab.code
+WHERE ((t.lgid = 'NHL')) AND ((t.confid = ab.code)) AND ((ab.fullname = 'Eastern Conference')) AND ((a.award = 'Jack Adams'))) AS leaf_1

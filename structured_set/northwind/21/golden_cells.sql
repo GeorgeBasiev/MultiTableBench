@@ -1,0 +1,1 @@
+SELECT e.employeeid, e.firstname, e.lastname, o.orderid, o.orderdate, o.shippeddate, od.unitprice, od.quantity, od.discount FROM employees e JOIN orders o ON e.employeeid = o.employeeid JOIN "order details" od ON o.orderid = od.orderid WHERE (e.title = 'Sales Representative') AND (strftime('%Y', o.shippeddate) = '1997')

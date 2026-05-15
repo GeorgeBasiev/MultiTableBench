@@ -1,0 +1,6 @@
+SELECT AVG(leaf_1.points)
+FROM (SELECT d.driverid, d.forename, d.surname, r.raceid, ra.name AS race_name, r.points
+FROM drivers AS d
+JOIN results AS r ON d.driverid = r.driverid
+JOIN races AS ra ON r.raceid = ra.raceid
+WHERE (r.position <= 10) AND (r.position IS NOT NULL)) AS leaf_1

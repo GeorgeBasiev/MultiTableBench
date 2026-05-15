@@ -1,0 +1,1 @@
+SELECT d.driverid, l.raceid, l.milliseconds FROM laptimes AS l JOIN drivers AS d ON l.driverid = d.driverid JOIN races AS r ON l.raceid = r.raceid JOIN circuits AS c ON r.circuitid = c.circuitid JOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid WHERE (c.country != 'UK')

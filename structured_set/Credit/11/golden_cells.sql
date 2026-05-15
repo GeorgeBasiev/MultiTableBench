@@ -1,0 +1,1 @@
+SELECT m.member_no, r.region_name, ch.charge_amt, ch.provider_no, p.provider_name FROM member m JOIN region r ON m.region_no = r.region_no JOIN charge ch ON m.member_no = ch.member_no JOIN provider p ON ch.provider_no = p.provider_no WHERE r.region_name = 'South American' ORDER BY ch.charge_amt DESC

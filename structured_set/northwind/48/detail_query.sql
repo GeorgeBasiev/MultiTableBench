@@ -1,0 +1,7 @@
+SELECT AVG(leaf_1.avg_order_quantity)
+FROM (SELECT e.employeeid, e.firstname, e.lastname, AVG(od.quantity) AS avg_order_quantity
+FROM employees e
+JOIN orders o ON e.employeeid = o.employeeid
+JOIN "order details" od ON o.orderid = od.orderid
+WHERE (strftime('%Y', o.shippeddate) = '1997')
+GROUP BY e.employeeid, e.firstname, e.lastname) AS leaf_1

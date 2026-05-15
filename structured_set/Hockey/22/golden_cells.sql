@@ -1,0 +1,1 @@
+SELECT t.confid, t.w, s.year, s.tmidwinner, a.fullname FROM teams t JOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year JOIN abbrev a ON t.confid = a.code WHERE s.year >= 1985 AND (s.year = 1985 OR s.year = 1986)

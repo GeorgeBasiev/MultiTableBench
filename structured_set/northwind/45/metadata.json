@@ -1,0 +1,2294 @@
+{
+  "sample_index": 45,
+  "db_name": "northwind",
+  "answer_mode": "aggregate",
+  "target_join_count": 2,
+  "actual_join_count": 2,
+  "numeric_answer": 0.0,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 2,
+    "min_hops": 2,
+    "max_hops": 2,
+    "require_group_by": false,
+    "require_having": true,
+    "require_nested_subquery": true
+  },
+  "question_intent": "average discount for orders shipped to customers in the Eastern region in 1996",
+  "manifest": {
+    "db_name": "northwind",
+    "sample_dir": "structured_set/northwind/45",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "alphabetical list of products",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "productid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "supplierid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "categoryid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "quantityperunit",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitprice",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitsinstock",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitsonorder",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "reorderlevel",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discontinued",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "categoryname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "categories",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "categoryid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "categoryname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "description",
+            "mysql_type": "mediumtext",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "picture",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          }
+        ]
+      },
+      {
+        "table_name": "category sales for 1997",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "categoryname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "categorysales",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "current product list",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "productid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "customer and suppliers by city",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "city",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "contactname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "relationship",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "customercustomerdemo",
+        "remote_row_count": 0,
+        "snapshot_row_count": 0,
+        "target_limit": 0,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "customerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "customertypeid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "customerdemographics",
+        "remote_row_count": 0,
+        "snapshot_row_count": 0,
+        "target_limit": 0,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "customertypeid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "customerdesc",
+            "mysql_type": "mediumtext",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "customers",
+        "remote_row_count": 91,
+        "snapshot_row_count": 61,
+        "target_limit": 61,
+        "relational_rows_added": 28,
+        "columns": [
+          {
+            "name": "customerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contactname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contacttitle",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postalcode",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fax",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "employees",
+        "remote_row_count": 9,
+        "snapshot_row_count": 9,
+        "target_limit": 9,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "employeeid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lastname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "titleofcourtesy",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthdate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hiredate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postalcode",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "homephone",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "extension",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "photo",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "mediumtext",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "reportsto",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "photopath",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "salary",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          }
+        ]
+      },
+      {
+        "table_name": "employeeterritories",
+        "remote_row_count": 49,
+        "snapshot_row_count": 49,
+        "target_limit": 49,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "employeeid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "territoryid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "invoices",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "shipname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipaddress",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipcity",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipregion",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shippostalcode",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipcountry",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "customerid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "customername",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "address",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "city",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "region",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "postalcode",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "country",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "salesperson",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderdate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "requireddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shippeddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shippername",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitprice",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "quantity",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discount",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "extendedprice",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "freight",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "order details",
+        "remote_row_count": 2155,
+        "snapshot_row_count": 86,
+        "target_limit": 86,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitprice",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "quantity",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discount",
+            "mysql_type": "double",
+            "sqlite_type": "REAL"
+          }
+        ]
+      },
+      {
+        "table_name": "order details extended",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitprice",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "quantity",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discount",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "extendedprice",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "order subtotals",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "subtotal",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "orders",
+        "remote_row_count": 830,
+        "snapshot_row_count": 71,
+        "target_limit": 71,
+        "relational_rows_added": 64,
+        "columns": [
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "customerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "employeeid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderdate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "requireddate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shippeddate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shipvia",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "freight",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "shipname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shipaddress",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shipcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shipregion",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shippostalcode",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shipcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "orders qry",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "customerid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "employeeid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderdate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "requireddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shippeddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipvia",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "freight",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipaddress",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipcity",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipregion",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shippostalcode",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipcountry",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "address",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "city",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "region",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "postalcode",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "country",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "product sales for 1997",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "categoryname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productsales",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "products",
+        "remote_row_count": 77,
+        "snapshot_row_count": 77,
+        "target_limit": 77,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "productid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "supplierid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "categoryid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "quantityperunit",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "unitprice",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "unitsinstock",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitsonorder",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "reorderlevel",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discontinued",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "products above average price",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitprice",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "products by category",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "categoryname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "quantityperunit",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitsinstock",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discontinued",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "quarterly orders",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "customerid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "city",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "country",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "region",
+        "remote_row_count": 4,
+        "snapshot_row_count": 4,
+        "target_limit": 4,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "regionid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "regiondescription",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "sales by category",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "categoryid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "categoryname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productsales",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "sales totals by amount",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "saleamount",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shippeddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "shippers",
+        "remote_row_count": 3,
+        "snapshot_row_count": 3,
+        "target_limit": 3,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "shipperid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "summary of sales by quarter",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "shippeddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "subtotal",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "summary of sales by year",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "shippeddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "subtotal",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "suppliers",
+        "remote_row_count": 29,
+        "snapshot_row_count": 29,
+        "target_limit": 29,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "supplierid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contactname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contacttitle",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postalcode",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fax",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "homepage",
+            "mysql_type": "mediumtext",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "territories",
+        "remote_row_count": 53,
+        "snapshot_row_count": 53,
+        "target_limit": 53,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "territoryid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "territorydescription",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "regionid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "average discount for orders shipped to customers in the Eastern region in 1996",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT leaf_1.orderid, leaf_1.shipcountry, leaf_1.discount FROM (SELECT o.orderid, c.country AS shipcountry, od.discount FROM orders o JOIN customers c ON o.customerid = c.customerid JOIN order_details od ON o.orderid = od.orderid WHERE c.region = 'Eastern' AND strftime('%Y', o.shippeddate) = '1996') AS leaf_1",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT o.orderid, c.country AS shipcountry, od.discount",
+        "from_clause": "FROM orders o",
+        "join_clauses": [
+          "JOIN customers c ON o.customerid = c.customerid",
+          "JOIN order_details od ON o.orderid = od.orderid"
+        ],
+        "where_clauses": [
+          "c.region = 'Eastern'",
+          "strftime('%Y', o.shippeddate) = '1996'"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "orders shipped to customers in the Eastern region in 1996 with their discount"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT AVG(leaf_1.discount)",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [
+          "AVG(leaf_1.discount) > 0"
+        ],
+        "notes": "average discount for orders shipped to customers in the Eastern region in 1996"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "orders shipped to customers in the Eastern region in 1996 with their discount",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM orders o\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 14,
+            "preview": [
+              {
+                "orderid": 10252,
+                "customerid": "SUPRD",
+                "employeeid": 4,
+                "orderdate": "1996-07-09T00:00:00",
+                "requireddate": "1996-08-06T00:00:00",
+                "shippeddate": "1996-07-11T00:00:00",
+                "shipvia": 2,
+                "freight": 51.3,
+                "shipname": "Suprmes dlices",
+                "shipaddress": "Boulevard Tirou, 255",
+                "shipcity": "Charleroi",
+                "shipregion": NaN,
+                "shippostalcode": "B-6000",
+                "shipcountry": "Belgium"
+              },
+              {
+                "orderid": 10255,
+                "customerid": "RICSU",
+                "employeeid": 9,
+                "orderdate": "1996-07-12T00:00:00",
+                "requireddate": "1996-08-09T00:00:00",
+                "shippeddate": "1996-07-15T00:00:00",
+                "shipvia": 3,
+                "freight": 148.33,
+                "shipname": "Richter Supermarkt",
+                "shipaddress": "Starenweg 5",
+                "shipcity": "Genve",
+                "shipregion": NaN,
+                "shippostalcode": "1204",
+                "shipcountry": "Switzerland"
+              },
+              {
+                "orderid": 10256,
+                "customerid": "WELLI",
+                "employeeid": 3,
+                "orderdate": "1996-07-15T00:00:00",
+                "requireddate": "1996-08-12T00:00:00",
+                "shippeddate": "1996-07-17T00:00:00",
+                "shipvia": 2,
+                "freight": 13.97,
+                "shipname": "Wellington Importadora",
+                "shipaddress": "Rua do Mercado, 12",
+                "shipcity": "Resende",
+                "shipregion": "SP",
+                "shippostalcode": "08737-363",
+                "shipcountry": "Brazil"
+              },
+              {
+                "orderid": 10259,
+                "customerid": "CENTC",
+                "employeeid": 4,
+                "orderdate": "1996-07-18T00:00:00",
+                "requireddate": "1996-08-15T00:00:00",
+                "shippeddate": "1996-07-25T00:00:00",
+                "shipvia": 3,
+                "freight": 3.25,
+                "shipname": "Centro comercial Moctezuma",
+                "shipaddress": "Sierras de Granada 9993",
+                "shipcity": "Mxico D.F.",
+                "shipregion": NaN,
+                "shippostalcode": "5022",
+                "shipcountry": "Mexico"
+              },
+              {
+                "orderid": 10279,
+                "customerid": "LEHMS",
+                "employeeid": 8,
+                "orderdate": "1996-08-13T00:00:00",
+                "requireddate": "1996-09-10T00:00:00",
+                "shippeddate": "1996-08-16T00:00:00",
+                "shipvia": 2,
+                "freight": 25.83,
+                "shipname": "Lehmanns Marktstand",
+                "shipaddress": "Magazinweg 7",
+                "shipcity": "Frankfurt a.M.",
+                "shipregion": NaN,
+                "shippostalcode": "60528",
+                "shipcountry": "Germany"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN customers c ON o.customerid = c.customerid",
+          "sql": "SELECT *\nFROM orders o\nJOIN customers c ON o.customerid = c.customerid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 25,
+            "preview": [
+              {
+                "orderid": 10252,
+                "customerid": "SUPRD",
+                "employeeid": 4,
+                "orderdate": "1996-07-09T00:00:00",
+                "requireddate": "1996-08-06T00:00:00",
+                "shippeddate": "1996-07-11T00:00:00",
+                "shipvia": 2,
+                "freight": 51.3,
+                "shipname": "Suprmes dlices",
+                "shipaddress": "Boulevard Tirou, 255",
+                "shipcity": "Charleroi",
+                "shipregion": NaN,
+                "shippostalcode": "B-6000",
+                "shipcountry": "Belgium",
+                "customerid__dup1": "SUPRD",
+                "companyname": "Suprmes dlices",
+                "contactname": "Pascale Cartrain",
+                "contacttitle": "Accounting Manager",
+                "address": "Boulevard Tirou, 255",
+                "city": "Charleroi",
+                "region": NaN,
+                "postalcode": "B-6000",
+                "country": "Belgium",
+                "phone": "(071) 23 67 22 20",
+                "fax": "(071) 23 67 22 21"
+              },
+              {
+                "orderid": 10255,
+                "customerid": "RICSU",
+                "employeeid": 9,
+                "orderdate": "1996-07-12T00:00:00",
+                "requireddate": "1996-08-09T00:00:00",
+                "shippeddate": "1996-07-15T00:00:00",
+                "shipvia": 3,
+                "freight": 148.33,
+                "shipname": "Richter Supermarkt",
+                "shipaddress": "Starenweg 5",
+                "shipcity": "Genve",
+                "shipregion": NaN,
+                "shippostalcode": "1204",
+                "shipcountry": "Switzerland",
+                "customerid__dup1": "RICSU",
+                "companyname": "Richter Supermarkt",
+                "contactname": "Michael Holz",
+                "contacttitle": "Sales Manager",
+                "address": "Grenzacherweg 237",
+                "city": "Genve",
+                "region": NaN,
+                "postalcode": "1203",
+                "country": "Switzerland",
+                "phone": "0897-034214",
+                "fax": NaN
+              },
+              {
+                "orderid": 10256,
+                "customerid": "WELLI",
+                "employeeid": 3,
+                "orderdate": "1996-07-15T00:00:00",
+                "requireddate": "1996-08-12T00:00:00",
+                "shippeddate": "1996-07-17T00:00:00",
+                "shipvia": 2,
+                "freight": 13.97,
+                "shipname": "Wellington Importadora",
+                "shipaddress": "Rua do Mercado, 12",
+                "shipcity": "Resende",
+                "shipregion": "SP",
+                "shippostalcode": "08737-363",
+                "shipcountry": "Brazil",
+                "customerid__dup1": "WELLI",
+                "companyname": "Wellington Importadora",
+                "contactname": "Paula Parente",
+                "contacttitle": "Sales Manager",
+                "address": "Rua do Mercado, 12",
+                "city": "Resende",
+                "region": "SP",
+                "postalcode": "08737-363",
+                "country": "Brazil",
+                "phone": "(14) 555-8122",
+                "fax": NaN
+              },
+              {
+                "orderid": 10259,
+                "customerid": "CENTC",
+                "employeeid": 4,
+                "orderdate": "1996-07-18T00:00:00",
+                "requireddate": "1996-08-15T00:00:00",
+                "shippeddate": "1996-07-25T00:00:00",
+                "shipvia": 3,
+                "freight": 3.25,
+                "shipname": "Centro comercial Moctezuma",
+                "shipaddress": "Sierras de Granada 9993",
+                "shipcity": "Mxico D.F.",
+                "shipregion": NaN,
+                "shippostalcode": "5022",
+                "shipcountry": "Mexico",
+                "customerid__dup1": "CENTC",
+                "companyname": "Centro comercial Moctezuma",
+                "contactname": "Francisco Chang",
+                "contacttitle": "Marketing Manager",
+                "address": "Sierras de Granada 9993",
+                "city": "Mxico D.F.",
+                "region": NaN,
+                "postalcode": "05022",
+                "country": "Mexico",
+                "phone": "(5) 555-3392",
+                "fax": "(5) 555-7293"
+              },
+              {
+                "orderid": 10279,
+                "customerid": "LEHMS",
+                "employeeid": 8,
+                "orderdate": "1996-08-13T00:00:00",
+                "requireddate": "1996-09-10T00:00:00",
+                "shippeddate": "1996-08-16T00:00:00",
+                "shipvia": 2,
+                "freight": 25.83,
+                "shipname": "Lehmanns Marktstand",
+                "shipaddress": "Magazinweg 7",
+                "shipcity": "Frankfurt a.M.",
+                "shipregion": NaN,
+                "shippostalcode": "60528",
+                "shipcountry": "Germany",
+                "customerid__dup1": "LEHMS",
+                "companyname": "Lehmanns Marktstand",
+                "contactname": "Renate Messner",
+                "contacttitle": "Sales Representative",
+                "address": "Magazinweg 7",
+                "city": "Frankfurt a.M.",
+                "region": NaN,
+                "postalcode": "60528",
+                "country": "Germany",
+                "phone": "069-0245984",
+                "fax": "069-0245874"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN order_details od ON o.orderid = od.orderid",
+          "sql": "SELECT *\nFROM orders o\nJOIN customers c ON o.customerid = c.customerid\nJOIN order_details od ON o.orderid = od.orderid\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": "Execution failed on sql 'SELECT *\nFROM orders o\nJOIN customers c ON o.customerid = c.customerid\nJOIN order_details od ON o.orderid = od.orderid\nLIMIT 5': no such table: order_details",
+            "row_count": 0,
+            "column_count": 0,
+            "preview": null,
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN order_details od ON o.orderid = od.orderid",
+          "sql": "SELECT *\nFROM orders o\nJOIN customers c ON o.customerid = c.customerid\nJOIN order_details od ON o.orderid = od.orderid\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": "Execution failed on sql 'SELECT *\nFROM orders o\nJOIN customers c ON o.customerid = c.customerid\nJOIN order_details od ON o.orderid = od.orderid\nLIMIT 5': no such table: order_details",
+            "row_count": 0,
+            "column_count": 0,
+            "preview": null,
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN \"order details\" od ON o.orderid = od.orderid",
+          "sql": "SELECT *\nFROM orders o\nJOIN customers c ON o.customerid = c.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 30,
+            "preview": [
+              {
+                "orderid": 10927,
+                "customerid": "LACOR",
+                "employeeid": 4,
+                "orderdate": "1998-03-05T00:00:00",
+                "requireddate": "1998-04-02T00:00:00",
+                "shippeddate": "1998-04-08T00:00:00",
+                "shipvia": 1,
+                "freight": 19.79,
+                "shipname": "La corne d-abondance",
+                "shipaddress": "67, avenue de l-Europe",
+                "shipcity": "Versailles",
+                "shipregion": NaN,
+                "shippostalcode": "78000",
+                "shipcountry": "France",
+                "customerid__dup1": "LACOR",
+                "companyname": "La corne d'abondance",
+                "contactname": "Daniel Tonini",
+                "contacttitle": "Sales Representative",
+                "address": "67, avenue de l'Europe",
+                "city": "Versailles",
+                "region": NaN,
+                "postalcode": "78000",
+                "country": "France",
+                "phone": "30.59.84.10",
+                "fax": "30.59.85.11",
+                "orderid__dup1": 10927,
+                "productid": 52,
+                "unitprice": 7.0,
+                "quantity": 5,
+                "discount": 0.0
+              },
+              {
+                "orderid": 10716,
+                "customerid": "RANCH",
+                "employeeid": 4,
+                "orderdate": "1997-10-24T00:00:00",
+                "requireddate": "1997-11-21T00:00:00",
+                "shippeddate": "1997-10-27T00:00:00",
+                "shipvia": 2,
+                "freight": 22.57,
+                "shipname": "Rancho grande",
+                "shipaddress": "Av. del Libertador 900",
+                "shipcity": "Buenos Aires",
+                "shipregion": NaN,
+                "shippostalcode": "1010",
+                "shipcountry": "Argentina",
+                "customerid__dup1": "RANCH",
+                "companyname": "Rancho grande",
+                "contactname": "Sergio Gutirrez",
+                "contacttitle": "Sales Representative",
+                "address": "Av. del Libertador 900",
+                "city": "Buenos Aires",
+                "region": NaN,
+                "postalcode": "1010",
+                "country": "Argentina",
+                "phone": "(1) 123-5555",
+                "fax": "(1) 123-5556",
+                "orderid__dup1": 10716,
+                "productid": 51,
+                "unitprice": 53.0,
+                "quantity": 7,
+                "discount": 0.0
+              },
+              {
+                "orderid": 10484,
+                "customerid": "BSBEV",
+                "employeeid": 3,
+                "orderdate": "1997-03-24T00:00:00",
+                "requireddate": "1997-04-21T00:00:00",
+                "shippeddate": "1997-04-01T00:00:00",
+                "shipvia": 3,
+                "freight": 6.88,
+                "shipname": "B-s Beverages",
+                "shipaddress": "Fauntleroy Circus",
+                "shipcity": "London",
+                "shipregion": NaN,
+                "shippostalcode": "EC2 5NT",
+                "shipcountry": "UK",
+                "customerid__dup1": "BSBEV",
+                "companyname": "B's Beverages",
+                "contactname": "Victoria Ashworth",
+                "contacttitle": "Sales Representative",
+                "address": "Fauntleroy Circus",
+                "city": "London",
+                "region": NaN,
+                "postalcode": "EC2 5NT",
+                "country": "UK",
+                "phone": "(171) 555-1212",
+                "fax": NaN,
+                "orderid__dup1": 10484,
+                "productid": 21,
+                "unitprice": 8.0,
+                "quantity": 14,
+                "discount": 0.0
+              },
+              {
+                "orderid": 10296,
+                "customerid": "LILAS",
+                "employeeid": 6,
+                "orderdate": "1996-09-03T00:00:00",
+                "requireddate": "1996-10-01T00:00:00",
+                "shippeddate": "1996-09-11T00:00:00",
+                "shipvia": 1,
+                "freight": 0.12,
+                "shipname": "LILA-Supermercado",
+                "shipaddress": "Carrera 52 con Ave. Bolvar #65-98 Llano Largo",
+                "shipcity": "Barquisimeto",
+                "shipregion": "Lara",
+                "shippostalcode": "3508",
+                "shipcountry": "Venezuela",
+                "customerid__dup1": "LILAS",
+                "companyname": "LILA-Supermercado",
+                "contactname": "Carlos Gonzlez",
+                "contacttitle": "Accounting Manager",
+                "address": "Carrera 52 con Ave. Bolvar #65-98 Llano Largo",
+                "city": "Barquisimeto",
+                "region": "Lara",
+                "postalcode": "3508",
+                "country": "Venezuela",
+                "phone": "(9) 331-6954",
+                "fax": "(9) 331-7256",
+                "orderid__dup1": 10296,
+                "productid": 16,
+                "unitprice": 13.9,
+                "quantity": 30,
+                "discount": 0.0
+              },
+              {
+                "orderid": 10671,
+                "customerid": "FRANR",
+                "employeeid": 1,
+                "orderdate": "1997-09-17T00:00:00",
+                "requireddate": "1997-10-15T00:00:00",
+                "shippeddate": "1997-09-24T00:00:00",
+                "shipvia": 1,
+                "freight": 30.34,
+                "shipname": "France restauration",
+                "shipaddress": "54, rue Royale",
+                "shipcity": "Nantes",
+                "shipregion": NaN,
+                "shippostalcode": "44000",
+                "shipcountry": "France",
+                "customerid__dup1": "FRANR",
+                "companyname": "France restauration",
+                "contactname": "Carine Schmitt",
+                "contacttitle": "Marketing Manager",
+                "address": "54, rue Royale",
+                "city": "Nantes",
+                "region": NaN,
+                "postalcode": "44000",
+                "country": "France",
+                "phone": "40.32.21.21",
+                "fax": "40.32.21.20",
+                "orderid__dup1": 10671,
+                "productid": 62,
+                "unitprice": 49.3,
+                "quantity": 10,
+                "discount": 0.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.region = 'Eastern'",
+          "sql": "SELECT *\nFROM orders o\nJOIN customers c ON o.customerid = c.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region = 'Eastern')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 30,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.region IN ('Eastern', 'Easterns', 'Northern', 'Easterns')",
+          "sql": "SELECT *\nFROM orders o\nJOIN customers c ON o.customerid = c.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region IN ('Eastern', 'Easterns', 'Northern', 'Easterns'))\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 30,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.region IN ('Eastern', 'Northern')",
+          "sql": "SELECT *\nFROM orders o\nJOIN customers c ON o.customerid = c.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region IN ('Eastern', 'Northern'))\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 30,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.region IN ('Eastern', 'Western', 'Northern')",
+          "sql": "SELECT *\nFROM orders o\nJOIN customers c ON o.customerid = c.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region IN ('Eastern', 'Western', 'Northern'))\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 30,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.region = 'Eastern'",
+          "sql": "SELECT *\nFROM orders o\nJOIN customers c ON o.customerid = c.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region = 'Eastern')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 30,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.region IS NOT NULL",
+          "sql": "SELECT *\nFROM orders o\nJOIN customers c ON o.customerid = c.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region IS NOT NULL)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 30,
+            "preview": [
+              {
+                "orderid": 10296,
+                "customerid": "LILAS",
+                "employeeid": 6,
+                "orderdate": "1996-09-03T00:00:00",
+                "requireddate": "1996-10-01T00:00:00",
+                "shippeddate": "1996-09-11T00:00:00",
+                "shipvia": 1,
+                "freight": 0.12,
+                "shipname": "LILA-Supermercado",
+                "shipaddress": "Carrera 52 con Ave. Bolvar #65-98 Llano Largo",
+                "shipcity": "Barquisimeto",
+                "shipregion": "Lara",
+                "shippostalcode": "3508",
+                "shipcountry": "Venezuela",
+                "customerid__dup1": "LILAS",
+                "companyname": "LILA-Supermercado",
+                "contactname": "Carlos Gonzlez",
+                "contacttitle": "Accounting Manager",
+                "address": "Carrera 52 con Ave. Bolvar #65-98 Llano Largo",
+                "city": "Barquisimeto",
+                "region": "Lara",
+                "postalcode": "3508",
+                "country": "Venezuela",
+                "phone": "(9) 331-6954",
+                "fax": "(9) 331-7256",
+                "orderid__dup1": 10296,
+                "productid": 16,
+                "unitprice": 13.9,
+                "quantity": 30,
+                "discount": 0.0
+              },
+              {
+                "orderid": 10749,
+                "customerid": "ISLAT",
+                "employeeid": 4,
+                "orderdate": "1997-11-20T00:00:00",
+                "requireddate": "1997-12-18T00:00:00",
+                "shippeddate": "1997-12-19T00:00:00",
+                "shipvia": 2,
+                "freight": 61.53,
+                "shipname": "Island Trading",
+                "shipaddress": "Garden House Crowther Way",
+                "shipcity": "Cowes",
+                "shipregion": "Isle of Wight",
+                "shippostalcode": "PO31 7PJ",
+                "shipcountry": "UK",
+                "customerid__dup1": "ISLAT",
+                "companyname": "Island Trading",
+                "contactname": "Helen Bennett",
+                "contacttitle": "Marketing Manager",
+                "address": "Garden House Crowther Way",
+                "city": "Cowes",
+                "region": "Isle of Wight",
+                "postalcode": "PO31 7PJ",
+                "country": "UK",
+                "phone": "(198) 555-8888",
+                "fax": NaN,
+                "orderid__dup1": 10749,
+                "productid": 76,
+                "unitprice": 18.0,
+                "quantity": 10,
+                "discount": 0.0
+              },
+              {
+                "orderid": 10661,
+                "customerid": "HUNGO",
+                "employeeid": 7,
+                "orderdate": "1997-09-09T00:00:00",
+                "requireddate": "1997-10-07T00:00:00",
+                "shippeddate": "1997-09-15T00:00:00",
+                "shipvia": 3,
+                "freight": 17.55,
+                "shipname": "Hungry Owl All-Night Grocers",
+                "shipaddress": "8 Johnstown Road",
+                "shipcity": "Cork",
+                "shipregion": "Co. Cork",
+                "shippostalcode": NaN,
+                "shipcountry": "Ireland",
+                "customerid__dup1": "HUNGO",
+                "companyname": "Hungry Owl All-Night Grocers",
+                "contactname": "Patricia McKenna",
+                "contacttitle": "Sales Associate",
+                "address": "8 Johnstown Road",
+                "city": "Cork",
+                "region": "Co. Cork",
+                "postalcode": NaN,
+                "country": "Ireland",
+                "phone": "2967 542",
+                "fax": "2967 3333",
+                "orderid__dup1": 10661,
+                "productid": 58,
+                "unitprice": 13.25,
+                "quantity": 49,
+                "discount": 0.0
+              },
+              {
+                "orderid": 10309,
+                "customerid": "HUNGO",
+                "employeeid": 3,
+                "orderdate": "1996-09-19T00:00:00",
+                "requireddate": "1996-10-17T00:00:00",
+                "shippeddate": "1996-10-23T00:00:00",
+                "shipvia": 1,
+                "freight": 47.3,
+                "shipname": "Hungry Owl All-Night Grocers",
+                "shipaddress": "8 Johnstown Road",
+                "shipcity": "Cork",
+                "shipregion": "Co. Cork",
+                "shippostalcode": NaN,
+                "shipcountry": "Ireland",
+                "customerid__dup1": "HUNGO",
+                "companyname": "Hungry Owl All-Night Grocers",
+                "contactname": "Patricia McKenna",
+                "contacttitle": "Sales Associate",
+                "address": "8 Johnstown Road",
+                "city": "Cork",
+                "region": "Co. Cork",
+                "postalcode": NaN,
+                "country": "Ireland",
+                "phone": "2967 542",
+                "fax": "2967 3333",
+                "orderid__dup1": 10309,
+                "productid": 42,
+                "unitprice": 11.2,
+                "quantity": 2,
+                "discount": 0.0
+              },
+              {
+                "orderid": 10935,
+                "customerid": "WELLI",
+                "employeeid": 4,
+                "orderdate": "1998-03-09T00:00:00",
+                "requireddate": "1998-04-06T00:00:00",
+                "shippeddate": "1998-03-18T00:00:00",
+                "shipvia": 3,
+                "freight": 47.59,
+                "shipname": "Wellington Importadora",
+                "shipaddress": "Rua do Mercado, 12",
+                "shipcity": "Resende",
+                "shipregion": "SP",
+                "shippostalcode": "08737-363",
+                "shipcountry": "Brazil",
+                "customerid__dup1": "WELLI",
+                "companyname": "Wellington Importadora",
+                "contactname": "Paula Parente",
+                "contacttitle": "Sales Manager",
+                "address": "Rua do Mercado, 12",
+                "city": "Resende",
+                "region": "SP",
+                "postalcode": "08737-363",
+                "country": "Brazil",
+                "phone": "(14) 555-8122",
+                "fax": NaN,
+                "orderid__dup1": 10935,
+                "productid": 18,
+                "unitprice": 62.5,
+                "quantity": 4,
+                "discount": 0.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "strftime('%Y', o.shippeddate) = '1996'",
+          "sql": "SELECT *\nFROM orders o\nJOIN customers c ON o.customerid = c.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region IS NOT NULL) AND (strftime('%Y', o.shippeddate) = '1996')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 4,
+            "column_count": 30,
+            "preview": [
+              {
+                "orderid": 10296,
+                "customerid": "LILAS",
+                "employeeid": 6,
+                "orderdate": "1996-09-03T00:00:00",
+                "requireddate": "1996-10-01T00:00:00",
+                "shippeddate": "1996-09-11T00:00:00",
+                "shipvia": 1,
+                "freight": 0.12,
+                "shipname": "LILA-Supermercado",
+                "shipaddress": "Carrera 52 con Ave. Bolvar #65-98 Llano Largo",
+                "shipcity": "Barquisimeto",
+                "shipregion": "Lara",
+                "shippostalcode": "3508",
+                "shipcountry": "Venezuela",
+                "customerid__dup1": "LILAS",
+                "companyname": "LILA-Supermercado",
+                "contactname": "Carlos Gonzlez",
+                "contacttitle": "Accounting Manager",
+                "address": "Carrera 52 con Ave. Bolvar #65-98 Llano Largo",
+                "city": "Barquisimeto",
+                "region": "Lara",
+                "postalcode": "3508",
+                "country": "Venezuela",
+                "phone": "(9) 331-6954",
+                "fax": "(9) 331-7256",
+                "orderid__dup1": 10296,
+                "productid": 16,
+                "unitprice": 13.9,
+                "quantity": 30,
+                "discount": 0.0
+              },
+              {
+                "orderid": 10309,
+                "customerid": "HUNGO",
+                "employeeid": 3,
+                "orderdate": "1996-09-19T00:00:00",
+                "requireddate": "1996-10-17T00:00:00",
+                "shippeddate": "1996-10-23T00:00:00",
+                "shipvia": 1,
+                "freight": 47.3,
+                "shipname": "Hungry Owl All-Night Grocers",
+                "shipaddress": "8 Johnstown Road",
+                "shipcity": "Cork",
+                "shipregion": "Co. Cork",
+                "shippostalcode": NaN,
+                "shipcountry": "Ireland",
+                "customerid__dup1": "HUNGO",
+                "companyname": "Hungry Owl All-Night Grocers",
+                "contactname": "Patricia McKenna",
+                "contacttitle": "Sales Associate",
+                "address": "8 Johnstown Road",
+                "city": "Cork",
+                "region": "Co. Cork",
+                "postalcode": NaN,
+                "country": "Ireland",
+                "phone": "2967 542",
+                "fax": "2967 3333",
+                "orderid__dup1": 10309,
+                "productid": 42,
+                "unitprice": 11.2,
+                "quantity": 2,
+                "discount": 0.0
+              },
+              {
+                "orderid": 10256,
+                "customerid": "WELLI",
+                "employeeid": 3,
+                "orderdate": "1996-07-15T00:00:00",
+                "requireddate": "1996-08-12T00:00:00",
+                "shippeddate": "1996-07-17T00:00:00",
+                "shipvia": 2,
+                "freight": 13.97,
+                "shipname": "Wellington Importadora",
+                "shipaddress": "Rua do Mercado, 12",
+                "shipcity": "Resende",
+                "shipregion": "SP",
+                "shippostalcode": "08737-363",
+                "shipcountry": "Brazil",
+                "customerid__dup1": "WELLI",
+                "companyname": "Wellington Importadora",
+                "contactname": "Paula Parente",
+                "contacttitle": "Sales Manager",
+                "address": "Rua do Mercado, 12",
+                "city": "Resende",
+                "region": "SP",
+                "postalcode": "08737-363",
+                "country": "Brazil",
+                "phone": "(14) 555-8122",
+                "fax": NaN,
+                "orderid__dup1": 10256,
+                "productid": 77,
+                "unitprice": 10.4,
+                "quantity": 12,
+                "discount": 0.0
+              },
+              {
+                "orderid": 10298,
+                "customerid": "HUNGO",
+                "employeeid": 6,
+                "orderdate": "1996-09-05T00:00:00",
+                "requireddate": "1996-10-03T00:00:00",
+                "shippeddate": "1996-09-11T00:00:00",
+                "shipvia": 2,
+                "freight": 168.22,
+                "shipname": "Hungry Owl All-Night Grocers",
+                "shipaddress": "8 Johnstown Road",
+                "shipcity": "Cork",
+                "shipregion": "Co. Cork",
+                "shippostalcode": NaN,
+                "shipcountry": "Ireland",
+                "customerid__dup1": "HUNGO",
+                "companyname": "Hungry Owl All-Night Grocers",
+                "contactname": "Patricia McKenna",
+                "contacttitle": "Sales Associate",
+                "address": "8 Johnstown Road",
+                "city": "Cork",
+                "region": "Co. Cork",
+                "postalcode": NaN,
+                "country": "Ireland",
+                "phone": "2967 542",
+                "fax": "2967 3333",
+                "orderid__dup1": 10298,
+                "productid": 2,
+                "unitprice": 15.2,
+                "quantity": 40,
+                "discount": 0.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT o.orderid, c.country AS shipcountry, od.discount\nFROM orders o\nJOIN customers c ON o.customerid = c.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region IS NOT NULL) AND (strftime('%Y', o.shippeddate) = '1996')",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 4,
+            "column_count": 3,
+            "preview": [
+              {
+                "orderid": 10296,
+                "shipcountry": "Venezuela",
+                "discount": 0.0
+              },
+              {
+                "orderid": 10309,
+                "shipcountry": "Ireland",
+                "discount": 0.0
+              },
+              {
+                "orderid": 10256,
+                "shipcountry": "Brazil",
+                "discount": 0.0
+              },
+              {
+                "orderid": 10298,
+                "shipcountry": "Ireland",
+                "discount": 0.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "average discount for orders shipped to customers in the Eastern region in 1996",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT o.orderid, c.country AS shipcountry, od.discount\nFROM orders o\nJOIN customers c ON o.customerid = c.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region IS NOT NULL) AND (strftime('%Y', o.shippeddate) = '1996')) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 4,
+            "column_count": 3,
+            "preview": [
+              {
+                "orderid": 10296,
+                "shipcountry": "Venezuela",
+                "discount": 0.0
+              },
+              {
+                "orderid": 10309,
+                "shipcountry": "Ireland",
+                "discount": 0.0
+              },
+              {
+                "orderid": 10256,
+                "shipcountry": "Brazil",
+                "discount": 0.0
+              },
+              {
+                "orderid": 10298,
+                "shipcountry": "Ireland",
+                "discount": 0.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "having",
+          "clause": "AVG(leaf_1.discount) > 0",
+          "sql": "SELECT AVG(leaf_1.discount)\nFROM (SELECT o.orderid, c.country AS shipcountry, od.discount\nFROM orders o\nJOIN customers c ON o.customerid = c.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region IS NOT NULL) AND (strftime('%Y', o.shippeddate) = '1996')) AS leaf_1\nHAVING (AVG(leaf_1.discount) > 0)",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 1,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "having",
+          "clause": "AVG(leaf_1.discount) >= 0",
+          "sql": "SELECT AVG(leaf_1.discount)\nFROM (SELECT o.orderid, c.country AS shipcountry, od.discount\nFROM orders o\nJOIN customers c ON o.customerid = c.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region IS NOT NULL) AND (strftime('%Y', o.shippeddate) = '1996')) AS leaf_1\nHAVING (AVG(leaf_1.discount) >= 0)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "AVG(leaf_1.discount)": 0.0
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT AVG(leaf_1.discount)\nFROM (SELECT o.orderid, c.country AS shipcountry, od.discount\nFROM orders o\nJOIN customers c ON o.customerid = c.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region IS NOT NULL) AND (strftime('%Y', o.shippeddate) = '1996')) AS leaf_1\nHAVING (AVG(leaf_1.discount) >= 0)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "AVG(leaf_1.discount)": 0.0
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 3,
+  "sample_retry": 1,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.5354095904095905,
+    "nearest": {
+      "sample_index": 39,
+      "answer_mode": "aggregate",
+      "target_join_count": 2,
+      "similarity": 0.5354095904095905,
+      "sql": "SELECT SUM(leaf_1.order_revenue) AS total_revenue\nFROM (SELECT c.customerid, c.companyname, o.orderid, o.orderdate, o.shippeddate, od.unitprice, od.quantity, od.discount, (od.unitprice * od.quantity * (1 - od.discount)) AS order_revenue\nFROM customers c\nJOIN orders o ON c.customerid = o.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region = 'Western' OR c.region IS NULL) AND (strftime('%Y', o.shippeddate) = '1997')) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 0.0,
+    "nearest": null,
+    "reason": "numeric answer <= 7.0"
+  },
+  "question": "What is the average discount amount across all orders shipped in 1996 to regions that have a non-null region value, considering only those groups of orders where the average discount is at least zero?",
+  "answer": "0"
+}

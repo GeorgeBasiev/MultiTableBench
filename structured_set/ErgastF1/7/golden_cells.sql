@@ -1,0 +1,1 @@
+SELECT ds.driverid, d.nationality, SUM(ds.points) AS total_points, COUNT(DISTINCT ds.raceid) AS race_count FROM driverstandings AS ds JOIN drivers AS d ON ds.driverid = d.driverid JOIN races AS r ON ds.raceid = r.raceid WHERE (d.nationality IN ('British', 'German', 'Italian')) GROUP BY ds.driverid, d.nationality

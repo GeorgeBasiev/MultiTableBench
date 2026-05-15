@@ -1,0 +1,1 @@
+SELECT s.playerid, s.pts, a.award, ab.fullname FROM scoring AS s JOIN awardsplayers AS a ON s.playerid = a.playerid JOIN teams AS t ON s.tmid = t.tmid JOIN abbrev AS ab ON t.confid = ab.code AND ab.type = 'Conference' WHERE (a.award = 'First Team All-Star' OR a.award = 'Second Team All-Star') AND (ab.fullname = 'Campbell Conference')

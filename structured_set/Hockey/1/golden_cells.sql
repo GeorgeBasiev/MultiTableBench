@@ -1,0 +1,1 @@
+SELECT s.playerid, s.year, s.tmid, s.pts, a.award FROM scoring AS s JOIN awardsplayers AS a ON s.playerid = a.playerid JOIN seriespost AS sp ON s.tmid = sp.tmidwinner JOIN teams AS t ON s.tmid = t.tmid WHERE (a.award LIKE '%All-Star%')

@@ -1,0 +1,1 @@
+SELECT r.regiondescription, o.orderid, od.unitprice, od.quantity, o.shippeddate FROM orders AS o JOIN "order details" AS od ON o.orderid = od.orderid LEFT JOIN region AS r ON o.shipregion = r.regionid WHERE (strftime('%Y', o.shippeddate) = '1997')

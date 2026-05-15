@@ -1,0 +1,1 @@
+SELECT r.region_name, SUM(c.charge_amt) AS total_charges FROM charge AS c JOIN member AS m ON c.member_no = m.member_no JOIN region AS r ON m.region_no = r.region_no WHERE r.region_name LIKE '%American%' GROUP BY r.region_name

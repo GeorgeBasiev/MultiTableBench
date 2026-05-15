@@ -1,0 +1,5 @@
+SELECT t1.year, t1.tmid, t1.name, t1.ga, t2.oppid, t2.w, t2.l, t2.t
+FROM teams AS t1
+JOIN teamvsteam AS t2 ON t1.tmid = t2.tmid
+JOIN teams AS t3 ON t2.oppid = t3.tmid
+WHERE t1.confid = 'CC' AND t3.confid = 'WA' AND t2.l = 1

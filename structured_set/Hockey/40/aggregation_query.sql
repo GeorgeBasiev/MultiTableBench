@@ -1,0 +1,8 @@
+SELECT SUM(leaf_1.g) AS total_goals
+FROM (SELECT s.playerid, s.year, s.tmid, s.g, m.firstname, m.lastname, h.year AS hof_year, a.fullname AS conference_name
+FROM scoring AS s
+JOIN master AS m ON s.playerid = m.playerid
+LEFT JOIN hof AS h ON m.hofid = h.hofid
+JOIN teams AS t ON s.tmid = t.tmid
+JOIN abbrev AS a ON t.confid = a.code
+WHERE (a.type = 'Conference') AND (a.fullname IN ('Eastern Conference', 'Campbell Conference', 'Wales Conference'))) AS leaf_1

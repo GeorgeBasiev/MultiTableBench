@@ -1,0 +1,7 @@
+SELECT SUM(order_total) AS total_sales
+FROM (SELECT c.customerid, c.companyname, o.orderid, o.orderdate, SUM(od.unitprice * od.quantity) AS order_total
+FROM customers c
+JOIN orders o ON c.customerid = o.customerid
+JOIN [order details] od ON o.orderid = od.orderid
+WHERE (o.orderdate BETWEEN '1997-01-01' AND '1997-03-31')
+GROUP BY c.customerid, c.companyname, o.orderid, o.orderdate) AS leaf_1

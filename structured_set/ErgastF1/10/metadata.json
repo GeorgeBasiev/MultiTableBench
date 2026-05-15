@@ -1,0 +1,1433 @@
+{
+  "sample_index": 10,
+  "db_name": "ErgastF1",
+  "answer_mode": "aggregate",
+  "target_join_count": 3,
+  "actual_join_count": 3,
+  "numeric_answer": 1.0,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 3,
+    "min_hops": 3,
+    "max_hops": 3,
+    "require_group_by": true,
+    "require_having": true,
+    "require_nested_subquery": true
+  },
+  "question_intent": "What is the average number of races per circuit for circuits that have hosted at least 10 races, considering only races where the winning driver achieved a qualifying time in the top 10?",
+  "manifest": {
+    "db_name": "ErgastF1",
+    "sample_dir": "structured_set/ErgastF1/10",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "circuits",
+        "remote_row_count": 73,
+        "snapshot_row_count": 73,
+        "target_limit": 73,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "circuitid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "circuitref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "location",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lat",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "lng",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "alt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructorresults",
+        "remote_row_count": 11082,
+        "snapshot_row_count": 110,
+        "target_limit": 110,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "constructorresultsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "status",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructors",
+        "remote_row_count": 208,
+        "snapshot_row_count": 104,
+        "target_limit": 104,
+        "relational_rows_added": 47,
+        "columns": [
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "nationality",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructorstandings",
+        "remote_row_count": 11836,
+        "snapshot_row_count": 114,
+        "target_limit": 114,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "constructorstandingsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "wins",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "drivers",
+        "remote_row_count": 840,
+        "snapshot_row_count": 99,
+        "target_limit": 99,
+        "relational_rows_added": 671,
+        "columns": [
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "code",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "forename",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "surname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "dob",
+            "mysql_type": "date",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "nationality",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "driverstandings",
+        "remote_row_count": 31578,
+        "snapshot_row_count": 101,
+        "target_limit": 101,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "driverstandingsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "wins",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "laptimes",
+        "remote_row_count": 420369,
+        "snapshot_row_count": 71,
+        "target_limit": 71,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "pitstops",
+        "remote_row_count": 6070,
+        "snapshot_row_count": 63,
+        "target_limit": 63,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stop",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "time",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "duration",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "qualifying",
+        "remote_row_count": 7397,
+        "snapshot_row_count": 87,
+        "target_limit": 87,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "qualifyid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "q1",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "q2",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "q3",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "races",
+        "remote_row_count": 976,
+        "snapshot_row_count": 94,
+        "target_limit": 94,
+        "relational_rows_added": 1685,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "round",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "circuitid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "date",
+            "mysql_type": "date",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "time",
+            "mysql_type": "time",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "results",
+        "remote_row_count": 23657,
+        "snapshot_row_count": 80,
+        "target_limit": 80,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "resultid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "grid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "positionorder",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "laps",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "fastestlap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "fastestlaptime",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fastestlapspeed",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "statusid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "seasons",
+        "remote_row_count": 68,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "status",
+        "remote_row_count": 134,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 14,
+        "columns": [
+          {
+            "name": "statusid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "status",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "target",
+        "remote_row_count": 31578,
+        "snapshot_row_count": 106,
+        "target_limit": 106,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "targetid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "win",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "What is the average number of races per circuit for circuits that have hosted at least 10 races, considering only races where the winning driver achieved a qualifying time in the top 10?",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT circuits.name AS circuit_name, COUNT(DISTINCT races.raceid) AS race_count FROM circuits JOIN races ON circuits.circuitid = races.circuitid JOIN results ON races.raceid = results.raceid JOIN qualifying ON results.driverid = qualifying.driverid AND results.raceid = qualifying.raceid WHERE results.position = 1 AND qualifying.position <= 10 GROUP BY circuits.circuitid HAVING COUNT(DISTINCT races.raceid) >= 10",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT circuits.name AS circuit_name, circuits.circuitid, COUNT(DISTINCT races.raceid) AS race_count",
+        "from_clause": "FROM circuits",
+        "join_clauses": [
+          "JOIN races ON circuits.circuitid = races.circuitid",
+          "JOIN results ON races.raceid = results.raceid",
+          "JOIN qualifying ON results.driverid = qualifying.driverid AND results.raceid = qualifying.raceid"
+        ],
+        "where_clauses": [
+          "results.position = 1",
+          "qualifying.position <= 10"
+        ],
+        "group_by_clause": "GROUP BY circuits.circuitid",
+        "having_clauses": [
+          "COUNT(DISTINCT races.raceid) >= 10"
+        ],
+        "notes": "Counts the number of races per circuit where the winning driver had a qualifying time in the top 10"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT AVG(race_count) AS average_races_per_circuit",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Calculates the average number of races per circuit that have hosted at least 10 races"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "Counts the number of races per circuit where the winning driver had a qualifying time in the top 10",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM circuits\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 9,
+            "preview": [
+              {
+                "circuitid": 1,
+                "circuitref": "albert_park",
+                "name": "Albert Park Grand Prix Circuit",
+                "location": "Melbourne",
+                "country": "Australia",
+                "lat": -37.8497,
+                "lng": 144.968,
+                "alt": 10.0,
+                "url": "http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit"
+              },
+              {
+                "circuitid": 2,
+                "circuitref": "sepang",
+                "name": "Sepang International Circuit",
+                "location": "Kuala Lumpur",
+                "country": "Malaysia",
+                "lat": 2.76083,
+                "lng": 101.738,
+                "alt": NaN,
+                "url": "http://en.wikipedia.org/wiki/Sepang_International_Circuit"
+              },
+              {
+                "circuitid": 3,
+                "circuitref": "bahrain",
+                "name": "Bahrain International Circuit",
+                "location": "Sakhir",
+                "country": "Bahrain",
+                "lat": 26.0325,
+                "lng": 50.5106,
+                "alt": NaN,
+                "url": "http://en.wikipedia.org/wiki/Bahrain_International_Circuit"
+              },
+              {
+                "circuitid": 4,
+                "circuitref": "catalunya",
+                "name": "Circuit de Barcelona-Catalunya",
+                "location": "Montmeló",
+                "country": "Spain",
+                "lat": 41.57,
+                "lng": 2.26111,
+                "alt": NaN,
+                "url": "http://en.wikipedia.org/wiki/Circuit_de_Barcelona-Catalunya"
+              },
+              {
+                "circuitid": 5,
+                "circuitref": "istanbul",
+                "name": "Istanbul Park",
+                "location": "Istanbul",
+                "country": "Turkey",
+                "lat": 40.9517,
+                "lng": 29.405,
+                "alt": NaN,
+                "url": "http://en.wikipedia.org/wiki/Istanbul_Park"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN races ON circuits.circuitid = races.circuitid",
+          "sql": "SELECT *\nFROM circuits\nJOIN races ON circuits.circuitid = races.circuitid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 17,
+            "preview": [
+              {
+                "circuitid": 24,
+                "circuitref": "yas_marina",
+                "name": "Yas Marina Circuit",
+                "location": "Abu Dhabi",
+                "country": "UAE",
+                "lat": 24.4672,
+                "lng": 54.6031,
+                "alt": null,
+                "url": "http://en.wikipedia.org/wiki/Yas_Marina_Circuit",
+                "raceid": 17,
+                "year": 2009,
+                "round": 17,
+                "circuitid__dup1": 24,
+                "name__dup1": "Abu Dhabi Grand Prix",
+                "date": "2009-11-01",
+                "time": "11:00:00",
+                "url__dup1": "http://en.wikipedia.org/wiki/2009_Abu_Dhabi_Grand_Prix"
+              },
+              {
+                "circuitid": 5,
+                "circuitref": "istanbul",
+                "name": "Istanbul Park",
+                "location": "Istanbul",
+                "country": "Turkey",
+                "lat": 40.9517,
+                "lng": 29.405,
+                "alt": null,
+                "url": "http://en.wikipedia.org/wiki/Istanbul_Park",
+                "raceid": 22,
+                "year": 2008,
+                "round": 5,
+                "circuitid__dup1": 5,
+                "name__dup1": "Turkish Grand Prix",
+                "date": "2008-05-11",
+                "time": "12:00:00",
+                "url__dup1": "http://en.wikipedia.org/wiki/2008_Turkish_Grand_Prix"
+              },
+              {
+                "circuitid": 14,
+                "circuitref": "monza",
+                "name": "Autodromo Nazionale di Monza",
+                "location": "Monza",
+                "country": "Italy",
+                "lat": 45.6156,
+                "lng": 9.28111,
+                "alt": null,
+                "url": "http://en.wikipedia.org/wiki/Autodromo_Nazionale_Monza",
+                "raceid": 31,
+                "year": 2008,
+                "round": 14,
+                "circuitid__dup1": 14,
+                "name__dup1": "Italian Grand Prix",
+                "date": "2008-09-14",
+                "time": "12:00:00",
+                "url__dup1": "http://en.wikipedia.org/wiki/2008_Italian_Grand_Prix"
+              },
+              {
+                "circuitid": 4,
+                "circuitref": "catalunya",
+                "name": "Circuit de Barcelona-Catalunya",
+                "location": "Montmeló",
+                "country": "Spain",
+                "lat": 41.57,
+                "lng": 2.26111,
+                "alt": null,
+                "url": "http://en.wikipedia.org/wiki/Circuit_de_Barcelona-Catalunya",
+                "raceid": 39,
+                "year": 2007,
+                "round": 4,
+                "circuitid__dup1": 4,
+                "name__dup1": "Spanish Grand Prix",
+                "date": "2007-05-13",
+                "time": "12:00:00",
+                "url__dup1": "http://en.wikipedia.org/wiki/2007_Spanish_Grand_Prix"
+              },
+              {
+                "circuitid": 19,
+                "circuitref": "indianapolis",
+                "name": "Indianapolis Motor Speedway",
+                "location": "Indianapolis",
+                "country": "USA",
+                "lat": 39.795,
+                "lng": -86.2347,
+                "alt": null,
+                "url": "http://en.wikipedia.org/wiki/Indianapolis_Motor_Speedway",
+                "raceid": 42,
+                "year": 2007,
+                "round": 7,
+                "circuitid__dup1": 19,
+                "name__dup1": "United States Grand Prix",
+                "date": "2007-06-17",
+                "time": "17:00:00",
+                "url__dup1": "http://en.wikipedia.org/wiki/2007_United_States_Grand_Prix"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN results ON races.raceid = results.raceid",
+          "sql": "SELECT *\nFROM circuits\nJOIN races ON circuits.circuitid = races.circuitid\nJOIN results ON races.raceid = results.raceid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 35,
+            "preview": [
+              {
+                "circuitid": 4,
+                "circuitref": "catalunya",
+                "name": "Circuit de Barcelona-Catalunya",
+                "location": "Montmeló",
+                "country": "Spain",
+                "lat": 41.57,
+                "lng": 2.26111,
+                "alt": null,
+                "url": "http://en.wikipedia.org/wiki/Circuit_de_Barcelona-Catalunya",
+                "raceid": 112,
+                "year": 2003,
+                "round": 5,
+                "circuitid__dup1": 4,
+                "name__dup1": "Spanish Grand Prix",
+                "date": "2003-05-04",
+                "time": null,
+                "url__dup1": "http://en.wikipedia.org/wiki/2003_Spanish_Grand_Prix",
+                "resultid": 1973,
+                "raceid__dup1": 112,
+                "driverid": 42,
+                "constructorid": 19,
+                "number": 15,
+                "grid": 16,
+                "position": NaN,
+                "positiontext": "R",
+                "positionorder": 19,
+                "points": 0.0,
+                "laps": 0,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 72
+              },
+              {
+                "circuitid": 14,
+                "circuitref": "monza",
+                "name": "Autodromo Nazionale di Monza",
+                "location": "Monza",
+                "country": "Italy",
+                "lat": 45.6156,
+                "lng": 9.28111,
+                "alt": null,
+                "url": "http://en.wikipedia.org/wiki/Autodromo_Nazionale_Monza",
+                "raceid": 416,
+                "year": 1986,
+                "round": 13,
+                "circuitid__dup1": 14,
+                "name__dup1": "Italian Grand Prix",
+                "date": "1986-09-07",
+                "time": null,
+                "url__dup1": "http://en.wikipedia.org/wiki/1986_Italian_Grand_Prix",
+                "resultid": 9715,
+                "raceid__dup1": 416,
+                "driverid": 137,
+                "constructorid": 3,
+                "number": 6,
+                "grid": 6,
+                "position": 1.0,
+                "positiontext": "1",
+                "positionorder": 1,
+                "points": 9.0,
+                "laps": 51,
+                "time__dup1": "1:17:42.889",
+                "milliseconds": 4662889.0,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 1
+              },
+              {
+                "circuitid": 41,
+                "circuitref": "dijon",
+                "name": "Dijon-Prenois",
+                "location": "Dijon",
+                "country": "France",
+                "lat": 47.3625,
+                "lng": 4.89913,
+                "alt": null,
+                "url": "http://en.wikipedia.org/wiki/Dijon-Prenois",
+                "raceid": 551,
+                "year": 1977,
+                "round": 9,
+                "circuitid__dup1": 41,
+                "name__dup1": "French Grand Prix",
+                "date": "1977-07-03",
+                "time": null,
+                "url__dup1": "http://en.wikipedia.org/wiki/1977_French_Grand_Prix",
+                "resultid": 13461,
+                "raceid__dup1": 551,
+                "driverid": 255,
+                "constructorid": 32,
+                "number": 6,
+                "grid": 3,
+                "position": 4.0,
+                "positiontext": "4",
+                "positionorder": 4,
+                "points": 3.0,
+                "laps": 80,
+                "time__dup1": "+1:11.08",
+                "milliseconds": 6051210.0,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 1
+              },
+              {
+                "circuitid": 41,
+                "circuitref": "dijon",
+                "name": "Dijon-Prenois",
+                "location": "Dijon",
+                "country": "France",
+                "lat": 47.3625,
+                "lng": 4.89913,
+                "alt": null,
+                "url": "http://en.wikipedia.org/wiki/Dijon-Prenois",
+                "raceid": 551,
+                "year": 1977,
+                "round": 9,
+                "circuitid__dup1": 41,
+                "name__dup1": "French Grand Prix",
+                "date": "1977-07-03",
+                "time": null,
+                "url__dup1": "http://en.wikipedia.org/wiki/1977_French_Grand_Prix",
+                "resultid": 13473,
+                "raceid__dup1": 551,
+                "driverid": 233,
+                "constructorid": 34,
+                "number": 8,
+                "grid": 13,
+                "position": NaN,
+                "positiontext": "R",
+                "positionorder": 16,
+                "points": 0.0,
+                "laps": 64,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 3
+              },
+              {
+                "circuitid": 39,
+                "circuitref": "zandvoort",
+                "name": "Circuit Park Zandvoort",
+                "location": "Zandvoort",
+                "country": "Netherlands",
+                "lat": 52.3888,
+                "lng": 4.54092,
+                "alt": null,
+                "url": "http://en.wikipedia.org/wiki/Circuit_Zandvoort",
+                "raceid": 647,
+                "year": 1970,
+                "round": 5,
+                "circuitid__dup1": 39,
+                "name__dup1": "Dutch Grand Prix",
+                "date": "1970-06-21",
+                "time": null,
+                "url__dup1": "http://en.wikipedia.org/wiki/1970_Dutch_Grand_Prix",
+                "resultid": 15972,
+                "raceid__dup1": 647,
+                "driverid": 358,
+                "constructorid": 32,
+                "number": 10,
+                "grid": 1,
+                "position": 1.0,
+                "positiontext": "1",
+                "positionorder": 1,
+                "points": 9.0,
+                "laps": 80,
+                "time__dup1": "1:50:43.4",
+                "milliseconds": 6643400.0,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 1
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN qualifying ON results.driverid = qualifying.driverid AND results.raceid = qualifying.raceid",
+          "sql": "SELECT *\nFROM circuits\nJOIN races ON circuits.circuitid = races.circuitid\nJOIN results ON races.raceid = results.raceid\nJOIN qualifying ON results.driverid = qualifying.driverid AND results.raceid = qualifying.raceid\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 44,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN qualifying ON races.raceid = qualifying.raceid",
+          "sql": "SELECT *\nFROM circuits\nJOIN races ON circuits.circuitid = races.circuitid\nJOIN results ON races.raceid = results.raceid\nJOIN qualifying ON races.raceid = qualifying.raceid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 44,
+            "preview": [
+              {
+                "circuitid": 4,
+                "circuitref": "catalunya",
+                "name": "Circuit de Barcelona-Catalunya",
+                "location": "Montmeló",
+                "country": "Spain",
+                "lat": 41.57,
+                "lng": 2.26111,
+                "alt": null,
+                "url": "http://en.wikipedia.org/wiki/Circuit_de_Barcelona-Catalunya",
+                "raceid": 112,
+                "year": 2003,
+                "round": 5,
+                "circuitid__dup1": 4,
+                "name__dup1": "Spanish Grand Prix",
+                "date": "2003-05-04",
+                "time": null,
+                "url__dup1": "http://en.wikipedia.org/wiki/2003_Spanish_Grand_Prix",
+                "resultid": 1973,
+                "raceid__dup1": 112,
+                "driverid": 42,
+                "constructorid": 19,
+                "number": 15,
+                "grid": 16,
+                "position": null,
+                "positiontext": "R",
+                "positionorder": 19,
+                "points": 0.0,
+                "laps": 0,
+                "time__dup1": null,
+                "milliseconds": null,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 72,
+                "qualifyid": 3844,
+                "raceid__dup2": 112,
+                "driverid__dup1": 4,
+                "constructorid__dup1": 4,
+                "number__dup1": 8,
+                "position__dup1": 3,
+                "q1": "1:18.233",
+                "q2": null,
+                "q3": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "results.position = 1",
+          "sql": "SELECT *\nFROM circuits\nJOIN races ON circuits.circuitid = races.circuitid\nJOIN results ON races.raceid = results.raceid\nJOIN qualifying ON races.raceid = qualifying.raceid\nWHERE (results.position = 1)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 44,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "results.position IS NOT NULL",
+          "sql": "SELECT *\nFROM circuits\nJOIN races ON circuits.circuitid = races.circuitid\nJOIN results ON races.raceid = results.raceid\nJOIN qualifying ON races.raceid = qualifying.raceid\nWHERE (results.position IS NOT NULL)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 44,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "results.position IS NULL",
+          "sql": "SELECT *\nFROM circuits\nJOIN races ON circuits.circuitid = races.circuitid\nJOIN results ON races.raceid = results.raceid\nJOIN qualifying ON races.raceid = qualifying.raceid\nWHERE (results.position IS NULL)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 44,
+            "preview": [
+              {
+                "circuitid": 4,
+                "circuitref": "catalunya",
+                "name": "Circuit de Barcelona-Catalunya",
+                "location": "Montmeló",
+                "country": "Spain",
+                "lat": 41.57,
+                "lng": 2.26111,
+                "alt": null,
+                "url": "http://en.wikipedia.org/wiki/Circuit_de_Barcelona-Catalunya",
+                "raceid": 112,
+                "year": 2003,
+                "round": 5,
+                "circuitid__dup1": 4,
+                "name__dup1": "Spanish Grand Prix",
+                "date": "2003-05-04",
+                "time": null,
+                "url__dup1": "http://en.wikipedia.org/wiki/2003_Spanish_Grand_Prix",
+                "resultid": 1973,
+                "raceid__dup1": 112,
+                "driverid": 42,
+                "constructorid": 19,
+                "number": 15,
+                "grid": 16,
+                "position": null,
+                "positiontext": "R",
+                "positionorder": 19,
+                "points": 0.0,
+                "laps": 0,
+                "time__dup1": null,
+                "milliseconds": null,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 72,
+                "qualifyid": 3844,
+                "raceid__dup2": 112,
+                "driverid__dup1": 4,
+                "constructorid__dup1": 4,
+                "number__dup1": 8,
+                "position__dup1": 3,
+                "q1": "1:18.233",
+                "q2": null,
+                "q3": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "qualifying.position <= 10",
+          "sql": "SELECT *\nFROM circuits\nJOIN races ON circuits.circuitid = races.circuitid\nJOIN results ON races.raceid = results.raceid\nJOIN qualifying ON races.raceid = qualifying.raceid\nWHERE (results.position IS NULL) AND (qualifying.position <= 10)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 44,
+            "preview": [
+              {
+                "circuitid": 4,
+                "circuitref": "catalunya",
+                "name": "Circuit de Barcelona-Catalunya",
+                "location": "Montmeló",
+                "country": "Spain",
+                "lat": 41.57,
+                "lng": 2.26111,
+                "alt": null,
+                "url": "http://en.wikipedia.org/wiki/Circuit_de_Barcelona-Catalunya",
+                "raceid": 112,
+                "year": 2003,
+                "round": 5,
+                "circuitid__dup1": 4,
+                "name__dup1": "Spanish Grand Prix",
+                "date": "2003-05-04",
+                "time": null,
+                "url__dup1": "http://en.wikipedia.org/wiki/2003_Spanish_Grand_Prix",
+                "resultid": 1973,
+                "raceid__dup1": 112,
+                "driverid": 42,
+                "constructorid": 19,
+                "number": 15,
+                "grid": 16,
+                "position": null,
+                "positiontext": "R",
+                "positionorder": 19,
+                "points": 0.0,
+                "laps": 0,
+                "time__dup1": null,
+                "milliseconds": null,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 72,
+                "qualifyid": 3844,
+                "raceid__dup2": 112,
+                "driverid__dup1": 4,
+                "constructorid__dup1": 4,
+                "number__dup1": 8,
+                "position__dup1": 3,
+                "q1": "1:18.233",
+                "q2": null,
+                "q3": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "having",
+          "clause": "COUNT(DISTINCT races.raceid) >= 10",
+          "sql": "SELECT circuits.name AS circuit_name, circuits.circuitid, COUNT(DISTINCT races.raceid) AS race_count\nFROM circuits\nJOIN races ON circuits.circuitid = races.circuitid\nJOIN results ON races.raceid = results.raceid\nJOIN qualifying ON races.raceid = qualifying.raceid\nWHERE (results.position IS NULL) AND (qualifying.position <= 10)\nGROUP BY circuits.circuitid\nHAVING (COUNT(DISTINCT races.raceid) >= 10)",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 3,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "having",
+          "clause": "COUNT(DISTINCT races.raceid) >= 1",
+          "sql": "SELECT circuits.name AS circuit_name, circuits.circuitid, COUNT(DISTINCT races.raceid) AS race_count\nFROM circuits\nJOIN races ON circuits.circuitid = races.circuitid\nJOIN results ON races.raceid = results.raceid\nJOIN qualifying ON races.raceid = qualifying.raceid\nWHERE (results.position IS NULL) AND (qualifying.position <= 10)\nGROUP BY circuits.circuitid\nHAVING (COUNT(DISTINCT races.raceid) >= 1)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 3,
+            "preview": [
+              {
+                "circuit_name": "Circuit de Barcelona-Catalunya",
+                "circuitid": 4,
+                "race_count": 1
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT circuits.name AS circuit_name, circuits.circuitid, COUNT(DISTINCT races.raceid) AS race_count\nFROM circuits\nJOIN races ON circuits.circuitid = races.circuitid\nJOIN results ON races.raceid = results.raceid\nJOIN qualifying ON races.raceid = qualifying.raceid\nWHERE (results.position IS NULL) AND (qualifying.position <= 10)\nGROUP BY circuits.circuitid\nHAVING (COUNT(DISTINCT races.raceid) >= 1)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 3,
+            "preview": [
+              {
+                "circuit_name": "Circuit de Barcelona-Catalunya",
+                "circuitid": 4,
+                "race_count": 1
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "Calculates the average number of races per circuit that have hosted at least 10 races",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT circuits.name AS circuit_name, circuits.circuitid, COUNT(DISTINCT races.raceid) AS race_count\nFROM circuits\nJOIN races ON circuits.circuitid = races.circuitid\nJOIN results ON races.raceid = results.raceid\nJOIN qualifying ON races.raceid = qualifying.raceid\nWHERE (results.position IS NULL) AND (qualifying.position <= 10)\nGROUP BY circuits.circuitid\nHAVING (COUNT(DISTINCT races.raceid) >= 1)) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 3,
+            "preview": [
+              {
+                "circuit_name": "Circuit de Barcelona-Catalunya",
+                "circuitid": 4,
+                "race_count": 1
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT AVG(race_count) AS average_races_per_circuit\nFROM (SELECT circuits.name AS circuit_name, circuits.circuitid, COUNT(DISTINCT races.raceid) AS race_count\nFROM circuits\nJOIN races ON circuits.circuitid = races.circuitid\nJOIN results ON races.raceid = results.raceid\nJOIN qualifying ON races.raceid = qualifying.raceid\nWHERE (results.position IS NULL) AND (qualifying.position <= 10)\nGROUP BY circuits.circuitid\nHAVING (COUNT(DISTINCT races.raceid) >= 1)) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "average_races_per_circuit": 1.0
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 1,
+  "sample_retry": 1,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.3435428571428571,
+    "nearest": {
+      "sample_index": 5,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "similarity": 0.3435428571428571,
+      "sql": "SELECT AVG(leaf_1.points) AS average_points\nFROM (SELECT r.raceid, rs.points\nFROM races AS r\nJOIN circuits AS ci ON r.circuitid = ci.circuitid\nJOIN results AS rs ON r.raceid = rs.raceid\nJOIN constructors AS c ON rs.constructorid = c.constructorid\nWHERE (ci.country = 'Australia') AND (rs.positionorder <= 10) AND (rs.points > 0) AND (c.nationality IN ('British', 'French', 'German', 'Spanish', 'Italian', 'Austrian', 'Swedish', 'Dutch', 'Belgian'))\nGROUP BY r.raceid, rs.points\nHAVING (rs.points > 0)) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 1.0,
+    "nearest": null,
+    "reason": "numeric answer <= 7.0"
+  },
+  "question": "What is the average number of races per circuit where the race had at least one driver who qualified in the top 10 but did not finish the race?",
+  "answer": "1"
+}

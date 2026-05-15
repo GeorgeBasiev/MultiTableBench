@@ -1,0 +1,1 @@
+SELECT m.member_no, m.firstname, m.lastname, c.charge_no, c.charge_dt, c.charge_amt, p.payment_dt, r.region_name FROM member AS m JOIN charge AS c ON m.member_no = c.member_no JOIN payment AS p ON m.member_no = p.member_no JOIN region AS r ON m.region_no = r.region_no

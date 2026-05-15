@@ -1,0 +1,7 @@
+SELECT AVG(royaltyper) AS avg_royalty_percentage
+FROM (SELECT authors.au_id, authors.au_lname, authors.au_fname, publishers.pub_name, publishers.city, publishers.state, titleauthor.royaltyper
+FROM authors
+JOIN titleauthor ON authors.au_id = titleauthor.au_id
+JOIN titles ON titleauthor.title_id = titles.title_id
+JOIN publishers ON titles.pub_id = publishers.pub_id
+WHERE (publishers.state = 'CA') AND (titleauthor.royaltyper > 60)) AS leaf_1

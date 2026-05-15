@@ -1,0 +1,2725 @@
+{
+  "sample_index": 19,
+  "db_name": "Hockey",
+  "answer_mode": "aggregate",
+  "target_join_count": 2,
+  "actual_join_count": 2,
+  "numeric_answer": null,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 2,
+    "min_hops": 2,
+    "max_hops": 2,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Total points scored by players who won the Hart Trophy in their rookie season",
+  "manifest": {
+    "db_name": "Hockey",
+    "sample_dir": "structured_set/Hockey/19",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "abbrev",
+        "remote_row_count": 58,
+        "snapshot_row_count": 58,
+        "target_limit": 58,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "type",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "code",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fullname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardscoaches",
+        "remote_row_count": 77,
+        "snapshot_row_count": 73,
+        "target_limit": 73,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsmisc",
+        "remote_row_count": 124,
+        "snapshot_row_count": 72,
+        "target_limit": 72,
+        "relational_rows_added": 8,
+        "columns": [
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsplayers",
+        "remote_row_count": 2091,
+        "snapshot_row_count": 83,
+        "target_limit": 83,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "coaches",
+        "remote_row_count": 1812,
+        "snapshot_row_count": 89,
+        "target_limit": 89,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "combinedshutouts",
+        "remote_row_count": 54,
+        "snapshot_row_count": 54,
+        "target_limit": 54,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "month",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "date",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "r/p",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie1",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie2",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goalies",
+        "remote_row_count": 4278,
+        "snapshot_row_count": 112,
+        "target_limit": 112,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "min",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "l",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "t/ol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "eng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postmin",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posteng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliessc",
+        "remote_row_count": 31,
+        "snapshot_row_count": 31,
+        "target_limit": 31,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "min",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliesshootout",
+        "remote_row_count": 480,
+        "snapshot_row_count": 72,
+        "target_limit": 72,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "hof",
+        "remote_row_count": 365,
+        "snapshot_row_count": 119,
+        "target_limit": 119,
+        "relational_rows_added": 4,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "category",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "master",
+        "remote_row_count": 7761,
+        "snapshot_row_count": 91,
+        "target_limit": 91,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenote",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namegiven",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenick",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "height",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "weight",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shootcatch",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "legendsid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ihdbid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hrefid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoring",
+        "remote_row_count": 45967,
+        "snapshot_row_count": 78,
+        "target_limit": 78,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gtg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posta",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpts",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "post+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postshg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsc",
+        "remote_row_count": 284,
+        "snapshot_row_count": 75,
+        "target_limit": 75,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringshootout",
+        "remote_row_count": 2072,
+        "snapshot_row_count": 69,
+        "target_limit": 69,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "s",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gdg",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsup",
+        "remote_row_count": 137,
+        "snapshot_row_count": 90,
+        "target_limit": 90,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "seriespost",
+        "remote_row_count": 832,
+        "snapshot_row_count": 104,
+        "target_limit": 104,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "round",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "series",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalswinner",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalsloser",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teams",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 108,
+        "target_limit": 108,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "franchid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "confid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "divid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "playoff",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sow",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamshalf",
+        "remote_row_count": 41,
+        "snapshot_row_count": 41,
+        "target_limit": 41,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "half",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "teamsplits",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 72,
+        "target_limit": 72,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ht",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sept",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "dect",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "janw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "jant",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "febw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mart",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamspost",
+        "remote_row_count": 927,
+        "snapshot_row_count": 89,
+        "target_limit": 89,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamssc",
+        "remote_row_count": 30,
+        "snapshot_row_count": 30,
+        "target_limit": 30,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamvsteam",
+        "remote_row_count": 25602,
+        "snapshot_row_count": 107,
+        "target_limit": 107,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Total points scored by players who won the Hart Trophy in their rookie season",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT m.firstname, m.lastname, s.year, s.pts FROM master AS m JOIN scoring AS s ON m.playerid = s.playerid JOIN awardsplayers AS a ON m.playerid = a.playerid WHERE a.award = 'Hart' AND s.year = (SELECT MIN(s2.year) FROM scoring AS s2 WHERE s2.playerid = m.playerid)",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT m.playerid, s.year, s.pts",
+        "from_clause": "FROM master AS m",
+        "join_clauses": [
+          "JOIN scoring AS s ON m.playerid = s.playerid",
+          "JOIN awardsplayers AS a ON m.playerid = a.playerid"
+        ],
+        "where_clauses": [
+          "a.award = 'Hart'",
+          "s.year = (SELECT MIN(s2.year) FROM scoring AS s2 WHERE s2.playerid = m.playerid)"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Players who won the Hart Trophy in their rookie season with their points and year"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT SUM(pts)",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Total points scored by players who won the Hart Trophy in their rookie season"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "Players who won the Hart Trophy in their rookie season with their points and year",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM master AS m\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 31,
+            "preview": [
+              {
+                "playerid": "gibsojo01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "John",
+                "lastname": "Gibson",
+                "namenote": null,
+                "namegiven": "John William",
+                "namenick": null,
+                "height": "75",
+                "weight": "210",
+                "shootcatch": "L",
+                "legendsid": "12710",
+                "ihdbid": "6535",
+                "hrefid": "gibsojo01",
+                "firstnhl": "1980",
+                "lastnhl": "1983",
+                "firstwha": "1978",
+                "lastwha": "1978",
+                "pos": "D",
+                "birthyear": "1959",
+                "birthmon": "6",
+                "birthday": "2",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "St. Catharines",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null
+              },
+              {
+                "playerid": "mcdoubi01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Bill",
+                "lastname": "McDougall",
+                "namenote": null,
+                "namegiven": "William Henry",
+                "namenick": null,
+                "height": "72",
+                "weight": "185",
+                "shootcatch": "R",
+                "legendsid": "11065",
+                "ihdbid": "723",
+                "hrefid": "mcdoubi01",
+                "firstnhl": "1990",
+                "lastnhl": "1993",
+                "firstwha": NaN,
+                "lastwha": NaN,
+                "pos": "C",
+                "birthyear": "1966",
+                "birthmon": "8",
+                "birthday": "10",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Mississagua",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null
+              },
+              {
+                "playerid": "muzzija01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Jake",
+                "lastname": "Muzzin",
+                "namenote": null,
+                "namegiven": NaN,
+                "namenick": null,
+                "height": "75",
+                "weight": "213",
+                "shootcatch": NaN,
+                "legendsid": NaN,
+                "ihdbid": NaN,
+                "hrefid": "muzzija01",
+                "firstnhl": "2010",
+                "lastnhl": "2010",
+                "firstwha": NaN,
+                "lastwha": NaN,
+                "pos": "D",
+                "birthyear": "1989",
+                "birthmon": "2",
+                "birthday": "21",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Woodstock",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null
+              },
+              {
+                "playerid": "sugloal01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Aleksander",
+                "lastname": "Suglobov",
+                "namenote": null,
+                "namegiven": NaN,
+                "namenick": null,
+                "height": "72",
+                "weight": "200",
+                "shootcatch": "L",
+                "legendsid": "19611",
+                "ihdbid": "51259",
+                "hrefid": "sugloal01",
+                "firstnhl": "2003",
+                "lastnhl": "2006",
+                "firstwha": NaN,
+                "lastwha": NaN,
+                "pos": "R",
+                "birthyear": "1982",
+                "birthmon": "1",
+                "birthday": "15",
+                "birthcountry": "Russia",
+                "birthstate": NaN,
+                "birthcity": "Elektrostal",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null
+              },
+              {
+                "playerid": "zuckeja01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Jason",
+                "lastname": "Zucker",
+                "namenote": null,
+                "namegiven": NaN,
+                "namenick": null,
+                "height": "71",
+                "weight": "174",
+                "shootcatch": NaN,
+                "legendsid": NaN,
+                "ihdbid": NaN,
+                "hrefid": "zuckeja01",
+                "firstnhl": "2011",
+                "lastnhl": "2011",
+                "firstwha": NaN,
+                "lastwha": NaN,
+                "pos": "L",
+                "birthyear": "1992",
+                "birthmon": "1",
+                "birthday": "16",
+                "birthcountry": NaN,
+                "birthstate": NaN,
+                "birthcity": NaN,
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN scoring AS s ON m.playerid = s.playerid",
+          "sql": "SELECT *\nFROM master AS m\nJOIN scoring AS s ON m.playerid = s.playerid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 62,
+            "preview": [
+              {
+                "playerid": "kiessud01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Udo",
+                "lastname": "Kiessling",
+                "namenote": null,
+                "namegiven": "Udo",
+                "namenick": NaN,
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "13190",
+                "ihdbid": "8731",
+                "hrefid": "kiessud01",
+                "firstnhl": "1981",
+                "lastnhl": "1981",
+                "firstwha": null,
+                "lastwha": null,
+                "pos": "D",
+                "birthyear": "1955",
+                "birthmon": "5",
+                "birthday": "21",
+                "birthcountry": "Germany",
+                "birthstate": NaN,
+                "birthcity": "Crimmitschau",
+                "deathyear": NaN,
+                "deathmon": NaN,
+                "deathday": NaN,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "kiessud01",
+                "year": 1981,
+                "stint": 1,
+                "tmid": "MNS",
+                "lgid": "NHL",
+                "pos__dup1": "D",
+                "gp": 1,
+                "g": 0,
+                "a": 0,
+                "pts": 0,
+                "pim": 2,
+                "+/-": "0",
+                "ppg": "0",
+                "ppa": null,
+                "shg": "0",
+                "sha": null,
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "1",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null
+              },
+              {
+                "playerid": "harrism01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Smokey",
+                "lastname": "Harris",
+                "namenote": null,
+                "namegiven": "Thomas Wilfred",
+                "namenick": "Fred",
+                "height": "71",
+                "weight": "165",
+                "shootcatch": "L",
+                "legendsid": "12866",
+                "ihdbid": "30067",
+                "hrefid": "harrism01",
+                "firstnhl": "1924",
+                "lastnhl": "1924",
+                "firstwha": null,
+                "lastwha": null,
+                "pos": "L",
+                "birthyear": "1890",
+                "birthmon": "10",
+                "birthday": "11",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Port Arthur",
+                "deathyear": "1974",
+                "deathmon": "6",
+                "deathday": "4",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "harrism01",
+                "year": 1914,
+                "stint": 1,
+                "tmid": "PO1",
+                "lgid": "PCHA",
+                "pos__dup1": "C",
+                "gp": 18,
+                "g": 14,
+                "a": 3,
+                "pts": 17,
+                "pim": 37,
+                "+/-": NaN,
+                "ppg": NaN,
+                "ppa": null,
+                "shg": NaN,
+                "sha": null,
+                "gwg": NaN,
+                "gtg": NaN,
+                "sog": NaN,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN awardsplayers AS a ON m.playerid = a.playerid",
+          "sql": "SELECT *\nFROM master AS m\nJOIN scoring AS s ON m.playerid = s.playerid\nJOIN awardsplayers AS a ON m.playerid = a.playerid\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 68,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN awardsplayers AS a ON m.playerid = a.playerid AND a.award = 'Hart'",
+          "sql": "SELECT *\nFROM master AS m\nJOIN scoring AS s ON m.playerid = s.playerid\nJOIN awardsplayers AS a ON m.playerid = a.playerid AND a.award = 'Hart'\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 68,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN awardsplayers AS a ON m.playerid = a.playerid",
+          "sql": "SELECT *\nFROM master AS m\nJOIN scoring AS s ON m.playerid = s.playerid\nJOIN awardsplayers AS a ON m.playerid = a.playerid\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 68,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "LEFT JOIN awardsplayers AS a ON m.playerid = a.playerid",
+          "sql": "SELECT *\nFROM master AS m\nJOIN scoring AS s ON m.playerid = s.playerid\nLEFT JOIN awardsplayers AS a ON m.playerid = a.playerid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 68,
+            "preview": [
+              {
+                "playerid": "kiessud01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Udo",
+                "lastname": "Kiessling",
+                "namenote": null,
+                "namegiven": "Udo",
+                "namenick": NaN,
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "13190",
+                "ihdbid": "8731",
+                "hrefid": "kiessud01",
+                "firstnhl": "1981",
+                "lastnhl": "1981",
+                "firstwha": null,
+                "lastwha": null,
+                "pos": "D",
+                "birthyear": "1955",
+                "birthmon": "5",
+                "birthday": "21",
+                "birthcountry": "Germany",
+                "birthstate": NaN,
+                "birthcity": "Crimmitschau",
+                "deathyear": NaN,
+                "deathmon": NaN,
+                "deathday": NaN,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "kiessud01",
+                "year": 1981,
+                "stint": 1,
+                "tmid": "MNS",
+                "lgid": "NHL",
+                "pos__dup1": "D",
+                "gp": 1,
+                "g": 0,
+                "a": 0,
+                "pts": 0,
+                "pim": 2,
+                "+/-": "0",
+                "ppg": "0",
+                "ppa": null,
+                "shg": "0",
+                "sha": null,
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "1",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup2": null,
+                "award": null,
+                "year__dup1": null,
+                "lgid__dup1": null,
+                "note": null,
+                "pos__dup2": null
+              },
+              {
+                "playerid": "harrism01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Smokey",
+                "lastname": "Harris",
+                "namenote": null,
+                "namegiven": "Thomas Wilfred",
+                "namenick": "Fred",
+                "height": "71",
+                "weight": "165",
+                "shootcatch": "L",
+                "legendsid": "12866",
+                "ihdbid": "30067",
+                "hrefid": "harrism01",
+                "firstnhl": "1924",
+                "lastnhl": "1924",
+                "firstwha": null,
+                "lastwha": null,
+                "pos": "L",
+                "birthyear": "1890",
+                "birthmon": "10",
+                "birthday": "11",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Port Arthur",
+                "deathyear": "1974",
+                "deathmon": "6",
+                "deathday": "4",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "harrism01",
+                "year": 1914,
+                "stint": 1,
+                "tmid": "PO1",
+                "lgid": "PCHA",
+                "pos__dup1": "C",
+                "gp": 18,
+                "g": 14,
+                "a": 3,
+                "pts": 17,
+                "pim": 37,
+                "+/-": NaN,
+                "ppg": NaN,
+                "ppa": null,
+                "shg": NaN,
+                "sha": null,
+                "gwg": NaN,
+                "gtg": NaN,
+                "sog": NaN,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup2": null,
+                "award": null,
+                "year__dup1": null,
+                "lgid__dup1": null,
+                "note": null,
+                "pos__dup2": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "a.award = 'Hart'",
+          "sql": "SELECT *\nFROM master AS m\nJOIN scoring AS s ON m.playerid = s.playerid\nLEFT JOIN awardsplayers AS a ON m.playerid = a.playerid\nWHERE (a.award = 'Hart')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 68,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "a.award = 'Hart' OR a.award IS NULL",
+          "sql": "SELECT *\nFROM master AS m\nJOIN scoring AS s ON m.playerid = s.playerid\nLEFT JOIN awardsplayers AS a ON m.playerid = a.playerid\nWHERE (a.award = 'Hart' OR a.award IS NULL)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 68,
+            "preview": [
+              {
+                "playerid": "kiessud01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Udo",
+                "lastname": "Kiessling",
+                "namenote": null,
+                "namegiven": "Udo",
+                "namenick": NaN,
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "13190",
+                "ihdbid": "8731",
+                "hrefid": "kiessud01",
+                "firstnhl": "1981",
+                "lastnhl": "1981",
+                "firstwha": null,
+                "lastwha": null,
+                "pos": "D",
+                "birthyear": "1955",
+                "birthmon": "5",
+                "birthday": "21",
+                "birthcountry": "Germany",
+                "birthstate": NaN,
+                "birthcity": "Crimmitschau",
+                "deathyear": NaN,
+                "deathmon": NaN,
+                "deathday": NaN,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "kiessud01",
+                "year": 1981,
+                "stint": 1,
+                "tmid": "MNS",
+                "lgid": "NHL",
+                "pos__dup1": "D",
+                "gp": 1,
+                "g": 0,
+                "a": 0,
+                "pts": 0,
+                "pim": 2,
+                "+/-": "0",
+                "ppg": "0",
+                "ppa": null,
+                "shg": "0",
+                "sha": null,
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "1",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup2": null,
+                "award": null,
+                "year__dup1": null,
+                "lgid__dup1": null,
+                "note": null,
+                "pos__dup2": null
+              },
+              {
+                "playerid": "harrism01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Smokey",
+                "lastname": "Harris",
+                "namenote": null,
+                "namegiven": "Thomas Wilfred",
+                "namenick": "Fred",
+                "height": "71",
+                "weight": "165",
+                "shootcatch": "L",
+                "legendsid": "12866",
+                "ihdbid": "30067",
+                "hrefid": "harrism01",
+                "firstnhl": "1924",
+                "lastnhl": "1924",
+                "firstwha": null,
+                "lastwha": null,
+                "pos": "L",
+                "birthyear": "1890",
+                "birthmon": "10",
+                "birthday": "11",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Port Arthur",
+                "deathyear": "1974",
+                "deathmon": "6",
+                "deathday": "4",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "harrism01",
+                "year": 1914,
+                "stint": 1,
+                "tmid": "PO1",
+                "lgid": "PCHA",
+                "pos__dup1": "C",
+                "gp": 18,
+                "g": 14,
+                "a": 3,
+                "pts": 17,
+                "pim": 37,
+                "+/-": NaN,
+                "ppg": NaN,
+                "ppa": null,
+                "shg": NaN,
+                "sha": null,
+                "gwg": NaN,
+                "gtg": NaN,
+                "sog": NaN,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup2": null,
+                "award": null,
+                "year__dup1": null,
+                "lgid__dup1": null,
+                "note": null,
+                "pos__dup2": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year = (SELECT MIN(s2.year) FROM scoring AS s2 WHERE s2.playerid = m.playerid)",
+          "sql": "SELECT *\nFROM master AS m\nJOIN scoring AS s ON m.playerid = s.playerid\nLEFT JOIN awardsplayers AS a ON m.playerid = a.playerid\nWHERE (a.award = 'Hart' OR a.award IS NULL) AND (s.year = (SELECT MIN(s2.year) FROM scoring AS s2 WHERE s2.playerid = m.playerid))\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 68,
+            "preview": [
+              {
+                "playerid": "kiessud01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Udo",
+                "lastname": "Kiessling",
+                "namenote": null,
+                "namegiven": "Udo",
+                "namenick": NaN,
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "13190",
+                "ihdbid": "8731",
+                "hrefid": "kiessud01",
+                "firstnhl": "1981",
+                "lastnhl": "1981",
+                "firstwha": null,
+                "lastwha": null,
+                "pos": "D",
+                "birthyear": "1955",
+                "birthmon": "5",
+                "birthday": "21",
+                "birthcountry": "Germany",
+                "birthstate": NaN,
+                "birthcity": "Crimmitschau",
+                "deathyear": NaN,
+                "deathmon": NaN,
+                "deathday": NaN,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "kiessud01",
+                "year": 1981,
+                "stint": 1,
+                "tmid": "MNS",
+                "lgid": "NHL",
+                "pos__dup1": "D",
+                "gp": 1,
+                "g": 0,
+                "a": 0,
+                "pts": 0,
+                "pim": 2,
+                "+/-": "0",
+                "ppg": "0",
+                "ppa": null,
+                "shg": "0",
+                "sha": null,
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "1",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup2": null,
+                "award": null,
+                "year__dup1": null,
+                "lgid__dup1": null,
+                "note": null,
+                "pos__dup2": null
+              },
+              {
+                "playerid": "harrism01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Smokey",
+                "lastname": "Harris",
+                "namenote": null,
+                "namegiven": "Thomas Wilfred",
+                "namenick": "Fred",
+                "height": "71",
+                "weight": "165",
+                "shootcatch": "L",
+                "legendsid": "12866",
+                "ihdbid": "30067",
+                "hrefid": "harrism01",
+                "firstnhl": "1924",
+                "lastnhl": "1924",
+                "firstwha": null,
+                "lastwha": null,
+                "pos": "L",
+                "birthyear": "1890",
+                "birthmon": "10",
+                "birthday": "11",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Port Arthur",
+                "deathyear": "1974",
+                "deathmon": "6",
+                "deathday": "4",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "harrism01",
+                "year": 1914,
+                "stint": 1,
+                "tmid": "PO1",
+                "lgid": "PCHA",
+                "pos__dup1": "C",
+                "gp": 18,
+                "g": 14,
+                "a": 3,
+                "pts": 17,
+                "pim": 37,
+                "+/-": NaN,
+                "ppg": NaN,
+                "ppa": null,
+                "shg": NaN,
+                "sha": null,
+                "gwg": NaN,
+                "gtg": NaN,
+                "sog": NaN,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup2": null,
+                "award": null,
+                "year__dup1": null,
+                "lgid__dup1": null,
+                "note": null,
+                "pos__dup2": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT m.playerid, s.year, s.pts\nFROM master AS m\nJOIN scoring AS s ON m.playerid = s.playerid\nLEFT JOIN awardsplayers AS a ON m.playerid = a.playerid\nWHERE (a.award = 'Hart' OR a.award IS NULL) AND (s.year = (SELECT MIN(s2.year) FROM scoring AS s2 WHERE s2.playerid = m.playerid))",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 3,
+            "preview": [
+              {
+                "playerid": "kiessud01",
+                "year": 1981,
+                "pts": 0
+              },
+              {
+                "playerid": "harrism01",
+                "year": 1914,
+                "pts": 17
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "Total points scored by players who won the Hart Trophy in their rookie season",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT m.playerid, s.year, s.pts\nFROM master AS m\nJOIN scoring AS s ON m.playerid = s.playerid\nLEFT JOIN awardsplayers AS a ON m.playerid = a.playerid\nWHERE (a.award = 'Hart' OR a.award IS NULL) AND (s.year = (SELECT MIN(s2.year) FROM scoring AS s2 WHERE s2.playerid = m.playerid))) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 3,
+            "preview": [
+              {
+                "playerid": "kiessud01",
+                "year": 1981,
+                "pts": 0
+              },
+              {
+                "playerid": "harrism01",
+                "year": 1914,
+                "pts": 17
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT SUM(pts)\nFROM (SELECT m.playerid, s.year, s.pts\nFROM master AS m\nJOIN scoring AS s ON m.playerid = s.playerid\nLEFT JOIN awardsplayers AS a ON m.playerid = a.playerid\nWHERE (a.award = 'Hart' OR a.award IS NULL) AND (s.year = (SELECT MIN(s2.year) FROM scoring AS s2 WHERE s2.playerid = m.playerid))) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "SUM(pts)": 17
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 17,
+  "sample_retry": 1,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.3986711711711711,
+    "nearest": {
+      "sample_index": 1,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "similarity": 0.3986711711711711,
+      "sql": "SELECT SUM(pts) AS total_points\nFROM (SELECT s.playerid, s.year, s.tmid, s.pts, a.award\nFROM scoring AS s\nJOIN awardsplayers AS a ON s.playerid = a.playerid\nJOIN seriespost AS sp ON s.tmid = sp.tmidwinner\nJOIN teams AS t ON s.tmid = t.tmid\nWHERE (a.award LIKE '%All-Star%')) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": null,
+    "nearest": null,
+    "reason": "not numeric"
+  },
+  "question": "What is the total number of points scored by all players in their first season in which they either won the Hart award or never won the Hart award?",
+  "answer": "17"
+}

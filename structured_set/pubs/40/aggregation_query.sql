@@ -1,0 +1,9 @@
+SELECT AVG(leaf_1.royaltyper)
+FROM (SELECT p.pub_name, t.title, a.au_lname, a.au_fname, ta.royaltyper
+FROM authors a
+JOIN titleauthor ta ON a.au_id = ta.au_id
+JOIN titles t ON ta.title_id = t.title_id
+JOIN publishers p ON t.pub_id = p.pub_id
+JOIN (SELECT title_id, SUM(qty) AS total_sales FROM sales GROUP BY title_id) s ON t.title_id = s.title_id
+WHERE (p.state = 'CA') AND (s.total_sales > 0)
+GROUP BY p.pub_name, t.title, a.au_lname, a.au_fname, ta.royaltyper) AS leaf_1

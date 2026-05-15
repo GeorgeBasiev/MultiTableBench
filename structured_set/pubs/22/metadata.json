@@ -1,0 +1,1334 @@
+{
+  "sample_index": 22,
+  "db_name": "pubs",
+  "answer_mode": "text",
+  "target_join_count": 4,
+  "actual_join_count": 4,
+  "numeric_answer": null,
+  "constraints": {
+    "answer_mode": "text",
+    "target_join_count": 4,
+    "min_hops": 4,
+    "max_hops": 4,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Find the job description of the employee who made the highest royalty payment for a book published by Algodata Infosystems",
+  "manifest": {
+    "db_name": "pubs",
+    "sample_dir": "structured_set/pubs/22",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "authors",
+        "remote_row_count": 23,
+        "snapshot_row_count": 23,
+        "target_limit": 23,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "au_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_lname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_fname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "zip",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contract",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "discounts",
+        "remote_row_count": 3,
+        "snapshot_row_count": 3,
+        "target_limit": 3,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "discounttype",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lowqty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "highqty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discount",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          }
+        ]
+      },
+      {
+        "table_name": "employee",
+        "remote_row_count": 43,
+        "snapshot_row_count": 43,
+        "target_limit": 43,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "emp_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "minit",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "job_id",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "job_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hire_date",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "jobs",
+        "remote_row_count": 14,
+        "snapshot_row_count": 14,
+        "target_limit": 14,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "job_id",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "job_desc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "min_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "max_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "publishers",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pub_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "pub_info",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "logo",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          },
+          {
+            "name": "pr_info",
+            "mysql_type": "longtext",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "roysched",
+        "remote_row_count": 86,
+        "snapshot_row_count": 86,
+        "target_limit": 86,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lorange",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hirange",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "royalty",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "sales",
+        "remote_row_count": 21,
+        "snapshot_row_count": 21,
+        "target_limit": 21,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ord_num",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ord_date",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "qty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "payterms",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "stores",
+        "remote_row_count": 6,
+        "snapshot_row_count": 6,
+        "target_limit": 6,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "zip",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "titleauthor",
+        "remote_row_count": 25,
+        "snapshot_row_count": 25,
+        "target_limit": 25,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "au_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_ord",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "royaltyper",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "titles",
+        "remote_row_count": 18,
+        "snapshot_row_count": 18,
+        "target_limit": 18,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "type",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "price",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "advance",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "royalty",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ytd_sales",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pubdate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Find the job description of the employee who made the highest royalty payment for a book published by Algodata Infosystems",
+    "answer_mode": "text",
+    "final_block_name": "root",
+    "detail_query": "SELECT e.emp_id, e.fname, e.lname, j.job_desc, t.title, t.pub_id, p.pub_name, r.lorange, r.hirange, r.royalty, s.qty, (r.royalty * s.qty / 100) AS royalty_payment FROM employee AS e JOIN jobs AS j ON e.job_id = j.job_id JOIN titles AS t ON e.pub_id = t.pub_id JOIN roysched AS r ON t.title_id = r.title_id JOIN sales AS s ON t.title_id = s.title_id WHERE t.pub_id = 1389 ORDER BY royalty_payment DESC LIMIT 1",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT e.emp_id, e.job_id, t.title_id, r.royalty, s.qty, (r.royalty * s.qty / 100) AS royalty_payment",
+        "from_clause": "FROM employee AS e",
+        "join_clauses": [
+          "JOIN titles AS t ON e.pub_id = t.pub_id",
+          "JOIN roysched AS r ON t.title_id = r.title_id",
+          "JOIN sales AS s ON t.title_id = s.title_id"
+        ],
+        "where_clauses": [
+          "t.pub_id = 1389"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "This block calculates the royalty payment for each employee based on the sales of books published by Algodata Infosystems"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT j.job_desc",
+        "from_clause": "FROM jobs AS j",
+        "join_clauses": [
+          "JOIN (SELECT e.emp_id, e.job_id FROM {{leaf_1}} AS leaf_1 ORDER BY royalty_payment DESC LIMIT 1) AS emp ON j.job_id = emp.job_id"
+        ],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "This block retrieves the job description of the employee who made the highest royalty payment for a book published by Algodata Infosystems"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "This block calculates the royalty payment for each employee based on the sales of books published by Algodata Infosystems",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM employee AS e\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 8,
+            "preview": [
+              {
+                "emp_id": "A-C71970F",
+                "fname": "Aria",
+                "minit": "",
+                "lname": "Cruz",
+                "job_id": 10,
+                "job_lvl": 87,
+                "pub_id": "1389",
+                "hire_date": "1991-10-26T00:00:00"
+              },
+              {
+                "emp_id": "A-R89858F",
+                "fname": "Annette",
+                "minit": "",
+                "lname": "Roulet",
+                "job_id": 6,
+                "job_lvl": 152,
+                "pub_id": "9999",
+                "hire_date": "1990-02-21T00:00:00"
+              },
+              {
+                "emp_id": "AMD15433F",
+                "fname": "Ann",
+                "minit": "M",
+                "lname": "Devon",
+                "job_id": 3,
+                "job_lvl": 200,
+                "pub_id": "9952",
+                "hire_date": "1991-07-16T00:00:00"
+              },
+              {
+                "emp_id": "ARD36773F",
+                "fname": "Anabela",
+                "minit": "R",
+                "lname": "Domingues",
+                "job_id": 8,
+                "job_lvl": 100,
+                "pub_id": "0877",
+                "hire_date": "1993-01-27T00:00:00"
+              },
+              {
+                "emp_id": "CFH28514M",
+                "fname": "Carlos",
+                "minit": "F",
+                "lname": "Hernadez",
+                "job_id": 5,
+                "job_lvl": 211,
+                "pub_id": "9999",
+                "hire_date": "1989-04-21T00:00:00"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN titles AS t ON e.pub_id = t.pub_id",
+          "sql": "SELECT *\nFROM employee AS e\nJOIN titles AS t ON e.pub_id = t.pub_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 18,
+            "preview": [
+              {
+                "emp_id": "A-C71970F",
+                "fname": "Aria",
+                "minit": "",
+                "lname": "Cruz",
+                "job_id": 10,
+                "job_lvl": 87,
+                "pub_id": "1389",
+                "hire_date": "1991-10-26T00:00:00",
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00"
+              },
+              {
+                "emp_id": "A-C71970F",
+                "fname": "Aria",
+                "minit": "",
+                "lname": "Cruz",
+                "job_id": 10,
+                "job_lvl": 87,
+                "pub_id": "1389",
+                "hire_date": "1991-10-26T00:00:00",
+                "title_id": "BU1111",
+                "title": "Cooking with Computers: Surreptitious Balance Sheets",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 11.95,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 3876,
+                "notes": "Helpful hints on how to use your electronic resources to the best advantage.",
+                "pubdate": "1991-06-09T00:00:00"
+              },
+              {
+                "emp_id": "A-C71970F",
+                "fname": "Aria",
+                "minit": "",
+                "lname": "Cruz",
+                "job_id": 10,
+                "job_lvl": 87,
+                "pub_id": "1389",
+                "hire_date": "1991-10-26T00:00:00",
+                "title_id": "BU7832",
+                "title": "Straight Talk About Computers",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Annotated analysis of what computers can do for you: a no-hype guide for the critical user.",
+                "pubdate": "1991-06-22T00:00:00"
+              },
+              {
+                "emp_id": "A-C71970F",
+                "fname": "Aria",
+                "minit": "",
+                "lname": "Cruz",
+                "job_id": 10,
+                "job_lvl": 87,
+                "pub_id": "1389",
+                "hire_date": "1991-10-26T00:00:00",
+                "title_id": "PC1035",
+                "title": "But Is It User Friendly?",
+                "type": "popular_comp",
+                "pub_id__dup1": "1389",
+                "price": 22.95,
+                "advance": 7000.0,
+                "royalty": 16,
+                "ytd_sales": 8780,
+                "notes": "A survey of software for the naive user, focusing on the 'friendliness' of each.",
+                "pubdate": "1991-06-30T00:00:00"
+              },
+              {
+                "emp_id": "A-C71970F",
+                "fname": "Aria",
+                "minit": "",
+                "lname": "Cruz",
+                "job_id": 10,
+                "job_lvl": 87,
+                "pub_id": "1389",
+                "hire_date": "1991-10-26T00:00:00",
+                "title_id": "PC8888",
+                "title": "Secrets of Silicon Valley",
+                "type": "popular_comp",
+                "pub_id__dup1": "1389",
+                "price": 20.0,
+                "advance": 8000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Muckraking reporting on the world's largest computer hardware and software manufacturers.",
+                "pubdate": "1994-06-12T00:00:00"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN roysched AS r ON t.title_id = r.title_id",
+          "sql": "SELECT *\nFROM employee AS e\nJOIN titles AS t ON e.pub_id = t.pub_id\nJOIN roysched AS r ON t.title_id = r.title_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 22,
+            "preview": [
+              {
+                "emp_id": "A-C71970F",
+                "fname": "Aria",
+                "minit": "",
+                "lname": "Cruz",
+                "job_id": 10,
+                "job_lvl": 87,
+                "pub_id": "1389",
+                "hire_date": "1991-10-26T00:00:00",
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "title_id__dup1": "BU1032",
+                "lorange": 0,
+                "hirange": 5000,
+                "royalty__dup1": 10
+              },
+              {
+                "emp_id": "CGS88322F",
+                "fname": "Carine",
+                "minit": "G",
+                "lname": "Schmitt",
+                "job_id": 13,
+                "job_lvl": 64,
+                "pub_id": "1389",
+                "hire_date": "1992-07-07T00:00:00",
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "title_id__dup1": "BU1032",
+                "lorange": 0,
+                "hirange": 5000,
+                "royalty__dup1": 10
+              },
+              {
+                "emp_id": "DWR65030M",
+                "fname": "Diego",
+                "minit": "W",
+                "lname": "Roel",
+                "job_id": 6,
+                "job_lvl": 192,
+                "pub_id": "1389",
+                "hire_date": "1991-12-16T00:00:00",
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "title_id__dup1": "BU1032",
+                "lorange": 0,
+                "hirange": 5000,
+                "royalty__dup1": 10
+              },
+              {
+                "emp_id": "M-L67958F",
+                "fname": "Maria",
+                "minit": "",
+                "lname": "Larsson",
+                "job_id": 7,
+                "job_lvl": 135,
+                "pub_id": "1389",
+                "hire_date": "1992-03-27T00:00:00",
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "title_id__dup1": "BU1032",
+                "lorange": 0,
+                "hirange": 5000,
+                "royalty__dup1": 10
+              },
+              {
+                "emp_id": "MAP77183M",
+                "fname": "Miguel",
+                "minit": "A",
+                "lname": "Paolino",
+                "job_id": 11,
+                "job_lvl": 112,
+                "pub_id": "1389",
+                "hire_date": "1992-12-07T00:00:00",
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "title_id__dup1": "BU1032",
+                "lorange": 0,
+                "hirange": 5000,
+                "royalty__dup1": 10
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN sales AS s ON t.title_id = s.title_id",
+          "sql": "SELECT *\nFROM employee AS e\nJOIN titles AS t ON e.pub_id = t.pub_id\nJOIN roysched AS r ON t.title_id = r.title_id\nJOIN sales AS s ON t.title_id = s.title_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 28,
+            "preview": [
+              {
+                "emp_id": "A-C71970F",
+                "fname": "Aria",
+                "minit": "",
+                "lname": "Cruz",
+                "job_id": 10,
+                "job_lvl": 87,
+                "pub_id": "1389",
+                "hire_date": "1991-10-26T00:00:00",
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "title_id__dup1": "BU1032",
+                "lorange": 0,
+                "hirange": 5000,
+                "royalty__dup1": 10,
+                "stor_id": "6380",
+                "ord_num": "6871",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 5,
+                "payterms": "Net 60",
+                "title_id__dup2": "BU1032"
+              },
+              {
+                "emp_id": "A-C71970F",
+                "fname": "Aria",
+                "minit": "",
+                "lname": "Cruz",
+                "job_id": 10,
+                "job_lvl": 87,
+                "pub_id": "1389",
+                "hire_date": "1991-10-26T00:00:00",
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "title_id__dup1": "BU1032",
+                "lorange": 0,
+                "hirange": 5000,
+                "royalty__dup1": 10,
+                "stor_id": "8042",
+                "ord_num": "423LL930",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 10,
+                "payterms": "ON invoice",
+                "title_id__dup2": "BU1032"
+              },
+              {
+                "emp_id": "CGS88322F",
+                "fname": "Carine",
+                "minit": "G",
+                "lname": "Schmitt",
+                "job_id": 13,
+                "job_lvl": 64,
+                "pub_id": "1389",
+                "hire_date": "1992-07-07T00:00:00",
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "title_id__dup1": "BU1032",
+                "lorange": 0,
+                "hirange": 5000,
+                "royalty__dup1": 10,
+                "stor_id": "6380",
+                "ord_num": "6871",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 5,
+                "payterms": "Net 60",
+                "title_id__dup2": "BU1032"
+              },
+              {
+                "emp_id": "CGS88322F",
+                "fname": "Carine",
+                "minit": "G",
+                "lname": "Schmitt",
+                "job_id": 13,
+                "job_lvl": 64,
+                "pub_id": "1389",
+                "hire_date": "1992-07-07T00:00:00",
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "title_id__dup1": "BU1032",
+                "lorange": 0,
+                "hirange": 5000,
+                "royalty__dup1": 10,
+                "stor_id": "8042",
+                "ord_num": "423LL930",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 10,
+                "payterms": "ON invoice",
+                "title_id__dup2": "BU1032"
+              },
+              {
+                "emp_id": "DWR65030M",
+                "fname": "Diego",
+                "minit": "W",
+                "lname": "Roel",
+                "job_id": 6,
+                "job_lvl": 192,
+                "pub_id": "1389",
+                "hire_date": "1991-12-16T00:00:00",
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "title_id__dup1": "BU1032",
+                "lorange": 0,
+                "hirange": 5000,
+                "royalty__dup1": 10,
+                "stor_id": "6380",
+                "ord_num": "6871",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 5,
+                "payterms": "Net 60",
+                "title_id__dup2": "BU1032"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "t.pub_id = 1389",
+          "sql": "SELECT *\nFROM employee AS e\nJOIN titles AS t ON e.pub_id = t.pub_id\nJOIN roysched AS r ON t.title_id = r.title_id\nJOIN sales AS s ON t.title_id = s.title_id\nWHERE (t.pub_id = 1389)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 28,
+            "preview": [
+              {
+                "emp_id": "A-C71970F",
+                "fname": "Aria",
+                "minit": "",
+                "lname": "Cruz",
+                "job_id": 10,
+                "job_lvl": 87,
+                "pub_id": "1389",
+                "hire_date": "1991-10-26T00:00:00",
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "title_id__dup1": "BU1032",
+                "lorange": 0,
+                "hirange": 5000,
+                "royalty__dup1": 10,
+                "stor_id": "6380",
+                "ord_num": "6871",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 5,
+                "payterms": "Net 60",
+                "title_id__dup2": "BU1032"
+              },
+              {
+                "emp_id": "A-C71970F",
+                "fname": "Aria",
+                "minit": "",
+                "lname": "Cruz",
+                "job_id": 10,
+                "job_lvl": 87,
+                "pub_id": "1389",
+                "hire_date": "1991-10-26T00:00:00",
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "title_id__dup1": "BU1032",
+                "lorange": 0,
+                "hirange": 5000,
+                "royalty__dup1": 10,
+                "stor_id": "8042",
+                "ord_num": "423LL930",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 10,
+                "payterms": "ON invoice",
+                "title_id__dup2": "BU1032"
+              },
+              {
+                "emp_id": "CGS88322F",
+                "fname": "Carine",
+                "minit": "G",
+                "lname": "Schmitt",
+                "job_id": 13,
+                "job_lvl": 64,
+                "pub_id": "1389",
+                "hire_date": "1992-07-07T00:00:00",
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "title_id__dup1": "BU1032",
+                "lorange": 0,
+                "hirange": 5000,
+                "royalty__dup1": 10,
+                "stor_id": "6380",
+                "ord_num": "6871",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 5,
+                "payterms": "Net 60",
+                "title_id__dup2": "BU1032"
+              },
+              {
+                "emp_id": "CGS88322F",
+                "fname": "Carine",
+                "minit": "G",
+                "lname": "Schmitt",
+                "job_id": 13,
+                "job_lvl": 64,
+                "pub_id": "1389",
+                "hire_date": "1992-07-07T00:00:00",
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "title_id__dup1": "BU1032",
+                "lorange": 0,
+                "hirange": 5000,
+                "royalty__dup1": 10,
+                "stor_id": "8042",
+                "ord_num": "423LL930",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 10,
+                "payterms": "ON invoice",
+                "title_id__dup2": "BU1032"
+              },
+              {
+                "emp_id": "DWR65030M",
+                "fname": "Diego",
+                "minit": "W",
+                "lname": "Roel",
+                "job_id": 6,
+                "job_lvl": 192,
+                "pub_id": "1389",
+                "hire_date": "1991-12-16T00:00:00",
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id__dup1": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "title_id__dup1": "BU1032",
+                "lorange": 0,
+                "hirange": 5000,
+                "royalty__dup1": 10,
+                "stor_id": "6380",
+                "ord_num": "6871",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 5,
+                "payterms": "Net 60",
+                "title_id__dup2": "BU1032"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT e.emp_id, e.job_id, t.title_id, r.royalty, s.qty, (r.royalty * s.qty / 100) AS royalty_payment\nFROM employee AS e\nJOIN titles AS t ON e.pub_id = t.pub_id\nJOIN roysched AS r ON t.title_id = r.title_id\nJOIN sales AS s ON t.title_id = s.title_id\nWHERE (t.pub_id = 1389)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 290,
+            "column_count": 6,
+            "preview": [
+              {
+                "emp_id": "A-C71970F",
+                "job_id": 10,
+                "title_id": "BU1032",
+                "royalty": 10,
+                "qty": 5,
+                "royalty_payment": 0
+              },
+              {
+                "emp_id": "A-C71970F",
+                "job_id": 10,
+                "title_id": "BU1032",
+                "royalty": 10,
+                "qty": 10,
+                "royalty_payment": 1
+              },
+              {
+                "emp_id": "CGS88322F",
+                "job_id": 13,
+                "title_id": "BU1032",
+                "royalty": 10,
+                "qty": 5,
+                "royalty_payment": 0
+              },
+              {
+                "emp_id": "CGS88322F",
+                "job_id": 13,
+                "title_id": "BU1032",
+                "royalty": 10,
+                "qty": 10,
+                "royalty_payment": 1
+              },
+              {
+                "emp_id": "DWR65030M",
+                "job_id": 6,
+                "title_id": "BU1032",
+                "royalty": 10,
+                "qty": 5,
+                "royalty_payment": 0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "This block retrieves the job description of the employee who made the highest royalty payment for a book published by Algodata Infosystems",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM jobs AS j\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 4,
+            "preview": [
+              {
+                "job_id": 1,
+                "job_desc": "New Hire - Job not specified",
+                "min_lvl": 10,
+                "max_lvl": 10
+              },
+              {
+                "job_id": 2,
+                "job_desc": "Chief Executive Officer",
+                "min_lvl": 200,
+                "max_lvl": 250
+              },
+              {
+                "job_id": 3,
+                "job_desc": "Business Operations Manager",
+                "min_lvl": 175,
+                "max_lvl": 225
+              },
+              {
+                "job_id": 4,
+                "job_desc": "Chief Financial Officier",
+                "min_lvl": 175,
+                "max_lvl": 250
+              },
+              {
+                "job_id": 5,
+                "job_desc": "Publisher",
+                "min_lvl": 150,
+                "max_lvl": 250
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN (SELECT e.emp_id, e.job_id FROM {{leaf_1}} AS leaf_1 ORDER BY royalty_payment DESC LIMIT 1) AS emp ON j.job_id = emp.job_id",
+          "sql": "SELECT *\nFROM jobs AS j\nJOIN (SELECT e.emp_id, e.job_id FROM (SELECT e.emp_id, e.job_id, t.title_id, r.royalty, s.qty, (r.royalty * s.qty / 100) AS royalty_payment\nFROM employee AS e\nJOIN titles AS t ON e.pub_id = t.pub_id\nJOIN roysched AS r ON t.title_id = r.title_id\nJOIN sales AS s ON t.title_id = s.title_id\nWHERE (t.pub_id = 1389)) AS leaf_1 ORDER BY royalty_payment DESC LIMIT 1) AS emp ON j.job_id = emp.job_id\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": "Execution failed on sql 'SELECT *\nFROM jobs AS j\nJOIN (SELECT e.emp_id, e.job_id FROM (SELECT e.emp_id, e.job_id, t.title_id, r.royalty, s.qty, (r.royalty * s.qty / 100) AS royalty_payment\nFROM employee AS e\nJOIN titles AS t ON e.pub_id = t.pub_id\nJOIN roysched AS r ON t.title_id = r.title_id\nJOIN sales AS s ON t.title_id = s.title_id\nWHERE (t.pub_id = 1389)) AS leaf_1 ORDER BY royalty_payment DESC LIMIT 1) AS emp ON j.job_id = emp.job_id\nLIMIT 5': no such column: e.emp_id",
+            "row_count": 0,
+            "column_count": 0,
+            "preview": null,
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN (SELECT emp_id, job_id FROM {{leaf_1}} AS leaf_1 ORDER BY royalty_payment DESC LIMIT 1) AS emp ON j.job_id = emp.job_id",
+          "sql": "SELECT *\nFROM jobs AS j\nJOIN (SELECT emp_id, job_id FROM (SELECT e.emp_id, e.job_id, t.title_id, r.royalty, s.qty, (r.royalty * s.qty / 100) AS royalty_payment\nFROM employee AS e\nJOIN titles AS t ON e.pub_id = t.pub_id\nJOIN roysched AS r ON t.title_id = r.title_id\nJOIN sales AS s ON t.title_id = s.title_id\nWHERE (t.pub_id = 1389)) AS leaf_1 ORDER BY royalty_payment DESC LIMIT 1) AS emp ON j.job_id = emp.job_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 6,
+            "preview": [
+              {
+                "job_id": 10,
+                "job_desc": "Productions Manager",
+                "min_lvl": 75,
+                "max_lvl": 165,
+                "emp_id": "A-C71970F",
+                "job_id__dup1": 10
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT j.job_desc\nFROM jobs AS j\nJOIN (SELECT emp_id, job_id FROM (SELECT e.emp_id, e.job_id, t.title_id, r.royalty, s.qty, (r.royalty * s.qty / 100) AS royalty_payment\nFROM employee AS e\nJOIN titles AS t ON e.pub_id = t.pub_id\nJOIN roysched AS r ON t.title_id = r.title_id\nJOIN sales AS s ON t.title_id = s.title_id\nWHERE (t.pub_id = 1389)) AS leaf_1 ORDER BY royalty_payment DESC LIMIT 1) AS emp ON j.job_id = emp.job_id",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "job_desc": "Publisher"
+              }
+            ],
+            "scalar": true,
+            "text_scalar": true
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 14,
+  "sample_retry": 4,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.4935317460317461,
+    "nearest": {
+      "sample_index": 46,
+      "answer_mode": "text",
+      "target_join_count": 4,
+      "similarity": 0.4935317460317461,
+      "sql": "SELECT leaf_1.city\nFROM (SELECT leaf_1.au_id, leaf_1.title_id, leaf_1.royaltyper, leaf_1.royalty, leaf_1.price, leaf_1.qty, leaf_1.pub_id, leaf_1.city FROM ((SELECT authors.au_id, authors.city, titles.title_id, titleauthor.royaltyper, roysched.royalty, titles.price, sales.qty, titles.pub_id\nFROM authors\nJOIN titleauthor ON authors.au_id = titleauthor.au_id\nJOIN titles ON titleauthor.title_id = titles.title_id\nJOIN roysched ON titles.title_id = roysched.title_id\nJOIN sales ON titles.title_id = sales.title_id\nWHERE (titles.pub_id = '1389'))) AS leaf_1 ORDER BY (leaf_1.royaltyper * leaf_1.royalty * leaf_1.price * leaf_1.qty) DESC LIMIT 1) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": null,
+    "nearest": null,
+    "reason": "not numeric"
+  },
+  "question": "What is the job description of the employee whose royalty payment is the highest for the publisher with ID 1389?",
+  "answer": "Publisher"
+}

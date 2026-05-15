@@ -1,0 +1,6 @@
+SELECT AVG(leaf_1.g)
+FROM (SELECT m.firstname, m.lastname, leaf_1.year, leaf_1.tmid, leaf_1.gp, leaf_1.g
+FROM scoring AS leaf_1
+JOIN master AS m ON leaf_1.playerid = m.playerid
+JOIN teams AS t ON leaf_1.tmid = t.tmid
+WHERE (t.confid = 'EC') AND (leaf_1.year BETWEEN 1980 AND 1989)) AS leaf_1

@@ -1,0 +1,853 @@
+{
+  "sample_index": 47,
+  "db_name": "Credit",
+  "answer_mode": "text",
+  "target_join_count": 2,
+  "actual_join_count": 2,
+  "numeric_answer": null,
+  "constraints": {
+    "answer_mode": "text",
+    "target_join_count": 2,
+    "min_hops": 2,
+    "max_hops": 2,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Find the name of the provider who has the highest total charge amount for the category 'Meals'",
+  "manifest": {
+    "db_name": "Credit",
+    "sample_dir": "structured_set/Credit/47",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "category",
+        "remote_row_count": 10,
+        "snapshot_row_count": 10,
+        "target_limit": 10,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "category_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "category_desc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "category_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "charge",
+        "remote_row_count": 1600000,
+        "snapshot_row_count": 95,
+        "target_limit": 95,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "charge_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "provider_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "category_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "charge_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "charge_amt",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "statement_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "charge_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "corporation",
+        "remote_row_count": 500,
+        "snapshot_row_count": 98,
+        "target_limit": 98,
+        "relational_rows_added": 28,
+        "columns": [
+          {
+            "name": "corp_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "corp_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "expr_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "corp_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "member",
+        "remote_row_count": 10000,
+        "snapshot_row_count": 93,
+        "target_limit": 93,
+        "relational_rows_added": 658,
+        "columns": [
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lastname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "middleinitial",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "photograph",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          },
+          {
+            "name": "issue_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "expr_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "corp_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "prev_balance",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "curr_balance",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "member_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "payment",
+        "remote_row_count": 15554,
+        "snapshot_row_count": 79,
+        "target_limit": 79,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "payment_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "payment_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "payment_amt",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "statement_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "payment_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "provider",
+        "remote_row_count": 500,
+        "snapshot_row_count": 72,
+        "target_limit": 72,
+        "relational_rows_added": 50,
+        "columns": [
+          {
+            "name": "provider_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "provider_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "issue_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "expr_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "provider_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "region",
+        "remote_row_count": 9,
+        "snapshot_row_count": 9,
+        "target_limit": 9,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "region_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "statement",
+        "remote_row_count": 20000,
+        "snapshot_row_count": 75,
+        "target_limit": 75,
+        "relational_rows_added": 66,
+        "columns": [
+          {
+            "name": "statement_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "statement_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "due_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "statement_amt",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "statement_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Find the name of the provider who has the highest total charge amount for the category 'Meals'",
+    "answer_mode": "text",
+    "final_block_name": "root",
+    "detail_query": "SELECT provider.provider_name, category.category_desc, charge.charge_amt FROM charge JOIN provider ON charge.provider_no = provider.provider_no JOIN category ON charge.category_no = category.category_no WHERE category.category_desc = 'Meals'",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT provider_no, SUM(charge_amt) AS total_charge",
+        "from_clause": "FROM charge",
+        "join_clauses": [
+          "JOIN category ON charge.category_no = category.category_no"
+        ],
+        "where_clauses": [
+          "category.category_desc = 'Meals'"
+        ],
+        "group_by_clause": "GROUP BY charge.provider_no",
+        "having_clauses": [],
+        "notes": "This block calculates the total charge amount for each provider in the 'Meals' category"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT provider_name",
+        "from_clause": "FROM (SELECT leaf_1.provider_no, leaf_1.total_charge FROM {{leaf_1}} AS leaf_1 ORDER BY leaf_1.total_charge DESC LIMIT 1) AS highest_charge_provider JOIN provider ON highest_charge_provider.provider_no = provider.provider_no",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "This block retrieves the name of the provider with the highest total charge amount in the 'Meals' category"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "This block calculates the total charge amount for each provider in the 'Meals' category",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM charge\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 8,
+            "preview": [
+              {
+                "charge_no": 5699,
+                "member_no": 9463,
+                "provider_no": 500,
+                "category_no": 5,
+                "charge_dt": "1999-10-05T10:44:03",
+                "charge_amt": 72.0,
+                "statement_no": 29463,
+                "charge_code": ""
+              },
+              {
+                "charge_no": 8316,
+                "member_no": 9090,
+                "provider_no": 377,
+                "category_no": 8,
+                "charge_dt": "1999-09-29T10:44:15",
+                "charge_amt": 3158.0,
+                "statement_no": 29090,
+                "charge_code": ""
+              },
+              {
+                "charge_no": 11644,
+                "member_no": 8063,
+                "provider_no": 472,
+                "category_no": 9,
+                "charge_dt": "1999-08-24T10:44:29",
+                "charge_amt": 2624.0,
+                "statement_no": 18063,
+                "charge_code": ""
+              },
+              {
+                "charge_no": 18238,
+                "member_no": 9578,
+                "provider_no": 389,
+                "category_no": 3,
+                "charge_dt": "1999-08-06T10:44:59",
+                "charge_amt": 2206.0,
+                "statement_no": 9578,
+                "charge_code": ""
+              },
+              {
+                "charge_no": 52528,
+                "member_no": 8932,
+                "provider_no": 384,
+                "category_no": 6,
+                "charge_dt": "1999-08-10T10:47:40",
+                "charge_amt": 2687.0,
+                "statement_no": 8932,
+                "charge_code": ""
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN category ON charge.category_no = category.category_no",
+          "sql": "SELECT *\nFROM charge\nJOIN category ON charge.category_no = category.category_no\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 11,
+            "preview": [
+              {
+                "charge_no": 5699,
+                "member_no": 9463,
+                "provider_no": 500,
+                "category_no": 5,
+                "charge_dt": "1999-10-05T10:44:03",
+                "charge_amt": 72.0,
+                "statement_no": 29463,
+                "charge_code": "",
+                "category_no__dup1": 5,
+                "category_desc": "Entertainment",
+                "category_code": ""
+              },
+              {
+                "charge_no": 8316,
+                "member_no": 9090,
+                "provider_no": 377,
+                "category_no": 8,
+                "charge_dt": "1999-09-29T10:44:15",
+                "charge_amt": 3158.0,
+                "statement_no": 29090,
+                "charge_code": "",
+                "category_no__dup1": 8,
+                "category_desc": "Home Supplies",
+                "category_code": ""
+              },
+              {
+                "charge_no": 11644,
+                "member_no": 8063,
+                "provider_no": 472,
+                "category_no": 9,
+                "charge_dt": "1999-08-24T10:44:29",
+                "charge_amt": 2624.0,
+                "statement_no": 18063,
+                "charge_code": "",
+                "category_no__dup1": 9,
+                "category_desc": "Communication",
+                "category_code": ""
+              },
+              {
+                "charge_no": 18238,
+                "member_no": 9578,
+                "provider_no": 389,
+                "category_no": 3,
+                "charge_dt": "1999-08-06T10:44:59",
+                "charge_amt": 2206.0,
+                "statement_no": 9578,
+                "charge_code": "",
+                "category_no__dup1": 3,
+                "category_desc": "Lodging",
+                "category_code": ""
+              },
+              {
+                "charge_no": 52528,
+                "member_no": 8932,
+                "provider_no": 384,
+                "category_no": 6,
+                "charge_dt": "1999-08-10T10:47:40",
+                "charge_amt": 2687.0,
+                "statement_no": 8932,
+                "charge_code": "",
+                "category_no__dup1": 6,
+                "category_desc": "Clothing",
+                "category_code": ""
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "category.category_desc = 'Meals'",
+          "sql": "SELECT *\nFROM charge\nJOIN category ON charge.category_no = category.category_no\nWHERE (category.category_desc = 'Meals')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 11,
+            "preview": [
+              {
+                "charge_no": 540672,
+                "member_no": 9779,
+                "provider_no": 483,
+                "category_no": 2,
+                "charge_dt": "1999-06-27T10:46:45",
+                "charge_amt": 4449.0,
+                "statement_no": 9779,
+                "charge_code": "",
+                "category_no__dup1": 2,
+                "category_desc": "Meals",
+                "category_code": ""
+              },
+              {
+                "charge_no": 689184,
+                "member_no": 6740,
+                "provider_no": 484,
+                "category_no": 2,
+                "charge_dt": "1999-09-05T10:50:30",
+                "charge_amt": 1097.0,
+                "statement_no": 16740,
+                "charge_code": "",
+                "category_no__dup1": 2,
+                "category_desc": "Meals",
+                "category_code": ""
+              },
+              {
+                "charge_no": 777234,
+                "member_no": 8255,
+                "provider_no": 311,
+                "category_no": 2,
+                "charge_dt": "1999-08-28T10:49:34",
+                "charge_amt": 4607.0,
+                "statement_no": 18255,
+                "charge_code": "",
+                "category_no__dup1": 2,
+                "category_desc": "Meals",
+                "category_code": ""
+              },
+              {
+                "charge_no": 791225,
+                "member_no": 6924,
+                "provider_no": 484,
+                "category_no": 2,
+                "charge_dt": "1999-08-29T10:50:39",
+                "charge_amt": 2077.0,
+                "statement_no": 16924,
+                "charge_code": "",
+                "category_no__dup1": 2,
+                "category_desc": "Meals",
+                "category_code": ""
+              },
+              {
+                "charge_no": 846767,
+                "member_no": 9993,
+                "provider_no": 482,
+                "category_no": 2,
+                "charge_dt": "1999-10-11T10:47:13",
+                "charge_amt": 1514.0,
+                "statement_no": 29993,
+                "charge_code": "",
+                "category_no__dup1": 2,
+                "category_desc": "Meals",
+                "category_code": ""
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT provider_no, SUM(charge_amt) AS total_charge\nFROM charge\nJOIN category ON charge.category_no = category.category_no\nWHERE (category.category_desc = 'Meals')\nGROUP BY charge.provider_no",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 7,
+            "column_count": 2,
+            "preview": [
+              {
+                "provider_no": 311,
+                "total_charge": 4607.0
+              },
+              {
+                "provider_no": 430,
+                "total_charge": 2765.0
+              },
+              {
+                "provider_no": 475,
+                "total_charge": 3212.0
+              },
+              {
+                "provider_no": 482,
+                "total_charge": 1514.0
+              },
+              {
+                "provider_no": 483,
+                "total_charge": 4449.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "This block retrieves the name of the provider with the highest total charge amount in the 'Meals' category",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT leaf_1.provider_no, leaf_1.total_charge FROM (SELECT provider_no, SUM(charge_amt) AS total_charge\nFROM charge\nJOIN category ON charge.category_no = category.category_no\nWHERE (category.category_desc = 'Meals')\nGROUP BY charge.provider_no) AS leaf_1 ORDER BY leaf_1.total_charge DESC LIMIT 1) AS highest_charge_provider JOIN provider ON highest_charge_provider.provider_no = provider.provider_no\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 14,
+            "preview": [
+              {
+                "provider_no": 311,
+                "total_charge": 4607.0,
+                "provider_no__dup1": 311,
+                "provider_name": "Prov. Boston Ke",
+                "street": " ",
+                "city": " ",
+                "state_prov": "",
+                "mail_code": "",
+                "country": "",
+                "phone_no": "",
+                "issue_dt": "1999-10-13T10:41:22",
+                "expr_dt": "2000-10-12T10:41:22",
+                "region_no": 5,
+                "provider_code": ""
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT provider_name\nFROM (SELECT leaf_1.provider_no, leaf_1.total_charge FROM (SELECT provider_no, SUM(charge_amt) AS total_charge\nFROM charge\nJOIN category ON charge.category_no = category.category_no\nWHERE (category.category_desc = 'Meals')\nGROUP BY charge.provider_no) AS leaf_1 ORDER BY leaf_1.total_charge DESC LIMIT 1) AS highest_charge_provider JOIN provider ON highest_charge_provider.provider_no = provider.provider_no",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "provider_name": "Prov. Boston Ke"
+              }
+            ],
+            "scalar": true,
+            "text_scalar": true
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 12,
+  "sample_retry": 1,
+  "detail_fallback_used": false,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.6986206896551725,
+    "nearest": {
+      "sample_index": 42,
+      "answer_mode": "text",
+      "target_join_count": 2,
+      "similarity": 0.6986206896551725,
+      "sql": "SELECT provider_name\nFROM (SELECT provider_name, total_charge FROM (SELECT p.provider_name, SUM(c.charge_amt) AS total_charge\nFROM charge c\nJOIN provider p ON c.provider_no = p.provider_no\nJOIN category cat ON c.category_no = cat.category_no\nWHERE (cat.category_desc = 'Meals')\nGROUP BY p.provider_name) ORDER BY total_charge DESC LIMIT 1) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": null,
+    "nearest": null,
+    "reason": "not numeric"
+  },
+  "question": "Which provider has the highest total charge amount for the category described as 'Meals'?",
+  "answer": "Prov. Boston Ke"
+}

@@ -1,0 +1,82 @@
+Database name: Credit
+Tables in snapshot: 8
+
+Table: category
+Columns: category_no (INTEGER), category_desc (TEXT), category_code (TEXT)
+Snapshot rows: 10 / remote rows: 10
+Sample rows:
+|   category_no | category_desc   |   category_code |
+|--------------:|:----------------|----------------:|
+|             1 | Travel          |             nan |
+|             2 | Meals           |             nan |
+|             3 | Lodging         |             nan |
+
+Table: charge
+Columns: charge_no (INTEGER), member_no (INTEGER), provider_no (INTEGER), category_no (INTEGER), charge_dt (TEXT), charge_amt (REAL), statement_no (INTEGER), charge_code (TEXT)
+Snapshot rows: 118 / remote rows: 1600000
+Sample rows:
+|   charge_no |   member_no |   provider_no |   category_no | charge_dt           |   charge_amt |   statement_no |   charge_code |
+|------------:|------------:|--------------:|--------------:|:--------------------|-------------:|---------------:|--------------:|
+|     1545865 |        7529 |           468 |             6 | 1999-07-26T10:47:09 |          551 |           7529 |           nan |
+|      799297 |        7986 |           390 |             8 | 1999-07-10T10:51:17 |         2995 |           7986 |           nan |
+|     1347753 |        4032 |           492 |             6 | 1999-09-20T10:47:17 |         4140 |          24032 |           nan |
+
+Table: corporation
+Columns: corp_no (INTEGER), corp_name (TEXT), street (TEXT), city (TEXT), state_prov (TEXT), country (TEXT), mail_code (TEXT), phone_no (TEXT), expr_dt (TEXT), region_no (INTEGER), corp_code (TEXT)
+Snapshot rows: 109 / remote rows: 500
+Sample rows:
+|   corp_no | corp_name                  | street   | city   |   state_prov |   country |   mail_code |   phone_no | expr_dt             |   region_no |   corp_code |
+|----------:|:---------------------------|:---------|:-------|-------------:|----------:|------------:|-----------:|:--------------------|------------:|------------:|
+|       199 | Corp. Just Sail MakersCo.  |          |        |          nan |       nan |         nan |        nan | 2004-10-12T10:41:26 |           2 |         nan |
+|       227 | Corp. Computer QuestsCorp. |          |        |          nan |       nan |         nan |        nan | 2004-10-12T10:41:26 |           2 |         nan |
+|       240 | Corp. Driven TransitCorp.  |          |        |          nan |       nan |         nan |        nan | 2004-10-12T10:41:26 |           8 |         nan |
+
+Table: member
+Columns: member_no (INTEGER), lastname (TEXT), firstname (TEXT), middleinitial (TEXT), street (TEXT), city (TEXT), state_prov (TEXT), country (TEXT), mail_code (TEXT), phone_no (TEXT), photograph (BLOB), issue_dt (TEXT), expr_dt (TEXT), region_no (INTEGER), corp_no (INTEGER), prev_balance (REAL), curr_balance (REAL), member_code (TEXT)
+Snapshot rows: 71 / remote rows: 10000
+Sample rows:
+|   member_no | lastname   | firstname      |   middleinitial | street   | city   |   state_prov |   country |   mail_code |   phone_no |   photograph | issue_dt            | expr_dt             |   region_no |   corp_no |   prev_balance |   curr_balance |   member_code |
+|------------:|:-----------|:---------------|----------------:|:---------|:-------|-------------:|----------:|------------:|-----------:|-------------:|:--------------------|:--------------------|------------:|----------:|---------------:|---------------:|--------------:|
+|        1943 | STEIN      | PPIIXMEBCDFXWD |             nan |          |        |          nan |       nan |         nan |        nan |          nan | 1999-10-13T10:41:57 | 2000-10-12T10:41:57 |           4 |       nan |              0 |              0 |           nan |
+|        2392 | ZUCKER     | WGKPVWS        |             nan |          |        |          nan |       nan |         nan |        nan |          nan | 1999-10-13T10:42:02 | 2000-10-12T10:42:02 |           2 |       nan |              0 |              0 |           nan |
+|        2430 | LING       | HJZFGHPMTL     |             nan |          |        |          nan |       nan |         nan |        nan |          nan | 1999-10-13T10:42:03 | 2000-10-12T10:42:03 |           7 |       nan |              0 |              0 |           nan |
+
+Table: payment
+Columns: payment_no (INTEGER), member_no (INTEGER), payment_dt (TEXT), payment_amt (REAL), statement_no (INTEGER), payment_code (TEXT)
+Snapshot rows: 101 / remote rows: 15554
+Sample rows:
+|   payment_no |   member_no | payment_dt          |   payment_amt |   statement_no |   payment_code |
+|-------------:|------------:|:--------------------|--------------:|---------------:|---------------:|
+|          314 |        1223 | 1999-09-02T00:00:00 |          4985 |              0 |            nan |
+|         9921 |        3904 | 1999-10-03T00:00:00 |          1710 |              0 |            nan |
+|         4016 |        5684 | 1999-09-02T00:00:00 |         14453 |              0 |            nan |
+
+Table: provider
+Columns: provider_no (INTEGER), provider_name (TEXT), street (TEXT), city (TEXT), state_prov (TEXT), mail_code (TEXT), country (TEXT), phone_no (TEXT), issue_dt (TEXT), expr_dt (TEXT), region_no (INTEGER), provider_code (TEXT)
+Snapshot rows: 73 / remote rows: 500
+Sample rows:
+|   provider_no | provider_name   | street   | city   |   state_prov |   mail_code |   country |   phone_no | issue_dt            | expr_dt             |   region_no |   provider_code |
+|--------------:|:----------------|:---------|:-------|-------------:|------------:|----------:|-----------:|:--------------------|:--------------------|------------:|----------------:|
+|           112 | Prov. Boston Li |          |        |          nan |         nan |       nan |        nan | 1999-10-13T10:41:19 | 2000-10-12T10:41:19 |           9 |             nan |
+|           181 | Prov. Imperial  |          |        |          nan |         nan |       nan |        nan | 1999-10-13T10:41:20 | 2000-10-12T10:41:20 |           8 |             nan |
+|           232 | Prov. Driven Li |          |        |          nan |         nan |       nan |        nan | 1999-10-13T10:41:21 | 2000-10-12T10:41:21 |           8 |             nan |
+
+Table: region
+Columns: region_no (INTEGER), region_name (TEXT), street (TEXT), city (TEXT), state_prov (TEXT), country (TEXT), mail_code (TEXT), phone_no (TEXT), region_code (TEXT)
+Snapshot rows: 9 / remote rows: 9
+Sample rows:
+|   region_no | region_name    | street         | city      | state_prov   | country   |   mail_code |   phone_no |   region_code |
+|------------:|:---------------|:---------------|:----------|:-------------|:----------|------------:|-----------:|--------------:|
+|           1 | North American | 111 First St.  | Toronto   | ON           | Ca        |         nan |        nan |           nan |
+|           2 | South American | 222 Second St. | Sao Paulo | nan          | Br        |         nan |        nan |           nan |
+|           3 | Scandanavian   | 333 Third St.  | Goteborg  | nan          | Sw        |         nan |        nan |           nan |
+
+Table: statement
+Columns: statement_no (INTEGER), member_no (INTEGER), statement_dt (TEXT), due_dt (TEXT), statement_amt (REAL), statement_code (TEXT)
+Snapshot rows: 93 / remote rows: 20000
+Sample rows:
+|   statement_no |   member_no | statement_dt        | due_dt              |   statement_amt |   statement_code |
+|---------------:|------------:|:--------------------|:--------------------|----------------:|-----------------:|
+|           1943 |        1943 | 1999-08-13T00:00:00 | 1999-09-02T00:00:00 |            3540 |              nan |
+|           3092 |        3092 | 1999-08-13T00:00:00 | 1999-09-02T00:00:00 |            5165 |              nan |
+|           3185 |        3185 | 1999-08-13T00:00:00 | 1999-09-02T00:00:00 |            7523 |              nan |

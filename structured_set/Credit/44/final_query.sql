@@ -1,0 +1,8 @@
+SELECT AVG(leaf_1.payment_amt)
+FROM (SELECT p.payment_no, p.member_no, p.payment_dt, p.payment_amt, p.statement_no, p.payment_code, m.region_no, r.region_name, c.category_no, c.category_desc
+FROM payment p
+JOIN member m ON p.member_no = m.member_no
+JOIN region r ON m.region_no = r.region_no
+JOIN charge ch ON p.member_no = ch.member_no
+JOIN category c ON ch.category_no = c.category_no
+GROUP BY p.payment_no, p.member_no, p.payment_dt, p.payment_amt, p.statement_no, p.payment_code, m.region_no, r.region_name, c.category_no, c.category_desc) AS leaf_1

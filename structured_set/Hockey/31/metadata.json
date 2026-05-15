@@ -1,0 +1,2996 @@
+{
+  "sample_index": 31,
+  "db_name": "Hockey",
+  "answer_mode": "aggregate",
+  "target_join_count": 3,
+  "actual_join_count": 3,
+  "numeric_answer": null,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 3,
+    "min_hops": 3,
+    "max_hops": 3,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Total points scored by players who have won at least one All-Star award and have played for teams in the Campbell Conference",
+  "manifest": {
+    "db_name": "Hockey",
+    "sample_dir": "structured_set/Hockey/31",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "abbrev",
+        "remote_row_count": 58,
+        "snapshot_row_count": 58,
+        "target_limit": 58,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "type",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "code",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fullname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardscoaches",
+        "remote_row_count": 77,
+        "snapshot_row_count": 77,
+        "target_limit": 77,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsmisc",
+        "remote_row_count": 124,
+        "snapshot_row_count": 83,
+        "target_limit": 83,
+        "relational_rows_added": 4,
+        "columns": [
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsplayers",
+        "remote_row_count": 2091,
+        "snapshot_row_count": 69,
+        "target_limit": 69,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "coaches",
+        "remote_row_count": 1812,
+        "snapshot_row_count": 61,
+        "target_limit": 61,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "combinedshutouts",
+        "remote_row_count": 54,
+        "snapshot_row_count": 54,
+        "target_limit": 54,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "month",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "date",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "r/p",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie1",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie2",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goalies",
+        "remote_row_count": 4278,
+        "snapshot_row_count": 76,
+        "target_limit": 76,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "min",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "l",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "t/ol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "eng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postmin",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posteng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliessc",
+        "remote_row_count": 31,
+        "snapshot_row_count": 31,
+        "target_limit": 31,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "min",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliesshootout",
+        "remote_row_count": 480,
+        "snapshot_row_count": 105,
+        "target_limit": 105,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "hof",
+        "remote_row_count": 365,
+        "snapshot_row_count": 104,
+        "target_limit": 104,
+        "relational_rows_added": 1,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "category",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "master",
+        "remote_row_count": 7761,
+        "snapshot_row_count": 60,
+        "target_limit": 60,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenote",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namegiven",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenick",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "height",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "weight",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shootcatch",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "legendsid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ihdbid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hrefid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoring",
+        "remote_row_count": 45967,
+        "snapshot_row_count": 81,
+        "target_limit": 81,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gtg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posta",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpts",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "post+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postshg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsc",
+        "remote_row_count": 284,
+        "snapshot_row_count": 85,
+        "target_limit": 85,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringshootout",
+        "remote_row_count": 2072,
+        "snapshot_row_count": 108,
+        "target_limit": 108,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "s",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gdg",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsup",
+        "remote_row_count": 137,
+        "snapshot_row_count": 107,
+        "target_limit": 107,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "seriespost",
+        "remote_row_count": 832,
+        "snapshot_row_count": 100,
+        "target_limit": 100,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "round",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "series",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalswinner",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalsloser",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teams",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 64,
+        "target_limit": 64,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "franchid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "confid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "divid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "playoff",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sow",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamshalf",
+        "remote_row_count": 41,
+        "snapshot_row_count": 41,
+        "target_limit": 41,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "half",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "teamsplits",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 61,
+        "target_limit": 61,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ht",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sept",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "dect",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "janw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "jant",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "febw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mart",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamspost",
+        "remote_row_count": 927,
+        "snapshot_row_count": 101,
+        "target_limit": 101,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamssc",
+        "remote_row_count": 30,
+        "snapshot_row_count": 30,
+        "target_limit": 30,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamvsteam",
+        "remote_row_count": 25602,
+        "snapshot_row_count": 98,
+        "target_limit": 98,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Total points scored by players who have won at least one All-Star award and have played for teams in the Campbell Conference",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT playerid, SUM(pts) AS total_points FROM {{leaf_1}} AS leaf_1 GROUP BY playerid",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT s.playerid, s.pts",
+        "from_clause": "FROM scoring AS s",
+        "join_clauses": [
+          "JOIN awardsplayers AS a ON s.playerid = a.playerid",
+          "JOIN teams AS t ON s.tmid = t.tmid AND s.year = t.year",
+          "JOIN abbrev AS ab ON t.confid = ab.code AND ab.type = 'Conference'"
+        ],
+        "where_clauses": [
+          "a.award = 'First Team All-Star' OR a.award = 'Second Team All-Star'",
+          "ab.fullname = 'Campbell Conference'"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Points scored by All-Star players in the Campbell Conference"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT SUM(total_points) AS total_points",
+        "from_clause": "FROM (SELECT playerid, SUM(pts) AS total_points FROM {{leaf_1}} AS leaf_1 GROUP BY playerid) AS subquery",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Total points scored by All-Star players in the Campbell Conference"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "Points scored by All-Star players in the Campbell Conference",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM scoring AS s\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 31,
+            "preview": [
+              {
+                "playerid": "gomezsc01",
+                "year": 2007,
+                "stint": 1,
+                "tmid": "NYR",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 81,
+                "g": 16,
+                "a": 54,
+                "pts": 70,
+                "pim": 36,
+                "+/-": "3",
+                "ppg": "7",
+                "ppa": "22",
+                "shg": "0",
+                "sha": "1",
+                "gwg": "3",
+                "gtg": NaN,
+                "sog": "242",
+                "postgp": "10",
+                "postg": "4",
+                "posta": "7",
+                "postpts": "11",
+                "postpim": "8",
+                "post+/-": "5",
+                "postppg": "1",
+                "postppa": "1",
+                "postshg": "0",
+                "postsha": "1",
+                "postgwg": "0",
+                "postsog": "27"
+              },
+              {
+                "playerid": "bouchda01",
+                "year": 1977,
+                "stint": 1,
+                "tmid": "ATF",
+                "lgid": "NHL",
+                "pos": "G",
+                "gp": 58,
+                "g": 0,
+                "a": 3,
+                "pts": 3,
+                "pim": 6,
+                "+/-": "0",
+                "ppg": "0",
+                "ppa": NaN,
+                "shg": "0",
+                "sha": NaN,
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "0",
+                "postgp": "2",
+                "postg": "0",
+                "posta": "0",
+                "postpts": "0",
+                "postpim": "0",
+                "post+/-": NaN,
+                "postppg": "0",
+                "postppa": NaN,
+                "postshg": "0",
+                "postsha": NaN,
+                "postgwg": "0",
+                "postsog": NaN
+              },
+              {
+                "playerid": "rutheji01",
+                "year": 1979,
+                "stint": 1,
+                "tmid": "DET",
+                "lgid": "NHL",
+                "pos": "G",
+                "gp": 23,
+                "g": 0,
+                "a": 0,
+                "pts": 0,
+                "pim": 24,
+                "+/-": "0",
+                "ppg": "0",
+                "ppa": NaN,
+                "shg": "0",
+                "sha": NaN,
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "0",
+                "postgp": NaN,
+                "postg": NaN,
+                "posta": NaN,
+                "postpts": NaN,
+                "postpim": NaN,
+                "post+/-": NaN,
+                "postppg": NaN,
+                "postppa": NaN,
+                "postshg": NaN,
+                "postsha": NaN,
+                "postgwg": NaN,
+                "postsog": NaN
+              },
+              {
+                "playerid": "sillimi01",
+                "year": 1997,
+                "stint": 2,
+                "tmid": "PHI",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 27,
+                "g": 11,
+                "a": 11,
+                "pts": 22,
+                "pim": 16,
+                "+/-": "3",
+                "ppg": "1",
+                "ppa": "4",
+                "shg": "2",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "40",
+                "postgp": "3",
+                "postg": "1",
+                "posta": "0",
+                "postpts": "1",
+                "postpim": "0",
+                "post+/-": "1",
+                "postppg": "0",
+                "postppa": "0",
+                "postshg": "0",
+                "postsha": "0",
+                "postgwg": "0",
+                "postsog": "7"
+              },
+              {
+                "playerid": "kingja01",
+                "year": 2003,
+                "stint": 1,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "pos": "R",
+                "gp": 47,
+                "g": 12,
+                "a": 9,
+                "pts": 21,
+                "pim": 8,
+                "+/-": "0",
+                "ppg": "6",
+                "ppa": "1",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "1",
+                "gtg": "0",
+                "sog": "107",
+                "postgp": "1",
+                "postg": "0",
+                "posta": "0",
+                "postpts": "0",
+                "postpim": "0",
+                "post+/-": "0",
+                "postppg": "0",
+                "postppa": "0",
+                "postshg": "0",
+                "postsha": "0",
+                "postgwg": "0",
+                "postsog": "0"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN awardsplayers AS a ON s.playerid = a.playerid",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN awardsplayers AS a ON s.playerid = a.playerid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 37,
+            "preview": [
+              {
+                "playerid": "bertuto01",
+                "year": 1997,
+                "stint": 2,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 22,
+                "g": 6,
+                "a": 9,
+                "pts": 15,
+                "pim": 63,
+                "+/-": "2",
+                "ppg": "1",
+                "ppa": "3",
+                "shg": "1",
+                "sha": "1",
+                "gwg": "1",
+                "gtg": "0",
+                "sog": "39",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "bertuto01",
+                "award": "First Team All-Star",
+                "year__dup1": 2002,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "pos__dup1": "RW"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN teams AS t ON s.tmid = t.tmid AND s.year = t.year",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN awardsplayers AS a ON s.playerid = a.playerid\nJOIN teams AS t ON s.tmid = t.tmid AND s.year = t.year\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 64,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN teams AS t ON s.tmid = t.tmid",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN awardsplayers AS a ON s.playerid = a.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 4,
+            "column_count": 64,
+            "preview": [
+              {
+                "playerid": "bertuto01",
+                "year": 1997,
+                "stint": 2,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 22,
+                "g": 6,
+                "a": 9,
+                "pts": 15,
+                "pim": 63,
+                "+/-": "2",
+                "ppg": "1",
+                "ppa": "3",
+                "shg": "1",
+                "sha": "1",
+                "gwg": "1",
+                "gtg": "0",
+                "sog": "39",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "bertuto01",
+                "award": "First Team All-Star",
+                "year__dup1": 2002,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "pos__dup1": "RW",
+                "year__dup2": 1971,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "VAN",
+                "franchid": "VAN",
+                "confid": NaN,
+                "divid": "ED",
+                "rank": 7,
+                "playoff": NaN,
+                "g__dup1": 78,
+                "w": 20,
+                "l": 50,
+                "t": 8.0,
+                "otl": NaN,
+                "pts__dup1": 48,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 203,
+                "ga": 297,
+                "name": "Vancouver Canucks",
+                "pim__dup1": "1092",
+                "benchminor": "8",
+                "ppg__dup1": "48",
+                "ppc": "261",
+                "sha__dup1": "9",
+                "pkg": "72",
+                "pkc": "310",
+                "shf": "4"
+              },
+              {
+                "playerid": "bertuto01",
+                "year": 1997,
+                "stint": 2,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 22,
+                "g": 6,
+                "a": 9,
+                "pts": 15,
+                "pim": 63,
+                "+/-": "2",
+                "ppg": "1",
+                "ppa": "3",
+                "shg": "1",
+                "sha": "1",
+                "gwg": "1",
+                "gtg": "0",
+                "sog": "39",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "bertuto01",
+                "award": "First Team All-Star",
+                "year__dup1": 2002,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "pos__dup1": "RW",
+                "year__dup2": 1983,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "VAN",
+                "franchid": "VAN",
+                "confid": "CC",
+                "divid": "SM",
+                "rank": 3,
+                "playoff": "DSF",
+                "g__dup1": 80,
+                "w": 32,
+                "l": 39,
+                "t": 9.0,
+                "otl": NaN,
+                "pts__dup1": 73,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 306,
+                "ga": 328,
+                "name": "Vancouver Canucks",
+                "pim__dup1": "1474",
+                "benchminor": "4",
+                "ppg__dup1": "90",
+                "ppc": "369",
+                "sha__dup1": "11",
+                "pkg": "73",
+                "pkc": "312",
+                "shf": "4"
+              },
+              {
+                "playerid": "bertuto01",
+                "year": 1997,
+                "stint": 2,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 22,
+                "g": 6,
+                "a": 9,
+                "pts": 15,
+                "pim": 63,
+                "+/-": "2",
+                "ppg": "1",
+                "ppa": "3",
+                "shg": "1",
+                "sha": "1",
+                "gwg": "1",
+                "gtg": "0",
+                "sog": "39",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "bertuto01",
+                "award": "First Team All-Star",
+                "year__dup1": 2002,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "pos__dup1": "RW",
+                "year__dup2": 1985,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "VAN",
+                "franchid": "VAN",
+                "confid": "CC",
+                "divid": "SM",
+                "rank": 4,
+                "playoff": "DSF",
+                "g__dup1": 80,
+                "w": 23,
+                "l": 44,
+                "t": 13.0,
+                "otl": NaN,
+                "pts__dup1": 59,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 282,
+                "ga": 333,
+                "name": "Vancouver Canucks",
+                "pim__dup1": "1813",
+                "benchminor": "20",
+                "ppg__dup1": "89",
+                "ppc": "419",
+                "sha__dup1": "17",
+                "pkg": "71",
+                "pkc": "328",
+                "shf": "11"
+              },
+              {
+                "playerid": "bertuto01",
+                "year": 1997,
+                "stint": 2,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 22,
+                "g": 6,
+                "a": 9,
+                "pts": 15,
+                "pim": 63,
+                "+/-": "2",
+                "ppg": "1",
+                "ppa": "3",
+                "shg": "1",
+                "sha": "1",
+                "gwg": "1",
+                "gtg": "0",
+                "sog": "39",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "bertuto01",
+                "award": "First Team All-Star",
+                "year__dup1": 2002,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "pos__dup1": "RW",
+                "year__dup2": 2008,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "VAN",
+                "franchid": "VAN",
+                "confid": "WC",
+                "divid": "NW",
+                "rank": 1,
+                "playoff": "CSF",
+                "g__dup1": 82,
+                "w": 45,
+                "l": 27,
+                "t": NaN,
+                "otl": "10",
+                "pts__dup1": 100,
+                "sow": "3",
+                "sol": "7",
+                "gf": 246,
+                "ga": 220,
+                "name": "Vancouver Canucks",
+                "pim__dup1": "1351",
+                "benchminor": "28",
+                "ppg__dup1": "67",
+                "ppc": "357",
+                "sha__dup1": "5",
+                "pkg": "69",
+                "pkc": "371",
+                "shf": "7"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN abbrev AS ab ON t.confid = ab.code AND ab.type = 'Conference'",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN awardsplayers AS a ON s.playerid = a.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nJOIN abbrev AS ab ON t.confid = ab.code AND ab.type = 'Conference'\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 3,
+            "column_count": 67,
+            "preview": [
+              {
+                "playerid": "bertuto01",
+                "year": 1997,
+                "stint": 2,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 22,
+                "g": 6,
+                "a": 9,
+                "pts": 15,
+                "pim": 63,
+                "+/-": "2",
+                "ppg": "1",
+                "ppa": "3",
+                "shg": "1",
+                "sha": "1",
+                "gwg": "1",
+                "gtg": "0",
+                "sog": "39",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "bertuto01",
+                "award": "First Team All-Star",
+                "year__dup1": 2002,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "pos__dup1": "RW",
+                "year__dup2": 1985,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "VAN",
+                "franchid": "VAN",
+                "confid": "CC",
+                "divid": "SM",
+                "rank": 4,
+                "playoff": "DSF",
+                "g__dup1": 80,
+                "w": 23,
+                "l": 44,
+                "t": 13.0,
+                "otl": NaN,
+                "pts__dup1": 59,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 282,
+                "ga": 333,
+                "name": "Vancouver Canucks",
+                "pim__dup1": "1813",
+                "benchminor": "20",
+                "ppg__dup1": "89",
+                "ppc": "419",
+                "sha__dup1": "17",
+                "pkg": "71",
+                "pkc": "328",
+                "shf": "11",
+                "type": "Conference",
+                "code": "CC",
+                "fullname": "Campbell Conference"
+              },
+              {
+                "playerid": "bertuto01",
+                "year": 1997,
+                "stint": 2,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 22,
+                "g": 6,
+                "a": 9,
+                "pts": 15,
+                "pim": 63,
+                "+/-": "2",
+                "ppg": "1",
+                "ppa": "3",
+                "shg": "1",
+                "sha": "1",
+                "gwg": "1",
+                "gtg": "0",
+                "sog": "39",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "bertuto01",
+                "award": "First Team All-Star",
+                "year__dup1": 2002,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "pos__dup1": "RW",
+                "year__dup2": 1983,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "VAN",
+                "franchid": "VAN",
+                "confid": "CC",
+                "divid": "SM",
+                "rank": 3,
+                "playoff": "DSF",
+                "g__dup1": 80,
+                "w": 32,
+                "l": 39,
+                "t": 9.0,
+                "otl": NaN,
+                "pts__dup1": 73,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 306,
+                "ga": 328,
+                "name": "Vancouver Canucks",
+                "pim__dup1": "1474",
+                "benchminor": "4",
+                "ppg__dup1": "90",
+                "ppc": "369",
+                "sha__dup1": "11",
+                "pkg": "73",
+                "pkc": "312",
+                "shf": "4",
+                "type": "Conference",
+                "code": "CC",
+                "fullname": "Campbell Conference"
+              },
+              {
+                "playerid": "bertuto01",
+                "year": 1997,
+                "stint": 2,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 22,
+                "g": 6,
+                "a": 9,
+                "pts": 15,
+                "pim": 63,
+                "+/-": "2",
+                "ppg": "1",
+                "ppa": "3",
+                "shg": "1",
+                "sha": "1",
+                "gwg": "1",
+                "gtg": "0",
+                "sog": "39",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "bertuto01",
+                "award": "First Team All-Star",
+                "year__dup1": 2002,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "pos__dup1": "RW",
+                "year__dup2": 2008,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "VAN",
+                "franchid": "VAN",
+                "confid": "WC",
+                "divid": "NW",
+                "rank": 1,
+                "playoff": "CSF",
+                "g__dup1": 82,
+                "w": 45,
+                "l": 27,
+                "t": NaN,
+                "otl": "10",
+                "pts__dup1": 100,
+                "sow": "3",
+                "sol": "7",
+                "gf": 246,
+                "ga": 220,
+                "name": "Vancouver Canucks",
+                "pim__dup1": "1351",
+                "benchminor": "28",
+                "ppg__dup1": "67",
+                "ppc": "357",
+                "sha__dup1": "5",
+                "pkg": "69",
+                "pkc": "371",
+                "shf": "7",
+                "type": "Conference",
+                "code": "WC",
+                "fullname": "Western Conference"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "a.award = 'First Team All-Star' OR a.award = 'Second Team All-Star'",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN awardsplayers AS a ON s.playerid = a.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nJOIN abbrev AS ab ON t.confid = ab.code AND ab.type = 'Conference'\nWHERE (a.award = 'First Team All-Star' OR a.award = 'Second Team All-Star')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 3,
+            "column_count": 67,
+            "preview": [
+              {
+                "playerid": "bertuto01",
+                "year": 1997,
+                "stint": 2,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 22,
+                "g": 6,
+                "a": 9,
+                "pts": 15,
+                "pim": 63,
+                "+/-": "2",
+                "ppg": "1",
+                "ppa": "3",
+                "shg": "1",
+                "sha": "1",
+                "gwg": "1",
+                "gtg": "0",
+                "sog": "39",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "bertuto01",
+                "award": "First Team All-Star",
+                "year__dup1": 2002,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "pos__dup1": "RW",
+                "year__dup2": 1985,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "VAN",
+                "franchid": "VAN",
+                "confid": "CC",
+                "divid": "SM",
+                "rank": 4,
+                "playoff": "DSF",
+                "g__dup1": 80,
+                "w": 23,
+                "l": 44,
+                "t": 13.0,
+                "otl": NaN,
+                "pts__dup1": 59,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 282,
+                "ga": 333,
+                "name": "Vancouver Canucks",
+                "pim__dup1": "1813",
+                "benchminor": "20",
+                "ppg__dup1": "89",
+                "ppc": "419",
+                "sha__dup1": "17",
+                "pkg": "71",
+                "pkc": "328",
+                "shf": "11",
+                "type": "Conference",
+                "code": "CC",
+                "fullname": "Campbell Conference"
+              },
+              {
+                "playerid": "bertuto01",
+                "year": 1997,
+                "stint": 2,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 22,
+                "g": 6,
+                "a": 9,
+                "pts": 15,
+                "pim": 63,
+                "+/-": "2",
+                "ppg": "1",
+                "ppa": "3",
+                "shg": "1",
+                "sha": "1",
+                "gwg": "1",
+                "gtg": "0",
+                "sog": "39",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "bertuto01",
+                "award": "First Team All-Star",
+                "year__dup1": 2002,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "pos__dup1": "RW",
+                "year__dup2": 1983,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "VAN",
+                "franchid": "VAN",
+                "confid": "CC",
+                "divid": "SM",
+                "rank": 3,
+                "playoff": "DSF",
+                "g__dup1": 80,
+                "w": 32,
+                "l": 39,
+                "t": 9.0,
+                "otl": NaN,
+                "pts__dup1": 73,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 306,
+                "ga": 328,
+                "name": "Vancouver Canucks",
+                "pim__dup1": "1474",
+                "benchminor": "4",
+                "ppg__dup1": "90",
+                "ppc": "369",
+                "sha__dup1": "11",
+                "pkg": "73",
+                "pkc": "312",
+                "shf": "4",
+                "type": "Conference",
+                "code": "CC",
+                "fullname": "Campbell Conference"
+              },
+              {
+                "playerid": "bertuto01",
+                "year": 1997,
+                "stint": 2,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 22,
+                "g": 6,
+                "a": 9,
+                "pts": 15,
+                "pim": 63,
+                "+/-": "2",
+                "ppg": "1",
+                "ppa": "3",
+                "shg": "1",
+                "sha": "1",
+                "gwg": "1",
+                "gtg": "0",
+                "sog": "39",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "bertuto01",
+                "award": "First Team All-Star",
+                "year__dup1": 2002,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "pos__dup1": "RW",
+                "year__dup2": 2008,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "VAN",
+                "franchid": "VAN",
+                "confid": "WC",
+                "divid": "NW",
+                "rank": 1,
+                "playoff": "CSF",
+                "g__dup1": 82,
+                "w": 45,
+                "l": 27,
+                "t": NaN,
+                "otl": "10",
+                "pts__dup1": 100,
+                "sow": "3",
+                "sol": "7",
+                "gf": 246,
+                "ga": 220,
+                "name": "Vancouver Canucks",
+                "pim__dup1": "1351",
+                "benchminor": "28",
+                "ppg__dup1": "67",
+                "ppc": "357",
+                "sha__dup1": "5",
+                "pkg": "69",
+                "pkc": "371",
+                "shf": "7",
+                "type": "Conference",
+                "code": "WC",
+                "fullname": "Western Conference"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "ab.fullname = 'Campbell Conference'",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN awardsplayers AS a ON s.playerid = a.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nJOIN abbrev AS ab ON t.confid = ab.code AND ab.type = 'Conference'\nWHERE (a.award = 'First Team All-Star' OR a.award = 'Second Team All-Star') AND (ab.fullname = 'Campbell Conference')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 67,
+            "preview": [
+              {
+                "playerid": "bertuto01",
+                "year": 1997,
+                "stint": 2,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 22,
+                "g": 6,
+                "a": 9,
+                "pts": 15,
+                "pim": 63,
+                "+/-": "2",
+                "ppg": "1",
+                "ppa": "3",
+                "shg": "1",
+                "sha": "1",
+                "gwg": "1",
+                "gtg": "0",
+                "sog": "39",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "bertuto01",
+                "award": "First Team All-Star",
+                "year__dup1": 2002,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "pos__dup1": "RW",
+                "year__dup2": 1985,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "VAN",
+                "franchid": "VAN",
+                "confid": "CC",
+                "divid": "SM",
+                "rank": 4,
+                "playoff": "DSF",
+                "g__dup1": 80,
+                "w": 23,
+                "l": 44,
+                "t": 13,
+                "otl": null,
+                "pts__dup1": 59,
+                "sow": null,
+                "sol": null,
+                "gf": 282,
+                "ga": 333,
+                "name": "Vancouver Canucks",
+                "pim__dup1": "1813",
+                "benchminor": "20",
+                "ppg__dup1": "89",
+                "ppc": "419",
+                "sha__dup1": "17",
+                "pkg": "71",
+                "pkc": "328",
+                "shf": "11",
+                "type": "Conference",
+                "code": "CC",
+                "fullname": "Campbell Conference"
+              },
+              {
+                "playerid": "bertuto01",
+                "year": 1997,
+                "stint": 2,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 22,
+                "g": 6,
+                "a": 9,
+                "pts": 15,
+                "pim": 63,
+                "+/-": "2",
+                "ppg": "1",
+                "ppa": "3",
+                "shg": "1",
+                "sha": "1",
+                "gwg": "1",
+                "gtg": "0",
+                "sog": "39",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "bertuto01",
+                "award": "First Team All-Star",
+                "year__dup1": 2002,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "pos__dup1": "RW",
+                "year__dup2": 1983,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "VAN",
+                "franchid": "VAN",
+                "confid": "CC",
+                "divid": "SM",
+                "rank": 3,
+                "playoff": "DSF",
+                "g__dup1": 80,
+                "w": 32,
+                "l": 39,
+                "t": 9,
+                "otl": null,
+                "pts__dup1": 73,
+                "sow": null,
+                "sol": null,
+                "gf": 306,
+                "ga": 328,
+                "name": "Vancouver Canucks",
+                "pim__dup1": "1474",
+                "benchminor": "4",
+                "ppg__dup1": "90",
+                "ppc": "369",
+                "sha__dup1": "11",
+                "pkg": "73",
+                "pkc": "312",
+                "shf": "4",
+                "type": "Conference",
+                "code": "CC",
+                "fullname": "Campbell Conference"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT s.playerid, s.pts\nFROM scoring AS s\nJOIN awardsplayers AS a ON s.playerid = a.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nJOIN abbrev AS ab ON t.confid = ab.code AND ab.type = 'Conference'\nWHERE (a.award = 'First Team All-Star' OR a.award = 'Second Team All-Star') AND (ab.fullname = 'Campbell Conference')",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 2,
+            "preview": [
+              {
+                "playerid": "bertuto01",
+                "pts": 15
+              },
+              {
+                "playerid": "bertuto01",
+                "pts": 15
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "Total points scored by All-Star players in the Campbell Conference",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT playerid, SUM(pts) AS total_points FROM (SELECT s.playerid, s.pts\nFROM scoring AS s\nJOIN awardsplayers AS a ON s.playerid = a.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nJOIN abbrev AS ab ON t.confid = ab.code AND ab.type = 'Conference'\nWHERE (a.award = 'First Team All-Star' OR a.award = 'Second Team All-Star') AND (ab.fullname = 'Campbell Conference')) AS leaf_1 GROUP BY playerid) AS subquery\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 2,
+            "preview": [
+              {
+                "playerid": "bertuto01",
+                "total_points": 30
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT SUM(total_points) AS total_points\nFROM (SELECT playerid, SUM(pts) AS total_points FROM (SELECT s.playerid, s.pts\nFROM scoring AS s\nJOIN awardsplayers AS a ON s.playerid = a.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nJOIN abbrev AS ab ON t.confid = ab.code AND ab.type = 'Conference'\nWHERE (a.award = 'First Team All-Star' OR a.award = 'Second Team All-Star') AND (ab.fullname = 'Campbell Conference')) AS leaf_1 GROUP BY playerid) AS subquery",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "total_points": 30
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 12,
+  "sample_retry": 2,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.5023974630021142,
+    "nearest": {
+      "sample_index": 1,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "similarity": 0.5023974630021142,
+      "sql": "SELECT SUM(pts) AS total_points\nFROM (SELECT s.playerid, s.year, s.tmid, s.pts, a.award\nFROM scoring AS s\nJOIN awardsplayers AS a ON s.playerid = a.playerid\nJOIN seriespost AS sp ON s.tmid = sp.tmidwinner\nJOIN teams AS t ON s.tmid = t.tmid\nWHERE (a.award LIKE '%All-Star%')) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": null,
+    "nearest": null,
+    "reason": "not numeric"
+  },
+  "question": "What is the total number of points scored by all players who were named First Team All-Stars or Second Team All-Stars in the Campbell Conference?",
+  "answer": "30"
+}

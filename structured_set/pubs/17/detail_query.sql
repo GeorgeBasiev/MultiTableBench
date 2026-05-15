@@ -1,0 +1,1 @@
+SELECT t.title_id, t.title, t.price, s.qty, s.stor_id, (t.price * s.qty) AS gross_amount, d.discount, (t.price * s.qty * (100 - d.discount) / 100) AS discounted_amount FROM titles t JOIN sales s ON t.title_id = s.title_id JOIN discounts d ON s.stor_id = d.stor_id WHERE t.pub_id = '1389' AND t.pub_id IN (SELECT pub_id FROM publishers WHERE state = 'CA')

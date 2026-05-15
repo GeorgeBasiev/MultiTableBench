@@ -1,0 +1,1392 @@
+{
+  "sample_index": 1,
+  "db_name": "pubs",
+  "answer_mode": "aggregate",
+  "target_join_count": 3,
+  "actual_join_count": 3,
+  "numeric_answer": 1299.85,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 3,
+    "min_hops": 3,
+    "max_hops": 3,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "total revenue generated from sales of titles published by Algodata Infosystems in California, where the sales were made in stores located in California",
+  "manifest": {
+    "db_name": "pubs",
+    "sample_dir": "structured_set/pubs/1",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "authors",
+        "remote_row_count": 23,
+        "snapshot_row_count": 23,
+        "target_limit": 23,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "au_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_lname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_fname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "zip",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contract",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "discounts",
+        "remote_row_count": 3,
+        "snapshot_row_count": 3,
+        "target_limit": 3,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "discounttype",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lowqty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "highqty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discount",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          }
+        ]
+      },
+      {
+        "table_name": "employee",
+        "remote_row_count": 43,
+        "snapshot_row_count": 43,
+        "target_limit": 43,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "emp_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "minit",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "job_id",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "job_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hire_date",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "jobs",
+        "remote_row_count": 14,
+        "snapshot_row_count": 14,
+        "target_limit": 14,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "job_id",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "job_desc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "min_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "max_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "publishers",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pub_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "pub_info",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "logo",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          },
+          {
+            "name": "pr_info",
+            "mysql_type": "longtext",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "roysched",
+        "remote_row_count": 86,
+        "snapshot_row_count": 70,
+        "target_limit": 70,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lorange",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hirange",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "royalty",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "sales",
+        "remote_row_count": 21,
+        "snapshot_row_count": 21,
+        "target_limit": 21,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ord_num",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ord_date",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "qty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "payterms",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "stores",
+        "remote_row_count": 6,
+        "snapshot_row_count": 6,
+        "target_limit": 6,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "zip",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "titleauthor",
+        "remote_row_count": 25,
+        "snapshot_row_count": 25,
+        "target_limit": 25,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "au_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_ord",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "royaltyper",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "titles",
+        "remote_row_count": 18,
+        "snapshot_row_count": 18,
+        "target_limit": 18,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "type",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "price",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "advance",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "royalty",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ytd_sales",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pubdate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "total revenue generated from sales of titles published by Algodata Infosystems in California, where the sales were made in stores located in California",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT leaf_1.stor_id, leaf_1.ord_num, leaf_1.ord_date, leaf_1.qty, leaf_1.payterms, leaf_1.title_id, leaf_1.title, leaf_1.price, leaf_1.pub_id, leaf_1.pub_name, (leaf_1.price * leaf_1.qty) AS revenue\nFROM (SELECT stores.stor_id, stores.city, stores.state AS stor_state, sales.ord_num, sales.ord_date, sales.qty, sales.payterms, sales.title_id, titles.title, titles.price, titles.pub_id, publishers.pub_name, publishers.state AS pub_state\nFROM stores\nJOIN sales ON stores.stor_id = sales.stor_id\nJOIN titles ON sales.title_id = titles.title_id\nJOIN publishers ON titles.pub_id = publishers.pub_id\nWHERE (stores.state = 'CA') AND (publishers.state = 'CA') AND (publishers.pub_id = '1389')) AS leaf_1",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT stores.stor_id, stores.city, stores.state AS stor_state, sales.ord_num, sales.ord_date, sales.qty, sales.payterms, sales.title_id, titles.title, titles.price, titles.pub_id, publishers.pub_name, publishers.state AS pub_state",
+        "from_clause": "FROM stores",
+        "join_clauses": [
+          "JOIN sales ON stores.stor_id = sales.stor_id",
+          "JOIN titles ON sales.title_id = titles.title_id",
+          "JOIN publishers ON titles.pub_id = publishers.pub_id"
+        ],
+        "where_clauses": [
+          "stores.state = 'CA'",
+          "publishers.state = 'CA'",
+          "publishers.pub_id = '1389'"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "sales of titles published by Algodata Infosystems in California, made in stores located in California"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT SUM(leaf_1.price * leaf_1.qty) AS total_revenue",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "total revenue from sales of titles published by Algodata Infosystems in California, made in stores located in California"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "sales of titles published by Algodata Infosystems in California, made in stores located in California",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM stores\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 6,
+            "preview": [
+              {
+                "stor_id": "6380",
+                "stor_name": "Eric the Read Books",
+                "stor_address": "788 Catamaugus Ave.",
+                "city": "Seattle",
+                "state": "WA",
+                "zip": "98056"
+              },
+              {
+                "stor_id": "7066",
+                "stor_name": "Barnum's",
+                "stor_address": "567 Pasadena Ave.",
+                "city": "Tustin",
+                "state": "CA",
+                "zip": "92789"
+              },
+              {
+                "stor_id": "7067",
+                "stor_name": "News & Brews",
+                "stor_address": "577 First St.",
+                "city": "Los Gatos",
+                "state": "CA",
+                "zip": "96745"
+              },
+              {
+                "stor_id": "7131",
+                "stor_name": "Doc-U-Mat: Quality Laundry and Books",
+                "stor_address": "24-A Avogadro Way",
+                "city": "Remulade",
+                "state": "WA",
+                "zip": "98014"
+              },
+              {
+                "stor_id": "7896",
+                "stor_name": "Fricative Bookshop",
+                "stor_address": "89 Madison St.",
+                "city": "Fremont",
+                "state": "CA",
+                "zip": "90019"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN sales ON stores.stor_id = sales.stor_id",
+          "sql": "SELECT *\nFROM stores\nJOIN sales ON stores.stor_id = sales.stor_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 12,
+            "preview": [
+              {
+                "stor_id": "6380",
+                "stor_name": "Eric the Read Books",
+                "stor_address": "788 Catamaugus Ave.",
+                "city": "Seattle",
+                "state": "WA",
+                "zip": "98056",
+                "stor_id__dup1": "6380",
+                "ord_num": "6871",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 5,
+                "payterms": "Net 60",
+                "title_id": "BU1032"
+              },
+              {
+                "stor_id": "6380",
+                "stor_name": "Eric the Read Books",
+                "stor_address": "788 Catamaugus Ave.",
+                "city": "Seattle",
+                "state": "WA",
+                "zip": "98056",
+                "stor_id__dup1": "6380",
+                "ord_num": "722a",
+                "ord_date": "1994-09-13T00:00:00",
+                "qty": 3,
+                "payterms": "Net 60",
+                "title_id": "PS2091"
+              },
+              {
+                "stor_id": "7066",
+                "stor_name": "Barnum's",
+                "stor_address": "567 Pasadena Ave.",
+                "city": "Tustin",
+                "state": "CA",
+                "zip": "92789",
+                "stor_id__dup1": "7066",
+                "ord_num": "A2976",
+                "ord_date": "1993-05-24T00:00:00",
+                "qty": 50,
+                "payterms": "Net 30",
+                "title_id": "PC8888"
+              },
+              {
+                "stor_id": "7066",
+                "stor_name": "Barnum's",
+                "stor_address": "567 Pasadena Ave.",
+                "city": "Tustin",
+                "state": "CA",
+                "zip": "92789",
+                "stor_id__dup1": "7066",
+                "ord_num": "QA7442.3",
+                "ord_date": "1994-09-13T00:00:00",
+                "qty": 75,
+                "payterms": "ON invoice",
+                "title_id": "PS2091"
+              },
+              {
+                "stor_id": "7067",
+                "stor_name": "News & Brews",
+                "stor_address": "577 First St.",
+                "city": "Los Gatos",
+                "state": "CA",
+                "zip": "96745",
+                "stor_id__dup1": "7067",
+                "ord_num": "D4482",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 10,
+                "payterms": "Net 60",
+                "title_id": "PS2091"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN titles ON sales.title_id = titles.title_id",
+          "sql": "SELECT *\nFROM stores\nJOIN sales ON stores.stor_id = sales.stor_id\nJOIN titles ON sales.title_id = titles.title_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 22,
+            "preview": [
+              {
+                "stor_id": "6380",
+                "stor_name": "Eric the Read Books",
+                "stor_address": "788 Catamaugus Ave.",
+                "city": "Seattle",
+                "state": "WA",
+                "zip": "98056",
+                "stor_id__dup1": "6380",
+                "ord_num": "6871",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 5,
+                "payterms": "Net 60",
+                "title_id": "BU1032",
+                "title_id__dup1": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00"
+              },
+              {
+                "stor_id": "6380",
+                "stor_name": "Eric the Read Books",
+                "stor_address": "788 Catamaugus Ave.",
+                "city": "Seattle",
+                "state": "WA",
+                "zip": "98056",
+                "stor_id__dup1": "6380",
+                "ord_num": "722a",
+                "ord_date": "1994-09-13T00:00:00",
+                "qty": 3,
+                "payterms": "Net 60",
+                "title_id": "PS2091",
+                "title_id__dup1": "PS2091",
+                "title": "Is Anger the Enemy?",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 10.95,
+                "advance": 2275.0,
+                "royalty": 12,
+                "ytd_sales": 2045,
+                "notes": "Carefully researched study of the effects of strong emotions on the body. Metabolic charts included.",
+                "pubdate": "1991-06-15T00:00:00"
+              },
+              {
+                "stor_id": "7066",
+                "stor_name": "Barnum's",
+                "stor_address": "567 Pasadena Ave.",
+                "city": "Tustin",
+                "state": "CA",
+                "zip": "92789",
+                "stor_id__dup1": "7066",
+                "ord_num": "A2976",
+                "ord_date": "1993-05-24T00:00:00",
+                "qty": 50,
+                "payterms": "Net 30",
+                "title_id": "PC8888",
+                "title_id__dup1": "PC8888",
+                "title": "Secrets of Silicon Valley",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 20.0,
+                "advance": 8000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Muckraking reporting on the world's largest computer hardware and software manufacturers.",
+                "pubdate": "1994-06-12T00:00:00"
+              },
+              {
+                "stor_id": "7066",
+                "stor_name": "Barnum's",
+                "stor_address": "567 Pasadena Ave.",
+                "city": "Tustin",
+                "state": "CA",
+                "zip": "92789",
+                "stor_id__dup1": "7066",
+                "ord_num": "QA7442.3",
+                "ord_date": "1994-09-13T00:00:00",
+                "qty": 75,
+                "payterms": "ON invoice",
+                "title_id": "PS2091",
+                "title_id__dup1": "PS2091",
+                "title": "Is Anger the Enemy?",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 10.95,
+                "advance": 2275.0,
+                "royalty": 12,
+                "ytd_sales": 2045,
+                "notes": "Carefully researched study of the effects of strong emotions on the body. Metabolic charts included.",
+                "pubdate": "1991-06-15T00:00:00"
+              },
+              {
+                "stor_id": "7067",
+                "stor_name": "News & Brews",
+                "stor_address": "577 First St.",
+                "city": "Los Gatos",
+                "state": "CA",
+                "zip": "96745",
+                "stor_id__dup1": "7067",
+                "ord_num": "D4482",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 10,
+                "payterms": "Net 60",
+                "title_id": "PS2091",
+                "title_id__dup1": "PS2091",
+                "title": "Is Anger the Enemy?",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 10.95,
+                "advance": 2275.0,
+                "royalty": 12,
+                "ytd_sales": 2045,
+                "notes": "Carefully researched study of the effects of strong emotions on the body. Metabolic charts included.",
+                "pubdate": "1991-06-15T00:00:00"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN publishers ON titles.pub_id = publishers.pub_id",
+          "sql": "SELECT *\nFROM stores\nJOIN sales ON stores.stor_id = sales.stor_id\nJOIN titles ON sales.title_id = titles.title_id\nJOIN publishers ON titles.pub_id = publishers.pub_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 27,
+            "preview": [
+              {
+                "stor_id": "6380",
+                "stor_name": "Eric the Read Books",
+                "stor_address": "788 Catamaugus Ave.",
+                "city": "Seattle",
+                "state": "WA",
+                "zip": "98056",
+                "stor_id__dup1": "6380",
+                "ord_num": "6871",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 5,
+                "payterms": "Net 60",
+                "title_id": "BU1032",
+                "title_id__dup1": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "pub_id__dup1": "1389",
+                "pub_name": "Algodata Infosystems",
+                "city__dup1": "Berkeley",
+                "state__dup1": "CA",
+                "country": "USA"
+              },
+              {
+                "stor_id": "6380",
+                "stor_name": "Eric the Read Books",
+                "stor_address": "788 Catamaugus Ave.",
+                "city": "Seattle",
+                "state": "WA",
+                "zip": "98056",
+                "stor_id__dup1": "6380",
+                "ord_num": "722a",
+                "ord_date": "1994-09-13T00:00:00",
+                "qty": 3,
+                "payterms": "Net 60",
+                "title_id": "PS2091",
+                "title_id__dup1": "PS2091",
+                "title": "Is Anger the Enemy?",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 10.95,
+                "advance": 2275.0,
+                "royalty": 12,
+                "ytd_sales": 2045,
+                "notes": "Carefully researched study of the effects of strong emotions on the body. Metabolic charts included.",
+                "pubdate": "1991-06-15T00:00:00",
+                "pub_id__dup1": "0736",
+                "pub_name": "New Moon Books",
+                "city__dup1": "Boston",
+                "state__dup1": "MA",
+                "country": "USA"
+              },
+              {
+                "stor_id": "7066",
+                "stor_name": "Barnum's",
+                "stor_address": "567 Pasadena Ave.",
+                "city": "Tustin",
+                "state": "CA",
+                "zip": "92789",
+                "stor_id__dup1": "7066",
+                "ord_num": "A2976",
+                "ord_date": "1993-05-24T00:00:00",
+                "qty": 50,
+                "payterms": "Net 30",
+                "title_id": "PC8888",
+                "title_id__dup1": "PC8888",
+                "title": "Secrets of Silicon Valley",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 20.0,
+                "advance": 8000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Muckraking reporting on the world's largest computer hardware and software manufacturers.",
+                "pubdate": "1994-06-12T00:00:00",
+                "pub_id__dup1": "1389",
+                "pub_name": "Algodata Infosystems",
+                "city__dup1": "Berkeley",
+                "state__dup1": "CA",
+                "country": "USA"
+              },
+              {
+                "stor_id": "7066",
+                "stor_name": "Barnum's",
+                "stor_address": "567 Pasadena Ave.",
+                "city": "Tustin",
+                "state": "CA",
+                "zip": "92789",
+                "stor_id__dup1": "7066",
+                "ord_num": "QA7442.3",
+                "ord_date": "1994-09-13T00:00:00",
+                "qty": 75,
+                "payterms": "ON invoice",
+                "title_id": "PS2091",
+                "title_id__dup1": "PS2091",
+                "title": "Is Anger the Enemy?",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 10.95,
+                "advance": 2275.0,
+                "royalty": 12,
+                "ytd_sales": 2045,
+                "notes": "Carefully researched study of the effects of strong emotions on the body. Metabolic charts included.",
+                "pubdate": "1991-06-15T00:00:00",
+                "pub_id__dup1": "0736",
+                "pub_name": "New Moon Books",
+                "city__dup1": "Boston",
+                "state__dup1": "MA",
+                "country": "USA"
+              },
+              {
+                "stor_id": "7067",
+                "stor_name": "News & Brews",
+                "stor_address": "577 First St.",
+                "city": "Los Gatos",
+                "state": "CA",
+                "zip": "96745",
+                "stor_id__dup1": "7067",
+                "ord_num": "D4482",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 10,
+                "payterms": "Net 60",
+                "title_id": "PS2091",
+                "title_id__dup1": "PS2091",
+                "title": "Is Anger the Enemy?",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 10.95,
+                "advance": 2275.0,
+                "royalty": 12,
+                "ytd_sales": 2045,
+                "notes": "Carefully researched study of the effects of strong emotions on the body. Metabolic charts included.",
+                "pubdate": "1991-06-15T00:00:00",
+                "pub_id__dup1": "0736",
+                "pub_name": "New Moon Books",
+                "city__dup1": "Boston",
+                "state__dup1": "MA",
+                "country": "USA"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "stores.state = 'CA'",
+          "sql": "SELECT *\nFROM stores\nJOIN sales ON stores.stor_id = sales.stor_id\nJOIN titles ON sales.title_id = titles.title_id\nJOIN publishers ON titles.pub_id = publishers.pub_id\nWHERE (stores.state = 'CA')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 27,
+            "preview": [
+              {
+                "stor_id": "7066",
+                "stor_name": "Barnum's",
+                "stor_address": "567 Pasadena Ave.",
+                "city": "Tustin",
+                "state": "CA",
+                "zip": "92789",
+                "stor_id__dup1": "7066",
+                "ord_num": "A2976",
+                "ord_date": "1993-05-24T00:00:00",
+                "qty": 50,
+                "payterms": "Net 30",
+                "title_id": "PC8888",
+                "title_id__dup1": "PC8888",
+                "title": "Secrets of Silicon Valley",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 20.0,
+                "advance": 8000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Muckraking reporting on the world's largest computer hardware and software manufacturers.",
+                "pubdate": "1994-06-12T00:00:00",
+                "pub_id__dup1": "1389",
+                "pub_name": "Algodata Infosystems",
+                "city__dup1": "Berkeley",
+                "state__dup1": "CA",
+                "country": "USA"
+              },
+              {
+                "stor_id": "7066",
+                "stor_name": "Barnum's",
+                "stor_address": "567 Pasadena Ave.",
+                "city": "Tustin",
+                "state": "CA",
+                "zip": "92789",
+                "stor_id__dup1": "7066",
+                "ord_num": "QA7442.3",
+                "ord_date": "1994-09-13T00:00:00",
+                "qty": 75,
+                "payterms": "ON invoice",
+                "title_id": "PS2091",
+                "title_id__dup1": "PS2091",
+                "title": "Is Anger the Enemy?",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 10.95,
+                "advance": 2275.0,
+                "royalty": 12,
+                "ytd_sales": 2045,
+                "notes": "Carefully researched study of the effects of strong emotions on the body. Metabolic charts included.",
+                "pubdate": "1991-06-15T00:00:00",
+                "pub_id__dup1": "0736",
+                "pub_name": "New Moon Books",
+                "city__dup1": "Boston",
+                "state__dup1": "MA",
+                "country": "USA"
+              },
+              {
+                "stor_id": "7067",
+                "stor_name": "News & Brews",
+                "stor_address": "577 First St.",
+                "city": "Los Gatos",
+                "state": "CA",
+                "zip": "96745",
+                "stor_id__dup1": "7067",
+                "ord_num": "D4482",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 10,
+                "payterms": "Net 60",
+                "title_id": "PS2091",
+                "title_id__dup1": "PS2091",
+                "title": "Is Anger the Enemy?",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 10.95,
+                "advance": 2275.0,
+                "royalty": 12,
+                "ytd_sales": 2045,
+                "notes": "Carefully researched study of the effects of strong emotions on the body. Metabolic charts included.",
+                "pubdate": "1991-06-15T00:00:00",
+                "pub_id__dup1": "0736",
+                "pub_name": "New Moon Books",
+                "city__dup1": "Boston",
+                "state__dup1": "MA",
+                "country": "USA"
+              },
+              {
+                "stor_id": "7067",
+                "stor_name": "News & Brews",
+                "stor_address": "577 First St.",
+                "city": "Los Gatos",
+                "state": "CA",
+                "zip": "96745",
+                "stor_id__dup1": "7067",
+                "ord_num": "P2121",
+                "ord_date": "1992-06-15T00:00:00",
+                "qty": 40,
+                "payterms": "Net 30",
+                "title_id": "TC3218",
+                "title_id__dup1": "TC3218",
+                "title": "Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean",
+                "type": "trad_cook",
+                "pub_id": "0877",
+                "price": 20.95,
+                "advance": 7000.0,
+                "royalty": 10,
+                "ytd_sales": 375,
+                "notes": "Profusely illustrated in color, this makes a wonderful gift book for a cuisine-oriented friend.",
+                "pubdate": "1991-10-21T00:00:00",
+                "pub_id__dup1": "0877",
+                "pub_name": "Binnet & Hardley",
+                "city__dup1": "Washington",
+                "state__dup1": "DC",
+                "country": "USA"
+              },
+              {
+                "stor_id": "7067",
+                "stor_name": "News & Brews",
+                "stor_address": "577 First St.",
+                "city": "Los Gatos",
+                "state": "CA",
+                "zip": "96745",
+                "stor_id__dup1": "7067",
+                "ord_num": "P2121",
+                "ord_date": "1992-06-15T00:00:00",
+                "qty": 20,
+                "payterms": "Net 30",
+                "title_id": "TC4203",
+                "title_id__dup1": "TC4203",
+                "title": "Fifty Years in Buckingham Palace Kitchens",
+                "type": "trad_cook",
+                "pub_id": "0877",
+                "price": 11.95,
+                "advance": 4000.0,
+                "royalty": 14,
+                "ytd_sales": 15096,
+                "notes": "More anecdotes from the Queen's favorite cook describing life among English royalty. Recipes, techniques, tender vignettes.",
+                "pubdate": "1991-06-12T00:00:00",
+                "pub_id__dup1": "0877",
+                "pub_name": "Binnet & Hardley",
+                "city__dup1": "Washington",
+                "state__dup1": "DC",
+                "country": "USA"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "publishers.state = 'CA'",
+          "sql": "SELECT *\nFROM stores\nJOIN sales ON stores.stor_id = sales.stor_id\nJOIN titles ON sales.title_id = titles.title_id\nJOIN publishers ON titles.pub_id = publishers.pub_id\nWHERE (stores.state = 'CA') AND (publishers.state = 'CA')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 27,
+            "preview": [
+              {
+                "stor_id": "7066",
+                "stor_name": "Barnum's",
+                "stor_address": "567 Pasadena Ave.",
+                "city": "Tustin",
+                "state": "CA",
+                "zip": "92789",
+                "stor_id__dup1": "7066",
+                "ord_num": "A2976",
+                "ord_date": "1993-05-24T00:00:00",
+                "qty": 50,
+                "payterms": "Net 30",
+                "title_id": "PC8888",
+                "title_id__dup1": "PC8888",
+                "title": "Secrets of Silicon Valley",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 20.0,
+                "advance": 8000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Muckraking reporting on the world's largest computer hardware and software manufacturers.",
+                "pubdate": "1994-06-12T00:00:00",
+                "pub_id__dup1": "1389",
+                "pub_name": "Algodata Infosystems",
+                "city__dup1": "Berkeley",
+                "state__dup1": "CA",
+                "country": "USA"
+              },
+              {
+                "stor_id": "7896",
+                "stor_name": "Fricative Bookshop",
+                "stor_address": "89 Madison St.",
+                "city": "Fremont",
+                "state": "CA",
+                "zip": "90019",
+                "stor_id__dup1": "7896",
+                "ord_num": "QQ2299",
+                "ord_date": "1993-10-28T00:00:00",
+                "qty": 15,
+                "payterms": "Net 60",
+                "title_id": "BU7832",
+                "title_id__dup1": "BU7832",
+                "title": "Straight Talk About Computers",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Annotated analysis of what computers can do for you: a no-hype guide for the critical user.",
+                "pubdate": "1991-06-22T00:00:00",
+                "pub_id__dup1": "1389",
+                "pub_name": "Algodata Infosystems",
+                "city__dup1": "Berkeley",
+                "state__dup1": "CA",
+                "country": "USA"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "publishers.pub_id = '1389'",
+          "sql": "SELECT *\nFROM stores\nJOIN sales ON stores.stor_id = sales.stor_id\nJOIN titles ON sales.title_id = titles.title_id\nJOIN publishers ON titles.pub_id = publishers.pub_id\nWHERE (stores.state = 'CA') AND (publishers.state = 'CA') AND (publishers.pub_id = '1389')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 27,
+            "preview": [
+              {
+                "stor_id": "7066",
+                "stor_name": "Barnum's",
+                "stor_address": "567 Pasadena Ave.",
+                "city": "Tustin",
+                "state": "CA",
+                "zip": "92789",
+                "stor_id__dup1": "7066",
+                "ord_num": "A2976",
+                "ord_date": "1993-05-24T00:00:00",
+                "qty": 50,
+                "payterms": "Net 30",
+                "title_id": "PC8888",
+                "title_id__dup1": "PC8888",
+                "title": "Secrets of Silicon Valley",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 20.0,
+                "advance": 8000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Muckraking reporting on the world's largest computer hardware and software manufacturers.",
+                "pubdate": "1994-06-12T00:00:00",
+                "pub_id__dup1": "1389",
+                "pub_name": "Algodata Infosystems",
+                "city__dup1": "Berkeley",
+                "state__dup1": "CA",
+                "country": "USA"
+              },
+              {
+                "stor_id": "7896",
+                "stor_name": "Fricative Bookshop",
+                "stor_address": "89 Madison St.",
+                "city": "Fremont",
+                "state": "CA",
+                "zip": "90019",
+                "stor_id__dup1": "7896",
+                "ord_num": "QQ2299",
+                "ord_date": "1993-10-28T00:00:00",
+                "qty": 15,
+                "payterms": "Net 60",
+                "title_id": "BU7832",
+                "title_id__dup1": "BU7832",
+                "title": "Straight Talk About Computers",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Annotated analysis of what computers can do for you: a no-hype guide for the critical user.",
+                "pubdate": "1991-06-22T00:00:00",
+                "pub_id__dup1": "1389",
+                "pub_name": "Algodata Infosystems",
+                "city__dup1": "Berkeley",
+                "state__dup1": "CA",
+                "country": "USA"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT stores.stor_id, stores.city, stores.state AS stor_state, sales.ord_num, sales.ord_date, sales.qty, sales.payterms, sales.title_id, titles.title, titles.price, titles.pub_id, publishers.pub_name, publishers.state AS pub_state\nFROM stores\nJOIN sales ON stores.stor_id = sales.stor_id\nJOIN titles ON sales.title_id = titles.title_id\nJOIN publishers ON titles.pub_id = publishers.pub_id\nWHERE (stores.state = 'CA') AND (publishers.state = 'CA') AND (publishers.pub_id = '1389')",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 13,
+            "preview": [
+              {
+                "stor_id": "7066",
+                "city": "Tustin",
+                "stor_state": "CA",
+                "ord_num": "A2976",
+                "ord_date": "1993-05-24T00:00:00",
+                "qty": 50,
+                "payterms": "Net 30",
+                "title_id": "PC8888",
+                "title": "Secrets of Silicon Valley",
+                "price": 20.0,
+                "pub_id": "1389",
+                "pub_name": "Algodata Infosystems",
+                "pub_state": "CA"
+              },
+              {
+                "stor_id": "7896",
+                "city": "Fremont",
+                "stor_state": "CA",
+                "ord_num": "QQ2299",
+                "ord_date": "1993-10-28T00:00:00",
+                "qty": 15,
+                "payterms": "Net 60",
+                "title_id": "BU7832",
+                "title": "Straight Talk About Computers",
+                "price": 19.99,
+                "pub_id": "1389",
+                "pub_name": "Algodata Infosystems",
+                "pub_state": "CA"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "total revenue from sales of titles published by Algodata Infosystems in California, made in stores located in California",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT stores.stor_id, stores.city, stores.state AS stor_state, sales.ord_num, sales.ord_date, sales.qty, sales.payterms, sales.title_id, titles.title, titles.price, titles.pub_id, publishers.pub_name, publishers.state AS pub_state\nFROM stores\nJOIN sales ON stores.stor_id = sales.stor_id\nJOIN titles ON sales.title_id = titles.title_id\nJOIN publishers ON titles.pub_id = publishers.pub_id\nWHERE (stores.state = 'CA') AND (publishers.state = 'CA') AND (publishers.pub_id = '1389')) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 13,
+            "preview": [
+              {
+                "stor_id": "7066",
+                "city": "Tustin",
+                "stor_state": "CA",
+                "ord_num": "A2976",
+                "ord_date": "1993-05-24T00:00:00",
+                "qty": 50,
+                "payterms": "Net 30",
+                "title_id": "PC8888",
+                "title": "Secrets of Silicon Valley",
+                "price": 20.0,
+                "pub_id": "1389",
+                "pub_name": "Algodata Infosystems",
+                "pub_state": "CA"
+              },
+              {
+                "stor_id": "7896",
+                "city": "Fremont",
+                "stor_state": "CA",
+                "ord_num": "QQ2299",
+                "ord_date": "1993-10-28T00:00:00",
+                "qty": 15,
+                "payterms": "Net 60",
+                "title_id": "BU7832",
+                "title": "Straight Talk About Computers",
+                "price": 19.99,
+                "pub_id": "1389",
+                "pub_name": "Algodata Infosystems",
+                "pub_state": "CA"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT SUM(leaf_1.price * leaf_1.qty) AS total_revenue\nFROM (SELECT stores.stor_id, stores.city, stores.state AS stor_state, sales.ord_num, sales.ord_date, sales.qty, sales.payterms, sales.title_id, titles.title, titles.price, titles.pub_id, publishers.pub_name, publishers.state AS pub_state\nFROM stores\nJOIN sales ON stores.stor_id = sales.stor_id\nJOIN titles ON sales.title_id = titles.title_id\nJOIN publishers ON titles.pub_id = publishers.pub_id\nWHERE (stores.state = 'CA') AND (publishers.state = 'CA') AND (publishers.pub_id = '1389')) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "total_revenue": 1299.85
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 17,
+  "sample_retry": 2,
+  "detail_fallback_used": false,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.5544356592839566,
+    "nearest": {
+      "sample_index": 43,
+      "answer_mode": "aggregate",
+      "target_join_count": 4,
+      "similarity": 0.5544356592839566,
+      "sql": "SELECT SUM(leaf_1.price * leaf_1.qty) AS total_sales_dollars\nFROM (SELECT authors.au_id, authors.au_lname, authors.au_fname, titles.title, titles.price, sales.qty, sales.stor_id, stores.city, stores.state\nFROM authors\nJOIN titleauthor ON authors.au_id = titleauthor.au_id\nJOIN titles ON titleauthor.title_id = titles.title_id\nJOIN sales ON titles.title_id = sales.title_id\nJOIN stores ON sales.stor_id = stores.stor_id\nWHERE (authors.state = 'CA') AND (titles.pub_id IN (SELECT pub_id FROM publishers WHERE state = 'CA')) AND (stores.state = 'CA')) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 1299.85,
+    "nearest": {
+      "sample_index": 29,
+      "answer_mode": "aggregate",
+      "target_join_count": 4,
+      "numeric_answer": 988.3499999999999,
+      "delta": 311.5,
+      "sql": "SELECT SUM(leaf_1.qty * leaf_1.price) AS total_contract_revenue\nFROM (SELECT titles.title_id, titles.title, authors.au_id, authors.au_lname, authors.au_fname, sales.qty, titles.price\nFROM titles\nJOIN publishers ON titles.pub_id = publishers.pub_id\nJOIN titleauthor ON titles.title_id = titleauthor.title_id\nJOIN authors ON titleauthor.au_id = authors.au_id\nJOIN sales ON titles.title_id = sales.title_id\nWHERE (publishers.pub_name = 'Algodata Infosystems') AND (authors.contract = 1) AND (titleauthor.royaltyper = 100)) AS leaf_1"
+    },
+    "min_value": 7.0,
+    "tolerance": 3.0,
+    "reason": "ok"
+  },
+  "question": "What is the total revenue generated from sales of books published by publisher '1389' in California, where the books were sold in California stores?",
+  "answer": "1299.85"
+}

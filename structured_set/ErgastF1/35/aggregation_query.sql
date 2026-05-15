@@ -1,0 +1,9 @@
+SELECT AVG(leaf_1.points) AS average_points
+FROM (SELECT d.driverid, d.forename, d.surname, c.name AS constructor_name, cs.points
+FROM drivers d
+JOIN results r ON d.driverid = r.driverid
+JOIN constructors c ON r.constructorid = c.constructorid
+JOIN constructorstandings cs ON c.constructorid = cs.constructorid
+JOIN races ra ON cs.raceid = ra.raceid
+WHERE (ra.year >= 2005) AND (EXISTS (SELECT 1 FROM results r2 WHERE r2.constructorid = c.constructorid AND r2.points > 0))
+GROUP BY d.driverid, d.forename, d.surname, c.name, cs.points) AS leaf_1

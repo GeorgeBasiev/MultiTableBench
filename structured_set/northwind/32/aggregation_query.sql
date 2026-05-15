@@ -1,0 +1,8 @@
+SELECT AVG(leaf_1.order_total) AS avg_revenue_per_employee
+FROM (SELECT e.employeeid, e.firstname, e.lastname, e.salary, e.reportsto, SUM(od.unitprice * od.quantity) AS order_total
+FROM employees e
+JOIN employeeterritories et ON e.employeeid = et.employeeid
+JOIN orders o ON e.employeeid = o.employeeid
+JOIN "order details" od ON o.orderid = od.orderid
+WHERE (strftime('%Y', o.shippeddate) = '1997') AND (e.salary > (SELECT AVG(salary) FROM employees))
+GROUP BY e.employeeid, e.firstname, e.lastname, e.salary, e.reportsto) AS leaf_1

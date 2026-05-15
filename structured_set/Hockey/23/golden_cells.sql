@@ -1,0 +1,1 @@
+SELECT s.playerid, m.firstname, m.lastname, s.g FROM scoring AS s JOIN master AS m ON s.playerid = m.playerid JOIN teams AS t ON s.tmid = t.tmid JOIN seriespost AS sp ON t.tmid = sp.tmidloser WHERE (sp.tmidloser != 'SEA')

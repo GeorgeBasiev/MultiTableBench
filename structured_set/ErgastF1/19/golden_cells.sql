@@ -1,0 +1,1 @@
+SELECT d.driverid, r.raceid, cs.points FROM drivers d JOIN results r ON d.driverid = r.driverid JOIN constructorstandings cs ON r.constructorid = cs.constructorid WHERE (d.nationality IN ('Australian', 'British'))

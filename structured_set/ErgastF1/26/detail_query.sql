@@ -1,0 +1,1 @@
+SELECT r.year, c.name AS constructor_name, r.name AS race_name, AVG(cr.points) AS avg_points FROM races r JOIN constructorresults cr ON r.raceid = cr.raceid JOIN constructors c ON cr.constructorid = c.constructorid JOIN circuits ci ON r.circuitid = ci.circuitid WHERE c.nationality = 'British' GROUP BY r.year, c.name, r.name

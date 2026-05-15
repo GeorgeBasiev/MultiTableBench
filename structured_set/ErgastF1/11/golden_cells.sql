@@ -1,0 +1,1 @@
+SELECT d.driverid, d.nationality, t.win FROM results AS res JOIN drivers AS d ON res.driverid = d.driverid JOIN races AS r ON res.raceid = r.raceid JOIN target AS t ON res.driverid = t.driverid WHERE (r.year = 2009) AND (t.win = 1)

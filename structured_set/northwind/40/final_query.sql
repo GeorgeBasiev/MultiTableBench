@@ -1,0 +1,10 @@
+SELECT SUM(leaf_1.revenue) AS total_sales_revenue
+FROM (SELECT s.companyname AS shippername, SUM(od.quantity * od.unitprice) AS revenue
+FROM orders AS o
+JOIN "order details" AS od ON o.orderid = od.orderid
+JOIN products AS p ON od.productid = p.productid
+JOIN categories AS c ON p.categoryid = c.categoryid
+JOIN shippers AS s ON o.shipvia = s.shipperid
+WHERE (c.categoryname = 'Beverages') AND (strftime('%Y', o.shippeddate) = '1997')
+GROUP BY s.companyname
+HAVING (revenue > 100)) AS leaf_1

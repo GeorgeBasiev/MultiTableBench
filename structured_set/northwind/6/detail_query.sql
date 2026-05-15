@@ -1,0 +1,1 @@
+SELECT e.firstname, e.lastname, o.orderid, o.freight FROM employees AS e JOIN employeeterritories AS et ON e.employeeid = et.employeeid JOIN territories AS t ON et.territoryid = t.territoryid JOIN orders AS o ON e.employeeid = o.employeeid WHERE t.regionid = 1 GROUP BY e.firstname, e.lastname, o.orderid, o.freight

@@ -1,0 +1,4017 @@
+{
+  "sample_index": 3,
+  "db_name": "Hockey",
+  "answer_mode": "aggregate",
+  "target_join_count": 3,
+  "actual_join_count": 3,
+  "numeric_answer": null,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 3,
+    "min_hops": 3,
+    "max_hops": 3,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "What is the total number of goals scored by players from the Campbell Conference in the 1980s?",
+  "manifest": {
+    "db_name": "Hockey",
+    "sample_dir": "structured_set/Hockey/3",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "abbrev",
+        "remote_row_count": 58,
+        "snapshot_row_count": 58,
+        "target_limit": 58,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "type",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "code",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fullname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardscoaches",
+        "remote_row_count": 77,
+        "snapshot_row_count": 77,
+        "target_limit": 77,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsmisc",
+        "remote_row_count": 124,
+        "snapshot_row_count": 110,
+        "target_limit": 110,
+        "relational_rows_added": 5,
+        "columns": [
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsplayers",
+        "remote_row_count": 2091,
+        "snapshot_row_count": 107,
+        "target_limit": 107,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "coaches",
+        "remote_row_count": 1812,
+        "snapshot_row_count": 99,
+        "target_limit": 99,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "combinedshutouts",
+        "remote_row_count": 54,
+        "snapshot_row_count": 54,
+        "target_limit": 54,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "month",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "date",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "r/p",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie1",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie2",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goalies",
+        "remote_row_count": 4278,
+        "snapshot_row_count": 89,
+        "target_limit": 89,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "min",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "l",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "t/ol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "eng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postmin",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posteng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliessc",
+        "remote_row_count": 31,
+        "snapshot_row_count": 31,
+        "target_limit": 31,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "min",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliesshootout",
+        "remote_row_count": 480,
+        "snapshot_row_count": 80,
+        "target_limit": 80,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "hof",
+        "remote_row_count": 365,
+        "snapshot_row_count": 120,
+        "target_limit": 120,
+        "relational_rows_added": 5,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "category",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "master",
+        "remote_row_count": 7761,
+        "snapshot_row_count": 93,
+        "target_limit": 93,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenote",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namegiven",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenick",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "height",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "weight",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shootcatch",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "legendsid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ihdbid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hrefid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoring",
+        "remote_row_count": 45967,
+        "snapshot_row_count": 113,
+        "target_limit": 113,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gtg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posta",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpts",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "post+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postshg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsc",
+        "remote_row_count": 284,
+        "snapshot_row_count": 117,
+        "target_limit": 117,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringshootout",
+        "remote_row_count": 2072,
+        "snapshot_row_count": 96,
+        "target_limit": 96,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "s",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gdg",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsup",
+        "remote_row_count": 137,
+        "snapshot_row_count": 105,
+        "target_limit": 105,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "seriespost",
+        "remote_row_count": 832,
+        "snapshot_row_count": 62,
+        "target_limit": 62,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "round",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "series",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalswinner",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalsloser",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teams",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 96,
+        "target_limit": 96,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "franchid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "confid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "divid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "playoff",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sow",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamshalf",
+        "remote_row_count": 41,
+        "snapshot_row_count": 41,
+        "target_limit": 41,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "half",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "teamsplits",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 61,
+        "target_limit": 61,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ht",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sept",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "dect",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "janw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "jant",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "febw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mart",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamspost",
+        "remote_row_count": 927,
+        "snapshot_row_count": 76,
+        "target_limit": 76,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamssc",
+        "remote_row_count": 30,
+        "snapshot_row_count": 30,
+        "target_limit": 30,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamvsteam",
+        "remote_row_count": 25602,
+        "snapshot_row_count": 104,
+        "target_limit": 104,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "What is the total number of goals scored by players from the Campbell Conference in the 1980s?",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT m.firstname, m.lastname, s.year, s.g FROM master m JOIN scoring s ON m.playerid = s.playerid JOIN teams t ON s.tmid = t.tmid JOIN abbrev a ON t.confid = a.code WHERE a.type = 'Conference' AND a.fullname = 'Campbell Conference' AND s.year BETWEEN 1980 AND 1989 ORDER BY s.year, m.lastname, m.firstname",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT m.playerid, s.year, s.g",
+        "from_clause": "FROM master m",
+        "join_clauses": [
+          "JOIN scoring s ON m.playerid = s.playerid",
+          "JOIN teams t ON s.tmid = t.tmid",
+          "JOIN abbrev a ON t.confid = a.code"
+        ],
+        "where_clauses": [
+          "a.type = 'Conference'",
+          "a.fullname = 'Campbell Conference'",
+          "s.year BETWEEN 1980 AND 1989"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "This block retrieves player IDs, years, and goals scored by players from the Campbell Conference in the 1980s"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT SUM(leaf_1.g) AS total_goals",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "This block calculates the total number of goals scored by players from the Campbell Conference in the 1980s"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "This block retrieves player IDs, years, and goals scored by players from the Campbell Conference in the 1980s",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM master m\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 31,
+            "preview": [
+              {
+                "playerid": "bladoto01",
+                "coachid": null,
+                "hofid": NaN,
+                "firstname": "Tom",
+                "lastname": "Bladon",
+                "namenote": null,
+                "namegiven": "Thomas George",
+                "namenick": "Bomber",
+                "height": "73",
+                "weight": "195",
+                "shootcatch": "R",
+                "legendsid": "12007",
+                "ihdbid": "409",
+                "hrefid": "bladoto01",
+                "firstnhl": "1972",
+                "lastnhl": "1980",
+                "firstwha": NaN,
+                "lastwha": NaN,
+                "pos": "D",
+                "birthyear": "1952",
+                "birthmon": "12",
+                "birthday": "29",
+                "birthcountry": "Canada",
+                "birthstate": "AB",
+                "birthcity": "Edmonton",
+                "deathyear": NaN,
+                "deathmon": NaN,
+                "deathday": NaN,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null
+              },
+              {
+                "playerid": "mitchiv01",
+                "coachid": null,
+                "hofid": NaN,
+                "firstname": "Ivan",
+                "lastname": "Mitchell",
+                "namenote": null,
+                "namegiven": "Ivan Joseph Gordon",
+                "namenick": "Mike",
+                "height": NaN,
+                "weight": NaN,
+                "shootcatch": "R",
+                "legendsid": "18631",
+                "ihdbid": "40737",
+                "hrefid": "mitchiv01",
+                "firstnhl": "1919",
+                "lastnhl": "1921",
+                "firstwha": NaN,
+                "lastwha": NaN,
+                "pos": "G",
+                "birthyear": "1896",
+                "birthmon": NaN,
+                "birthday": NaN,
+                "birthcountry": "Canada",
+                "birthstate": NaN,
+                "birthcity": NaN,
+                "deathyear": "9999",
+                "deathmon": NaN,
+                "deathday": NaN,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null
+              },
+              {
+                "playerid": "jonesji01",
+                "coachid": null,
+                "hofid": NaN,
+                "firstname": "Jim",
+                "lastname": "Jones",
+                "namenote": null,
+                "namegiven": "James William",
+                "namenick": NaN,
+                "height": "70",
+                "weight": "185",
+                "shootcatch": "L",
+                "legendsid": "13138",
+                "ihdbid": "10288",
+                "hrefid": "jonesji01",
+                "firstnhl": "1971",
+                "lastnhl": "1971",
+                "firstwha": "1973",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1949",
+                "birthmon": "7",
+                "birthday": "27",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Espanola",
+                "deathyear": NaN,
+                "deathmon": NaN,
+                "deathday": NaN,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null
+              },
+              {
+                "playerid": "walshji01",
+                "coachid": null,
+                "hofid": NaN,
+                "firstname": "Jim",
+                "lastname": "Walsh",
+                "namenote": null,
+                "namegiven": "James",
+                "namenick": NaN,
+                "height": "73",
+                "weight": "185",
+                "shootcatch": "R",
+                "legendsid": "14629",
+                "ihdbid": "6577",
+                "hrefid": "walshji01",
+                "firstnhl": "1981",
+                "lastnhl": "1981",
+                "firstwha": NaN,
+                "lastwha": NaN,
+                "pos": "D",
+                "birthyear": "1956",
+                "birthmon": "10",
+                "birthday": "26",
+                "birthcountry": "USA",
+                "birthstate": "VA",
+                "birthcity": "Norfolk",
+                "deathyear": NaN,
+                "deathmon": NaN,
+                "deathday": NaN,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null
+              },
+              {
+                "playerid": NaN,
+                "coachid": null,
+                "hofid": "ionmi01h",
+                "firstname": "Mickey",
+                "lastname": "Ion",
+                "namenote": null,
+                "namegiven": "Fred W.",
+                "namenick": NaN,
+                "height": NaN,
+                "weight": NaN,
+                "shootcatch": NaN,
+                "legendsid": "O196102",
+                "ihdbid": NaN,
+                "hrefid": NaN,
+                "firstnhl": NaN,
+                "lastnhl": NaN,
+                "firstwha": NaN,
+                "lastwha": NaN,
+                "pos": NaN,
+                "birthyear": "1886",
+                "birthmon": "2",
+                "birthday": "25",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Paris",
+                "deathyear": "1964",
+                "deathmon": "10",
+                "deathday": "26",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN scoring s ON m.playerid = s.playerid",
+          "sql": "SELECT *\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 62,
+            "preview": [
+              {
+                "playerid": "spencir01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Irv",
+                "lastname": "Spencer",
+                "namenote": null,
+                "namegiven": "Irvin James",
+                "namenick": "Spinner",
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "14406",
+                "ihdbid": "5102",
+                "hrefid": "spencir01",
+                "firstnhl": "1959",
+                "lastnhl": "1967",
+                "firstwha": "1972",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1937",
+                "birthmon": "12",
+                "birthday": "4",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Sudbury",
+                "deathyear": "1999",
+                "deathmon": "10",
+                "deathday": "22",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "spencir01",
+                "year": 1962,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos__dup1": "D/L",
+                "gp": 69,
+                "g": 5,
+                "a": 17,
+                "pts": 22,
+                "pim": 34,
+                "+/-": NaN,
+                "ppg": NaN,
+                "ppa": NaN,
+                "shg": NaN,
+                "sha": NaN,
+                "gwg": NaN,
+                "gtg": null,
+                "sog": NaN,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null
+              },
+              {
+                "playerid": "peverri01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Rich",
+                "lastname": "Peverley",
+                "namenote": null,
+                "namegiven": NaN,
+                "namenick": NaN,
+                "height": "72",
+                "weight": "185",
+                "shootcatch": "R",
+                "legendsid": "22194",
+                "ihdbid": "54871",
+                "hrefid": "peverri01",
+                "firstnhl": "2006",
+                "lastnhl": "2011",
+                "firstwha": NaN,
+                "lastwha": NaN,
+                "pos": "C",
+                "birthyear": "1982",
+                "birthmon": "7",
+                "birthday": "8",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Guelph",
+                "deathyear": NaN,
+                "deathmon": NaN,
+                "deathday": NaN,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "peverri01",
+                "year": 2008,
+                "stint": 1,
+                "tmid": "NAS",
+                "lgid": "NHL",
+                "pos__dup1": "C",
+                "gp": 27,
+                "g": 2,
+                "a": 7,
+                "pts": 9,
+                "pim": 15,
+                "+/-": "-3",
+                "ppg": "0",
+                "ppa": "2",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": null,
+                "sog": "42",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN teams t ON s.tmid = t.tmid",
+          "sql": "SELECT *\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 89,
+            "preview": [
+              {
+                "playerid": "spencir01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Irv",
+                "lastname": "Spencer",
+                "namenote": null,
+                "namegiven": "Irvin James",
+                "namenick": "Spinner",
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "14406",
+                "ihdbid": "5102",
+                "hrefid": "spencir01",
+                "firstnhl": "1959",
+                "lastnhl": "1967",
+                "firstwha": "1972",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1937",
+                "birthmon": "12",
+                "birthday": "4",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Sudbury",
+                "deathyear": "1999",
+                "deathmon": "10",
+                "deathday": "22",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "spencir01",
+                "year": 1962,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos__dup1": "D/L",
+                "gp": 69,
+                "g": 5,
+                "a": 17,
+                "pts": 22,
+                "pim": 34,
+                "+/-": null,
+                "ppg": null,
+                "ppa": null,
+                "shg": null,
+                "sha": null,
+                "gwg": null,
+                "gtg": null,
+                "sog": null,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "year__dup1": 1925,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 4,
+                "playoff": NaN,
+                "g__dup1": 36,
+                "w": 17,
+                "l": 15,
+                "t": 4,
+                "otl": null,
+                "pts__dup1": 38,
+                "sow": null,
+                "sol": null,
+                "gf": 92,
+                "ga": 85,
+                "name": "Boston Bruins",
+                "pim__dup1": "292",
+                "benchminor": NaN,
+                "ppg__dup1": NaN,
+                "ppc": NaN,
+                "sha__dup1": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN
+              },
+              {
+                "playerid": "spencir01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Irv",
+                "lastname": "Spencer",
+                "namenote": null,
+                "namegiven": "Irvin James",
+                "namenick": "Spinner",
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "14406",
+                "ihdbid": "5102",
+                "hrefid": "spencir01",
+                "firstnhl": "1959",
+                "lastnhl": "1967",
+                "firstwha": "1972",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1937",
+                "birthmon": "12",
+                "birthday": "4",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Sudbury",
+                "deathyear": "1999",
+                "deathmon": "10",
+                "deathday": "22",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "spencir01",
+                "year": 1962,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos__dup1": "D/L",
+                "gp": 69,
+                "g": 5,
+                "a": 17,
+                "pts": 22,
+                "pim": 34,
+                "+/-": null,
+                "ppg": null,
+                "ppa": null,
+                "shg": null,
+                "sha": null,
+                "gwg": null,
+                "gtg": null,
+                "sog": null,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "year__dup1": 1939,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 1,
+                "playoff": "SF",
+                "g__dup1": 48,
+                "w": 31,
+                "l": 12,
+                "t": 5,
+                "otl": null,
+                "pts__dup1": 67,
+                "sow": null,
+                "sol": null,
+                "gf": 170,
+                "ga": 98,
+                "name": "Boston Bruins",
+                "pim__dup1": "330",
+                "benchminor": NaN,
+                "ppg__dup1": NaN,
+                "ppc": NaN,
+                "sha__dup1": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN
+              },
+              {
+                "playerid": "spencir01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Irv",
+                "lastname": "Spencer",
+                "namenote": null,
+                "namegiven": "Irvin James",
+                "namenick": "Spinner",
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "14406",
+                "ihdbid": "5102",
+                "hrefid": "spencir01",
+                "firstnhl": "1959",
+                "lastnhl": "1967",
+                "firstwha": "1972",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1937",
+                "birthmon": "12",
+                "birthday": "4",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Sudbury",
+                "deathyear": "1999",
+                "deathmon": "10",
+                "deathday": "22",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "spencir01",
+                "year": 1962,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos__dup1": "D/L",
+                "gp": 69,
+                "g": 5,
+                "a": 17,
+                "pts": 22,
+                "pim": 34,
+                "+/-": null,
+                "ppg": null,
+                "ppa": null,
+                "shg": null,
+                "sha": null,
+                "gwg": null,
+                "gtg": null,
+                "sog": null,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "year__dup1": 1960,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 6,
+                "playoff": NaN,
+                "g__dup1": 70,
+                "w": 15,
+                "l": 42,
+                "t": 13,
+                "otl": null,
+                "pts__dup1": 43,
+                "sow": null,
+                "sol": null,
+                "gf": 176,
+                "ga": 254,
+                "name": "Boston Bruins",
+                "pim__dup1": "810",
+                "benchminor": NaN,
+                "ppg__dup1": NaN,
+                "ppc": NaN,
+                "sha__dup1": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN
+              },
+              {
+                "playerid": "spencir01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Irv",
+                "lastname": "Spencer",
+                "namenote": null,
+                "namegiven": "Irvin James",
+                "namenick": "Spinner",
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "14406",
+                "ihdbid": "5102",
+                "hrefid": "spencir01",
+                "firstnhl": "1959",
+                "lastnhl": "1967",
+                "firstwha": "1972",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1937",
+                "birthmon": "12",
+                "birthday": "4",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Sudbury",
+                "deathyear": "1999",
+                "deathmon": "10",
+                "deathday": "22",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "spencir01",
+                "year": 1962,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos__dup1": "D/L",
+                "gp": 69,
+                "g": 5,
+                "a": 17,
+                "pts": 22,
+                "pim": 34,
+                "+/-": null,
+                "ppg": null,
+                "ppa": null,
+                "shg": null,
+                "sha": null,
+                "gwg": null,
+                "gtg": null,
+                "sog": null,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "year__dup1": 1984,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 4,
+                "playoff": "DSF",
+                "g__dup1": 80,
+                "w": 36,
+                "l": 34,
+                "t": 10,
+                "otl": null,
+                "pts__dup1": 82,
+                "sow": null,
+                "sol": null,
+                "gf": 303,
+                "ga": 287,
+                "name": "Boston Bruins",
+                "pim__dup1": "1825",
+                "benchminor": "8",
+                "ppg__dup1": "69",
+                "ppc": "323",
+                "sha__dup1": "8",
+                "pkg": "67",
+                "pkc": "337",
+                "shf": "17"
+              },
+              {
+                "playerid": "spencir01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Irv",
+                "lastname": "Spencer",
+                "namenote": null,
+                "namegiven": "Irvin James",
+                "namenick": "Spinner",
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "14406",
+                "ihdbid": "5102",
+                "hrefid": "spencir01",
+                "firstnhl": "1959",
+                "lastnhl": "1967",
+                "firstwha": "1972",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1937",
+                "birthmon": "12",
+                "birthday": "4",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Sudbury",
+                "deathyear": "1999",
+                "deathmon": "10",
+                "deathday": "22",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "spencir01",
+                "year": 1962,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos__dup1": "D/L",
+                "gp": 69,
+                "g": 5,
+                "a": 17,
+                "pts": 22,
+                "pim": 34,
+                "+/-": null,
+                "ppg": null,
+                "ppa": null,
+                "shg": null,
+                "sha": null,
+                "gwg": null,
+                "gtg": null,
+                "sog": null,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "year__dup1": 1991,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "CF",
+                "g__dup1": 80,
+                "w": 36,
+                "l": 32,
+                "t": 12,
+                "otl": null,
+                "pts__dup1": 84,
+                "sow": null,
+                "sol": null,
+                "gf": 270,
+                "ga": 275,
+                "name": "Boston Bruins",
+                "pim__dup1": "1752",
+                "benchminor": "12",
+                "ppg__dup1": "77",
+                "ppc": "406",
+                "sha__dup1": "14",
+                "pkg": "72",
+                "pkc": "363",
+                "shf": "7"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN abbrev a ON t.confid = a.code",
+          "sql": "SELECT *\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 92,
+            "preview": [
+              {
+                "playerid": "spencir01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Irv",
+                "lastname": "Spencer",
+                "namenote": null,
+                "namegiven": "Irvin James",
+                "namenick": "Spinner",
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "14406",
+                "ihdbid": "5102",
+                "hrefid": "spencir01",
+                "firstnhl": "1959",
+                "lastnhl": "1967",
+                "firstwha": "1972",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1937",
+                "birthmon": "12",
+                "birthday": "4",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Sudbury",
+                "deathyear": "1999",
+                "deathmon": "10",
+                "deathday": "22",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "spencir01",
+                "year": 1962,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos__dup1": "D/L",
+                "gp": 69,
+                "g": 5,
+                "a": 17,
+                "pts": 22,
+                "pim": 34,
+                "+/-": null,
+                "ppg": null,
+                "ppa": null,
+                "shg": null,
+                "sha": null,
+                "gwg": null,
+                "gtg": null,
+                "sog": null,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "year__dup1": 1984,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 4,
+                "playoff": "DSF",
+                "g__dup1": 80,
+                "w": 36,
+                "l": 34,
+                "t": 10.0,
+                "otl": NaN,
+                "pts__dup1": 82,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 303,
+                "ga": 287,
+                "name": "Boston Bruins",
+                "pim__dup1": "1825",
+                "benchminor": "8",
+                "ppg__dup1": "69",
+                "ppc": "323",
+                "sha__dup1": "8",
+                "pkg": "67",
+                "pkc": "337",
+                "shf": "17",
+                "type": "Conference",
+                "code": "WA",
+                "fullname": "Wales Conference"
+              },
+              {
+                "playerid": "spencir01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Irv",
+                "lastname": "Spencer",
+                "namenote": null,
+                "namegiven": "Irvin James",
+                "namenick": "Spinner",
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "14406",
+                "ihdbid": "5102",
+                "hrefid": "spencir01",
+                "firstnhl": "1959",
+                "lastnhl": "1967",
+                "firstwha": "1972",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1937",
+                "birthmon": "12",
+                "birthday": "4",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Sudbury",
+                "deathyear": "1999",
+                "deathmon": "10",
+                "deathday": "22",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "spencir01",
+                "year": 1962,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos__dup1": "D/L",
+                "gp": 69,
+                "g": 5,
+                "a": 17,
+                "pts": 22,
+                "pim": 34,
+                "+/-": null,
+                "ppg": null,
+                "ppa": null,
+                "shg": null,
+                "sha": null,
+                "gwg": null,
+                "gtg": null,
+                "sog": null,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "year__dup1": 1991,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "CF",
+                "g__dup1": 80,
+                "w": 36,
+                "l": 32,
+                "t": 12.0,
+                "otl": NaN,
+                "pts__dup1": 84,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 270,
+                "ga": 275,
+                "name": "Boston Bruins",
+                "pim__dup1": "1752",
+                "benchminor": "12",
+                "ppg__dup1": "77",
+                "ppc": "406",
+                "sha__dup1": "14",
+                "pkg": "72",
+                "pkc": "363",
+                "shf": "7",
+                "type": "Conference",
+                "code": "WA",
+                "fullname": "Wales Conference"
+              },
+              {
+                "playerid": "spencir01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Irv",
+                "lastname": "Spencer",
+                "namenote": null,
+                "namegiven": "Irvin James",
+                "namenick": "Spinner",
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "14406",
+                "ihdbid": "5102",
+                "hrefid": "spencir01",
+                "firstnhl": "1959",
+                "lastnhl": "1967",
+                "firstwha": "1972",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1937",
+                "birthmon": "12",
+                "birthday": "4",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Sudbury",
+                "deathyear": "1999",
+                "deathmon": "10",
+                "deathday": "22",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "spencir01",
+                "year": 1962,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos__dup1": "D/L",
+                "gp": 69,
+                "g": 5,
+                "a": 17,
+                "pts": 22,
+                "pim": 34,
+                "+/-": null,
+                "ppg": null,
+                "ppa": null,
+                "shg": null,
+                "sha": null,
+                "gwg": null,
+                "gtg": null,
+                "sog": null,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "year__dup1": 2000,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": "EC",
+                "divid": "NE",
+                "rank": 4,
+                "playoff": NaN,
+                "g__dup1": 82,
+                "w": 36,
+                "l": 30,
+                "t": 8.0,
+                "otl": "8",
+                "pts__dup1": 88,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 227,
+                "ga": 249,
+                "name": "Boston Bruins",
+                "pim__dup1": "1325",
+                "benchminor": "18",
+                "ppg__dup1": "64",
+                "ppc": "390",
+                "sha__dup1": "7",
+                "pkg": "65",
+                "pkc": "377",
+                "shf": "8",
+                "type": "Conference",
+                "code": "EC",
+                "fullname": "Eastern Conference"
+              },
+              {
+                "playerid": "spencir01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Irv",
+                "lastname": "Spencer",
+                "namenote": null,
+                "namegiven": "Irvin James",
+                "namenick": "Spinner",
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "14406",
+                "ihdbid": "5102",
+                "hrefid": "spencir01",
+                "firstnhl": "1959",
+                "lastnhl": "1967",
+                "firstwha": "1972",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1937",
+                "birthmon": "12",
+                "birthday": "4",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Sudbury",
+                "deathyear": "1999",
+                "deathmon": "10",
+                "deathday": "22",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "spencir01",
+                "year": 1962,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos__dup1": "D/L",
+                "gp": 69,
+                "g": 5,
+                "a": 17,
+                "pts": 22,
+                "pim": 34,
+                "+/-": null,
+                "ppg": null,
+                "ppa": null,
+                "shg": null,
+                "sha": null,
+                "gwg": null,
+                "gtg": null,
+                "sog": null,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "year__dup1": 2001,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": "EC",
+                "divid": "NE",
+                "rank": 1,
+                "playoff": "CQF",
+                "g__dup1": 82,
+                "w": 43,
+                "l": 24,
+                "t": 6.0,
+                "otl": "9",
+                "pts__dup1": 101,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 236,
+                "ga": 201,
+                "name": "Boston Bruins",
+                "pim__dup1": "1454",
+                "benchminor": "12",
+                "ppg__dup1": "39",
+                "ppc": "283",
+                "sha__dup1": "5",
+                "pkg": "45",
+                "pkc": "348",
+                "shf": "14",
+                "type": "Conference",
+                "code": "EC",
+                "fullname": "Eastern Conference"
+              },
+              {
+                "playerid": "spencir01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Irv",
+                "lastname": "Spencer",
+                "namenote": null,
+                "namegiven": "Irvin James",
+                "namenick": "Spinner",
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "14406",
+                "ihdbid": "5102",
+                "hrefid": "spencir01",
+                "firstnhl": "1959",
+                "lastnhl": "1967",
+                "firstwha": "1972",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1937",
+                "birthmon": "12",
+                "birthday": "4",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Sudbury",
+                "deathyear": "1999",
+                "deathmon": "10",
+                "deathday": "22",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "spencir01",
+                "year": 1962,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos__dup1": "D/L",
+                "gp": 69,
+                "g": 5,
+                "a": 17,
+                "pts": 22,
+                "pim": 34,
+                "+/-": null,
+                "ppg": null,
+                "ppa": null,
+                "shg": null,
+                "sha": null,
+                "gwg": null,
+                "gtg": null,
+                "sog": null,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "year__dup1": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": "EC",
+                "divid": "NE",
+                "rank": 1,
+                "playoff": "CQF",
+                "g__dup1": 82,
+                "w": 49,
+                "l": 29,
+                "t": NaN,
+                "otl": "4",
+                "pts__dup1": 102,
+                "sow": "9",
+                "sol": "3",
+                "gf": 269,
+                "ga": 202,
+                "name": "Boston Bruins",
+                "pim__dup1": "1101",
+                "benchminor": "8",
+                "ppg__dup1": "43",
+                "ppc": "250",
+                "sha__dup1": "1",
+                "pkg": "43",
+                "pkc": "260",
+                "shf": "8",
+                "type": "Conference",
+                "code": "EC",
+                "fullname": "Eastern Conference"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "a.type = 'Conference'",
+          "sql": "SELECT *\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 92,
+            "preview": [
+              {
+                "playerid": "spencir01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Irv",
+                "lastname": "Spencer",
+                "namenote": null,
+                "namegiven": "Irvin James",
+                "namenick": "Spinner",
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "14406",
+                "ihdbid": "5102",
+                "hrefid": "spencir01",
+                "firstnhl": "1959",
+                "lastnhl": "1967",
+                "firstwha": "1972",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1937",
+                "birthmon": "12",
+                "birthday": "4",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Sudbury",
+                "deathyear": "1999",
+                "deathmon": "10",
+                "deathday": "22",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "spencir01",
+                "year": 1962,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos__dup1": "D/L",
+                "gp": 69,
+                "g": 5,
+                "a": 17,
+                "pts": 22,
+                "pim": 34,
+                "+/-": null,
+                "ppg": null,
+                "ppa": null,
+                "shg": null,
+                "sha": null,
+                "gwg": null,
+                "gtg": null,
+                "sog": null,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "year__dup1": 1991,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "CF",
+                "g__dup1": 80,
+                "w": 36,
+                "l": 32,
+                "t": 12.0,
+                "otl": NaN,
+                "pts__dup1": 84,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 270,
+                "ga": 275,
+                "name": "Boston Bruins",
+                "pim__dup1": "1752",
+                "benchminor": "12",
+                "ppg__dup1": "77",
+                "ppc": "406",
+                "sha__dup1": "14",
+                "pkg": "72",
+                "pkc": "363",
+                "shf": "7",
+                "type": "Conference",
+                "code": "WA",
+                "fullname": "Wales Conference"
+              },
+              {
+                "playerid": "spencir01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Irv",
+                "lastname": "Spencer",
+                "namenote": null,
+                "namegiven": "Irvin James",
+                "namenick": "Spinner",
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "14406",
+                "ihdbid": "5102",
+                "hrefid": "spencir01",
+                "firstnhl": "1959",
+                "lastnhl": "1967",
+                "firstwha": "1972",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1937",
+                "birthmon": "12",
+                "birthday": "4",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Sudbury",
+                "deathyear": "1999",
+                "deathmon": "10",
+                "deathday": "22",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "spencir01",
+                "year": 1962,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos__dup1": "D/L",
+                "gp": 69,
+                "g": 5,
+                "a": 17,
+                "pts": 22,
+                "pim": 34,
+                "+/-": null,
+                "ppg": null,
+                "ppa": null,
+                "shg": null,
+                "sha": null,
+                "gwg": null,
+                "gtg": null,
+                "sog": null,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "year__dup1": 2000,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": "EC",
+                "divid": "NE",
+                "rank": 4,
+                "playoff": NaN,
+                "g__dup1": 82,
+                "w": 36,
+                "l": 30,
+                "t": 8.0,
+                "otl": "8",
+                "pts__dup1": 88,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 227,
+                "ga": 249,
+                "name": "Boston Bruins",
+                "pim__dup1": "1325",
+                "benchminor": "18",
+                "ppg__dup1": "64",
+                "ppc": "390",
+                "sha__dup1": "7",
+                "pkg": "65",
+                "pkc": "377",
+                "shf": "8",
+                "type": "Conference",
+                "code": "EC",
+                "fullname": "Eastern Conference"
+              },
+              {
+                "playerid": "spencir01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Irv",
+                "lastname": "Spencer",
+                "namenote": null,
+                "namegiven": "Irvin James",
+                "namenick": "Spinner",
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "14406",
+                "ihdbid": "5102",
+                "hrefid": "spencir01",
+                "firstnhl": "1959",
+                "lastnhl": "1967",
+                "firstwha": "1972",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1937",
+                "birthmon": "12",
+                "birthday": "4",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Sudbury",
+                "deathyear": "1999",
+                "deathmon": "10",
+                "deathday": "22",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "spencir01",
+                "year": 1962,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos__dup1": "D/L",
+                "gp": 69,
+                "g": 5,
+                "a": 17,
+                "pts": 22,
+                "pim": 34,
+                "+/-": null,
+                "ppg": null,
+                "ppa": null,
+                "shg": null,
+                "sha": null,
+                "gwg": null,
+                "gtg": null,
+                "sog": null,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "year__dup1": 2001,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": "EC",
+                "divid": "NE",
+                "rank": 1,
+                "playoff": "CQF",
+                "g__dup1": 82,
+                "w": 43,
+                "l": 24,
+                "t": 6.0,
+                "otl": "9",
+                "pts__dup1": 101,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 236,
+                "ga": 201,
+                "name": "Boston Bruins",
+                "pim__dup1": "1454",
+                "benchminor": "12",
+                "ppg__dup1": "39",
+                "ppc": "283",
+                "sha__dup1": "5",
+                "pkg": "45",
+                "pkc": "348",
+                "shf": "14",
+                "type": "Conference",
+                "code": "EC",
+                "fullname": "Eastern Conference"
+              },
+              {
+                "playerid": "spencir01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Irv",
+                "lastname": "Spencer",
+                "namenote": null,
+                "namegiven": "Irvin James",
+                "namenick": "Spinner",
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "14406",
+                "ihdbid": "5102",
+                "hrefid": "spencir01",
+                "firstnhl": "1959",
+                "lastnhl": "1967",
+                "firstwha": "1972",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1937",
+                "birthmon": "12",
+                "birthday": "4",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Sudbury",
+                "deathyear": "1999",
+                "deathmon": "10",
+                "deathday": "22",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "spencir01",
+                "year": 1962,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos__dup1": "D/L",
+                "gp": 69,
+                "g": 5,
+                "a": 17,
+                "pts": 22,
+                "pim": 34,
+                "+/-": null,
+                "ppg": null,
+                "ppa": null,
+                "shg": null,
+                "sha": null,
+                "gwg": null,
+                "gtg": null,
+                "sog": null,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "year__dup1": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": "EC",
+                "divid": "NE",
+                "rank": 1,
+                "playoff": "CQF",
+                "g__dup1": 82,
+                "w": 49,
+                "l": 29,
+                "t": NaN,
+                "otl": "4",
+                "pts__dup1": 102,
+                "sow": "9",
+                "sol": "3",
+                "gf": 269,
+                "ga": 202,
+                "name": "Boston Bruins",
+                "pim__dup1": "1101",
+                "benchminor": "8",
+                "ppg__dup1": "43",
+                "ppc": "250",
+                "sha__dup1": "1",
+                "pkg": "43",
+                "pkc": "260",
+                "shf": "8",
+                "type": "Conference",
+                "code": "EC",
+                "fullname": "Eastern Conference"
+              },
+              {
+                "playerid": "spencir01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Irv",
+                "lastname": "Spencer",
+                "namenote": null,
+                "namegiven": "Irvin James",
+                "namenick": "Spinner",
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "14406",
+                "ihdbid": "5102",
+                "hrefid": "spencir01",
+                "firstnhl": "1959",
+                "lastnhl": "1967",
+                "firstwha": "1972",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1937",
+                "birthmon": "12",
+                "birthday": "4",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Sudbury",
+                "deathyear": "1999",
+                "deathmon": "10",
+                "deathday": "22",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "spencir01",
+                "year": 1962,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos__dup1": "D/L",
+                "gp": 69,
+                "g": 5,
+                "a": 17,
+                "pts": 22,
+                "pim": 34,
+                "+/-": null,
+                "ppg": null,
+                "ppa": null,
+                "shg": null,
+                "sha": null,
+                "gwg": null,
+                "gtg": null,
+                "sog": null,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "year__dup1": 1984,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 4,
+                "playoff": "DSF",
+                "g__dup1": 80,
+                "w": 36,
+                "l": 34,
+                "t": 10.0,
+                "otl": NaN,
+                "pts__dup1": 82,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 303,
+                "ga": 287,
+                "name": "Boston Bruins",
+                "pim__dup1": "1825",
+                "benchminor": "8",
+                "ppg__dup1": "69",
+                "ppc": "323",
+                "sha__dup1": "8",
+                "pkg": "67",
+                "pkc": "337",
+                "shf": "17",
+                "type": "Conference",
+                "code": "WA",
+                "fullname": "Wales Conference"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "a.fullname = 'Campbell Conference'",
+          "sql": "SELECT *\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname = 'Campbell Conference')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 92,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "a.code = 'CC'",
+          "sql": "SELECT *\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.code = 'CC')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 92,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "a.fullname = 'Campbell Conference'",
+          "sql": "SELECT *\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname = 'Campbell Conference')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 92,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "a.fullname LIKE '%Campbell Conference%'",
+          "sql": "SELECT *\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname LIKE '%Campbell Conference%')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 92,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "a.fullname = 'Campbell Conference'",
+          "sql": "SELECT *\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname = 'Campbell Conference')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 92,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "a.fullname IN ('Campbell Conference', 'Wales Conference')",
+          "sql": "SELECT *\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname IN ('Campbell Conference', 'Wales Conference'))\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 92,
+            "preview": [
+              {
+                "playerid": "spencir01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Irv",
+                "lastname": "Spencer",
+                "namenote": null,
+                "namegiven": "Irvin James",
+                "namenick": "Spinner",
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "14406",
+                "ihdbid": "5102",
+                "hrefid": "spencir01",
+                "firstnhl": "1959",
+                "lastnhl": "1967",
+                "firstwha": "1972",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1937",
+                "birthmon": "12",
+                "birthday": "4",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Sudbury",
+                "deathyear": "1999",
+                "deathmon": "10",
+                "deathday": "22",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "spencir01",
+                "year": 1962,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos__dup1": "D/L",
+                "gp": 69,
+                "g": 5,
+                "a": 17,
+                "pts": 22,
+                "pim": 34,
+                "+/-": null,
+                "ppg": null,
+                "ppa": null,
+                "shg": null,
+                "sha": null,
+                "gwg": null,
+                "gtg": null,
+                "sog": null,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "year__dup1": 1991,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "CF",
+                "g__dup1": 80,
+                "w": 36,
+                "l": 32,
+                "t": 12,
+                "otl": null,
+                "pts__dup1": 84,
+                "sow": null,
+                "sol": null,
+                "gf": 270,
+                "ga": 275,
+                "name": "Boston Bruins",
+                "pim__dup1": "1752",
+                "benchminor": "12",
+                "ppg__dup1": "77",
+                "ppc": "406",
+                "sha__dup1": "14",
+                "pkg": "72",
+                "pkc": "363",
+                "shf": "7",
+                "type": "Conference",
+                "code": "WA",
+                "fullname": "Wales Conference"
+              },
+              {
+                "playerid": "spencir01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Irv",
+                "lastname": "Spencer",
+                "namenote": null,
+                "namegiven": "Irvin James",
+                "namenick": "Spinner",
+                "height": "70",
+                "weight": "180",
+                "shootcatch": "L",
+                "legendsid": "14406",
+                "ihdbid": "5102",
+                "hrefid": "spencir01",
+                "firstnhl": "1959",
+                "lastnhl": "1967",
+                "firstwha": "1972",
+                "lastwha": "1973",
+                "pos": "D",
+                "birthyear": "1937",
+                "birthmon": "12",
+                "birthday": "4",
+                "birthcountry": "Canada",
+                "birthstate": "ON",
+                "birthcity": "Sudbury",
+                "deathyear": "1999",
+                "deathmon": "10",
+                "deathday": "22",
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "playerid__dup1": "spencir01",
+                "year": 1962,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos__dup1": "D/L",
+                "gp": 69,
+                "g": 5,
+                "a": 17,
+                "pts": 22,
+                "pim": 34,
+                "+/-": null,
+                "ppg": null,
+                "ppa": null,
+                "shg": null,
+                "sha": null,
+                "gwg": null,
+                "gtg": null,
+                "sog": null,
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "year__dup1": 1984,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 4,
+                "playoff": "DSF",
+                "g__dup1": 80,
+                "w": 36,
+                "l": 34,
+                "t": 10,
+                "otl": null,
+                "pts__dup1": 82,
+                "sow": null,
+                "sol": null,
+                "gf": 303,
+                "ga": 287,
+                "name": "Boston Bruins",
+                "pim__dup1": "1825",
+                "benchminor": "8",
+                "ppg__dup1": "69",
+                "ppc": "323",
+                "sha__dup1": "8",
+                "pkg": "67",
+                "pkc": "337",
+                "shf": "17",
+                "type": "Conference",
+                "code": "WA",
+                "fullname": "Wales Conference"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year BETWEEN 1980 AND 1989",
+          "sql": "SELECT *\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname IN ('Campbell Conference', 'Wales Conference')) AND (s.year BETWEEN 1980 AND 1989)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 92,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year BETWEEN 1980 AND 1989 OR s.year = 1990",
+          "sql": "SELECT *\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname IN ('Campbell Conference', 'Wales Conference')) AND (s.year BETWEEN 1980 AND 1989 OR s.year = 1990)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 92,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year BETWEEN 1980 AND 1989",
+          "sql": "SELECT *\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname IN ('Campbell Conference', 'Wales Conference')) AND (s.year BETWEEN 1980 AND 1989)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 92,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year BETWEEN 1980 AND 1989 OR s.year IS NULL",
+          "sql": "SELECT *\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname IN ('Campbell Conference', 'Wales Conference')) AND (s.year BETWEEN 1980 AND 1989 OR s.year IS NULL)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 92,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year BETWEEN 1980 AND 1989",
+          "sql": "SELECT *\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname IN ('Campbell Conference', 'Wales Conference')) AND (s.year BETWEEN 1980 AND 1989)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 92,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year BETWEEN 1980 AND 1990",
+          "sql": "SELECT *\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname IN ('Campbell Conference', 'Wales Conference')) AND (s.year BETWEEN 1980 AND 1990)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 92,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where_skipped",
+          "clause": "s.year BETWEEN 1980 AND 1989",
+          "last_candidate": "s.year BETWEEN 1980 AND 1989",
+          "reason": "where predicate made the probe empty"
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT m.playerid, s.year, s.g\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname IN ('Campbell Conference', 'Wales Conference'))",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 3,
+            "preview": [
+              {
+                "playerid": "spencir01",
+                "year": 1962,
+                "g": 5
+              },
+              {
+                "playerid": "spencir01",
+                "year": 1962,
+                "g": 5
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "This block calculates the total number of goals scored by players from the Campbell Conference in the 1980s",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT m.playerid, s.year, s.g\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname IN ('Campbell Conference', 'Wales Conference'))) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 3,
+            "preview": [
+              {
+                "playerid": "spencir01",
+                "year": 1962,
+                "g": 5
+              },
+              {
+                "playerid": "spencir01",
+                "year": 1962,
+                "g": 5
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT SUM(leaf_1.g) AS total_goals\nFROM (SELECT m.playerid, s.year, s.g\nFROM master m\nJOIN scoring s ON m.playerid = s.playerid\nJOIN teams t ON s.tmid = t.tmid\nJOIN abbrev a ON t.confid = a.code\nWHERE (a.type = 'Conference') AND (a.fullname IN ('Campbell Conference', 'Wales Conference'))) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "total_goals": 10
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 6,
+  "sample_retry": 1,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.35021912090778656,
+    "nearest": {
+      "sample_index": 1,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "similarity": 0.35021912090778656,
+      "sql": "SELECT SUM(pts) AS total_points\nFROM (SELECT s.playerid, s.year, s.tmid, s.pts, a.award\nFROM scoring AS s\nJOIN awardsplayers AS a ON s.playerid = a.playerid\nJOIN seriespost AS sp ON s.tmid = sp.tmidwinner\nJOIN teams AS t ON s.tmid = t.tmid\nWHERE (a.award LIKE '%All-Star%')) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": null,
+    "nearest": null,
+    "reason": "not numeric"
+  },
+  "question": "What is the total number of goals scored by players in the Campbell Conference and Wales Conference?",
+  "answer": "10"
+}

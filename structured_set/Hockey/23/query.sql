@@ -1,0 +1,7 @@
+SELECT CONCAT(firstname, ' ', lastname) AS player_name
+FROM (SELECT * FROM (SELECT s.playerid, m.firstname, m.lastname, s.g
+FROM scoring AS s
+JOIN master AS m ON s.playerid = m.playerid
+JOIN teams AS t ON s.tmid = t.tmid
+JOIN seriespost AS sp ON t.tmid = sp.tmidloser
+WHERE (sp.tmidloser != 'SEA')) ORDER BY g DESC LIMIT 1) AS leaf_1

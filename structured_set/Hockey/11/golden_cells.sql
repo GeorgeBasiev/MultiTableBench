@@ -1,0 +1,1 @@
+SELECT m.firstname, m.lastname, s.pts, s.tmid, s.year, t.confid, a.code, a.fullname FROM master m JOIN scoring s ON m.playerid = s.playerid JOIN teams t ON s.tmid = t.tmid JOIN abbrev a ON t.confid = a.code WHERE a.type = 'Conference' AND s.year >= 1912 ORDER BY s.pts DESC LIMIT 1

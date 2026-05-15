@@ -1,0 +1,1 @@
+SELECT c.name AS constructor_name, AVG(cr.points) AS average_points FROM constructorresults cr JOIN constructors c ON cr.constructorid = c.constructorid JOIN races r ON cr.raceid = r.raceid JOIN circuits ci ON r.circuitid = ci.circuitid WHERE ci.country = 'Australia' GROUP BY c.name

@@ -1,0 +1,3528 @@
+{
+  "sample_index": 4,
+  "db_name": "Hockey",
+  "answer_mode": "aggregate",
+  "target_join_count": 3,
+  "actual_join_count": 3,
+  "numeric_answer": 23.181818181818183,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 3,
+    "min_hops": 3,
+    "max_hops": 3,
+    "require_group_by": true,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "average goals scored by the winning team in the first round of the Stanley Cup playoffs, where the winning team's coach was a First Team All-Star",
+  "manifest": {
+    "db_name": "Hockey",
+    "sample_dir": "structured_set/Hockey/4",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "abbrev",
+        "remote_row_count": 58,
+        "snapshot_row_count": 58,
+        "target_limit": 58,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "type",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "code",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fullname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardscoaches",
+        "remote_row_count": 77,
+        "snapshot_row_count": 77,
+        "target_limit": 77,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsmisc",
+        "remote_row_count": 124,
+        "snapshot_row_count": 96,
+        "target_limit": 96,
+        "relational_rows_added": 4,
+        "columns": [
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsplayers",
+        "remote_row_count": 2091,
+        "snapshot_row_count": 109,
+        "target_limit": 109,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "coaches",
+        "remote_row_count": 1812,
+        "snapshot_row_count": 65,
+        "target_limit": 65,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "combinedshutouts",
+        "remote_row_count": 54,
+        "snapshot_row_count": 54,
+        "target_limit": 54,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "month",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "date",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "r/p",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie1",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie2",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goalies",
+        "remote_row_count": 4278,
+        "snapshot_row_count": 107,
+        "target_limit": 107,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "min",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "l",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "t/ol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "eng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postmin",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posteng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliessc",
+        "remote_row_count": 31,
+        "snapshot_row_count": 31,
+        "target_limit": 31,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "min",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliesshootout",
+        "remote_row_count": 480,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "hof",
+        "remote_row_count": 365,
+        "snapshot_row_count": 109,
+        "target_limit": 109,
+        "relational_rows_added": 1,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "category",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "master",
+        "remote_row_count": 7761,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenote",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namegiven",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenick",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "height",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "weight",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shootcatch",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "legendsid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ihdbid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hrefid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoring",
+        "remote_row_count": 45967,
+        "snapshot_row_count": 80,
+        "target_limit": 80,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gtg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posta",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpts",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "post+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postshg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsc",
+        "remote_row_count": 284,
+        "snapshot_row_count": 107,
+        "target_limit": 107,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringshootout",
+        "remote_row_count": 2072,
+        "snapshot_row_count": 92,
+        "target_limit": 92,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "s",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gdg",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsup",
+        "remote_row_count": 137,
+        "snapshot_row_count": 103,
+        "target_limit": 103,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "seriespost",
+        "remote_row_count": 832,
+        "snapshot_row_count": 104,
+        "target_limit": 104,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "round",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "series",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalswinner",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalsloser",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teams",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 61,
+        "target_limit": 61,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "franchid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "confid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "divid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "playoff",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sow",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamshalf",
+        "remote_row_count": 41,
+        "snapshot_row_count": 41,
+        "target_limit": 41,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "half",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "teamsplits",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ht",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sept",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "dect",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "janw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "jant",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "febw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mart",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamspost",
+        "remote_row_count": 927,
+        "snapshot_row_count": 107,
+        "target_limit": 107,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamssc",
+        "remote_row_count": 30,
+        "snapshot_row_count": 30,
+        "target_limit": 30,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamvsteam",
+        "remote_row_count": 25602,
+        "snapshot_row_count": 106,
+        "target_limit": 106,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "average goals scored by the winning team in the first round of the Stanley Cup playoffs, where the winning team's coach was a First Team All-Star",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT leaf_1.year, leaf_1.round, leaf_1.series, leaf_1.tmidwinner, leaf_1.goalswinner, leaf_1.coachid, leaf_1.award FROM (SELECT sp.year, sp.round, sp.series, sp.tmidwinner, sp.goalswinner, c.coachid, a.award FROM seriespost AS sp JOIN teams AS t ON sp.tmidwinner = t.tmid JOIN coaches AS c ON t.tmid = c.tmid JOIN awardscoaches AS a ON c.coachid = a.coachid WHERE (sp.round = 'QF') AND (a.award = 'First Team All-Star')) AS leaf_1",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT sp.year, sp.round, sp.series, sp.tmidwinner, sp.goalswinner, c.coachid, a.award",
+        "from_clause": "FROM seriespost AS sp",
+        "join_clauses": [
+          "JOIN teams AS t ON sp.tmidwinner = t.tmid",
+          "JOIN coaches AS c ON t.tmid = c.tmid",
+          "JOIN awardscoaches AS a ON c.coachid = a.coachid"
+        ],
+        "where_clauses": [
+          "sp.round = 'QF'",
+          "a.award = 'First Team All-Star'"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "winning teams in the first round of the Stanley Cup playoffs with their coaches and awards"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT AVG(leaf_1.goalswinner)",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "average goals scored by the winning team"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "winning teams in the first round of the Stanley Cup playoffs with their coaches and awards",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM seriespost AS sp\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 13,
+            "preview": [
+              {
+                "year": 2000,
+                "round": "CSF",
+                "series": "L",
+                "tmidwinner": "STL",
+                "lgidwinner": "NHL",
+                "tmidloser": "DAL",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 13,
+                "goalsloser": 6,
+                "note": NaN
+              },
+              {
+                "year": 1992,
+                "round": "DSF",
+                "series": "C",
+                "tmidwinner": "PIT",
+                "lgidwinner": "NHL",
+                "tmidloser": "NJD",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 1,
+                "t": 0,
+                "goalswinner": 23,
+                "goalsloser": 13,
+                "note": NaN
+              },
+              {
+                "year": 1932,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "DET",
+                "lgidwinner": "NHL",
+                "tmidloser": "MTM",
+                "lgidloser": "NHL",
+                "w": 2,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 5,
+                "goalsloser": 2,
+                "note": "TG"
+              },
+              {
+                "year": 1959,
+                "round": "SCF",
+                "series": "C",
+                "tmidwinner": "MTL",
+                "lgidwinner": "NHL",
+                "tmidloser": "TOR",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 15,
+                "goalsloser": 5,
+                "note": NaN
+              },
+              {
+                "year": 1995,
+                "round": "CSF",
+                "series": "L",
+                "tmidwinner": "COL",
+                "lgidwinner": "NHL",
+                "tmidloser": "CHI",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 2,
+                "t": 0,
+                "goalswinner": 21,
+                "goalsloser": 14,
+                "note": NaN
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN teams AS t ON sp.tmidwinner = t.tmid",
+          "sql": "SELECT *\nFROM seriespost AS sp\nJOIN teams AS t ON sp.tmidwinner = t.tmid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 40,
+            "preview": [
+              {
+                "year": 2000,
+                "round": "CSF",
+                "series": "L",
+                "tmidwinner": "STL",
+                "lgidwinner": "NHL",
+                "tmidloser": "DAL",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 13,
+                "goalsloser": 6,
+                "note": NaN,
+                "year__dup1": 1986,
+                "lgid": "NHL",
+                "tmid": "STL",
+                "franchid": "STL",
+                "confid": "CC",
+                "divid": "NO",
+                "rank": 1,
+                "playoff": "DSF",
+                "g": 80,
+                "w__dup1": 32,
+                "l__dup1": 33,
+                "t__dup1": 15,
+                "otl": null,
+                "pts": 79,
+                "sow": null,
+                "sol": null,
+                "gf": 281,
+                "ga": 293,
+                "name": "St. Louis Blues",
+                "pim": "1572",
+                "benchminor": "6",
+                "ppg": "79",
+                "ppc": "324",
+                "sha": "11",
+                "pkg": "58",
+                "pkc": "303",
+                "shf": "6"
+              },
+              {
+                "year": 2000,
+                "round": "CSF",
+                "series": "L",
+                "tmidwinner": "STL",
+                "lgidwinner": "NHL",
+                "tmidloser": "DAL",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 13,
+                "goalsloser": 6,
+                "note": NaN,
+                "year__dup1": 1991,
+                "lgid": "NHL",
+                "tmid": "STL",
+                "franchid": "STL",
+                "confid": "CC",
+                "divid": "NO",
+                "rank": 3,
+                "playoff": "DSF",
+                "g": 80,
+                "w__dup1": 36,
+                "l__dup1": 33,
+                "t__dup1": 11,
+                "otl": null,
+                "pts": 83,
+                "sow": null,
+                "sol": null,
+                "gf": 279,
+                "ga": 266,
+                "name": "St. Louis Blues",
+                "pim": "2041",
+                "benchminor": "12",
+                "ppg": "69",
+                "ppc": "359",
+                "sha": "12",
+                "pkg": "64",
+                "pkc": "389",
+                "shf": "16"
+              },
+              {
+                "year": 1992,
+                "round": "DSF",
+                "series": "C",
+                "tmidwinner": "PIT",
+                "lgidwinner": "NHL",
+                "tmidloser": "NJD",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 1,
+                "t": 0,
+                "goalswinner": 23,
+                "goalsloser": 13,
+                "note": NaN,
+                "year__dup1": 1970,
+                "lgid": "NHL",
+                "tmid": "PIT",
+                "franchid": "PIT",
+                "confid": NaN,
+                "divid": "WD",
+                "rank": 6,
+                "playoff": NaN,
+                "g": 78,
+                "w__dup1": 21,
+                "l__dup1": 37,
+                "t__dup1": 20,
+                "otl": null,
+                "pts": 62,
+                "sow": null,
+                "sol": null,
+                "gf": 221,
+                "ga": 240,
+                "name": "Pittsburgh Penguins",
+                "pim": "1079",
+                "benchminor": "6",
+                "ppg": "56",
+                "ppc": "318",
+                "sha": "9",
+                "pkg": "48",
+                "pkc": "276",
+                "shf": "5"
+              },
+              {
+                "year": 1992,
+                "round": "DSF",
+                "series": "C",
+                "tmidwinner": "PIT",
+                "lgidwinner": "NHL",
+                "tmidloser": "NJD",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 1,
+                "t": 0,
+                "goalswinner": 23,
+                "goalsloser": 13,
+                "note": NaN,
+                "year__dup1": 1988,
+                "lgid": "NHL",
+                "tmid": "PIT",
+                "franchid": "PIT",
+                "confid": "WA",
+                "divid": "PT",
+                "rank": 2,
+                "playoff": "DF",
+                "g": 80,
+                "w__dup1": 40,
+                "l__dup1": 33,
+                "t__dup1": 7,
+                "otl": null,
+                "pts": 87,
+                "sow": null,
+                "sol": null,
+                "gf": 347,
+                "ga": 349,
+                "name": "Pittsburgh Penguins",
+                "pim": "2670",
+                "benchminor": "16",
+                "ppg": "119",
+                "ppc": "491",
+                "sha": "16",
+                "pkg": "111",
+                "pkc": "482",
+                "shf": "21"
+              },
+              {
+                "year": 1932,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "DET",
+                "lgidwinner": "NHL",
+                "tmidloser": "MTM",
+                "lgidloser": "NHL",
+                "w": 2,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 5,
+                "goalsloser": 2,
+                "note": "TG",
+                "year__dup1": 1933,
+                "lgid": "NHL",
+                "tmid": "DET",
+                "franchid": "DET",
+                "confid": NaN,
+                "divid": "AM",
+                "rank": 1,
+                "playoff": "F",
+                "g": 48,
+                "w__dup1": 24,
+                "l__dup1": 14,
+                "t__dup1": 10,
+                "otl": null,
+                "pts": 58,
+                "sow": null,
+                "sol": null,
+                "gf": 113,
+                "ga": 98,
+                "name": "Detroit Red Wings",
+                "pim": "368",
+                "benchminor": NaN,
+                "ppg": NaN,
+                "ppc": NaN,
+                "sha": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN coaches AS c ON t.tmid = c.tmid",
+          "sql": "SELECT *\nFROM seriespost AS sp\nJOIN teams AS t ON sp.tmidwinner = t.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 54,
+            "preview": [
+              {
+                "year": 2000,
+                "round": "CSF",
+                "series": "L",
+                "tmidwinner": "STL",
+                "lgidwinner": "NHL",
+                "tmidloser": "DAL",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 13,
+                "goalsloser": 6,
+                "note": NaN,
+                "year__dup1": 1986,
+                "lgid": "NHL",
+                "tmid": "STL",
+                "franchid": "STL",
+                "confid": "CC",
+                "divid": "NO",
+                "rank": 1,
+                "playoff": "DSF",
+                "g": 80,
+                "w__dup1": 32,
+                "l__dup1": 33,
+                "t__dup1": 15,
+                "otl": null,
+                "pts": 79,
+                "sow": null,
+                "sol": null,
+                "gf": 281,
+                "ga": 293,
+                "name": "St. Louis Blues",
+                "pim": "1572",
+                "benchminor": "6",
+                "ppg": "79",
+                "ppc": "324",
+                "sha": "11",
+                "pkg": "58",
+                "pkc": "303",
+                "shf": "6",
+                "coachid": "berrybo01c",
+                "year__dup2": 1993,
+                "tmid__dup1": "STL",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 84,
+                "w__dup2": 40,
+                "l__dup2": 33,
+                "t__dup2": 11,
+                "postg": "4",
+                "postw": "0",
+                "postl": "4",
+                "postt": "0"
+              },
+              {
+                "year": 2000,
+                "round": "CSF",
+                "series": "L",
+                "tmidwinner": "STL",
+                "lgidwinner": "NHL",
+                "tmidloser": "DAL",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 13,
+                "goalsloser": 6,
+                "note": NaN,
+                "year__dup1": 1991,
+                "lgid": "NHL",
+                "tmid": "STL",
+                "franchid": "STL",
+                "confid": "CC",
+                "divid": "NO",
+                "rank": 3,
+                "playoff": "DSF",
+                "g": 80,
+                "w__dup1": 36,
+                "l__dup1": 33,
+                "t__dup1": 11,
+                "otl": null,
+                "pts": 83,
+                "sow": null,
+                "sol": null,
+                "gf": 279,
+                "ga": 266,
+                "name": "St. Louis Blues",
+                "pim": "2041",
+                "benchminor": "12",
+                "ppg": "69",
+                "ppc": "359",
+                "sha": "12",
+                "pkg": "64",
+                "pkc": "389",
+                "shf": "16",
+                "coachid": "berrybo01c",
+                "year__dup2": 1993,
+                "tmid__dup1": "STL",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 84,
+                "w__dup2": 40,
+                "l__dup2": 33,
+                "t__dup2": 11,
+                "postg": "4",
+                "postw": "0",
+                "postl": "4",
+                "postt": "0"
+              },
+              {
+                "year": 1992,
+                "round": "DSF",
+                "series": "C",
+                "tmidwinner": "PIT",
+                "lgidwinner": "NHL",
+                "tmidloser": "NJD",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 1,
+                "t": 0,
+                "goalswinner": 23,
+                "goalsloser": 13,
+                "note": NaN,
+                "year__dup1": 1970,
+                "lgid": "NHL",
+                "tmid": "PIT",
+                "franchid": "PIT",
+                "confid": NaN,
+                "divid": "WD",
+                "rank": 6,
+                "playoff": NaN,
+                "g": 78,
+                "w__dup1": 21,
+                "l__dup1": 37,
+                "t__dup1": 20,
+                "otl": null,
+                "pts": 62,
+                "sow": null,
+                "sol": null,
+                "gf": 221,
+                "ga": 240,
+                "name": "Pittsburgh Penguins",
+                "pim": "1079",
+                "benchminor": "6",
+                "ppg": "56",
+                "ppc": "318",
+                "sha": "9",
+                "pkg": "48",
+                "pkc": "276",
+                "shf": "5",
+                "coachid": "boilema01c",
+                "year__dup2": 1974,
+                "tmid__dup1": "PIT",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 37,
+                "l__dup2": 28,
+                "t__dup2": 15,
+                "postg": "9",
+                "postw": "5",
+                "postl": "4",
+                "postt": "0"
+              },
+              {
+                "year": 1992,
+                "round": "DSF",
+                "series": "C",
+                "tmidwinner": "PIT",
+                "lgidwinner": "NHL",
+                "tmidloser": "NJD",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 1,
+                "t": 0,
+                "goalswinner": 23,
+                "goalsloser": 13,
+                "note": NaN,
+                "year__dup1": 1988,
+                "lgid": "NHL",
+                "tmid": "PIT",
+                "franchid": "PIT",
+                "confid": "WA",
+                "divid": "PT",
+                "rank": 2,
+                "playoff": "DF",
+                "g": 80,
+                "w__dup1": 40,
+                "l__dup1": 33,
+                "t__dup1": 7,
+                "otl": null,
+                "pts": 87,
+                "sow": null,
+                "sol": null,
+                "gf": 347,
+                "ga": 349,
+                "name": "Pittsburgh Penguins",
+                "pim": "2670",
+                "benchminor": "16",
+                "ppg": "119",
+                "ppc": "491",
+                "sha": "16",
+                "pkg": "111",
+                "pkc": "482",
+                "shf": "21",
+                "coachid": "boilema01c",
+                "year__dup2": 1974,
+                "tmid__dup1": "PIT",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 37,
+                "l__dup2": 28,
+                "t__dup2": 15,
+                "postg": "9",
+                "postw": "5",
+                "postl": "4",
+                "postt": "0"
+              },
+              {
+                "year": 1932,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "DET",
+                "lgidwinner": "NHL",
+                "tmidloser": "MTM",
+                "lgidloser": "NHL",
+                "w": 2,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 5,
+                "goalsloser": 2,
+                "note": "TG",
+                "year__dup1": 1933,
+                "lgid": "NHL",
+                "tmid": "DET",
+                "franchid": "DET",
+                "confid": NaN,
+                "divid": "AM",
+                "rank": 1,
+                "playoff": "F",
+                "g": 48,
+                "w__dup1": 24,
+                "l__dup1": 14,
+                "t__dup1": 10,
+                "otl": null,
+                "pts": 58,
+                "sow": null,
+                "sol": null,
+                "gf": 113,
+                "ga": 98,
+                "name": "Detroit Red Wings",
+                "pim": "368",
+                "benchminor": NaN,
+                "ppg": NaN,
+                "ppc": NaN,
+                "sha": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN,
+                "coachid": "demerja01c",
+                "year__dup2": 1989,
+                "tmid__dup1": "DET",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 28,
+                "l__dup2": 38,
+                "t__dup2": 14,
+                "postg": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": NaN
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN awardscoaches AS a ON c.coachid = a.coachid",
+          "sql": "SELECT *\nFROM seriespost AS sp\nJOIN teams AS t ON sp.tmidwinner = t.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 59,
+            "preview": [
+              {
+                "year": 1935,
+                "round": "SF",
+                "series": "D",
+                "tmidwinner": "TOR",
+                "lgidwinner": "NHL",
+                "tmidloser": "NYA",
+                "lgidloser": "NHL",
+                "w": 2,
+                "l": 1,
+                "t": 0,
+                "goalswinner": 6,
+                "goalsloser": 3,
+                "note": null,
+                "year__dup1": 1934,
+                "lgid": "NHL",
+                "tmid": "TOR",
+                "franchid": "TOR",
+                "confid": null,
+                "divid": "CA",
+                "rank": 1,
+                "playoff": "F",
+                "g": 48,
+                "w__dup1": 30,
+                "l__dup1": 14,
+                "t__dup1": 4,
+                "otl": null,
+                "pts": 64,
+                "sow": null,
+                "sol": null,
+                "gf": 157,
+                "ga": 111,
+                "name": "Toronto Maple Leafs",
+                "pim": "444",
+                "benchminor": null,
+                "ppg": null,
+                "ppc": null,
+                "sha": null,
+                "pkg": null,
+                "pkc": null,
+                "shf": null,
+                "coachid": "irvindi01c",
+                "year__dup2": 1934,
+                "tmid__dup1": "TOR",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 48,
+                "w__dup2": 30,
+                "l__dup2": 14,
+                "t__dup2": 4,
+                "postg": "7",
+                "postw": "3",
+                "postl": "4",
+                "postt": "0",
+                "coachid__dup1": "irvindi01c",
+                "award": "Second Team All-Star",
+                "year__dup3": 1930,
+                "lgid__dup2": "NHL",
+                "note__dup1": null
+              },
+              {
+                "year": 1961,
+                "round": "SCF",
+                "series": "C",
+                "tmidwinner": "TOR",
+                "lgidwinner": "NHL",
+                "tmidloser": "CHI",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 2,
+                "t": 0,
+                "goalswinner": 18,
+                "goalsloser": 15,
+                "note": null,
+                "year__dup1": 1934,
+                "lgid": "NHL",
+                "tmid": "TOR",
+                "franchid": "TOR",
+                "confid": null,
+                "divid": "CA",
+                "rank": 1,
+                "playoff": "F",
+                "g": 48,
+                "w__dup1": 30,
+                "l__dup1": 14,
+                "t__dup1": 4,
+                "otl": null,
+                "pts": 64,
+                "sow": null,
+                "sol": null,
+                "gf": 157,
+                "ga": 111,
+                "name": "Toronto Maple Leafs",
+                "pim": "444",
+                "benchminor": null,
+                "ppg": null,
+                "ppc": null,
+                "sha": null,
+                "pkg": null,
+                "pkc": null,
+                "shf": null,
+                "coachid": "irvindi01c",
+                "year__dup2": 1934,
+                "tmid__dup1": "TOR",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 48,
+                "w__dup2": 30,
+                "l__dup2": 14,
+                "t__dup2": 4,
+                "postg": "7",
+                "postw": "3",
+                "postl": "4",
+                "postt": "0",
+                "coachid__dup1": "irvindi01c",
+                "award": "Second Team All-Star",
+                "year__dup3": 1930,
+                "lgid__dup2": "NHL",
+                "note__dup1": null
+              },
+              {
+                "year": 1962,
+                "round": "SF",
+                "series": "A",
+                "tmidwinner": "TOR",
+                "lgidwinner": "NHL",
+                "tmidloser": "MTL",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 1,
+                "t": 0,
+                "goalswinner": 14,
+                "goalsloser": 6,
+                "note": null,
+                "year__dup1": 1934,
+                "lgid": "NHL",
+                "tmid": "TOR",
+                "franchid": "TOR",
+                "confid": null,
+                "divid": "CA",
+                "rank": 1,
+                "playoff": "F",
+                "g": 48,
+                "w__dup1": 30,
+                "l__dup1": 14,
+                "t__dup1": 4,
+                "otl": null,
+                "pts": 64,
+                "sow": null,
+                "sol": null,
+                "gf": 157,
+                "ga": 111,
+                "name": "Toronto Maple Leafs",
+                "pim": "444",
+                "benchminor": null,
+                "ppg": null,
+                "ppc": null,
+                "sha": null,
+                "pkg": null,
+                "pkc": null,
+                "shf": null,
+                "coachid": "irvindi01c",
+                "year__dup2": 1934,
+                "tmid__dup1": "TOR",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 48,
+                "w__dup2": 30,
+                "l__dup2": 14,
+                "t__dup2": 4,
+                "postg": "7",
+                "postw": "3",
+                "postl": "4",
+                "postt": "0",
+                "coachid__dup1": "irvindi01c",
+                "award": "Second Team All-Star",
+                "year__dup3": 1930,
+                "lgid__dup2": "NHL",
+                "note__dup1": null
+              },
+              {
+                "year": 1966,
+                "round": "SF",
+                "series": "A",
+                "tmidwinner": "TOR",
+                "lgidwinner": "NHL",
+                "tmidloser": "CHI",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 2,
+                "t": 0,
+                "goalswinner": 18,
+                "goalsloser": 14,
+                "note": null,
+                "year__dup1": 1934,
+                "lgid": "NHL",
+                "tmid": "TOR",
+                "franchid": "TOR",
+                "confid": null,
+                "divid": "CA",
+                "rank": 1,
+                "playoff": "F",
+                "g": 48,
+                "w__dup1": 30,
+                "l__dup1": 14,
+                "t__dup1": 4,
+                "otl": null,
+                "pts": 64,
+                "sow": null,
+                "sol": null,
+                "gf": 157,
+                "ga": 111,
+                "name": "Toronto Maple Leafs",
+                "pim": "444",
+                "benchminor": null,
+                "ppg": null,
+                "ppc": null,
+                "sha": null,
+                "pkg": null,
+                "pkc": null,
+                "shf": null,
+                "coachid": "irvindi01c",
+                "year__dup2": 1934,
+                "tmid__dup1": "TOR",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 48,
+                "w__dup2": 30,
+                "l__dup2": 14,
+                "t__dup2": 4,
+                "postg": "7",
+                "postw": "3",
+                "postl": "4",
+                "postt": "0",
+                "coachid__dup1": "irvindi01c",
+                "award": "Second Team All-Star",
+                "year__dup3": 1930,
+                "lgid__dup2": "NHL",
+                "note__dup1": null
+              },
+              {
+                "year": 1976,
+                "round": "Pre",
+                "series": "D",
+                "tmidwinner": "TOR",
+                "lgidwinner": "NHL",
+                "tmidloser": "PIT",
+                "lgidloser": "NHL",
+                "w": 2,
+                "l": 1,
+                "t": 0,
+                "goalswinner": 13,
+                "goalsloser": 10,
+                "note": null,
+                "year__dup1": 1934,
+                "lgid": "NHL",
+                "tmid": "TOR",
+                "franchid": "TOR",
+                "confid": null,
+                "divid": "CA",
+                "rank": 1,
+                "playoff": "F",
+                "g": 48,
+                "w__dup1": 30,
+                "l__dup1": 14,
+                "t__dup1": 4,
+                "otl": null,
+                "pts": 64,
+                "sow": null,
+                "sol": null,
+                "gf": 157,
+                "ga": 111,
+                "name": "Toronto Maple Leafs",
+                "pim": "444",
+                "benchminor": null,
+                "ppg": null,
+                "ppc": null,
+                "sha": null,
+                "pkg": null,
+                "pkc": null,
+                "shf": null,
+                "coachid": "irvindi01c",
+                "year__dup2": 1934,
+                "tmid__dup1": "TOR",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 48,
+                "w__dup2": 30,
+                "l__dup2": 14,
+                "t__dup2": 4,
+                "postg": "7",
+                "postw": "3",
+                "postl": "4",
+                "postt": "0",
+                "coachid__dup1": "irvindi01c",
+                "award": "Second Team All-Star",
+                "year__dup3": 1930,
+                "lgid__dup2": "NHL",
+                "note__dup1": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "sp.round = 'QF'",
+          "sql": "SELECT *\nFROM seriespost AS sp\nJOIN teams AS t ON sp.tmidwinner = t.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nWHERE (sp.round = 'QF')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 59,
+            "preview": [
+              {
+                "year": 1932,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "DET",
+                "lgidwinner": "NHL",
+                "tmidloser": "MTM",
+                "lgidloser": "NHL",
+                "w": 2,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 5,
+                "goalsloser": 2,
+                "note": "TG",
+                "year__dup1": 1933,
+                "lgid": "NHL",
+                "tmid": "DET",
+                "franchid": "DET",
+                "confid": NaN,
+                "divid": "AM",
+                "rank": 1,
+                "playoff": "F",
+                "g": 48,
+                "w__dup1": 24,
+                "l__dup1": 14,
+                "t__dup1": 10,
+                "otl": null,
+                "pts": 58,
+                "sow": null,
+                "sol": null,
+                "gf": 113,
+                "ga": 98,
+                "name": "Detroit Red Wings",
+                "pim": "368",
+                "benchminor": NaN,
+                "ppg": NaN,
+                "ppc": NaN,
+                "sha": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN,
+                "coachid": "demerja01c",
+                "year__dup2": 1989,
+                "tmid__dup1": "DET",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 28,
+                "l__dup2": 38,
+                "t__dup2": 14,
+                "postg": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "coachid__dup1": "demerja01c",
+                "award": "Jack Adams",
+                "year__dup3": 1986,
+                "lgid__dup2": "NHL",
+                "note__dup1": null
+              },
+              {
+                "year": 1932,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "DET",
+                "lgidwinner": "NHL",
+                "tmidloser": "MTM",
+                "lgidloser": "NHL",
+                "w": 2,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 5,
+                "goalsloser": 2,
+                "note": "TG",
+                "year__dup1": 1933,
+                "lgid": "NHL",
+                "tmid": "DET",
+                "franchid": "DET",
+                "confid": NaN,
+                "divid": "AM",
+                "rank": 1,
+                "playoff": "F",
+                "g": 48,
+                "w__dup1": 24,
+                "l__dup1": 14,
+                "t__dup1": 10,
+                "otl": null,
+                "pts": 58,
+                "sow": null,
+                "sol": null,
+                "gf": 113,
+                "ga": 98,
+                "name": "Detroit Red Wings",
+                "pim": "368",
+                "benchminor": NaN,
+                "ppg": NaN,
+                "ppc": NaN,
+                "sha": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN,
+                "coachid": "demerja01c",
+                "year__dup2": 1989,
+                "tmid__dup1": "DET",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 28,
+                "l__dup2": 38,
+                "t__dup2": 14,
+                "postg": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "coachid__dup1": "demerja01c",
+                "award": "Jack Adams",
+                "year__dup3": 1987,
+                "lgid__dup2": "NHL",
+                "note__dup1": null
+              },
+              {
+                "year": 1932,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "DET",
+                "lgidwinner": "NHL",
+                "tmidloser": "MTM",
+                "lgidloser": "NHL",
+                "w": 2,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 5,
+                "goalsloser": 2,
+                "note": "TG",
+                "year__dup1": 1966,
+                "lgid": "NHL",
+                "tmid": "DET",
+                "franchid": "DET",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 5,
+                "playoff": NaN,
+                "g": 70,
+                "w__dup1": 27,
+                "l__dup1": 39,
+                "t__dup1": 4,
+                "otl": null,
+                "pts": 58,
+                "sow": null,
+                "sol": null,
+                "gf": 212,
+                "ga": 241,
+                "name": "Detroit Red Wings",
+                "pim": "719",
+                "benchminor": NaN,
+                "ppg": "46",
+                "ppc": "230",
+                "sha": "7",
+                "pkg": "46",
+                "pkc": "246",
+                "shf": "6",
+                "coachid": "demerja01c",
+                "year__dup2": 1989,
+                "tmid__dup1": "DET",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 28,
+                "l__dup2": 38,
+                "t__dup2": 14,
+                "postg": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "coachid__dup1": "demerja01c",
+                "award": "Jack Adams",
+                "year__dup3": 1986,
+                "lgid__dup2": "NHL",
+                "note__dup1": null
+              },
+              {
+                "year": 1932,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "DET",
+                "lgidwinner": "NHL",
+                "tmidloser": "MTM",
+                "lgidloser": "NHL",
+                "w": 2,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 5,
+                "goalsloser": 2,
+                "note": "TG",
+                "year__dup1": 1966,
+                "lgid": "NHL",
+                "tmid": "DET",
+                "franchid": "DET",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 5,
+                "playoff": NaN,
+                "g": 70,
+                "w__dup1": 27,
+                "l__dup1": 39,
+                "t__dup1": 4,
+                "otl": null,
+                "pts": 58,
+                "sow": null,
+                "sol": null,
+                "gf": 212,
+                "ga": 241,
+                "name": "Detroit Red Wings",
+                "pim": "719",
+                "benchminor": NaN,
+                "ppg": "46",
+                "ppc": "230",
+                "sha": "7",
+                "pkg": "46",
+                "pkc": "246",
+                "shf": "6",
+                "coachid": "demerja01c",
+                "year__dup2": 1989,
+                "tmid__dup1": "DET",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 28,
+                "l__dup2": 38,
+                "t__dup2": 14,
+                "postg": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "coachid__dup1": "demerja01c",
+                "award": "Jack Adams",
+                "year__dup3": 1987,
+                "lgid__dup2": "NHL",
+                "note__dup1": null
+              },
+              {
+                "year": 1932,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "DET",
+                "lgidwinner": "NHL",
+                "tmidloser": "MTM",
+                "lgidloser": "NHL",
+                "w": 2,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 5,
+                "goalsloser": 2,
+                "note": "TG",
+                "year__dup1": 1976,
+                "lgid": "NHL",
+                "tmid": "DET",
+                "franchid": "DET",
+                "confid": "WA",
+                "divid": "NO",
+                "rank": 5,
+                "playoff": NaN,
+                "g": 80,
+                "w__dup1": 16,
+                "l__dup1": 55,
+                "t__dup1": 9,
+                "otl": null,
+                "pts": 41,
+                "sow": null,
+                "sol": null,
+                "gf": 183,
+                "ga": 309,
+                "name": "Detroit Red Wings",
+                "pim": "1332",
+                "benchminor": "10",
+                "ppg": "37",
+                "ppc": "294",
+                "sha": "10",
+                "pkg": "73",
+                "pkc": "317",
+                "shf": "10",
+                "coachid": "demerja01c",
+                "year__dup2": 1989,
+                "tmid__dup1": "DET",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 28,
+                "l__dup2": 38,
+                "t__dup2": 14,
+                "postg": null,
+                "postw": null,
+                "postl": null,
+                "postt": null,
+                "coachid__dup1": "demerja01c",
+                "award": "Jack Adams",
+                "year__dup3": 1986,
+                "lgid__dup2": "NHL",
+                "note__dup1": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "a.award = 'First Team All-Star'",
+          "sql": "SELECT *\nFROM seriespost AS sp\nJOIN teams AS t ON sp.tmidwinner = t.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nWHERE (sp.round = 'QF') AND (a.award = 'First Team All-Star')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 59,
+            "preview": [
+              {
+                "year": 1968,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "BOS",
+                "lgidwinner": "NHL",
+                "tmidloser": "TOR",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 24,
+                "goalsloser": 5,
+                "note": null,
+                "year__dup1": 1939,
+                "lgid": "NHL",
+                "tmid": "BOS",
+                "franchid": "BOS",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 1,
+                "playoff": "SF",
+                "g": 48,
+                "w__dup1": 31,
+                "l__dup1": 12,
+                "t__dup1": 5,
+                "otl": null,
+                "pts": 67,
+                "sow": null,
+                "sol": null,
+                "gf": 170,
+                "ga": 98,
+                "name": "Boston Bruins",
+                "pim": "330",
+                "benchminor": NaN,
+                "ppg": NaN,
+                "ppc": NaN,
+                "sha": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN,
+                "coachid": "rossar01c",
+                "year__dup2": 1936,
+                "tmid__dup1": "BOS",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 48,
+                "w__dup2": 23,
+                "l__dup2": 18,
+                "t__dup2": 7,
+                "postg": "3",
+                "postw": "1",
+                "postl": "2",
+                "postt": "0",
+                "coachid__dup1": "rossar01c",
+                "award": "First Team All-Star",
+                "year__dup3": 1938,
+                "lgid__dup2": "NHL",
+                "note__dup1": null
+              },
+              {
+                "year": 1968,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "BOS",
+                "lgidwinner": "NHL",
+                "tmidloser": "TOR",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 24,
+                "goalsloser": 5,
+                "note": null,
+                "year__dup1": 1951,
+                "lgid": "NHL",
+                "tmid": "BOS",
+                "franchid": "BOS",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 4,
+                "playoff": "SF",
+                "g": 70,
+                "w__dup1": 25,
+                "l__dup1": 29,
+                "t__dup1": 16,
+                "otl": null,
+                "pts": 66,
+                "sow": null,
+                "sol": null,
+                "gf": 162,
+                "ga": 176,
+                "name": "Boston Bruins",
+                "pim": "601",
+                "benchminor": NaN,
+                "ppg": NaN,
+                "ppc": NaN,
+                "sha": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN,
+                "coachid": "rossar01c",
+                "year__dup2": 1936,
+                "tmid__dup1": "BOS",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 48,
+                "w__dup2": 23,
+                "l__dup2": 18,
+                "t__dup2": 7,
+                "postg": "3",
+                "postw": "1",
+                "postl": "2",
+                "postt": "0",
+                "coachid__dup1": "rossar01c",
+                "award": "First Team All-Star",
+                "year__dup3": 1938,
+                "lgid__dup2": "NHL",
+                "note__dup1": null
+              },
+              {
+                "year": 1968,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "BOS",
+                "lgidwinner": "NHL",
+                "tmidloser": "TOR",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 24,
+                "goalsloser": 5,
+                "note": null,
+                "year__dup1": 1954,
+                "lgid": "NHL",
+                "tmid": "BOS",
+                "franchid": "BOS",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 4,
+                "playoff": "SF",
+                "g": 70,
+                "w__dup1": 23,
+                "l__dup1": 26,
+                "t__dup1": 21,
+                "otl": null,
+                "pts": 67,
+                "sow": null,
+                "sol": null,
+                "gf": 169,
+                "ga": 188,
+                "name": "Boston Bruins",
+                "pim": "863",
+                "benchminor": NaN,
+                "ppg": NaN,
+                "ppc": NaN,
+                "sha": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN,
+                "coachid": "rossar01c",
+                "year__dup2": 1936,
+                "tmid__dup1": "BOS",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 48,
+                "w__dup2": 23,
+                "l__dup2": 18,
+                "t__dup2": 7,
+                "postg": "3",
+                "postw": "1",
+                "postl": "2",
+                "postt": "0",
+                "coachid__dup1": "rossar01c",
+                "award": "First Team All-Star",
+                "year__dup3": 1938,
+                "lgid__dup2": "NHL",
+                "note__dup1": null
+              },
+              {
+                "year": 1968,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "BOS",
+                "lgidwinner": "NHL",
+                "tmidloser": "TOR",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 24,
+                "goalsloser": 5,
+                "note": null,
+                "year__dup1": 1975,
+                "lgid": "NHL",
+                "tmid": "BOS",
+                "franchid": "BOS",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "SF",
+                "g": 80,
+                "w__dup1": 48,
+                "l__dup1": 15,
+                "t__dup1": 17,
+                "otl": null,
+                "pts": 113,
+                "sow": null,
+                "sol": null,
+                "gf": 313,
+                "ga": 237,
+                "name": "Boston Bruins",
+                "pim": "1195",
+                "benchminor": "14",
+                "ppg": "77",
+                "ppc": "289",
+                "sha": "6",
+                "pkg": "56",
+                "pkc": "345",
+                "shf": "9",
+                "coachid": "rossar01c",
+                "year__dup2": 1936,
+                "tmid__dup1": "BOS",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 48,
+                "w__dup2": 23,
+                "l__dup2": 18,
+                "t__dup2": 7,
+                "postg": "3",
+                "postw": "1",
+                "postl": "2",
+                "postt": "0",
+                "coachid__dup1": "rossar01c",
+                "award": "First Team All-Star",
+                "year__dup3": 1938,
+                "lgid__dup2": "NHL",
+                "note__dup1": null
+              },
+              {
+                "year": 1968,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "BOS",
+                "lgidwinner": "NHL",
+                "tmidloser": "TOR",
+                "lgidloser": "NHL",
+                "w": 4,
+                "l": 0,
+                "t": 0,
+                "goalswinner": 24,
+                "goalsloser": 5,
+                "note": null,
+                "year__dup1": 1998,
+                "lgid": "NHL",
+                "tmid": "BOS",
+                "franchid": "BOS",
+                "confid": "EC",
+                "divid": "NE",
+                "rank": 3,
+                "playoff": "CSF",
+                "g": 82,
+                "w__dup1": 39,
+                "l__dup1": 30,
+                "t__dup1": 13,
+                "otl": null,
+                "pts": 91,
+                "sow": null,
+                "sol": null,
+                "gf": 214,
+                "ga": 181,
+                "name": "Boston Bruins",
+                "pim": "1182",
+                "benchminor": "6",
+                "ppg": "65",
+                "ppc": "368",
+                "sha": "9",
+                "pkg": "33",
+                "pkc": "305",
+                "shf": "3",
+                "coachid": "rossar01c",
+                "year__dup2": 1936,
+                "tmid__dup1": "BOS",
+                "lgid__dup1": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 48,
+                "w__dup2": 23,
+                "l__dup2": 18,
+                "t__dup2": 7,
+                "postg": "3",
+                "postw": "1",
+                "postl": "2",
+                "postt": "0",
+                "coachid__dup1": "rossar01c",
+                "award": "First Team All-Star",
+                "year__dup3": 1938,
+                "lgid__dup2": "NHL",
+                "note__dup1": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT sp.year, sp.round, sp.series, sp.tmidwinner, sp.goalswinner, c.coachid, a.award\nFROM seriespost AS sp\nJOIN teams AS t ON sp.tmidwinner = t.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nWHERE (sp.round = 'QF') AND (a.award = 'First Team All-Star')",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 33,
+            "column_count": 7,
+            "preview": [
+              {
+                "year": 1968,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "BOS",
+                "goalswinner": 24,
+                "coachid": "rossar01c",
+                "award": "First Team All-Star"
+              },
+              {
+                "year": 1968,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "BOS",
+                "goalswinner": 24,
+                "coachid": "rossar01c",
+                "award": "First Team All-Star"
+              },
+              {
+                "year": 1968,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "BOS",
+                "goalswinner": 24,
+                "coachid": "rossar01c",
+                "award": "First Team All-Star"
+              },
+              {
+                "year": 1968,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "BOS",
+                "goalswinner": 24,
+                "coachid": "rossar01c",
+                "award": "First Team All-Star"
+              },
+              {
+                "year": 1968,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "BOS",
+                "goalswinner": 24,
+                "coachid": "rossar01c",
+                "award": "First Team All-Star"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "average goals scored by the winning team",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT sp.year, sp.round, sp.series, sp.tmidwinner, sp.goalswinner, c.coachid, a.award\nFROM seriespost AS sp\nJOIN teams AS t ON sp.tmidwinner = t.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nWHERE (sp.round = 'QF') AND (a.award = 'First Team All-Star')) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 7,
+            "preview": [
+              {
+                "year": 1968,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "BOS",
+                "goalswinner": 24,
+                "coachid": "rossar01c",
+                "award": "First Team All-Star"
+              },
+              {
+                "year": 1968,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "BOS",
+                "goalswinner": 24,
+                "coachid": "rossar01c",
+                "award": "First Team All-Star"
+              },
+              {
+                "year": 1968,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "BOS",
+                "goalswinner": 24,
+                "coachid": "rossar01c",
+                "award": "First Team All-Star"
+              },
+              {
+                "year": 1968,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "BOS",
+                "goalswinner": 24,
+                "coachid": "rossar01c",
+                "award": "First Team All-Star"
+              },
+              {
+                "year": 1968,
+                "round": "QF",
+                "series": "B",
+                "tmidwinner": "BOS",
+                "goalswinner": 24,
+                "coachid": "rossar01c",
+                "award": "First Team All-Star"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT AVG(leaf_1.goalswinner)\nFROM (SELECT sp.year, sp.round, sp.series, sp.tmidwinner, sp.goalswinner, c.coachid, a.award\nFROM seriespost AS sp\nJOIN teams AS t ON sp.tmidwinner = t.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nWHERE (sp.round = 'QF') AND (a.award = 'First Team All-Star')) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "AVG(leaf_1.goalswinner)": 23.181818181818183
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 20,
+  "sample_retry": 1,
+  "detail_fallback_used": false,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.3615656108597285,
+    "nearest": {
+      "sample_index": 1,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "similarity": 0.3615656108597285,
+      "sql": "SELECT SUM(pts) AS total_points\nFROM (SELECT s.playerid, s.year, s.tmid, s.pts, a.award\nFROM scoring AS s\nJOIN awardsplayers AS a ON s.playerid = a.playerid\nJOIN seriespost AS sp ON s.tmid = sp.tmidwinner\nJOIN teams AS t ON s.tmid = t.tmid\nWHERE (a.award LIKE '%All-Star%')) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 23.181818181818183,
+    "nearest": {
+      "sample_index": 2,
+      "answer_mode": "aggregate",
+      "target_join_count": 4,
+      "numeric_answer": 13.0,
+      "delta": 10.181818181818183,
+      "sql": "SELECT AVG(avg_goals_against) AS final_avg_goals_against\nFROM (SELECT t.name AS team_name, AVG(g.ga) AS avg_goals_against\nFROM teams AS t\nJOIN goaliessc AS g ON t.tmid = g.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nJOIN abbrev AS ab ON t.confid = ab.code\nWHERE (t.lgid = 'NHL') AND (t.confid = ab.code) AND (ab.fullname = 'Eastern Conference') AND (a.award = 'Jack Adams')\nGROUP BY t.name) AS leaf_1"
+    },
+    "min_value": 7.0,
+    "tolerance": 3.0,
+    "reason": "ok"
+  },
+  "question": "What is the average number of goals scored by the winning team for each First Team All-Star coach in the quarter-final rounds?",
+  "answer": "23.1818181818"
+}

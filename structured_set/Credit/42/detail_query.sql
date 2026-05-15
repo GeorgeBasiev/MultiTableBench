@@ -1,0 +1,1 @@
+SELECT c.charge_no, c.charge_dt, c.charge_amt, p.provider_name FROM charge c JOIN provider p ON c.provider_no = p.provider_no JOIN category cat ON c.category_no = cat.category_no WHERE cat.category_desc = 'Meals' ORDER BY c.charge_amt DESC

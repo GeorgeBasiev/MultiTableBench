@@ -1,0 +1,9 @@
+SELECT SUM(leaf_1.points) AS total_points
+FROM (SELECT d.forename, d.surname, r.name AS race_name, r.year, rs.points
+FROM results rs
+JOIN drivers d ON rs.driverid = d.driverid
+JOIN races r ON rs.raceid = r.raceid
+JOIN circuits c ON r.circuitid = c.circuitid
+JOIN constructors co ON rs.constructorid = co.constructorid
+WHERE (co.nationality = 'British') AND (c.country = 'Australia')
+GROUP BY d.forename, d.surname, r.name, r.year, rs.points) AS leaf_1

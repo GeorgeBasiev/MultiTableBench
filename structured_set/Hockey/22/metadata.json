@@ -1,0 +1,3357 @@
+{
+  "sample_index": 22,
+  "db_name": "Hockey",
+  "answer_mode": "text",
+  "target_join_count": 4,
+  "actual_join_count": 4,
+  "numeric_answer": null,
+  "constraints": {
+    "answer_mode": "text",
+    "target_join_count": 4,
+    "min_hops": 4,
+    "max_hops": 4,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Get the full name of the conference where the team that won the most games in the 1985 playoffs played",
+  "manifest": {
+    "db_name": "Hockey",
+    "sample_dir": "structured_set/Hockey/22",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "abbrev",
+        "remote_row_count": 58,
+        "snapshot_row_count": 58,
+        "target_limit": 58,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "type",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "code",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fullname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardscoaches",
+        "remote_row_count": 77,
+        "snapshot_row_count": 77,
+        "target_limit": 77,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsmisc",
+        "remote_row_count": 124,
+        "snapshot_row_count": 89,
+        "target_limit": 89,
+        "relational_rows_added": 3,
+        "columns": [
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsplayers",
+        "remote_row_count": 2091,
+        "snapshot_row_count": 113,
+        "target_limit": 113,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "coaches",
+        "remote_row_count": 1812,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "combinedshutouts",
+        "remote_row_count": 54,
+        "snapshot_row_count": 54,
+        "target_limit": 54,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "month",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "date",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "r/p",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie1",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie2",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goalies",
+        "remote_row_count": 4278,
+        "snapshot_row_count": 114,
+        "target_limit": 114,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "min",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "l",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "t/ol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "eng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postmin",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posteng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliessc",
+        "remote_row_count": 31,
+        "snapshot_row_count": 31,
+        "target_limit": 31,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "min",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliesshootout",
+        "remote_row_count": 480,
+        "snapshot_row_count": 76,
+        "target_limit": 76,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "hof",
+        "remote_row_count": 365,
+        "snapshot_row_count": 91,
+        "target_limit": 91,
+        "relational_rows_added": 4,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "category",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "master",
+        "remote_row_count": 7761,
+        "snapshot_row_count": 104,
+        "target_limit": 104,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenote",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namegiven",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenick",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "height",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "weight",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shootcatch",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "legendsid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ihdbid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hrefid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoring",
+        "remote_row_count": 45967,
+        "snapshot_row_count": 109,
+        "target_limit": 109,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gtg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posta",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpts",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "post+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postshg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsc",
+        "remote_row_count": 284,
+        "snapshot_row_count": 72,
+        "target_limit": 72,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringshootout",
+        "remote_row_count": 2072,
+        "snapshot_row_count": 118,
+        "target_limit": 118,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "s",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gdg",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsup",
+        "remote_row_count": 137,
+        "snapshot_row_count": 108,
+        "target_limit": 108,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "seriespost",
+        "remote_row_count": 832,
+        "snapshot_row_count": 113,
+        "target_limit": 113,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "round",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "series",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalswinner",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalsloser",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teams",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 100,
+        "target_limit": 100,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "franchid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "confid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "divid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "playoff",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sow",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamshalf",
+        "remote_row_count": 41,
+        "snapshot_row_count": 41,
+        "target_limit": 41,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "half",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "teamsplits",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 109,
+        "target_limit": 109,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ht",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sept",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "dect",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "janw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "jant",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "febw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mart",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamspost",
+        "remote_row_count": 927,
+        "snapshot_row_count": 66,
+        "target_limit": 66,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamssc",
+        "remote_row_count": 30,
+        "snapshot_row_count": 30,
+        "target_limit": 30,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamvsteam",
+        "remote_row_count": 25602,
+        "snapshot_row_count": 109,
+        "target_limit": 109,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Get the full name of the conference where the team that won the most games in the 1985 playoffs played",
+    "answer_mode": "text",
+    "final_block_name": "root",
+    "detail_query": "SELECT m.fullname AS conference_fullname FROM seriespost s JOIN teams t ON s.tmidwinner = t.tmid AND s.year = t.year JOIN abbrev m ON t.confid = m.code WHERE s.year = 1985 AND s.round = 'F'",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT t.confid, MAX(t.w) AS max_wins",
+        "from_clause": "FROM teams t",
+        "join_clauses": [
+          "JOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year"
+        ],
+        "where_clauses": [
+          "s.year = 1985",
+          "s.round = 'F'"
+        ],
+        "group_by_clause": "GROUP BY t.confid",
+        "having_clauses": [],
+        "notes": "get the conference ID and maximum wins for the team that won the most games in the 1985 playoffs"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT a.fullname",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [
+          "JOIN teams t ON leaf_1.confid = t.confid",
+          "JOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year",
+          "JOIN abbrev a ON leaf_1.confid = a.code"
+        ],
+        "where_clauses": [
+          "s.year = 1985",
+          "s.round = 'F'"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "get the full name of the conference where the team that won the most games in the 1985 playoffs played"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "get the conference ID and maximum wins for the team that won the most games in the 1985 playoffs",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM teams t\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 27,
+            "preview": [
+              {
+                "year": 2006,
+                "lgid": "NHL",
+                "tmid": "BOS",
+                "franchid": "BOS",
+                "confid": "EC",
+                "divid": "NE",
+                "rank": 5,
+                "playoff": NaN,
+                "g": 82,
+                "w": 35,
+                "l": 41,
+                "t": NaN,
+                "otl": "6",
+                "pts": 76,
+                "sow": "9",
+                "sol": "4",
+                "gf": 219,
+                "ga": 289,
+                "name": "Boston Bruins",
+                "pim": "1256",
+                "benchminor": "24",
+                "ppg": "71",
+                "ppc": "412",
+                "sha": "18",
+                "pkg": "81",
+                "pkc": "442",
+                "shf": "8"
+              },
+              {
+                "year": 1941,
+                "lgid": "NHL",
+                "tmid": "DET",
+                "franchid": "DET",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 5,
+                "playoff": "F",
+                "g": 48,
+                "w": 19,
+                "l": 25,
+                "t": 4.0,
+                "otl": NaN,
+                "pts": 42,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 140,
+                "ga": 147,
+                "name": "Detroit Red Wings",
+                "pim": "440",
+                "benchminor": NaN,
+                "ppg": NaN,
+                "ppc": NaN,
+                "sha": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN
+              },
+              {
+                "year": 2006,
+                "lgid": "NHL",
+                "tmid": "PIT",
+                "franchid": "PIT",
+                "confid": "EC",
+                "divid": "AT",
+                "rank": 2,
+                "playoff": "CQF",
+                "g": 82,
+                "w": 47,
+                "l": 24,
+                "t": NaN,
+                "otl": "11",
+                "pts": 105,
+                "sow": "10",
+                "sol": "6",
+                "gf": 277,
+                "ga": 246,
+                "name": "Pittsburgh Penguins",
+                "pim": "1249",
+                "benchminor": "38",
+                "ppg": "94",
+                "ppc": "463",
+                "sha": "13",
+                "pkg": "75",
+                "pkc": "419",
+                "shf": "14"
+              },
+              {
+                "year": 1941,
+                "lgid": "NHL",
+                "tmid": "BKN",
+                "franchid": "BKN",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 7,
+                "playoff": NaN,
+                "g": 48,
+                "w": 16,
+                "l": 29,
+                "t": 3.0,
+                "otl": NaN,
+                "pts": 35,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 133,
+                "ga": 175,
+                "name": "Brooklyn Americans",
+                "pim": "427",
+                "benchminor": NaN,
+                "ppg": NaN,
+                "ppc": NaN,
+                "sha": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN
+              },
+              {
+                "year": 1976,
+                "lgid": "NHL",
+                "tmid": "MNS",
+                "franchid": "DAL",
+                "confid": "CC",
+                "divid": "SM",
+                "rank": 2,
+                "playoff": "PRE",
+                "g": 80,
+                "w": 23,
+                "l": 39,
+                "t": 18.0,
+                "otl": NaN,
+                "pts": 64,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 240,
+                "ga": 310,
+                "name": "Minnesota North Stars",
+                "pim": "774",
+                "benchminor": "10",
+                "ppg": "59",
+                "ppc": "339",
+                "sha": "11",
+                "pkg": "57",
+                "pkc": "211",
+                "shf": "9"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year",
+          "sql": "SELECT *\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 40,
+            "preview": [
+              {
+                "year": 1924,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 3,
+                "playoff": "F",
+                "g": 30,
+                "w": 17,
+                "l": 11,
+                "t": 2.0,
+                "otl": NaN,
+                "pts": 36,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 93,
+                "ga": 56,
+                "name": "Montreal Canadiens",
+                "pim": "406",
+                "benchminor": NaN,
+                "ppg": NaN,
+                "ppc": NaN,
+                "sha": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN,
+                "year__dup1": 1924,
+                "round": "F",
+                "series": NaN,
+                "tmidwinner": "MTL",
+                "lgidwinner": "NHL",
+                "tmidloser": "HAM",
+                "lgidloser": "NHL",
+                "w__dup1": 0,
+                "l__dup1": 0,
+                "t__dup1": 0,
+                "goalswinner": 0,
+                "goalsloser": 0,
+                "note": "DEF"
+              },
+              {
+                "year": 2011,
+                "lgid": "NHL",
+                "tmid": "NJD",
+                "franchid": "NJD",
+                "confid": "EC",
+                "divid": "AT",
+                "rank": 4,
+                "playoff": "F",
+                "g": 82,
+                "w": 48,
+                "l": 28,
+                "t": NaN,
+                "otl": "6",
+                "pts": 102,
+                "sow": "12",
+                "sol": "4",
+                "gf": 228,
+                "ga": 209,
+                "name": "New Jersey Devils",
+                "pim": "944",
+                "benchminor": "20",
+                "ppg": "46",
+                "ppc": "267",
+                "sha": "13",
+                "pkg": "27",
+                "pkc": "259",
+                "shf": "15",
+                "year__dup1": 2011,
+                "round": "CSF",
+                "series": "J",
+                "tmidwinner": "NJD",
+                "lgidwinner": "NHL",
+                "tmidloser": "PHI",
+                "lgidloser": "NHL",
+                "w__dup1": 4,
+                "l__dup1": 1,
+                "t__dup1": 0,
+                "goalswinner": 18,
+                "goalsloser": 11,
+                "note": NaN
+              },
+              {
+                "year": 1960,
+                "lgid": "NHL",
+                "tmid": "CHI",
+                "franchid": "CHI",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 3,
+                "playoff": "SC",
+                "g": 70,
+                "w": 29,
+                "l": 24,
+                "t": 17.0,
+                "otl": NaN,
+                "pts": 75,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 198,
+                "ga": 180,
+                "name": "Chicago Black Hawks",
+                "pim": "1072",
+                "benchminor": NaN,
+                "ppg": NaN,
+                "ppc": NaN,
+                "sha": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN,
+                "year__dup1": 1960,
+                "round": "SCF",
+                "series": "C",
+                "tmidwinner": "CHI",
+                "lgidwinner": "NHL",
+                "tmidloser": "DET",
+                "lgidloser": "NHL",
+                "w__dup1": 4,
+                "l__dup1": 2,
+                "t__dup1": 0,
+                "goalswinner": 19,
+                "goalsloser": 12,
+                "note": NaN
+              },
+              {
+                "year": 2009,
+                "lgid": "NHL",
+                "tmid": "PHI",
+                "franchid": "PHI",
+                "confid": "EC",
+                "divid": "AT",
+                "rank": 3,
+                "playoff": "F",
+                "g": 82,
+                "w": 41,
+                "l": 35,
+                "t": NaN,
+                "otl": "6",
+                "pts": 88,
+                "sow": "4",
+                "sol": "3",
+                "gf": 236,
+                "ga": 225,
+                "name": "Philadelphia Flyers",
+                "pim": "1362",
+                "benchminor": "12",
+                "ppg": "68",
+                "ppc": "317",
+                "sha": "8",
+                "pkg": "57",
+                "pkc": "335",
+                "shf": "6",
+                "year__dup1": 2009,
+                "round": "CSF",
+                "series": "J",
+                "tmidwinner": "PHI",
+                "lgidwinner": "NHL",
+                "tmidloser": "BOS",
+                "lgidloser": "NHL",
+                "w__dup1": 4,
+                "l__dup1": 3,
+                "t__dup1": 0,
+                "goalswinner": 22,
+                "goalsloser": 20,
+                "note": NaN
+              },
+              {
+                "year": 2011,
+                "lgid": "NHL",
+                "tmid": "NJD",
+                "franchid": "NJD",
+                "confid": "EC",
+                "divid": "AT",
+                "rank": 4,
+                "playoff": "F",
+                "g": 82,
+                "w": 48,
+                "l": 28,
+                "t": NaN,
+                "otl": "6",
+                "pts": 102,
+                "sow": "12",
+                "sol": "4",
+                "gf": 228,
+                "ga": 209,
+                "name": "New Jersey Devils",
+                "pim": "944",
+                "benchminor": "20",
+                "ppg": "46",
+                "ppc": "267",
+                "sha": "13",
+                "pkg": "27",
+                "pkc": "259",
+                "shf": "15",
+                "year__dup1": 2011,
+                "round": "CF",
+                "series": "M",
+                "tmidwinner": "NJD",
+                "lgidwinner": "NHL",
+                "tmidloser": "NYR",
+                "lgidloser": "NHL",
+                "w__dup1": 4,
+                "l__dup1": 2,
+                "t__dup1": 0,
+                "goalswinner": 15,
+                "goalsloser": 14,
+                "note": NaN
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year = 1985",
+          "sql": "SELECT *\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year = 1985)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 40,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year >= 1985",
+          "sql": "SELECT *\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 4,
+            "column_count": 40,
+            "preview": [
+              {
+                "year": 2011,
+                "lgid": "NHL",
+                "tmid": "NJD",
+                "franchid": "NJD",
+                "confid": "EC",
+                "divid": "AT",
+                "rank": 4,
+                "playoff": "F",
+                "g": 82,
+                "w": 48,
+                "l": 28,
+                "t": NaN,
+                "otl": "6",
+                "pts": 102,
+                "sow": "12",
+                "sol": "4",
+                "gf": 228,
+                "ga": 209,
+                "name": "New Jersey Devils",
+                "pim": "944",
+                "benchminor": "20",
+                "ppg": "46",
+                "ppc": "267",
+                "sha": "13",
+                "pkg": "27",
+                "pkc": "259",
+                "shf": "15",
+                "year__dup1": 2011,
+                "round": "CSF",
+                "series": "J",
+                "tmidwinner": "NJD",
+                "lgidwinner": "NHL",
+                "tmidloser": "PHI",
+                "lgidloser": "NHL",
+                "w__dup1": 4,
+                "l__dup1": 1,
+                "t__dup1": 0,
+                "goalswinner": 18,
+                "goalsloser": 11,
+                "note": null
+              },
+              {
+                "year": 2009,
+                "lgid": "NHL",
+                "tmid": "PHI",
+                "franchid": "PHI",
+                "confid": "EC",
+                "divid": "AT",
+                "rank": 3,
+                "playoff": "F",
+                "g": 82,
+                "w": 41,
+                "l": 35,
+                "t": NaN,
+                "otl": "6",
+                "pts": 88,
+                "sow": "4",
+                "sol": "3",
+                "gf": 236,
+                "ga": 225,
+                "name": "Philadelphia Flyers",
+                "pim": "1362",
+                "benchminor": "12",
+                "ppg": "68",
+                "ppc": "317",
+                "sha": "8",
+                "pkg": "57",
+                "pkc": "335",
+                "shf": "6",
+                "year__dup1": 2009,
+                "round": "CSF",
+                "series": "J",
+                "tmidwinner": "PHI",
+                "lgidwinner": "NHL",
+                "tmidloser": "BOS",
+                "lgidloser": "NHL",
+                "w__dup1": 4,
+                "l__dup1": 3,
+                "t__dup1": 0,
+                "goalswinner": 22,
+                "goalsloser": 20,
+                "note": null
+              },
+              {
+                "year": 2011,
+                "lgid": "NHL",
+                "tmid": "NJD",
+                "franchid": "NJD",
+                "confid": "EC",
+                "divid": "AT",
+                "rank": 4,
+                "playoff": "F",
+                "g": 82,
+                "w": 48,
+                "l": 28,
+                "t": NaN,
+                "otl": "6",
+                "pts": 102,
+                "sow": "12",
+                "sol": "4",
+                "gf": 228,
+                "ga": 209,
+                "name": "New Jersey Devils",
+                "pim": "944",
+                "benchminor": "20",
+                "ppg": "46",
+                "ppc": "267",
+                "sha": "13",
+                "pkg": "27",
+                "pkc": "259",
+                "shf": "15",
+                "year__dup1": 2011,
+                "round": "CF",
+                "series": "M",
+                "tmidwinner": "NJD",
+                "lgidwinner": "NHL",
+                "tmidloser": "NYR",
+                "lgidloser": "NHL",
+                "w__dup1": 4,
+                "l__dup1": 2,
+                "t__dup1": 0,
+                "goalswinner": 15,
+                "goalsloser": 14,
+                "note": null
+              },
+              {
+                "year": 1986,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "CF",
+                "g": 80,
+                "w": 41,
+                "l": 29,
+                "t": 10.0,
+                "otl": NaN,
+                "pts": 92,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 277,
+                "ga": 241,
+                "name": "Montreal Canadiens",
+                "pim": "1802",
+                "benchminor": "32",
+                "ppg": "67",
+                "ppc": "321",
+                "sha": "6",
+                "pkg": "51",
+                "pkc": "304",
+                "shf": "6",
+                "year__dup1": 1986,
+                "round": "DSF",
+                "series": "B",
+                "tmidwinner": "MTL",
+                "lgidwinner": "NHL",
+                "tmidloser": "BOS",
+                "lgidloser": "NHL",
+                "w__dup1": 4,
+                "l__dup1": 0,
+                "t__dup1": 0,
+                "goalswinner": 19,
+                "goalsloser": 11,
+                "note": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.round = 'F'",
+          "sql": "SELECT *\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985) AND (s.round = 'F')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 40,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.round = 'F' OR s.round = 'DF'",
+          "sql": "SELECT *\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985) AND (s.round = 'F' OR s.round = 'DF')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 40,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.round = 'F' OR s.round = 'DF' OR s.round = 'FC'",
+          "sql": "SELECT *\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985) AND (s.round = 'F' OR s.round = 'DF' OR s.round = 'FC')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 40,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.round = 'F' OR s.round = 'DF'",
+          "sql": "SELECT *\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985) AND (s.round = 'F' OR s.round = 'DF')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 40,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.round = 'F' OR s.round = 'DF' OR s.round = 'CQF'",
+          "sql": "SELECT *\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985) AND (s.round = 'F' OR s.round = 'DF' OR s.round = 'CQF')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 40,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.round IN ('F', 'DF', 'CQF')",
+          "sql": "SELECT *\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985) AND (s.round IN ('F', 'DF', 'CQF'))\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 40,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where_skipped",
+          "clause": "s.round = 'F'",
+          "last_candidate": "s.year = 1985",
+          "reason": "where predicate made the probe empty"
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT t.confid, MAX(t.w) AS max_wins\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nGROUP BY t.confid",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 2,
+            "preview": [
+              {
+                "confid": "EC",
+                "max_wins": 48
+              },
+              {
+                "confid": "WA",
+                "max_wins": 41
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "get the full name of the conference where the team that won the most games in the 1985 playoffs played",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT t.confid, MAX(t.w) AS max_wins\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nGROUP BY t.confid) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 2,
+            "preview": [
+              {
+                "confid": "EC",
+                "max_wins": 48
+              },
+              {
+                "confid": "WA",
+                "max_wins": 41
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN teams t ON leaf_1.confid = t.confid",
+          "sql": "SELECT *\nFROM (SELECT t.confid, MAX(t.w) AS max_wins\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nGROUP BY t.confid) AS leaf_1\nJOIN teams t ON leaf_1.confid = t.confid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 29,
+            "preview": [
+              {
+                "confid": "EC",
+                "max_wins": 48,
+                "year": 2006,
+                "lgid": "NHL",
+                "tmid": "BOS",
+                "franchid": "BOS",
+                "confid__dup1": "EC",
+                "divid": "NE",
+                "rank": 5,
+                "playoff": NaN,
+                "g": 82,
+                "w": 35,
+                "l": 41,
+                "t": NaN,
+                "otl": "6",
+                "pts": 76,
+                "sow": "9",
+                "sol": "4",
+                "gf": 219,
+                "ga": 289,
+                "name": "Boston Bruins",
+                "pim": "1256",
+                "benchminor": "24",
+                "ppg": "71",
+                "ppc": "412",
+                "sha": "18",
+                "pkg": "81",
+                "pkc": "442",
+                "shf": "8"
+              },
+              {
+                "confid": "EC",
+                "max_wins": 48,
+                "year": 2006,
+                "lgid": "NHL",
+                "tmid": "PIT",
+                "franchid": "PIT",
+                "confid__dup1": "EC",
+                "divid": "AT",
+                "rank": 2,
+                "playoff": "CQF",
+                "g": 82,
+                "w": 47,
+                "l": 24,
+                "t": NaN,
+                "otl": "11",
+                "pts": 105,
+                "sow": "10",
+                "sol": "6",
+                "gf": 277,
+                "ga": 246,
+                "name": "Pittsburgh Penguins",
+                "pim": "1249",
+                "benchminor": "38",
+                "ppg": "94",
+                "ppc": "463",
+                "sha": "13",
+                "pkg": "75",
+                "pkc": "419",
+                "shf": "14"
+              },
+              {
+                "confid": "EC",
+                "max_wins": 48,
+                "year": 2009,
+                "lgid": "NHL",
+                "tmid": "OTT",
+                "franchid": "OTT",
+                "confid__dup1": "EC",
+                "divid": "NE",
+                "rank": 2,
+                "playoff": "CQF",
+                "g": 82,
+                "w": 44,
+                "l": 32,
+                "t": NaN,
+                "otl": "6",
+                "pts": 94,
+                "sow": "5",
+                "sol": "5",
+                "gf": 225,
+                "ga": 238,
+                "name": "Ottawa Senators",
+                "pim": "1141",
+                "benchminor": "26",
+                "ppg": "49",
+                "ppc": "290",
+                "sha": "4",
+                "pkg": "50",
+                "pkc": "318",
+                "shf": "6"
+              },
+              {
+                "confid": "WA",
+                "max_wins": 41,
+                "year": 1992,
+                "lgid": "NHL",
+                "tmid": "PIT",
+                "franchid": "PIT",
+                "confid__dup1": "WA",
+                "divid": "PT",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 84,
+                "w": 56,
+                "l": 21,
+                "t": 7.0,
+                "otl": NaN,
+                "pts": 119,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 367,
+                "ga": 268,
+                "name": "Pittsburgh Penguins",
+                "pim": "1776",
+                "benchminor": "14",
+                "ppg": "105",
+                "ppc": "440",
+                "sha": "19",
+                "pkg": "72",
+                "pkc": "429",
+                "shf": "20"
+              },
+              {
+                "confid": "WA",
+                "max_wins": 41,
+                "year": 1976,
+                "lgid": "NHL",
+                "tmid": "BOS",
+                "franchid": "BOS",
+                "confid__dup1": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "F",
+                "g": 80,
+                "w": 49,
+                "l": 23,
+                "t": 8.0,
+                "otl": NaN,
+                "pts": 106,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 312,
+                "ga": 240,
+                "name": "Boston Bruins",
+                "pim": "1065",
+                "benchminor": "10",
+                "ppg": "46",
+                "ppc": "217",
+                "sha": "10",
+                "pkg": "41",
+                "pkc": "272",
+                "shf": "7"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year",
+          "sql": "SELECT *\nFROM (SELECT t.confid, MAX(t.w) AS max_wins\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nGROUP BY t.confid) AS leaf_1\nJOIN teams t ON leaf_1.confid = t.confid\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 4,
+            "column_count": 42,
+            "preview": [
+              {
+                "confid": "EC",
+                "max_wins": 48,
+                "year": 2011,
+                "lgid": "NHL",
+                "tmid": "NJD",
+                "franchid": "NJD",
+                "confid__dup1": "EC",
+                "divid": "AT",
+                "rank": 4,
+                "playoff": "F",
+                "g": 82,
+                "w": 48,
+                "l": 28,
+                "t": NaN,
+                "otl": "6",
+                "pts": 102,
+                "sow": "12",
+                "sol": "4",
+                "gf": 228,
+                "ga": 209,
+                "name": "New Jersey Devils",
+                "pim": "944",
+                "benchminor": "20",
+                "ppg": "46",
+                "ppc": "267",
+                "sha": "13",
+                "pkg": "27",
+                "pkc": "259",
+                "shf": "15",
+                "year__dup1": 2011,
+                "round": "CSF",
+                "series": "J",
+                "tmidwinner": "NJD",
+                "lgidwinner": "NHL",
+                "tmidloser": "PHI",
+                "lgidloser": "NHL",
+                "w__dup1": 4,
+                "l__dup1": 1,
+                "t__dup1": 0,
+                "goalswinner": 18,
+                "goalsloser": 11,
+                "note": null
+              },
+              {
+                "confid": "EC",
+                "max_wins": 48,
+                "year": 2009,
+                "lgid": "NHL",
+                "tmid": "PHI",
+                "franchid": "PHI",
+                "confid__dup1": "EC",
+                "divid": "AT",
+                "rank": 3,
+                "playoff": "F",
+                "g": 82,
+                "w": 41,
+                "l": 35,
+                "t": NaN,
+                "otl": "6",
+                "pts": 88,
+                "sow": "4",
+                "sol": "3",
+                "gf": 236,
+                "ga": 225,
+                "name": "Philadelphia Flyers",
+                "pim": "1362",
+                "benchminor": "12",
+                "ppg": "68",
+                "ppc": "317",
+                "sha": "8",
+                "pkg": "57",
+                "pkc": "335",
+                "shf": "6",
+                "year__dup1": 2009,
+                "round": "CSF",
+                "series": "J",
+                "tmidwinner": "PHI",
+                "lgidwinner": "NHL",
+                "tmidloser": "BOS",
+                "lgidloser": "NHL",
+                "w__dup1": 4,
+                "l__dup1": 3,
+                "t__dup1": 0,
+                "goalswinner": 22,
+                "goalsloser": 20,
+                "note": null
+              },
+              {
+                "confid": "EC",
+                "max_wins": 48,
+                "year": 2011,
+                "lgid": "NHL",
+                "tmid": "NJD",
+                "franchid": "NJD",
+                "confid__dup1": "EC",
+                "divid": "AT",
+                "rank": 4,
+                "playoff": "F",
+                "g": 82,
+                "w": 48,
+                "l": 28,
+                "t": NaN,
+                "otl": "6",
+                "pts": 102,
+                "sow": "12",
+                "sol": "4",
+                "gf": 228,
+                "ga": 209,
+                "name": "New Jersey Devils",
+                "pim": "944",
+                "benchminor": "20",
+                "ppg": "46",
+                "ppc": "267",
+                "sha": "13",
+                "pkg": "27",
+                "pkc": "259",
+                "shf": "15",
+                "year__dup1": 2011,
+                "round": "CF",
+                "series": "M",
+                "tmidwinner": "NJD",
+                "lgidwinner": "NHL",
+                "tmidloser": "NYR",
+                "lgidloser": "NHL",
+                "w__dup1": 4,
+                "l__dup1": 2,
+                "t__dup1": 0,
+                "goalswinner": 15,
+                "goalsloser": 14,
+                "note": null
+              },
+              {
+                "confid": "WA",
+                "max_wins": 41,
+                "year": 1986,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid__dup1": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "CF",
+                "g": 80,
+                "w": 41,
+                "l": 29,
+                "t": 10.0,
+                "otl": NaN,
+                "pts": 92,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 277,
+                "ga": 241,
+                "name": "Montreal Canadiens",
+                "pim": "1802",
+                "benchminor": "32",
+                "ppg": "67",
+                "ppc": "321",
+                "sha": "6",
+                "pkg": "51",
+                "pkc": "304",
+                "shf": "6",
+                "year__dup1": 1986,
+                "round": "DSF",
+                "series": "B",
+                "tmidwinner": "MTL",
+                "lgidwinner": "NHL",
+                "tmidloser": "BOS",
+                "lgidloser": "NHL",
+                "w__dup1": 4,
+                "l__dup1": 0,
+                "t__dup1": 0,
+                "goalswinner": 19,
+                "goalsloser": 11,
+                "note": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN abbrev a ON leaf_1.confid = a.code",
+          "sql": "SELECT *\nFROM (SELECT t.confid, MAX(t.w) AS max_wins\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nGROUP BY t.confid) AS leaf_1\nJOIN teams t ON leaf_1.confid = t.confid\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nJOIN abbrev a ON leaf_1.confid = a.code\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 4,
+            "column_count": 45,
+            "preview": [
+              {
+                "confid": "EC",
+                "max_wins": 48,
+                "year": 2011,
+                "lgid": "NHL",
+                "tmid": "NJD",
+                "franchid": "NJD",
+                "confid__dup1": "EC",
+                "divid": "AT",
+                "rank": 4,
+                "playoff": "F",
+                "g": 82,
+                "w": 48,
+                "l": 28,
+                "t": NaN,
+                "otl": "6",
+                "pts": 102,
+                "sow": "12",
+                "sol": "4",
+                "gf": 228,
+                "ga": 209,
+                "name": "New Jersey Devils",
+                "pim": "944",
+                "benchminor": "20",
+                "ppg": "46",
+                "ppc": "267",
+                "sha": "13",
+                "pkg": "27",
+                "pkc": "259",
+                "shf": "15",
+                "year__dup1": 2011,
+                "round": "CSF",
+                "series": "J",
+                "tmidwinner": "NJD",
+                "lgidwinner": "NHL",
+                "tmidloser": "PHI",
+                "lgidloser": "NHL",
+                "w__dup1": 4,
+                "l__dup1": 1,
+                "t__dup1": 0,
+                "goalswinner": 18,
+                "goalsloser": 11,
+                "note": null,
+                "type": "Conference",
+                "code": "EC",
+                "fullname": "Eastern Conference"
+              },
+              {
+                "confid": "EC",
+                "max_wins": 48,
+                "year": 2009,
+                "lgid": "NHL",
+                "tmid": "PHI",
+                "franchid": "PHI",
+                "confid__dup1": "EC",
+                "divid": "AT",
+                "rank": 3,
+                "playoff": "F",
+                "g": 82,
+                "w": 41,
+                "l": 35,
+                "t": NaN,
+                "otl": "6",
+                "pts": 88,
+                "sow": "4",
+                "sol": "3",
+                "gf": 236,
+                "ga": 225,
+                "name": "Philadelphia Flyers",
+                "pim": "1362",
+                "benchminor": "12",
+                "ppg": "68",
+                "ppc": "317",
+                "sha": "8",
+                "pkg": "57",
+                "pkc": "335",
+                "shf": "6",
+                "year__dup1": 2009,
+                "round": "CSF",
+                "series": "J",
+                "tmidwinner": "PHI",
+                "lgidwinner": "NHL",
+                "tmidloser": "BOS",
+                "lgidloser": "NHL",
+                "w__dup1": 4,
+                "l__dup1": 3,
+                "t__dup1": 0,
+                "goalswinner": 22,
+                "goalsloser": 20,
+                "note": null,
+                "type": "Conference",
+                "code": "EC",
+                "fullname": "Eastern Conference"
+              },
+              {
+                "confid": "EC",
+                "max_wins": 48,
+                "year": 2011,
+                "lgid": "NHL",
+                "tmid": "NJD",
+                "franchid": "NJD",
+                "confid__dup1": "EC",
+                "divid": "AT",
+                "rank": 4,
+                "playoff": "F",
+                "g": 82,
+                "w": 48,
+                "l": 28,
+                "t": NaN,
+                "otl": "6",
+                "pts": 102,
+                "sow": "12",
+                "sol": "4",
+                "gf": 228,
+                "ga": 209,
+                "name": "New Jersey Devils",
+                "pim": "944",
+                "benchminor": "20",
+                "ppg": "46",
+                "ppc": "267",
+                "sha": "13",
+                "pkg": "27",
+                "pkc": "259",
+                "shf": "15",
+                "year__dup1": 2011,
+                "round": "CF",
+                "series": "M",
+                "tmidwinner": "NJD",
+                "lgidwinner": "NHL",
+                "tmidloser": "NYR",
+                "lgidloser": "NHL",
+                "w__dup1": 4,
+                "l__dup1": 2,
+                "t__dup1": 0,
+                "goalswinner": 15,
+                "goalsloser": 14,
+                "note": null,
+                "type": "Conference",
+                "code": "EC",
+                "fullname": "Eastern Conference"
+              },
+              {
+                "confid": "WA",
+                "max_wins": 41,
+                "year": 1986,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid__dup1": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "CF",
+                "g": 80,
+                "w": 41,
+                "l": 29,
+                "t": 10.0,
+                "otl": NaN,
+                "pts": 92,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 277,
+                "ga": 241,
+                "name": "Montreal Canadiens",
+                "pim": "1802",
+                "benchminor": "32",
+                "ppg": "67",
+                "ppc": "321",
+                "sha": "6",
+                "pkg": "51",
+                "pkc": "304",
+                "shf": "6",
+                "year__dup1": 1986,
+                "round": "DSF",
+                "series": "B",
+                "tmidwinner": "MTL",
+                "lgidwinner": "NHL",
+                "tmidloser": "BOS",
+                "lgidloser": "NHL",
+                "w__dup1": 4,
+                "l__dup1": 0,
+                "t__dup1": 0,
+                "goalswinner": 19,
+                "goalsloser": 11,
+                "note": null,
+                "type": "Conference",
+                "code": "WA",
+                "fullname": "Wales Conference"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year = 1985",
+          "sql": "SELECT *\nFROM (SELECT t.confid, MAX(t.w) AS max_wins\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nGROUP BY t.confid) AS leaf_1\nJOIN teams t ON leaf_1.confid = t.confid\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nJOIN abbrev a ON leaf_1.confid = a.code\nWHERE (s.year = 1985)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 45,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year = 1985 OR s.year = 1984",
+          "sql": "SELECT *\nFROM (SELECT t.confid, MAX(t.w) AS max_wins\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nGROUP BY t.confid) AS leaf_1\nJOIN teams t ON leaf_1.confid = t.confid\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nJOIN abbrev a ON leaf_1.confid = a.code\nWHERE (s.year = 1985 OR s.year = 1984)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 45,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year = 1985",
+          "sql": "SELECT *\nFROM (SELECT t.confid, MAX(t.w) AS max_wins\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nGROUP BY t.confid) AS leaf_1\nJOIN teams t ON leaf_1.confid = t.confid\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nJOIN abbrev a ON leaf_1.confid = a.code\nWHERE (s.year = 1985)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 45,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year = 1985 OR s.year = 1984",
+          "sql": "SELECT *\nFROM (SELECT t.confid, MAX(t.w) AS max_wins\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nGROUP BY t.confid) AS leaf_1\nJOIN teams t ON leaf_1.confid = t.confid\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nJOIN abbrev a ON leaf_1.confid = a.code\nWHERE (s.year = 1985 OR s.year = 1984)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 45,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year = 1985",
+          "sql": "SELECT *\nFROM (SELECT t.confid, MAX(t.w) AS max_wins\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nGROUP BY t.confid) AS leaf_1\nJOIN teams t ON leaf_1.confid = t.confid\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nJOIN abbrev a ON leaf_1.confid = a.code\nWHERE (s.year = 1985)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 45,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year = 1985 OR s.year = 1986",
+          "sql": "SELECT *\nFROM (SELECT t.confid, MAX(t.w) AS max_wins\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nGROUP BY t.confid) AS leaf_1\nJOIN teams t ON leaf_1.confid = t.confid\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nJOIN abbrev a ON leaf_1.confid = a.code\nWHERE (s.year = 1985 OR s.year = 1986)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 45,
+            "preview": [
+              {
+                "confid": "WA",
+                "max_wins": 41,
+                "year": 1986,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid__dup1": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "CF",
+                "g": 80,
+                "w": 41,
+                "l": 29,
+                "t": 10,
+                "otl": null,
+                "pts": 92,
+                "sow": null,
+                "sol": null,
+                "gf": 277,
+                "ga": 241,
+                "name": "Montreal Canadiens",
+                "pim": "1802",
+                "benchminor": "32",
+                "ppg": "67",
+                "ppc": "321",
+                "sha": "6",
+                "pkg": "51",
+                "pkc": "304",
+                "shf": "6",
+                "year__dup1": 1986,
+                "round": "DSF",
+                "series": "B",
+                "tmidwinner": "MTL",
+                "lgidwinner": "NHL",
+                "tmidloser": "BOS",
+                "lgidloser": "NHL",
+                "w__dup1": 4,
+                "l__dup1": 0,
+                "t__dup1": 0,
+                "goalswinner": 19,
+                "goalsloser": 11,
+                "note": null,
+                "type": "Conference",
+                "code": "WA",
+                "fullname": "Wales Conference"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.round = 'F'",
+          "sql": "SELECT *\nFROM (SELECT t.confid, MAX(t.w) AS max_wins\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nGROUP BY t.confid) AS leaf_1\nJOIN teams t ON leaf_1.confid = t.confid\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nJOIN abbrev a ON leaf_1.confid = a.code\nWHERE (s.year = 1985 OR s.year = 1986) AND (s.round = 'F')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 45,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.round = 'F' OR s.round = 'DF' OR s.round = 'SCF' OR s.round = 'CF' OR s.round = 'SF' OR s.round = 'CQF' OR s.round = 'F'",
+          "sql": "SELECT *\nFROM (SELECT t.confid, MAX(t.w) AS max_wins\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nGROUP BY t.confid) AS leaf_1\nJOIN teams t ON leaf_1.confid = t.confid\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nJOIN abbrev a ON leaf_1.confid = a.code\nWHERE (s.year = 1985 OR s.year = 1986) AND (s.round = 'F' OR s.round = 'DF' OR s.round = 'SCF' OR s.round = 'CF' OR s.round = 'SF' OR s.round = 'CQF' OR s.round = 'F')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 45,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.round = 'F' OR s.round = 'DF' OR s.round = 'SCF' OR s.round = 'CF' OR s.round = 'SF' OR s.round = 'CQF'",
+          "sql": "SELECT *\nFROM (SELECT t.confid, MAX(t.w) AS max_wins\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nGROUP BY t.confid) AS leaf_1\nJOIN teams t ON leaf_1.confid = t.confid\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nJOIN abbrev a ON leaf_1.confid = a.code\nWHERE (s.year = 1985 OR s.year = 1986) AND (s.round = 'F' OR s.round = 'DF' OR s.round = 'SCF' OR s.round = 'CF' OR s.round = 'SF' OR s.round = 'CQF')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 45,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.round = 'F' OR s.round = 'DF' OR s.round = 'CF' OR s.round = 'SF'",
+          "sql": "SELECT *\nFROM (SELECT t.confid, MAX(t.w) AS max_wins\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nGROUP BY t.confid) AS leaf_1\nJOIN teams t ON leaf_1.confid = t.confid\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nJOIN abbrev a ON leaf_1.confid = a.code\nWHERE (s.year = 1985 OR s.year = 1986) AND (s.round = 'F' OR s.round = 'DF' OR s.round = 'CF' OR s.round = 'SF')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 45,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.round = 'F' OR s.round = 'DF'",
+          "sql": "SELECT *\nFROM (SELECT t.confid, MAX(t.w) AS max_wins\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nGROUP BY t.confid) AS leaf_1\nJOIN teams t ON leaf_1.confid = t.confid\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nJOIN abbrev a ON leaf_1.confid = a.code\nWHERE (s.year = 1985 OR s.year = 1986) AND (s.round = 'F' OR s.round = 'DF')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 45,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.round = 'F' OR s.round = 'DF' OR s.round = 'C'",
+          "sql": "SELECT *\nFROM (SELECT t.confid, MAX(t.w) AS max_wins\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nGROUP BY t.confid) AS leaf_1\nJOIN teams t ON leaf_1.confid = t.confid\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nJOIN abbrev a ON leaf_1.confid = a.code\nWHERE (s.year = 1985 OR s.year = 1986) AND (s.round = 'F' OR s.round = 'DF' OR s.round = 'C')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 45,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where_skipped",
+          "clause": "s.round = 'F'",
+          "last_candidate": "s.round = 'F' OR s.round = 'DF'",
+          "reason": "where predicate made the probe empty"
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT a.fullname\nFROM (SELECT t.confid, MAX(t.w) AS max_wins\nFROM teams t\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nWHERE (s.year >= 1985)\nGROUP BY t.confid) AS leaf_1\nJOIN teams t ON leaf_1.confid = t.confid\nJOIN seriespost s ON t.tmid = s.tmidwinner AND t.year = s.year\nJOIN abbrev a ON leaf_1.confid = a.code\nWHERE (s.year = 1985 OR s.year = 1986)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "fullname": "Wales Conference"
+              }
+            ],
+            "scalar": true,
+            "text_scalar": true
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 14,
+  "sample_retry": 6,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.41833333333333333,
+    "nearest": {
+      "sample_index": 13,
+      "answer_mode": "text",
+      "target_join_count": 2,
+      "similarity": 0.41833333333333333,
+      "sql": "SELECT a.fullname\nFROM teams AS t1 JOIN (SELECT t2.year, t2.tmid, MAX(t2.gf) AS max_gf\nFROM teams AS t2\nWHERE (t2.year = 2009)\nGROUP BY t2.year) AS t3 ON t1.year = t3.year AND t1.tmid = t3.tmid AND t1.gf = t3.max_gf JOIN abbrev AS a ON t1.confid = a.code"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": null,
+    "nearest": null,
+    "reason": "not numeric"
+  },
+  "question": "Which conference's team has the full name of the team that won the most series in its conference, considering only series wins in 1985 and 1986?",
+  "answer": "Wales Conference"
+}

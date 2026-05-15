@@ -1,0 +1,9 @@
+SELECT AVG(race_count) AS average_races_per_circuit
+FROM (SELECT circuits.name AS circuit_name, circuits.circuitid, COUNT(DISTINCT races.raceid) AS race_count
+FROM circuits
+JOIN races ON circuits.circuitid = races.circuitid
+JOIN results ON races.raceid = results.raceid
+JOIN qualifying ON races.raceid = qualifying.raceid
+WHERE (results.position IS NULL) AND (qualifying.position <= 10)
+GROUP BY circuits.circuitid
+HAVING (COUNT(DISTINCT races.raceid) >= 1)) AS leaf_1

@@ -1,0 +1,1 @@
+SELECT m.member_no, SUM(c.charge_amt) AS total_spent FROM member AS m JOIN charge AS c ON m.member_no = c.member_no JOIN region AS r ON m.region_no = r.region_no WHERE (r.region_name = 'North American' OR r.region_name = 'South American') GROUP BY m.member_no HAVING (SUM(c.charge_amt) > 0)

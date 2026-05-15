@@ -1,0 +1,1 @@
+SELECT c.category_no, p.region_no, SUM(ch.charge_amt) AS total_charges FROM charge AS ch JOIN category AS c ON ch.category_no = c.category_no JOIN provider AS p ON ch.provider_no = p.provider_no WHERE (c.category_desc = 'Meals') GROUP BY c.category_no, p.region_no

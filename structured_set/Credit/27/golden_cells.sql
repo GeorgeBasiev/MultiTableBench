@@ -1,0 +1,1 @@
+SELECT c.charge_no, c.charge_dt, c.charge_amt, m.member_no, m.lastname, m.firstname, r.region_name FROM charge c JOIN member m ON c.member_no = m.member_no JOIN region r ON m.region_no = r.region_no WHERE (c.category_no = 2) AND (r.region_name IN ('North American', 'South American'))

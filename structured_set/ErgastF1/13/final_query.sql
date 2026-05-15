@@ -1,0 +1,7 @@
+SELECT nationality
+FROM (SELECT c.name AS constructor_name, COUNT(r.raceid) AS race_wins, c.nationality
+FROM constructors c
+JOIN results rs ON c.constructorid = rs.constructorid
+JOIN races r ON rs.raceid = r.raceid
+WHERE (rs.positionorder = 1)
+GROUP BY c.constructorid, c.name, c.nationality) AS leaf_1

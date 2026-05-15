@@ -1,0 +1,1 @@
+SELECT t.title_id, t.advance, ta.au_id, ta.royaltyper, a.au_fname FROM titles AS t JOIN titleauthor AS ta ON t.title_id = ta.title_id JOIN authors AS a ON ta.au_id = a.au_id ORDER BY t.advance DESC, ta.royaltyper DESC

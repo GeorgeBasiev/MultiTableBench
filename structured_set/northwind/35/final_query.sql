@@ -1,0 +1,9 @@
+SELECT AVG(leaf_1.distinct_products)
+FROM (SELECT c.customerid, c.companyname, c.city, c.region, COUNT(DISTINCT od.productid) AS distinct_products
+FROM customers AS c
+JOIN orders AS o ON c.customerid = o.customerid
+JOIN "order details" AS od ON o.orderid = od.orderid
+JOIN employeeterritories AS et ON o.employeeid = et.employeeid
+JOIN territories AS t ON et.territoryid = t.territoryid
+WHERE (t.regionid = 1) AND (strftime('%Y', o.orderdate) = '1997')
+GROUP BY c.customerid, c.companyname, c.city, c.region) AS leaf_1

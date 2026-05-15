@@ -1,0 +1,1 @@
+SELECT race.year, constructor.constructorid, COUNT(results.resultid) AS race_wins, constructor.nationality FROM races AS race JOIN results ON race.raceid = results.raceid JOIN constructors AS constructor ON results.constructorid = constructor.constructorid WHERE (race.year = 2005) GROUP BY race.year, constructor.constructorid, constructor.nationality

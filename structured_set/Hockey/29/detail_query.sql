@@ -1,0 +1,8 @@
+SELECT AVG(leaf_1.ga_per_game) AS avg_ga_per_game
+FROM (SELECT g.playerid, g.year, g.ga, g.gp, CAST(g.ga AS REAL) / CAST(g.gp AS REAL) AS ga_per_game
+FROM goalies g
+JOIN teams t ON g.tmid = t.tmid
+JOIN abbrev a ON t.confid = a.code
+JOIN master m ON g.playerid = m.playerid
+JOIN hof h ON m.hofid = h.hofid
+WHERE (a.type = 'Conference') AND (a.fullname = 'Campbell Conference' OR a.fullname = 'Wales Conference' OR a.fullname = 'Eastern Conference') AND (h.category = 'Player')) AS leaf_1

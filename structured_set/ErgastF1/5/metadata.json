@@ -1,0 +1,1987 @@
+{
+  "sample_index": 5,
+  "db_name": "ErgastF1",
+  "answer_mode": "aggregate",
+  "target_join_count": 3,
+  "actual_join_count": 3,
+  "numeric_answer": 6.0,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 3,
+    "min_hops": 3,
+    "max_hops": 3,
+    "require_group_by": false,
+    "require_having": true,
+    "require_nested_subquery": true
+  },
+  "question_intent": "average points scored by top 10 finishers in races held in Australia, considering only constructors from European nations",
+  "manifest": {
+    "db_name": "ErgastF1",
+    "sample_dir": "structured_set/ErgastF1/5",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "circuits",
+        "remote_row_count": 73,
+        "snapshot_row_count": 62,
+        "target_limit": 62,
+        "relational_rows_added": 11,
+        "columns": [
+          {
+            "name": "circuitid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "circuitref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "location",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lat",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "lng",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "alt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructorresults",
+        "remote_row_count": 11082,
+        "snapshot_row_count": 88,
+        "target_limit": 88,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "constructorresultsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "status",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructors",
+        "remote_row_count": 208,
+        "snapshot_row_count": 102,
+        "target_limit": 102,
+        "relational_rows_added": 53,
+        "columns": [
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "nationality",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructorstandings",
+        "remote_row_count": 11836,
+        "snapshot_row_count": 89,
+        "target_limit": 89,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "constructorstandingsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "wins",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "drivers",
+        "remote_row_count": 840,
+        "snapshot_row_count": 80,
+        "target_limit": 80,
+        "relational_rows_added": 651,
+        "columns": [
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "code",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "forename",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "surname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "dob",
+            "mysql_type": "date",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "nationality",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "driverstandings",
+        "remote_row_count": 31578,
+        "snapshot_row_count": 92,
+        "target_limit": 92,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "driverstandingsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "wins",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "laptimes",
+        "remote_row_count": 420369,
+        "snapshot_row_count": 83,
+        "target_limit": 83,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "pitstops",
+        "remote_row_count": 6070,
+        "snapshot_row_count": 64,
+        "target_limit": 64,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stop",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "time",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "duration",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "qualifying",
+        "remote_row_count": 7397,
+        "snapshot_row_count": 97,
+        "target_limit": 97,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "qualifyid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "q1",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "q2",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "q3",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "races",
+        "remote_row_count": 976,
+        "snapshot_row_count": 109,
+        "target_limit": 109,
+        "relational_rows_added": 1611,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "round",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "circuitid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "date",
+            "mysql_type": "date",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "time",
+            "mysql_type": "time",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "results",
+        "remote_row_count": 23657,
+        "snapshot_row_count": 83,
+        "target_limit": 83,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "resultid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "grid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "positionorder",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "laps",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "fastestlap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "fastestlaptime",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fastestlapspeed",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "statusid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "seasons",
+        "remote_row_count": 68,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "status",
+        "remote_row_count": 134,
+        "snapshot_row_count": 119,
+        "target_limit": 119,
+        "relational_rows_added": 2,
+        "columns": [
+          {
+            "name": "statusid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "status",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "target",
+        "remote_row_count": 31578,
+        "snapshot_row_count": 78,
+        "target_limit": 78,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "targetid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "win",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "average points scored by top 10 finishers in races held in Australia, considering only constructors from European nations",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT r.raceid, r.name AS race_name, ci.country, rs.points, c.name AS constructor_name, c.nationality FROM races AS r JOIN circuits AS ci ON r.circuitid = ci.circuitid JOIN results AS rs ON r.raceid = rs.raceid JOIN constructors AS c ON rs.constructorid = c.constructorid WHERE (ci.country = 'Australia') AND (rs.positionorder <= 10) AND (rs.points > 0) AND (c.nationality IN ('British', 'French', 'German', 'Spanish', 'Italian', 'Austrian', 'Swedish', 'Dutch', 'Belgian')) GROUP BY r.raceid, r.name, ci.country, rs.points, c.name, c.nationality HAVING (rs.points > 0)",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT r.raceid, rs.points",
+        "from_clause": "FROM races AS r",
+        "join_clauses": [
+          "JOIN circuits AS ci ON r.circuitid = ci.circuitid",
+          "JOIN results AS rs ON r.raceid = rs.raceid",
+          "JOIN constructors AS c ON rs.constructorid = c.constructorid"
+        ],
+        "where_clauses": [
+          "ci.country = 'Australia'",
+          "rs.positionorder <= 10",
+          "rs.points > 0",
+          "c.nationality IN ('British', 'French', 'German', 'Spanish', 'Italian', 'Austrian', 'Swedish', 'Dutch', 'Belgian')"
+        ],
+        "group_by_clause": "GROUP BY r.raceid, rs.points",
+        "having_clauses": [
+          "rs.points > 0"
+        ],
+        "notes": "returns race IDs and points for top 10 finishers in Australian races, considering only European constructors"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT AVG(leaf_1.points) AS average_points",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "computes the average points scored by top 10 finishers in Australian races, considering only European constructors"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "returns race IDs and points for top 10 finishers in Australian races, considering only European constructors",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM races AS r\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 8,
+            "preview": [
+              {
+                "raceid": 11,
+                "year": 2009,
+                "round": 11,
+                "circuitid": 12,
+                "name": "European Grand Prix",
+                "date": "2009-08-23",
+                "time": "12:00:00",
+                "url": "http://en.wikipedia.org/wiki/2009_European_Grand_Prix"
+              },
+              {
+                "raceid": 30,
+                "year": 2008,
+                "round": 13,
+                "circuitid": 13,
+                "name": "Belgian Grand Prix",
+                "date": "2008-09-07",
+                "time": "12:00:00",
+                "url": "http://en.wikipedia.org/wiki/2008_Belgian_Grand_Prix"
+              },
+              {
+                "raceid": 51,
+                "year": 2007,
+                "round": 16,
+                "circuitid": 17,
+                "name": "Chinese Grand Prix",
+                "date": "2007-10-07",
+                "time": "06:00:00",
+                "url": "http://en.wikipedia.org/wiki/2007_Chinese_Grand_Prix"
+              },
+              {
+                "raceid": 53,
+                "year": 2006,
+                "round": 1,
+                "circuitid": 3,
+                "name": "Bahrain Grand Prix",
+                "date": "2006-03-12",
+                "time": "14:30:00",
+                "url": "http://en.wikipedia.org/wiki/2006_Bahrain_Grand_Prix"
+              },
+              {
+                "raceid": 55,
+                "year": 2006,
+                "round": 3,
+                "circuitid": 1,
+                "name": "Australian Grand Prix",
+                "date": "2006-04-02",
+                "time": "14:00:00",
+                "url": "http://en.wikipedia.org/wiki/2006_Australian_Grand_Prix"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN circuits AS ci ON r.circuitid = ci.circuitid",
+          "sql": "SELECT *\nFROM races AS r\nJOIN circuits AS ci ON r.circuitid = ci.circuitid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 17,
+            "preview": [
+              {
+                "raceid": 11,
+                "year": 2009,
+                "round": 11,
+                "circuitid": 12,
+                "name": "European Grand Prix",
+                "date": "2009-08-23",
+                "time": "12:00:00",
+                "url": "http://en.wikipedia.org/wiki/2009_European_Grand_Prix",
+                "circuitid__dup1": 12,
+                "circuitref": "valencia",
+                "name__dup1": "Valencia Street Circuit",
+                "location": "Valencia",
+                "country": "Spain",
+                "lat": 39.4589,
+                "lng": -0.331667,
+                "alt": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/Valencia_Street_Circuit"
+              },
+              {
+                "raceid": 30,
+                "year": 2008,
+                "round": 13,
+                "circuitid": 13,
+                "name": "Belgian Grand Prix",
+                "date": "2008-09-07",
+                "time": "12:00:00",
+                "url": "http://en.wikipedia.org/wiki/2008_Belgian_Grand_Prix",
+                "circuitid__dup1": 13,
+                "circuitref": "spa",
+                "name__dup1": "Circuit de Spa-Francorchamps",
+                "location": "Spa",
+                "country": "Belgium",
+                "lat": 50.4372,
+                "lng": 5.97139,
+                "alt": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/Circuit_de_Spa-Francorchamps"
+              },
+              {
+                "raceid": 51,
+                "year": 2007,
+                "round": 16,
+                "circuitid": 17,
+                "name": "Chinese Grand Prix",
+                "date": "2007-10-07",
+                "time": "06:00:00",
+                "url": "http://en.wikipedia.org/wiki/2007_Chinese_Grand_Prix",
+                "circuitid__dup1": 17,
+                "circuitref": "shanghai",
+                "name__dup1": "Shanghai International Circuit",
+                "location": "Shanghai",
+                "country": "China",
+                "lat": 31.3389,
+                "lng": 121.22,
+                "alt": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/Shanghai_International_Circuit"
+              },
+              {
+                "raceid": 53,
+                "year": 2006,
+                "round": 1,
+                "circuitid": 3,
+                "name": "Bahrain Grand Prix",
+                "date": "2006-03-12",
+                "time": "14:30:00",
+                "url": "http://en.wikipedia.org/wiki/2006_Bahrain_Grand_Prix",
+                "circuitid__dup1": 3,
+                "circuitref": "bahrain",
+                "name__dup1": "Bahrain International Circuit",
+                "location": "Sakhir",
+                "country": "Bahrain",
+                "lat": 26.0325,
+                "lng": 50.5106,
+                "alt": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/Bahrain_International_Circuit"
+              },
+              {
+                "raceid": 55,
+                "year": 2006,
+                "round": 3,
+                "circuitid": 1,
+                "name": "Australian Grand Prix",
+                "date": "2006-04-02",
+                "time": "14:00:00",
+                "url": "http://en.wikipedia.org/wiki/2006_Australian_Grand_Prix",
+                "circuitid__dup1": 1,
+                "circuitref": "albert_park",
+                "name__dup1": "Albert Park Grand Prix Circuit",
+                "location": "Melbourne",
+                "country": "Australia",
+                "lat": -37.8497,
+                "lng": 144.968,
+                "alt": 10.0,
+                "url__dup1": "http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN results AS rs ON r.raceid = rs.raceid",
+          "sql": "SELECT *\nFROM races AS r\nJOIN circuits AS ci ON r.circuitid = ci.circuitid\nJOIN results AS rs ON r.raceid = rs.raceid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 35,
+            "preview": [
+              {
+                "raceid": 30,
+                "year": 2008,
+                "round": 13,
+                "circuitid": 13,
+                "name": "Belgian Grand Prix",
+                "date": "2008-09-07",
+                "time": "12:00:00",
+                "url": "http://en.wikipedia.org/wiki/2008_Belgian_Grand_Prix",
+                "circuitid__dup1": 13,
+                "circuitref": "spa",
+                "name__dup1": "Circuit de Spa-Francorchamps",
+                "location": "Spa",
+                "country": "Belgium",
+                "lat": 50.4372,
+                "lng": 5.97139,
+                "alt": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/Circuit_de_Spa-Francorchamps",
+                "resultid": 265,
+                "raceid__dup1": 30,
+                "driverid": 21,
+                "constructorid": 10,
+                "number": 21,
+                "grid": 20,
+                "position": 17.0,
+                "positiontext": "17",
+                "positionorder": 17,
+                "points": 0.0,
+                "laps": 43,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": 17.0,
+                "rank": 19.0,
+                "fastestlaptime": "1:51.701",
+                "fastestlapspeed": "225.731",
+                "statusid": 11
+              },
+              {
+                "raceid": 53,
+                "year": 2006,
+                "round": 1,
+                "circuitid": 3,
+                "name": "Bahrain Grand Prix",
+                "date": "2006-03-12",
+                "time": "14:30:00",
+                "url": "http://en.wikipedia.org/wiki/2006_Bahrain_Grand_Prix",
+                "circuitid__dup1": 3,
+                "circuitref": "bahrain",
+                "name__dup1": "Bahrain International Circuit",
+                "location": "Sakhir",
+                "country": "Bahrain",
+                "lat": 26.0325,
+                "lng": 50.5106,
+                "alt": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/Bahrain_International_Circuit",
+                "resultid": 749,
+                "raceid__dup1": 53,
+                "driverid": 3,
+                "constructorid": 3,
+                "number": 10,
+                "grid": 12,
+                "position": 7.0,
+                "positiontext": "7",
+                "positionorder": 7,
+                "points": 2.0,
+                "laps": 57,
+                "time__dup1": "+1:03.043",
+                "milliseconds": 5449248.0,
+                "fastestlap": 42.0,
+                "rank": 1.0,
+                "fastestlaptime": "1:32.408",
+                "fastestlapspeed": "210.838",
+                "statusid": 1
+              },
+              {
+                "raceid": 55,
+                "year": 2006,
+                "round": 3,
+                "circuitid": 1,
+                "name": "Australian Grand Prix",
+                "date": "2006-04-02",
+                "time": "14:00:00",
+                "url": "http://en.wikipedia.org/wiki/2006_Australian_Grand_Prix",
+                "circuitid__dup1": 1,
+                "circuitref": "albert_park",
+                "name__dup1": "Albert Park Grand Prix Circuit",
+                "location": "Melbourne",
+                "country": "Australia",
+                "lat": -37.8497,
+                "lng": 144.968,
+                "alt": 10.0,
+                "url__dup1": "http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit",
+                "resultid": 807,
+                "raceid__dup1": 55,
+                "driverid": 3,
+                "constructorid": 3,
+                "number": 10,
+                "grid": 14,
+                "position": NaN,
+                "positiontext": "R",
+                "positionorder": 21,
+                "points": 0.0,
+                "laps": 0,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": NaN,
+                "rank": NaN,
+                "fastestlaptime": NaN,
+                "fastestlapspeed": NaN,
+                "statusid": 3
+              },
+              {
+                "raceid": 84,
+                "year": 2005,
+                "round": 14,
+                "circuitid": 5,
+                "name": "Turkish Grand Prix",
+                "date": "2005-08-21",
+                "time": "15:00:00",
+                "url": "http://en.wikipedia.org/wiki/2005_Turkish_Grand_Prix",
+                "circuitid__dup1": 5,
+                "circuitref": "istanbul",
+                "name__dup1": "Istanbul Park",
+                "location": "Istanbul",
+                "country": "Turkey",
+                "lat": 40.9517,
+                "lng": 29.405,
+                "alt": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/Istanbul_Park",
+                "resultid": 1399,
+                "raceid__dup1": 84,
+                "driverid": 18,
+                "constructorid": 16,
+                "number": 3,
+                "grid": 13,
+                "position": 5.0,
+                "positiontext": "5",
+                "positionorder": 5,
+                "points": 4.0,
+                "laps": 58,
+                "time__dup1": "+39.304",
+                "milliseconds": 5113758.0,
+                "fastestlap": 58.0,
+                "rank": 5.0,
+                "fastestlaptime": "1:25.790",
+                "fastestlapspeed": "223.998",
+                "statusid": 1
+              },
+              {
+                "raceid": 112,
+                "year": 2003,
+                "round": 5,
+                "circuitid": 4,
+                "name": "Spanish Grand Prix",
+                "date": "2003-05-04",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/2003_Spanish_Grand_Prix",
+                "circuitid__dup1": 4,
+                "circuitref": "catalunya",
+                "name__dup1": "Circuit de Barcelona-Catalunya",
+                "location": "Montmeló",
+                "country": "Spain",
+                "lat": 41.57,
+                "lng": 2.26111,
+                "alt": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/Circuit_de_Barcelona-Catalunya",
+                "resultid": 1965,
+                "raceid__dup1": 112,
+                "driverid": 51,
+                "constructorid": 18,
+                "number": 18,
+                "grid": 18,
+                "position": 11.0,
+                "positiontext": "11",
+                "positionorder": 11,
+                "points": 0.0,
+                "laps": 63,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": NaN,
+                "rank": NaN,
+                "fastestlaptime": NaN,
+                "fastestlapspeed": NaN,
+                "statusid": 12
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN constructors AS c ON rs.constructorid = c.constructorid",
+          "sql": "SELECT *\nFROM races AS r\nJOIN circuits AS ci ON r.circuitid = ci.circuitid\nJOIN results AS rs ON r.raceid = rs.raceid\nJOIN constructors AS c ON rs.constructorid = c.constructorid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 40,
+            "preview": [
+              {
+                "raceid": 30,
+                "year": 2008,
+                "round": 13,
+                "circuitid": 13,
+                "name": "Belgian Grand Prix",
+                "date": "2008-09-07",
+                "time": "12:00:00",
+                "url": "http://en.wikipedia.org/wiki/2008_Belgian_Grand_Prix",
+                "circuitid__dup1": 13,
+                "circuitref": "spa",
+                "name__dup1": "Circuit de Spa-Francorchamps",
+                "location": "Spa",
+                "country": "Belgium",
+                "lat": 50.4372,
+                "lng": 5.97139,
+                "alt": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/Circuit_de_Spa-Francorchamps",
+                "resultid": 265,
+                "raceid__dup1": 30,
+                "driverid": 21,
+                "constructorid": 10,
+                "number": 21,
+                "grid": 20,
+                "position": 17.0,
+                "positiontext": "17",
+                "positionorder": 17,
+                "points": 0.0,
+                "laps": 43,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": 17.0,
+                "rank": 19.0,
+                "fastestlaptime": "1:51.701",
+                "fastestlapspeed": "225.731",
+                "statusid": 11,
+                "constructorid__dup1": 10,
+                "constructorref": "force_india",
+                "name__dup2": "Force India",
+                "nationality": "Indian",
+                "url__dup2": "http://en.wikipedia.org/wiki/Force_India"
+              },
+              {
+                "raceid": 53,
+                "year": 2006,
+                "round": 1,
+                "circuitid": 3,
+                "name": "Bahrain Grand Prix",
+                "date": "2006-03-12",
+                "time": "14:30:00",
+                "url": "http://en.wikipedia.org/wiki/2006_Bahrain_Grand_Prix",
+                "circuitid__dup1": 3,
+                "circuitref": "bahrain",
+                "name__dup1": "Bahrain International Circuit",
+                "location": "Sakhir",
+                "country": "Bahrain",
+                "lat": 26.0325,
+                "lng": 50.5106,
+                "alt": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/Bahrain_International_Circuit",
+                "resultid": 749,
+                "raceid__dup1": 53,
+                "driverid": 3,
+                "constructorid": 3,
+                "number": 10,
+                "grid": 12,
+                "position": 7.0,
+                "positiontext": "7",
+                "positionorder": 7,
+                "points": 2.0,
+                "laps": 57,
+                "time__dup1": "+1:03.043",
+                "milliseconds": 5449248.0,
+                "fastestlap": 42.0,
+                "rank": 1.0,
+                "fastestlaptime": "1:32.408",
+                "fastestlapspeed": "210.838",
+                "statusid": 1,
+                "constructorid__dup1": 3,
+                "constructorref": "williams",
+                "name__dup2": "Williams",
+                "nationality": "British",
+                "url__dup2": "http://en.wikipedia.org/wiki/Williams_Grand_Prix_Engineering"
+              },
+              {
+                "raceid": 55,
+                "year": 2006,
+                "round": 3,
+                "circuitid": 1,
+                "name": "Australian Grand Prix",
+                "date": "2006-04-02",
+                "time": "14:00:00",
+                "url": "http://en.wikipedia.org/wiki/2006_Australian_Grand_Prix",
+                "circuitid__dup1": 1,
+                "circuitref": "albert_park",
+                "name__dup1": "Albert Park Grand Prix Circuit",
+                "location": "Melbourne",
+                "country": "Australia",
+                "lat": -37.8497,
+                "lng": 144.968,
+                "alt": 10.0,
+                "url__dup1": "http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit",
+                "resultid": 807,
+                "raceid__dup1": 55,
+                "driverid": 3,
+                "constructorid": 3,
+                "number": 10,
+                "grid": 14,
+                "position": NaN,
+                "positiontext": "R",
+                "positionorder": 21,
+                "points": 0.0,
+                "laps": 0,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": NaN,
+                "rank": NaN,
+                "fastestlaptime": NaN,
+                "fastestlapspeed": NaN,
+                "statusid": 3,
+                "constructorid__dup1": 3,
+                "constructorref": "williams",
+                "name__dup2": "Williams",
+                "nationality": "British",
+                "url__dup2": "http://en.wikipedia.org/wiki/Williams_Grand_Prix_Engineering"
+              },
+              {
+                "raceid": 84,
+                "year": 2005,
+                "round": 14,
+                "circuitid": 5,
+                "name": "Turkish Grand Prix",
+                "date": "2005-08-21",
+                "time": "15:00:00",
+                "url": "http://en.wikipedia.org/wiki/2005_Turkish_Grand_Prix",
+                "circuitid__dup1": 5,
+                "circuitref": "istanbul",
+                "name__dup1": "Istanbul Park",
+                "location": "Istanbul",
+                "country": "Turkey",
+                "lat": 40.9517,
+                "lng": 29.405,
+                "alt": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/Istanbul_Park",
+                "resultid": 1399,
+                "raceid__dup1": 84,
+                "driverid": 18,
+                "constructorid": 16,
+                "number": 3,
+                "grid": 13,
+                "position": 5.0,
+                "positiontext": "5",
+                "positionorder": 5,
+                "points": 4.0,
+                "laps": 58,
+                "time__dup1": "+39.304",
+                "milliseconds": 5113758.0,
+                "fastestlap": 58.0,
+                "rank": 5.0,
+                "fastestlaptime": "1:25.790",
+                "fastestlapspeed": "223.998",
+                "statusid": 1,
+                "constructorid__dup1": 16,
+                "constructorref": "bar",
+                "name__dup2": "BAR",
+                "nationality": "British",
+                "url__dup2": "http://en.wikipedia.org/wiki/British_American_Racing"
+              },
+              {
+                "raceid": 112,
+                "year": 2003,
+                "round": 5,
+                "circuitid": 4,
+                "name": "Spanish Grand Prix",
+                "date": "2003-05-04",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/2003_Spanish_Grand_Prix",
+                "circuitid__dup1": 4,
+                "circuitref": "catalunya",
+                "name__dup1": "Circuit de Barcelona-Catalunya",
+                "location": "Montmeló",
+                "country": "Spain",
+                "lat": 41.57,
+                "lng": 2.26111,
+                "alt": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/Circuit_de_Barcelona-Catalunya",
+                "resultid": 1965,
+                "raceid__dup1": 112,
+                "driverid": 51,
+                "constructorid": 18,
+                "number": 18,
+                "grid": 18,
+                "position": 11.0,
+                "positiontext": "11",
+                "positionorder": 11,
+                "points": 0.0,
+                "laps": 63,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": NaN,
+                "rank": NaN,
+                "fastestlaptime": NaN,
+                "fastestlapspeed": NaN,
+                "statusid": 12,
+                "constructorid__dup1": 18,
+                "constructorref": "minardi",
+                "name__dup2": "Minardi",
+                "nationality": "Italian",
+                "url__dup2": "http://en.wikipedia.org/wiki/Minardi"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "ci.country = 'Australia'",
+          "sql": "SELECT *\nFROM races AS r\nJOIN circuits AS ci ON r.circuitid = ci.circuitid\nJOIN results AS rs ON r.raceid = rs.raceid\nJOIN constructors AS c ON rs.constructorid = c.constructorid\nWHERE (ci.country = 'Australia')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 40,
+            "preview": [
+              {
+                "raceid": 55,
+                "year": 2006,
+                "round": 3,
+                "circuitid": 1,
+                "name": "Australian Grand Prix",
+                "date": "2006-04-02",
+                "time": "14:00:00",
+                "url": "http://en.wikipedia.org/wiki/2006_Australian_Grand_Prix",
+                "circuitid__dup1": 1,
+                "circuitref": "albert_park",
+                "name__dup1": "Albert Park Grand Prix Circuit",
+                "location": "Melbourne",
+                "country": "Australia",
+                "lat": -37.8497,
+                "lng": 144.968,
+                "alt": 10.0,
+                "url__dup1": "http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit",
+                "resultid": 807,
+                "raceid__dup1": 55,
+                "driverid": 3,
+                "constructorid": 3,
+                "number": 10,
+                "grid": 14,
+                "position": NaN,
+                "positiontext": "R",
+                "positionorder": 21,
+                "points": 0.0,
+                "laps": 0,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 3,
+                "constructorid__dup1": 3,
+                "constructorref": "williams",
+                "name__dup2": "Williams",
+                "nationality": "British",
+                "url__dup2": "http://en.wikipedia.org/wiki/Williams_Grand_Prix_Engineering"
+              },
+              {
+                "raceid": 124,
+                "year": 2002,
+                "round": 1,
+                "circuitid": 1,
+                "name": "Australian Grand Prix",
+                "date": "2002-03-03",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/2002_Australian_Grand_Prix",
+                "circuitid__dup1": 1,
+                "circuitref": "albert_park",
+                "name__dup1": "Albert Park Grand Prix Circuit",
+                "location": "Melbourne",
+                "country": "Australia",
+                "lat": -37.8497,
+                "lng": 144.968,
+                "alt": 10.0,
+                "url__dup1": "http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit",
+                "resultid": 2199,
+                "raceid__dup1": 124,
+                "driverid": 17,
+                "constructorid": 18,
+                "number": 23,
+                "grid": 18,
+                "position": 5.0,
+                "positiontext": "5",
+                "positionorder": 5,
+                "points": 2.0,
+                "laps": 56,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 12,
+                "constructorid__dup1": 18,
+                "constructorref": "minardi",
+                "name__dup2": "Minardi",
+                "nationality": "Italian",
+                "url__dup2": "http://en.wikipedia.org/wiki/Minardi"
+              },
+              {
+                "raceid": 175,
+                "year": 1999,
+                "round": 1,
+                "circuitid": 1,
+                "name": "Australian Grand Prix",
+                "date": "1999-03-07",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/1999_Australian_Grand_Prix",
+                "circuitid__dup1": 1,
+                "circuitref": "albert_park",
+                "name__dup1": "Albert Park Grand Prix Circuit",
+                "location": "Melbourne",
+                "country": "Australia",
+                "lat": -37.8497,
+                "lng": 144.968,
+                "alt": 10.0,
+                "url__dup1": "http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit",
+                "resultid": 3304,
+                "raceid__dup1": 175,
+                "driverid": 56,
+                "constructorid": 6,
+                "number": 4,
+                "grid": 6,
+                "position": 1.0,
+                "positiontext": "1",
+                "positionorder": 1,
+                "points": 10.0,
+                "laps": 57,
+                "time__dup1": "1:35:01.659",
+                "milliseconds": 5701659.0,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 1,
+                "constructorid__dup1": 6,
+                "constructorref": "ferrari",
+                "name__dup2": "Ferrari",
+                "nationality": "Italian",
+                "url__dup2": "http://en.wikipedia.org/wiki/Scuderia_Ferrari"
+              },
+              {
+                "raceid": 175,
+                "year": 1999,
+                "round": 1,
+                "circuitid": 1,
+                "name": "Australian Grand Prix",
+                "date": "1999-03-07",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/1999_Australian_Grand_Prix",
+                "circuitid__dup1": 1,
+                "circuitref": "albert_park",
+                "name__dup1": "Albert Park Grand Prix Circuit",
+                "location": "Melbourne",
+                "country": "Australia",
+                "lat": -37.8497,
+                "lng": 144.968,
+                "alt": 10.0,
+                "url__dup1": "http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit",
+                "resultid": 3313,
+                "raceid__dup1": 175,
+                "driverid": 69,
+                "constructorid": 18,
+                "number": 20,
+                "grid": 21,
+                "position": NaN,
+                "positiontext": "R",
+                "positionorder": 10,
+                "points": 0.0,
+                "laps": 42,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 6,
+                "constructorid__dup1": 18,
+                "constructorref": "minardi",
+                "name__dup2": "Minardi",
+                "nationality": "Italian",
+                "url__dup2": "http://en.wikipedia.org/wiki/Minardi"
+              },
+              {
+                "raceid": 403,
+                "year": 1987,
+                "round": 16,
+                "circuitid": 29,
+                "name": "Australian Grand Prix",
+                "date": "1987-11-15",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/1987_Australian_Grand_Prix",
+                "circuitid__dup1": 29,
+                "circuitref": "adelaide",
+                "name__dup1": "Adelaide Street Circuit",
+                "location": "Adelaide",
+                "country": "Australia",
+                "lat": -34.9272,
+                "lng": 138.617,
+                "alt": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/Adelaide_Street_Circuit",
+                "resultid": 9401,
+                "raceid__dup1": 403,
+                "driverid": 160,
+                "constructorid": 27,
+                "number": 26,
+                "grid": 22,
+                "position": NaN,
+                "positiontext": "R",
+                "positionorder": 21,
+                "points": 0.0,
+                "laps": 26,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 80,
+                "constructorid__dup1": 27,
+                "constructorref": "ligier",
+                "name__dup2": "Ligier",
+                "nationality": "French",
+                "url__dup2": "http://en.wikipedia.org/wiki/Ligier"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "rs.positionorder <= 10",
+          "sql": "SELECT *\nFROM races AS r\nJOIN circuits AS ci ON r.circuitid = ci.circuitid\nJOIN results AS rs ON r.raceid = rs.raceid\nJOIN constructors AS c ON rs.constructorid = c.constructorid\nWHERE (ci.country = 'Australia') AND (rs.positionorder <= 10)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 3,
+            "column_count": 40,
+            "preview": [
+              {
+                "raceid": 124,
+                "year": 2002,
+                "round": 1,
+                "circuitid": 1,
+                "name": "Australian Grand Prix",
+                "date": "2002-03-03",
+                "time": null,
+                "url": "http://en.wikipedia.org/wiki/2002_Australian_Grand_Prix",
+                "circuitid__dup1": 1,
+                "circuitref": "albert_park",
+                "name__dup1": "Albert Park Grand Prix Circuit",
+                "location": "Melbourne",
+                "country": "Australia",
+                "lat": -37.8497,
+                "lng": 144.968,
+                "alt": 10,
+                "url__dup1": "http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit",
+                "resultid": 2199,
+                "raceid__dup1": 124,
+                "driverid": 17,
+                "constructorid": 18,
+                "number": 23,
+                "grid": 18,
+                "position": 5.0,
+                "positiontext": "5",
+                "positionorder": 5,
+                "points": 2.0,
+                "laps": 56,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 12,
+                "constructorid__dup1": 18,
+                "constructorref": "minardi",
+                "name__dup2": "Minardi",
+                "nationality": "Italian",
+                "url__dup2": "http://en.wikipedia.org/wiki/Minardi"
+              },
+              {
+                "raceid": 175,
+                "year": 1999,
+                "round": 1,
+                "circuitid": 1,
+                "name": "Australian Grand Prix",
+                "date": "1999-03-07",
+                "time": null,
+                "url": "http://en.wikipedia.org/wiki/1999_Australian_Grand_Prix",
+                "circuitid__dup1": 1,
+                "circuitref": "albert_park",
+                "name__dup1": "Albert Park Grand Prix Circuit",
+                "location": "Melbourne",
+                "country": "Australia",
+                "lat": -37.8497,
+                "lng": 144.968,
+                "alt": 10,
+                "url__dup1": "http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit",
+                "resultid": 3304,
+                "raceid__dup1": 175,
+                "driverid": 56,
+                "constructorid": 6,
+                "number": 4,
+                "grid": 6,
+                "position": 1.0,
+                "positiontext": "1",
+                "positionorder": 1,
+                "points": 10.0,
+                "laps": 57,
+                "time__dup1": "1:35:01.659",
+                "milliseconds": 5701659.0,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 1,
+                "constructorid__dup1": 6,
+                "constructorref": "ferrari",
+                "name__dup2": "Ferrari",
+                "nationality": "Italian",
+                "url__dup2": "http://en.wikipedia.org/wiki/Scuderia_Ferrari"
+              },
+              {
+                "raceid": 175,
+                "year": 1999,
+                "round": 1,
+                "circuitid": 1,
+                "name": "Australian Grand Prix",
+                "date": "1999-03-07",
+                "time": null,
+                "url": "http://en.wikipedia.org/wiki/1999_Australian_Grand_Prix",
+                "circuitid__dup1": 1,
+                "circuitref": "albert_park",
+                "name__dup1": "Albert Park Grand Prix Circuit",
+                "location": "Melbourne",
+                "country": "Australia",
+                "lat": -37.8497,
+                "lng": 144.968,
+                "alt": 10,
+                "url__dup1": "http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit",
+                "resultid": 3313,
+                "raceid__dup1": 175,
+                "driverid": 69,
+                "constructorid": 18,
+                "number": 20,
+                "grid": 21,
+                "position": NaN,
+                "positiontext": "R",
+                "positionorder": 10,
+                "points": 0.0,
+                "laps": 42,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 6,
+                "constructorid__dup1": 18,
+                "constructorref": "minardi",
+                "name__dup2": "Minardi",
+                "nationality": "Italian",
+                "url__dup2": "http://en.wikipedia.org/wiki/Minardi"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "rs.points > 0",
+          "sql": "SELECT *\nFROM races AS r\nJOIN circuits AS ci ON r.circuitid = ci.circuitid\nJOIN results AS rs ON r.raceid = rs.raceid\nJOIN constructors AS c ON rs.constructorid = c.constructorid\nWHERE (ci.country = 'Australia') AND (rs.positionorder <= 10) AND (rs.points > 0)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 40,
+            "preview": [
+              {
+                "raceid": 124,
+                "year": 2002,
+                "round": 1,
+                "circuitid": 1,
+                "name": "Australian Grand Prix",
+                "date": "2002-03-03",
+                "time": null,
+                "url": "http://en.wikipedia.org/wiki/2002_Australian_Grand_Prix",
+                "circuitid__dup1": 1,
+                "circuitref": "albert_park",
+                "name__dup1": "Albert Park Grand Prix Circuit",
+                "location": "Melbourne",
+                "country": "Australia",
+                "lat": -37.8497,
+                "lng": 144.968,
+                "alt": 10,
+                "url__dup1": "http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit",
+                "resultid": 2199,
+                "raceid__dup1": 124,
+                "driverid": 17,
+                "constructorid": 18,
+                "number": 23,
+                "grid": 18,
+                "position": 5,
+                "positiontext": "5",
+                "positionorder": 5,
+                "points": 2.0,
+                "laps": 56,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 12,
+                "constructorid__dup1": 18,
+                "constructorref": "minardi",
+                "name__dup2": "Minardi",
+                "nationality": "Italian",
+                "url__dup2": "http://en.wikipedia.org/wiki/Minardi"
+              },
+              {
+                "raceid": 175,
+                "year": 1999,
+                "round": 1,
+                "circuitid": 1,
+                "name": "Australian Grand Prix",
+                "date": "1999-03-07",
+                "time": null,
+                "url": "http://en.wikipedia.org/wiki/1999_Australian_Grand_Prix",
+                "circuitid__dup1": 1,
+                "circuitref": "albert_park",
+                "name__dup1": "Albert Park Grand Prix Circuit",
+                "location": "Melbourne",
+                "country": "Australia",
+                "lat": -37.8497,
+                "lng": 144.968,
+                "alt": 10,
+                "url__dup1": "http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit",
+                "resultid": 3304,
+                "raceid__dup1": 175,
+                "driverid": 56,
+                "constructorid": 6,
+                "number": 4,
+                "grid": 6,
+                "position": 1,
+                "positiontext": "1",
+                "positionorder": 1,
+                "points": 10.0,
+                "laps": 57,
+                "time__dup1": "1:35:01.659",
+                "milliseconds": 5701659.0,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 1,
+                "constructorid__dup1": 6,
+                "constructorref": "ferrari",
+                "name__dup2": "Ferrari",
+                "nationality": "Italian",
+                "url__dup2": "http://en.wikipedia.org/wiki/Scuderia_Ferrari"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.nationality IN ('British', 'French', 'German', 'Spanish', 'Italian', 'Austrian', 'Swedish', 'Dutch', 'Belgian')",
+          "sql": "SELECT *\nFROM races AS r\nJOIN circuits AS ci ON r.circuitid = ci.circuitid\nJOIN results AS rs ON r.raceid = rs.raceid\nJOIN constructors AS c ON rs.constructorid = c.constructorid\nWHERE (ci.country = 'Australia') AND (rs.positionorder <= 10) AND (rs.points > 0) AND (c.nationality IN ('British', 'French', 'German', 'Spanish', 'Italian', 'Austrian', 'Swedish', 'Dutch', 'Belgian'))\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 40,
+            "preview": [
+              {
+                "raceid": 124,
+                "year": 2002,
+                "round": 1,
+                "circuitid": 1,
+                "name": "Australian Grand Prix",
+                "date": "2002-03-03",
+                "time": null,
+                "url": "http://en.wikipedia.org/wiki/2002_Australian_Grand_Prix",
+                "circuitid__dup1": 1,
+                "circuitref": "albert_park",
+                "name__dup1": "Albert Park Grand Prix Circuit",
+                "location": "Melbourne",
+                "country": "Australia",
+                "lat": -37.8497,
+                "lng": 144.968,
+                "alt": 10,
+                "url__dup1": "http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit",
+                "resultid": 2199,
+                "raceid__dup1": 124,
+                "driverid": 17,
+                "constructorid": 18,
+                "number": 23,
+                "grid": 18,
+                "position": 5,
+                "positiontext": "5",
+                "positionorder": 5,
+                "points": 2.0,
+                "laps": 56,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 12,
+                "constructorid__dup1": 18,
+                "constructorref": "minardi",
+                "name__dup2": "Minardi",
+                "nationality": "Italian",
+                "url__dup2": "http://en.wikipedia.org/wiki/Minardi"
+              },
+              {
+                "raceid": 175,
+                "year": 1999,
+                "round": 1,
+                "circuitid": 1,
+                "name": "Australian Grand Prix",
+                "date": "1999-03-07",
+                "time": null,
+                "url": "http://en.wikipedia.org/wiki/1999_Australian_Grand_Prix",
+                "circuitid__dup1": 1,
+                "circuitref": "albert_park",
+                "name__dup1": "Albert Park Grand Prix Circuit",
+                "location": "Melbourne",
+                "country": "Australia",
+                "lat": -37.8497,
+                "lng": 144.968,
+                "alt": 10,
+                "url__dup1": "http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit",
+                "resultid": 3304,
+                "raceid__dup1": 175,
+                "driverid": 56,
+                "constructorid": 6,
+                "number": 4,
+                "grid": 6,
+                "position": 1,
+                "positiontext": "1",
+                "positionorder": 1,
+                "points": 10.0,
+                "laps": 57,
+                "time__dup1": "1:35:01.659",
+                "milliseconds": 5701659.0,
+                "fastestlap": null,
+                "rank": null,
+                "fastestlaptime": null,
+                "fastestlapspeed": null,
+                "statusid": 1,
+                "constructorid__dup1": 6,
+                "constructorref": "ferrari",
+                "name__dup2": "Ferrari",
+                "nationality": "Italian",
+                "url__dup2": "http://en.wikipedia.org/wiki/Scuderia_Ferrari"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "having",
+          "clause": "rs.points > 0",
+          "sql": "SELECT r.raceid, rs.points\nFROM races AS r\nJOIN circuits AS ci ON r.circuitid = ci.circuitid\nJOIN results AS rs ON r.raceid = rs.raceid\nJOIN constructors AS c ON rs.constructorid = c.constructorid\nWHERE (ci.country = 'Australia') AND (rs.positionorder <= 10) AND (rs.points > 0) AND (c.nationality IN ('British', 'French', 'German', 'Spanish', 'Italian', 'Austrian', 'Swedish', 'Dutch', 'Belgian'))\nGROUP BY r.raceid, rs.points\nHAVING (rs.points > 0)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 2,
+            "preview": [
+              {
+                "raceid": 124,
+                "points": 2.0
+              },
+              {
+                "raceid": 175,
+                "points": 10.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT r.raceid, rs.points\nFROM races AS r\nJOIN circuits AS ci ON r.circuitid = ci.circuitid\nJOIN results AS rs ON r.raceid = rs.raceid\nJOIN constructors AS c ON rs.constructorid = c.constructorid\nWHERE (ci.country = 'Australia') AND (rs.positionorder <= 10) AND (rs.points > 0) AND (c.nationality IN ('British', 'French', 'German', 'Spanish', 'Italian', 'Austrian', 'Swedish', 'Dutch', 'Belgian'))\nGROUP BY r.raceid, rs.points\nHAVING (rs.points > 0)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 2,
+            "preview": [
+              {
+                "raceid": 124,
+                "points": 2.0
+              },
+              {
+                "raceid": 175,
+                "points": 10.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "computes the average points scored by top 10 finishers in Australian races, considering only European constructors",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT r.raceid, rs.points\nFROM races AS r\nJOIN circuits AS ci ON r.circuitid = ci.circuitid\nJOIN results AS rs ON r.raceid = rs.raceid\nJOIN constructors AS c ON rs.constructorid = c.constructorid\nWHERE (ci.country = 'Australia') AND (rs.positionorder <= 10) AND (rs.points > 0) AND (c.nationality IN ('British', 'French', 'German', 'Spanish', 'Italian', 'Austrian', 'Swedish', 'Dutch', 'Belgian'))\nGROUP BY r.raceid, rs.points\nHAVING (rs.points > 0)) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 2,
+            "preview": [
+              {
+                "raceid": 124,
+                "points": 2.0
+              },
+              {
+                "raceid": 175,
+                "points": 10.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT AVG(leaf_1.points) AS average_points\nFROM (SELECT r.raceid, rs.points\nFROM races AS r\nJOIN circuits AS ci ON r.circuitid = ci.circuitid\nJOIN results AS rs ON r.raceid = rs.raceid\nJOIN constructors AS c ON rs.constructorid = c.constructorid\nWHERE (ci.country = 'Australia') AND (rs.positionorder <= 10) AND (rs.points > 0) AND (c.nationality IN ('British', 'French', 'German', 'Spanish', 'Italian', 'Austrian', 'Swedish', 'Dutch', 'Belgian'))\nGROUP BY r.raceid, rs.points\nHAVING (rs.points > 0)) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "average_points": 6.0
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 9,
+  "sample_retry": 1,
+  "detail_fallback_used": false,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.5586269841269842,
+    "nearest": {
+      "sample_index": 1,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "similarity": 0.5586269841269842,
+      "sql": "SELECT AVG(leaf_1.points) AS average_points_per_constructor\nFROM (SELECT c.name AS constructor_name, cr.points\nFROM constructorresults cr\nJOIN constructors c ON cr.constructorid = c.constructorid\nJOIN races r ON cr.raceid = r.raceid\nJOIN circuits ci ON r.circuitid = ci.circuitid\nWHERE (ci.country = 'Australia')) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 6.0,
+    "nearest": null,
+    "reason": "numeric answer <= 7.0"
+  },
+  "question": "What is the average number of points scored per race by top-10 finishers from European constructors in Australian races?",
+  "answer": "6"
+}

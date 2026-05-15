@@ -1,0 +1,1 @@
+SELECT r.year, c.name AS constructor_name, cr.points FROM races r JOIN constructorresults cr ON r.raceid = cr.raceid JOIN constructors c ON cr.constructorid = c.constructorid WHERE (c.nationality = 'British')

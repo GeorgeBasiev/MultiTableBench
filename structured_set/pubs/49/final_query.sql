@@ -1,0 +1,8 @@
+SELECT SUM((price * qty) * (1 - COALESCE(discount, 0) / 100)) AS total_revenue
+FROM (SELECT titles.title_id, titles.title, titles.price, sales.qty, sales.ord_date, publishers.pub_name, stores.state, discounts.discounttype, discounts.discount
+FROM titles
+JOIN sales ON titles.title_id = sales.title_id
+JOIN stores ON sales.stor_id = stores.stor_id
+JOIN publishers ON titles.pub_id = publishers.pub_id
+LEFT JOIN discounts ON sales.stor_id = discounts.stor_id AND sales.qty BETWEEN discounts.lowqty AND discounts.highqty
+WHERE (titles.type = 'business') AND (publishers.pub_name = 'Algodata Infosystems') AND (stores.state = 'CA')) AS leaf_1

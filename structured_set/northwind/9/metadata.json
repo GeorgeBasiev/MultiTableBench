@@ -1,0 +1,2729 @@
+{
+  "sample_index": 9,
+  "db_name": "northwind",
+  "answer_mode": "aggregate",
+  "target_join_count": 3,
+  "actual_join_count": 3,
+  "numeric_answer": 856.0,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 3,
+    "min_hops": 3,
+    "max_hops": 3,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Calculate the total sales revenue for products in the 'Beverages' category that were shipped to customers in the 'Eastern' region during the year 1997.",
+  "manifest": {
+    "db_name": "northwind",
+    "sample_dir": "structured_set/northwind/9",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "alphabetical list of products",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "productid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "supplierid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "categoryid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "quantityperunit",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitprice",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitsinstock",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitsonorder",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "reorderlevel",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discontinued",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "categoryname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "categories",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "categoryid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "categoryname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "description",
+            "mysql_type": "mediumtext",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "picture",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          }
+        ]
+      },
+      {
+        "table_name": "category sales for 1997",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "categoryname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "categorysales",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "current product list",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "productid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "customer and suppliers by city",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "city",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "contactname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "relationship",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "customercustomerdemo",
+        "remote_row_count": 0,
+        "snapshot_row_count": 0,
+        "target_limit": 0,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "customerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "customertypeid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "customerdemographics",
+        "remote_row_count": 0,
+        "snapshot_row_count": 0,
+        "target_limit": 0,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "customertypeid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "customerdesc",
+            "mysql_type": "mediumtext",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "customers",
+        "remote_row_count": 91,
+        "snapshot_row_count": 75,
+        "target_limit": 75,
+        "relational_rows_added": 19,
+        "columns": [
+          {
+            "name": "customerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contactname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contacttitle",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postalcode",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fax",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "employees",
+        "remote_row_count": 9,
+        "snapshot_row_count": 9,
+        "target_limit": 9,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "employeeid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lastname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "titleofcourtesy",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthdate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hiredate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postalcode",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "homephone",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "extension",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "photo",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "mediumtext",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "reportsto",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "photopath",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "salary",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          }
+        ]
+      },
+      {
+        "table_name": "employeeterritories",
+        "remote_row_count": 49,
+        "snapshot_row_count": 49,
+        "target_limit": 49,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "employeeid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "territoryid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "invoices",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "shipname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipaddress",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipcity",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipregion",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shippostalcode",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipcountry",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "customerid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "customername",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "address",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "city",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "region",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "postalcode",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "country",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "salesperson",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderdate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "requireddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shippeddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shippername",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitprice",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "quantity",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discount",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "extendedprice",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "freight",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "order details",
+        "remote_row_count": 2155,
+        "snapshot_row_count": 86,
+        "target_limit": 86,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitprice",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "quantity",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discount",
+            "mysql_type": "double",
+            "sqlite_type": "REAL"
+          }
+        ]
+      },
+      {
+        "table_name": "order details extended",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitprice",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "quantity",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discount",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "extendedprice",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "order subtotals",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "subtotal",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "orders",
+        "remote_row_count": 830,
+        "snapshot_row_count": 65,
+        "target_limit": 65,
+        "relational_rows_added": 58,
+        "columns": [
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "customerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "employeeid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderdate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "requireddate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shippeddate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shipvia",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "freight",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "shipname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shipaddress",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shipcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shipregion",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shippostalcode",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shipcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "orders qry",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "customerid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "employeeid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderdate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "requireddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shippeddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipvia",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "freight",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipaddress",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipcity",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipregion",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shippostalcode",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipcountry",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "address",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "city",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "region",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "postalcode",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "country",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "product sales for 1997",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "categoryname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productsales",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "products",
+        "remote_row_count": 77,
+        "snapshot_row_count": 77,
+        "target_limit": 77,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "productid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "supplierid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "categoryid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "quantityperunit",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "unitprice",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "unitsinstock",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitsonorder",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "reorderlevel",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discontinued",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "products above average price",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitprice",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "products by category",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "categoryname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "quantityperunit",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitsinstock",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discontinued",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "quarterly orders",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "customerid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "city",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "country",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "region",
+        "remote_row_count": 4,
+        "snapshot_row_count": 4,
+        "target_limit": 4,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "regionid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "regiondescription",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "sales by category",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "categoryid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "categoryname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productsales",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "sales totals by amount",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "saleamount",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shippeddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "shippers",
+        "remote_row_count": 3,
+        "snapshot_row_count": 3,
+        "target_limit": 3,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "shipperid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "summary of sales by quarter",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "shippeddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "subtotal",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "summary of sales by year",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "shippeddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "subtotal",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "suppliers",
+        "remote_row_count": 29,
+        "snapshot_row_count": 29,
+        "target_limit": 29,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "supplierid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contactname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contacttitle",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postalcode",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fax",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "homepage",
+            "mysql_type": "mediumtext",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "territories",
+        "remote_row_count": 53,
+        "snapshot_row_count": 53,
+        "target_limit": 53,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "territoryid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "territorydescription",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "regionid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Calculate the total sales revenue for products in the 'Beverages' category that were shipped to customers in the 'Eastern' region during the year 1997.",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT p.productname, o.orderid, o.orderdate, o.shippeddate, c.companyname, r.regiondescription, od.unitprice, od.quantity, (od.unitprice * od.quantity) AS revenue FROM products p JOIN order_details od ON p.productid = od.productid JOIN orders o ON od.orderid = o.orderid JOIN customers c ON o.customerid = c.customerid JOIN region r ON c.region = r.regiondescription WHERE p.categoryid = 1 AND r.regiondescription = 'Eastern' AND strftime('%Y', o.shippeddate) = '1997'",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT p.productid, o.orderid, od.unitprice, od.quantity",
+        "from_clause": "FROM products p",
+        "join_clauses": [
+          "JOIN order_details od ON p.productid = od.productid",
+          "JOIN orders o ON od.orderid = o.orderid",
+          "JOIN customers c ON o.customerid = c.customerid"
+        ],
+        "where_clauses": [
+          "p.categoryid = 1",
+          "c.region = 'Eastern'",
+          "strftime('%Y', o.shippeddate) = '1997'"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "This block retrieves the product ID, order ID, unit price, and quantity for products in the 'Beverages' category that were shipped to customers in the 'Eastern' region during the year 1997."
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT SUM(leaf_1.unitprice * leaf_1.quantity) AS total_sales_revenue",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "This block calculates the total sales revenue for the filtered products."
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "This block retrieves the product ID, order ID, unit price, and quantity for products in the 'Beverages' category that were shipped to customers in the 'Eastern' region during the year 1997.",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM products p\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 10,
+            "preview": [
+              {
+                "productid": 1,
+                "productname": "Chai",
+                "supplierid": 1,
+                "categoryid": 1,
+                "quantityperunit": "10 boxes x 20 bags",
+                "unitprice": 18.0,
+                "unitsinstock": 39,
+                "unitsonorder": 0,
+                "reorderlevel": 10,
+                "discontinued": 0
+              },
+              {
+                "productid": 2,
+                "productname": "Chang",
+                "supplierid": 1,
+                "categoryid": 1,
+                "quantityperunit": "24 - 12 oz bottles",
+                "unitprice": 19.0,
+                "unitsinstock": 17,
+                "unitsonorder": 40,
+                "reorderlevel": 25,
+                "discontinued": 0
+              },
+              {
+                "productid": 3,
+                "productname": "Aniseed Syrup",
+                "supplierid": 1,
+                "categoryid": 2,
+                "quantityperunit": "12 - 550 ml bottles",
+                "unitprice": 10.0,
+                "unitsinstock": 13,
+                "unitsonorder": 70,
+                "reorderlevel": 25,
+                "discontinued": 0
+              },
+              {
+                "productid": 4,
+                "productname": "Chef Anton's Cajun Seasoning",
+                "supplierid": 2,
+                "categoryid": 2,
+                "quantityperunit": "48 - 6 oz jars",
+                "unitprice": 22.0,
+                "unitsinstock": 53,
+                "unitsonorder": 0,
+                "reorderlevel": 0,
+                "discontinued": 0
+              },
+              {
+                "productid": 5,
+                "productname": "Chef Anton's Gumbo Mix",
+                "supplierid": 2,
+                "categoryid": 2,
+                "quantityperunit": "36 boxes",
+                "unitprice": 21.35,
+                "unitsinstock": 0,
+                "unitsonorder": 0,
+                "reorderlevel": 0,
+                "discontinued": 1
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN order_details od ON p.productid = od.productid",
+          "sql": "SELECT *\nFROM products p\nJOIN order_details od ON p.productid = od.productid\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": "Execution failed on sql 'SELECT *\nFROM products p\nJOIN order_details od ON p.productid = od.productid\nLIMIT 5': no such table: order_details",
+            "row_count": 0,
+            "column_count": 0,
+            "preview": null,
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN \"order details\" od ON p.productid = od.productid",
+          "sql": "SELECT *\nFROM products p\nJOIN \"order details\" od ON p.productid = od.productid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 15,
+            "preview": [
+              {
+                "productid": 55,
+                "productname": "Pt chinois",
+                "supplierid": 25,
+                "categoryid": 6,
+                "quantityperunit": "24 boxes x 2 pies",
+                "unitprice": 24.0,
+                "unitsinstock": 115,
+                "unitsonorder": 0,
+                "reorderlevel": 20,
+                "discontinued": 0,
+                "orderid": 10461,
+                "productid__dup1": 55,
+                "unitprice__dup1": 19.2,
+                "quantity": 60,
+                "discount": 0.0
+              },
+              {
+                "productid": 72,
+                "productname": "Mozzarella di Giovanni",
+                "supplierid": 14,
+                "categoryid": 4,
+                "quantityperunit": "24 - 200 g pkgs.",
+                "unitprice": 34.8,
+                "unitsinstock": 14,
+                "unitsonorder": 0,
+                "reorderlevel": 0,
+                "discontinued": 0,
+                "orderid": 10992,
+                "productid__dup1": 72,
+                "unitprice__dup1": 34.8,
+                "quantity": 2,
+                "discount": 0.0
+              },
+              {
+                "productid": 52,
+                "productname": "Filo Mix",
+                "supplierid": 24,
+                "categoryid": 5,
+                "quantityperunit": "16 - 2 kg boxes",
+                "unitprice": 7.0,
+                "unitsinstock": 38,
+                "unitsonorder": 0,
+                "reorderlevel": 25,
+                "discontinued": 0,
+                "orderid": 10558,
+                "productid__dup1": 52,
+                "unitprice__dup1": 7.0,
+                "quantity": 30,
+                "discount": 0.0
+              },
+              {
+                "productid": 8,
+                "productname": "Northwoods Cranberry Sauce",
+                "supplierid": 3,
+                "categoryid": 2,
+                "quantityperunit": "12 - 12 oz jars",
+                "unitprice": 40.0,
+                "unitsinstock": 6,
+                "unitsonorder": 0,
+                "reorderlevel": 0,
+                "discontinued": 0,
+                "orderid": 10786,
+                "productid__dup1": 8,
+                "unitprice__dup1": 40.0,
+                "quantity": 30,
+                "discount": 0.0
+              },
+              {
+                "productid": 60,
+                "productname": "Camembert Pierrot",
+                "supplierid": 28,
+                "categoryid": 4,
+                "quantityperunit": "15 - 300 g rounds",
+                "unitprice": 34.0,
+                "unitsinstock": 19,
+                "unitsonorder": 0,
+                "reorderlevel": 0,
+                "discontinued": 0,
+                "orderid": 10658,
+                "productid__dup1": 60,
+                "unitprice__dup1": 34.0,
+                "quantity": 55,
+                "discount": 0.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN orders o ON od.orderid = o.orderid",
+          "sql": "SELECT *\nFROM products p\nJOIN \"order details\" od ON p.productid = od.productid\nJOIN orders o ON od.orderid = o.orderid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 29,
+            "preview": [
+              {
+                "productid": 55,
+                "productname": "Pt chinois",
+                "supplierid": 25,
+                "categoryid": 6,
+                "quantityperunit": "24 boxes x 2 pies",
+                "unitprice": 24.0,
+                "unitsinstock": 115,
+                "unitsonorder": 0,
+                "reorderlevel": 20,
+                "discontinued": 0,
+                "orderid": 10461,
+                "productid__dup1": 55,
+                "unitprice__dup1": 19.2,
+                "quantity": 60,
+                "discount": 0.0,
+                "orderid__dup1": 10461,
+                "customerid": "LILAS",
+                "employeeid": 1,
+                "orderdate": "1997-02-28T00:00:00",
+                "requireddate": "1997-03-28T00:00:00",
+                "shippeddate": "1997-03-05T00:00:00",
+                "shipvia": 3,
+                "freight": 148.61,
+                "shipname": "LILA-Supermercado",
+                "shipaddress": "Carrera 52 con Ave. Bolvar #65-98 Llano Largo",
+                "shipcity": "Barquisimeto",
+                "shipregion": "Lara",
+                "shippostalcode": "3508",
+                "shipcountry": "Venezuela"
+              },
+              {
+                "productid": 52,
+                "productname": "Filo Mix",
+                "supplierid": 24,
+                "categoryid": 5,
+                "quantityperunit": "16 - 2 kg boxes",
+                "unitprice": 7.0,
+                "unitsinstock": 38,
+                "unitsonorder": 0,
+                "reorderlevel": 25,
+                "discontinued": 0,
+                "orderid": 10558,
+                "productid__dup1": 52,
+                "unitprice__dup1": 7.0,
+                "quantity": 30,
+                "discount": 0.0,
+                "orderid__dup1": 10558,
+                "customerid": "AROUT",
+                "employeeid": 1,
+                "orderdate": "1997-06-04T00:00:00",
+                "requireddate": "1997-07-02T00:00:00",
+                "shippeddate": "1997-06-10T00:00:00",
+                "shipvia": 2,
+                "freight": 72.97,
+                "shipname": "Around the Horn",
+                "shipaddress": "Brook Farm Stratford St. Mary",
+                "shipcity": "Colchester",
+                "shipregion": "Essex",
+                "shippostalcode": "CO7 6JX",
+                "shipcountry": "UK"
+              },
+              {
+                "productid": 8,
+                "productname": "Northwoods Cranberry Sauce",
+                "supplierid": 3,
+                "categoryid": 2,
+                "quantityperunit": "12 - 12 oz jars",
+                "unitprice": 40.0,
+                "unitsinstock": 6,
+                "unitsonorder": 0,
+                "reorderlevel": 0,
+                "discontinued": 0,
+                "orderid": 10786,
+                "productid__dup1": 8,
+                "unitprice__dup1": 40.0,
+                "quantity": 30,
+                "discount": 0.0,
+                "orderid__dup1": 10786,
+                "customerid": "QUEEN",
+                "employeeid": 8,
+                "orderdate": "1997-12-19T00:00:00",
+                "requireddate": "1998-01-16T00:00:00",
+                "shippeddate": "1997-12-23T00:00:00",
+                "shipvia": 1,
+                "freight": 110.87,
+                "shipname": "Queen Cozinha",
+                "shipaddress": "Alameda dos Canrios, 891",
+                "shipcity": "Sao Paulo",
+                "shipregion": "SP",
+                "shippostalcode": "05487-020",
+                "shipcountry": "Brazil"
+              },
+              {
+                "productid": 60,
+                "productname": "Camembert Pierrot",
+                "supplierid": 28,
+                "categoryid": 4,
+                "quantityperunit": "15 - 300 g rounds",
+                "unitprice": 34.0,
+                "unitsinstock": 19,
+                "unitsonorder": 0,
+                "reorderlevel": 0,
+                "discontinued": 0,
+                "orderid": 10658,
+                "productid__dup1": 60,
+                "unitprice__dup1": 34.0,
+                "quantity": 55,
+                "discount": 0.0,
+                "orderid__dup1": 10658,
+                "customerid": "QUICK",
+                "employeeid": 4,
+                "orderdate": "1997-09-05T00:00:00",
+                "requireddate": "1997-10-03T00:00:00",
+                "shippeddate": "1997-09-08T00:00:00",
+                "shipvia": 1,
+                "freight": 364.15,
+                "shipname": "QUICK-Stop",
+                "shipaddress": "Taucherstrae 10",
+                "shipcity": "Cunewalde",
+                "shipregion": NaN,
+                "shippostalcode": "1307",
+                "shipcountry": "Germany"
+              },
+              {
+                "productid": 3,
+                "productname": "Aniseed Syrup",
+                "supplierid": 1,
+                "categoryid": 2,
+                "quantityperunit": "12 - 550 ml bottles",
+                "unitprice": 10.0,
+                "unitsinstock": 13,
+                "unitsonorder": 70,
+                "reorderlevel": 25,
+                "discontinued": 0,
+                "orderid": 10702,
+                "productid__dup1": 3,
+                "unitprice__dup1": 10.0,
+                "quantity": 6,
+                "discount": 0.0,
+                "orderid__dup1": 10702,
+                "customerid": "ALFKI",
+                "employeeid": 4,
+                "orderdate": "1997-10-13T00:00:00",
+                "requireddate": "1997-11-24T00:00:00",
+                "shippeddate": "1997-10-21T00:00:00",
+                "shipvia": 1,
+                "freight": 23.94,
+                "shipname": "Alfred-s Futterkiste",
+                "shipaddress": "Obere Str. 57",
+                "shipcity": "Berlin",
+                "shipregion": NaN,
+                "shippostalcode": "12209",
+                "shipcountry": "Germany"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN customers c ON o.customerid = c.customerid",
+          "sql": "SELECT *\nFROM products p\nJOIN \"order details\" od ON p.productid = od.productid\nJOIN orders o ON od.orderid = o.orderid\nJOIN customers c ON o.customerid = c.customerid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 40,
+            "preview": [
+              {
+                "productid": 55,
+                "productname": "Pt chinois",
+                "supplierid": 25,
+                "categoryid": 6,
+                "quantityperunit": "24 boxes x 2 pies",
+                "unitprice": 24.0,
+                "unitsinstock": 115,
+                "unitsonorder": 0,
+                "reorderlevel": 20,
+                "discontinued": 0,
+                "orderid": 10461,
+                "productid__dup1": 55,
+                "unitprice__dup1": 19.2,
+                "quantity": 60,
+                "discount": 0.0,
+                "orderid__dup1": 10461,
+                "customerid": "LILAS",
+                "employeeid": 1,
+                "orderdate": "1997-02-28T00:00:00",
+                "requireddate": "1997-03-28T00:00:00",
+                "shippeddate": "1997-03-05T00:00:00",
+                "shipvia": 3,
+                "freight": 148.61,
+                "shipname": "LILA-Supermercado",
+                "shipaddress": "Carrera 52 con Ave. Bolvar #65-98 Llano Largo",
+                "shipcity": "Barquisimeto",
+                "shipregion": "Lara",
+                "shippostalcode": "3508",
+                "shipcountry": "Venezuela",
+                "customerid__dup1": "LILAS",
+                "companyname": "LILA-Supermercado",
+                "contactname": "Carlos Gonzlez",
+                "contacttitle": "Accounting Manager",
+                "address": "Carrera 52 con Ave. Bolvar #65-98 Llano Largo",
+                "city": "Barquisimeto",
+                "region": "Lara",
+                "postalcode": "3508",
+                "country": "Venezuela",
+                "phone": "(9) 331-6954",
+                "fax": "(9) 331-7256"
+              },
+              {
+                "productid": 52,
+                "productname": "Filo Mix",
+                "supplierid": 24,
+                "categoryid": 5,
+                "quantityperunit": "16 - 2 kg boxes",
+                "unitprice": 7.0,
+                "unitsinstock": 38,
+                "unitsonorder": 0,
+                "reorderlevel": 25,
+                "discontinued": 0,
+                "orderid": 10558,
+                "productid__dup1": 52,
+                "unitprice__dup1": 7.0,
+                "quantity": 30,
+                "discount": 0.0,
+                "orderid__dup1": 10558,
+                "customerid": "AROUT",
+                "employeeid": 1,
+                "orderdate": "1997-06-04T00:00:00",
+                "requireddate": "1997-07-02T00:00:00",
+                "shippeddate": "1997-06-10T00:00:00",
+                "shipvia": 2,
+                "freight": 72.97,
+                "shipname": "Around the Horn",
+                "shipaddress": "Brook Farm Stratford St. Mary",
+                "shipcity": "Colchester",
+                "shipregion": "Essex",
+                "shippostalcode": "CO7 6JX",
+                "shipcountry": "UK",
+                "customerid__dup1": "AROUT",
+                "companyname": "Around the Horn",
+                "contactname": "Thomas Hardy",
+                "contacttitle": "Sales Representative",
+                "address": "120 Hanover Sq.",
+                "city": "London",
+                "region": NaN,
+                "postalcode": "WA1 1DP",
+                "country": "UK",
+                "phone": "(171) 555-7788",
+                "fax": "(171) 555-6750"
+              },
+              {
+                "productid": 8,
+                "productname": "Northwoods Cranberry Sauce",
+                "supplierid": 3,
+                "categoryid": 2,
+                "quantityperunit": "12 - 12 oz jars",
+                "unitprice": 40.0,
+                "unitsinstock": 6,
+                "unitsonorder": 0,
+                "reorderlevel": 0,
+                "discontinued": 0,
+                "orderid": 10786,
+                "productid__dup1": 8,
+                "unitprice__dup1": 40.0,
+                "quantity": 30,
+                "discount": 0.0,
+                "orderid__dup1": 10786,
+                "customerid": "QUEEN",
+                "employeeid": 8,
+                "orderdate": "1997-12-19T00:00:00",
+                "requireddate": "1998-01-16T00:00:00",
+                "shippeddate": "1997-12-23T00:00:00",
+                "shipvia": 1,
+                "freight": 110.87,
+                "shipname": "Queen Cozinha",
+                "shipaddress": "Alameda dos Canrios, 891",
+                "shipcity": "Sao Paulo",
+                "shipregion": "SP",
+                "shippostalcode": "05487-020",
+                "shipcountry": "Brazil",
+                "customerid__dup1": "QUEEN",
+                "companyname": "Queen Cozinha",
+                "contactname": "Lcia Carvalho",
+                "contacttitle": "Marketing Assistant",
+                "address": "Alameda dos Canrios, 891",
+                "city": "Sao Paulo",
+                "region": "SP",
+                "postalcode": "05487-020",
+                "country": "Brazil",
+                "phone": "(11) 555-1189",
+                "fax": NaN
+              },
+              {
+                "productid": 60,
+                "productname": "Camembert Pierrot",
+                "supplierid": 28,
+                "categoryid": 4,
+                "quantityperunit": "15 - 300 g rounds",
+                "unitprice": 34.0,
+                "unitsinstock": 19,
+                "unitsonorder": 0,
+                "reorderlevel": 0,
+                "discontinued": 0,
+                "orderid": 10658,
+                "productid__dup1": 60,
+                "unitprice__dup1": 34.0,
+                "quantity": 55,
+                "discount": 0.0,
+                "orderid__dup1": 10658,
+                "customerid": "QUICK",
+                "employeeid": 4,
+                "orderdate": "1997-09-05T00:00:00",
+                "requireddate": "1997-10-03T00:00:00",
+                "shippeddate": "1997-09-08T00:00:00",
+                "shipvia": 1,
+                "freight": 364.15,
+                "shipname": "QUICK-Stop",
+                "shipaddress": "Taucherstrae 10",
+                "shipcity": "Cunewalde",
+                "shipregion": NaN,
+                "shippostalcode": "1307",
+                "shipcountry": "Germany",
+                "customerid__dup1": "QUICK",
+                "companyname": "QUICK-Stop",
+                "contactname": "Horst Kloss",
+                "contacttitle": "Accounting Manager",
+                "address": "Taucherstrae 10",
+                "city": "Cunewalde",
+                "region": NaN,
+                "postalcode": "01307",
+                "country": "Germany",
+                "phone": "0372-035188",
+                "fax": NaN
+              },
+              {
+                "productid": 3,
+                "productname": "Aniseed Syrup",
+                "supplierid": 1,
+                "categoryid": 2,
+                "quantityperunit": "12 - 550 ml bottles",
+                "unitprice": 10.0,
+                "unitsinstock": 13,
+                "unitsonorder": 70,
+                "reorderlevel": 25,
+                "discontinued": 0,
+                "orderid": 10702,
+                "productid__dup1": 3,
+                "unitprice__dup1": 10.0,
+                "quantity": 6,
+                "discount": 0.0,
+                "orderid__dup1": 10702,
+                "customerid": "ALFKI",
+                "employeeid": 4,
+                "orderdate": "1997-10-13T00:00:00",
+                "requireddate": "1997-11-24T00:00:00",
+                "shippeddate": "1997-10-21T00:00:00",
+                "shipvia": 1,
+                "freight": 23.94,
+                "shipname": "Alfred-s Futterkiste",
+                "shipaddress": "Obere Str. 57",
+                "shipcity": "Berlin",
+                "shipregion": NaN,
+                "shippostalcode": "12209",
+                "shipcountry": "Germany",
+                "customerid__dup1": "ALFKI",
+                "companyname": "Alfreds Futterkiste",
+                "contactname": "Maria Anders",
+                "contacttitle": "Sales Representative",
+                "address": "Obere Str. 57",
+                "city": "Berlin",
+                "region": NaN,
+                "postalcode": "12209",
+                "country": "Germany",
+                "phone": "030-0074321",
+                "fax": "030-0076545"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "p.categoryid = 1",
+          "sql": "SELECT *\nFROM products p\nJOIN \"order details\" od ON p.productid = od.productid\nJOIN orders o ON od.orderid = o.orderid\nJOIN customers c ON o.customerid = c.customerid\nWHERE (p.categoryid = 1)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 40,
+            "preview": [
+              {
+                "productid": 70,
+                "productname": "Outback Lager",
+                "supplierid": 7,
+                "categoryid": 1,
+                "quantityperunit": "24 - 355 ml bottles",
+                "unitprice": 15.0,
+                "unitsinstock": 15,
+                "unitsonorder": 10,
+                "reorderlevel": 30,
+                "discontinued": 0,
+                "orderid": 10810,
+                "productid__dup1": 70,
+                "unitprice__dup1": 15.0,
+                "quantity": 5,
+                "discount": 0.0,
+                "orderid__dup1": 10810,
+                "customerid": "LAUGB",
+                "employeeid": 2,
+                "orderdate": "1998-01-01T00:00:00",
+                "requireddate": "1998-01-29T00:00:00",
+                "shippeddate": "1998-01-07T00:00:00",
+                "shipvia": 3,
+                "freight": 4.33,
+                "shipname": "Laughing Bacchus Wine Cellars",
+                "shipaddress": "2319 Elm St.",
+                "shipcity": "Vancouver",
+                "shipregion": "BC",
+                "shippostalcode": "V3F 2K1",
+                "shipcountry": "Canada",
+                "customerid__dup1": "LAUGB",
+                "companyname": "Laughing Bacchus Wine Cellars",
+                "contactname": "Yoshi Tannamuri",
+                "contacttitle": "Marketing Assistant",
+                "address": "1900 Oak St.",
+                "city": "Vancouver",
+                "region": "BC",
+                "postalcode": "V3F 2K1",
+                "country": "Canada",
+                "phone": "(604) 555-3392",
+                "fax": "(604) 555-7293"
+              },
+              {
+                "productid": 35,
+                "productname": "Steeleye Stout",
+                "supplierid": 16,
+                "categoryid": 1,
+                "quantityperunit": "24 - 12 oz bottles",
+                "unitprice": 18.0,
+                "unitsinstock": 20,
+                "unitsonorder": 0,
+                "reorderlevel": 15,
+                "discontinued": 0,
+                "orderid": 10720,
+                "productid__dup1": 35,
+                "unitprice__dup1": 18.0,
+                "quantity": 21,
+                "discount": 0.0,
+                "orderid__dup1": 10720,
+                "customerid": "QUEDE",
+                "employeeid": 8,
+                "orderdate": "1997-10-28T00:00:00",
+                "requireddate": "1997-11-11T00:00:00",
+                "shippeddate": "1997-11-05T00:00:00",
+                "shipvia": 2,
+                "freight": 9.53,
+                "shipname": "Que Delcia",
+                "shipaddress": "Rua da Panificadora, 12",
+                "shipcity": "Rio de Janeiro",
+                "shipregion": "RJ",
+                "shippostalcode": "02389-673",
+                "shipcountry": "Brazil",
+                "customerid__dup1": "QUEDE",
+                "companyname": "Que Delcia",
+                "contactname": "Bernardo Batista",
+                "contacttitle": "Accounting Manager",
+                "address": "Rua da Panificadora, 12",
+                "city": "Rio de Janeiro",
+                "region": "RJ",
+                "postalcode": "02389-673",
+                "country": "Brazil",
+                "phone": "(21) 555-4252",
+                "fax": "(21) 555-4545"
+              },
+              {
+                "productid": 35,
+                "productname": "Steeleye Stout",
+                "supplierid": 16,
+                "categoryid": 1,
+                "quantityperunit": "24 - 12 oz bottles",
+                "unitprice": 18.0,
+                "unitsinstock": 20,
+                "unitsonorder": 0,
+                "reorderlevel": 15,
+                "discontinued": 0,
+                "orderid": 10324,
+                "productid__dup1": 35,
+                "unitprice__dup1": 14.4,
+                "quantity": 70,
+                "discount": 0.0,
+                "orderid__dup1": 10324,
+                "customerid": "SAVEA",
+                "employeeid": 9,
+                "orderdate": "1996-10-08T00:00:00",
+                "requireddate": "1996-11-05T00:00:00",
+                "shippeddate": "1996-10-10T00:00:00",
+                "shipvia": 1,
+                "freight": 214.27,
+                "shipname": "Save-a-lot Markets",
+                "shipaddress": "187 Suffolk Ln.",
+                "shipcity": "Boise",
+                "shipregion": "ID",
+                "shippostalcode": "83720",
+                "shipcountry": "USA",
+                "customerid__dup1": "SAVEA",
+                "companyname": "Save-a-lot Markets",
+                "contactname": "Jose Pavarotti",
+                "contacttitle": "Sales Representative",
+                "address": "187 Suffolk Ln.",
+                "city": "Boise",
+                "region": "ID",
+                "postalcode": "83720",
+                "country": "USA",
+                "phone": "(208) 555-8097",
+                "fax": NaN
+              },
+              {
+                "productid": 35,
+                "productname": "Steeleye Stout",
+                "supplierid": 16,
+                "categoryid": 1,
+                "quantityperunit": "24 - 12 oz bottles",
+                "unitprice": 18.0,
+                "unitsinstock": 20,
+                "unitsonorder": 0,
+                "reorderlevel": 15,
+                "discontinued": 0,
+                "orderid": 10587,
+                "productid__dup1": 35,
+                "unitprice__dup1": 18.0,
+                "quantity": 20,
+                "discount": 0.0,
+                "orderid__dup1": 10587,
+                "customerid": "QUEDE",
+                "employeeid": 1,
+                "orderdate": "1997-07-02T00:00:00",
+                "requireddate": "1997-07-30T00:00:00",
+                "shippeddate": "1997-07-09T00:00:00",
+                "shipvia": 1,
+                "freight": 62.52,
+                "shipname": "Que Delcia",
+                "shipaddress": "Rua da Panificadora, 12",
+                "shipcity": "Rio de Janeiro",
+                "shipregion": "RJ",
+                "shippostalcode": "02389-673",
+                "shipcountry": "Brazil",
+                "customerid__dup1": "QUEDE",
+                "companyname": "Que Delcia",
+                "contactname": "Bernardo Batista",
+                "contacttitle": "Accounting Manager",
+                "address": "Rua da Panificadora, 12",
+                "city": "Rio de Janeiro",
+                "region": "RJ",
+                "postalcode": "02389-673",
+                "country": "Brazil",
+                "phone": "(21) 555-4252",
+                "fax": "(21) 555-4545"
+              },
+              {
+                "productid": 39,
+                "productname": "Chartreuse verte",
+                "supplierid": 18,
+                "categoryid": 1,
+                "quantityperunit": "750 cc per bottle",
+                "unitprice": 18.0,
+                "unitsinstock": 69,
+                "unitsonorder": 0,
+                "reorderlevel": 5,
+                "discontinued": 0,
+                "orderid": 10784,
+                "productid__dup1": 39,
+                "unitprice__dup1": 18.0,
+                "quantity": 2,
+                "discount": 0.0,
+                "orderid__dup1": 10784,
+                "customerid": "MAGAA",
+                "employeeid": 4,
+                "orderdate": "1997-12-18T00:00:00",
+                "requireddate": "1998-01-15T00:00:00",
+                "shippeddate": "1997-12-22T00:00:00",
+                "shipvia": 3,
+                "freight": 70.09,
+                "shipname": "Magazzini Alimentari Riuniti",
+                "shipaddress": "Via Ludovico il Moro 22",
+                "shipcity": "Bergamo",
+                "shipregion": NaN,
+                "shippostalcode": "24100",
+                "shipcountry": "Italy",
+                "customerid__dup1": "MAGAA",
+                "companyname": "Magazzini Alimentari Riuniti",
+                "contactname": "Giovanni Rovelli",
+                "contacttitle": "Marketing Manager",
+                "address": "Via Ludovico il Moro 22",
+                "city": "Bergamo",
+                "region": NaN,
+                "postalcode": "24100",
+                "country": "Italy",
+                "phone": "035-640230",
+                "fax": "035-640231"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.region = 'Eastern'",
+          "sql": "SELECT *\nFROM products p\nJOIN \"order details\" od ON p.productid = od.productid\nJOIN orders o ON od.orderid = o.orderid\nJOIN customers c ON o.customerid = c.customerid\nWHERE (p.categoryid = 1) AND (c.region = 'Eastern')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 40,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.region IN ('Eastern', 'Western', 'Northern')",
+          "sql": "SELECT *\nFROM products p\nJOIN \"order details\" od ON p.productid = od.productid\nJOIN orders o ON od.orderid = o.orderid\nJOIN customers c ON o.customerid = c.customerid\nWHERE (p.categoryid = 1) AND (c.region IN ('Eastern', 'Western', 'Northern'))\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 40,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.region = 'Eastern'",
+          "sql": "SELECT *\nFROM products p\nJOIN \"order details\" od ON p.productid = od.productid\nJOIN orders o ON od.orderid = o.orderid\nJOIN customers c ON o.customerid = c.customerid\nWHERE (p.categoryid = 1) AND (c.region = 'Eastern')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 40,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.region = 'Western'",
+          "sql": "SELECT *\nFROM products p\nJOIN \"order details\" od ON p.productid = od.productid\nJOIN orders o ON od.orderid = o.orderid\nJOIN customers c ON o.customerid = c.customerid\nWHERE (p.categoryid = 1) AND (c.region = 'Western')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 40,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.region = 'Eastern'",
+          "sql": "SELECT *\nFROM products p\nJOIN \"order details\" od ON p.productid = od.productid\nJOIN orders o ON od.orderid = o.orderid\nJOIN customers c ON o.customerid = c.customerid\nWHERE (p.categoryid = 1) AND (c.region = 'Eastern')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 40,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.region = 'Eastern' OR c.region IS NULL",
+          "sql": "SELECT *\nFROM products p\nJOIN \"order details\" od ON p.productid = od.productid\nJOIN orders o ON od.orderid = o.orderid\nJOIN customers c ON o.customerid = c.customerid\nWHERE (p.categoryid = 1) AND (c.region = 'Eastern' OR c.region IS NULL)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 40,
+            "preview": [
+              {
+                "productid": 39,
+                "productname": "Chartreuse verte",
+                "supplierid": 18,
+                "categoryid": 1,
+                "quantityperunit": "750 cc per bottle",
+                "unitprice": 18.0,
+                "unitsinstock": 69,
+                "unitsonorder": 0,
+                "reorderlevel": 5,
+                "discontinued": 0,
+                "orderid": 10784,
+                "productid__dup1": 39,
+                "unitprice__dup1": 18.0,
+                "quantity": 2,
+                "discount": 0.0,
+                "orderid__dup1": 10784,
+                "customerid": "MAGAA",
+                "employeeid": 4,
+                "orderdate": "1997-12-18T00:00:00",
+                "requireddate": "1998-01-15T00:00:00",
+                "shippeddate": "1997-12-22T00:00:00",
+                "shipvia": 3,
+                "freight": 70.09,
+                "shipname": "Magazzini Alimentari Riuniti",
+                "shipaddress": "Via Ludovico il Moro 22",
+                "shipcity": "Bergamo",
+                "shipregion": null,
+                "shippostalcode": "24100",
+                "shipcountry": "Italy",
+                "customerid__dup1": "MAGAA",
+                "companyname": "Magazzini Alimentari Riuniti",
+                "contactname": "Giovanni Rovelli",
+                "contacttitle": "Marketing Manager",
+                "address": "Via Ludovico il Moro 22",
+                "city": "Bergamo",
+                "region": null,
+                "postalcode": "24100",
+                "country": "Italy",
+                "phone": "035-640230",
+                "fax": "035-640231"
+              },
+              {
+                "productid": 2,
+                "productname": "Chang",
+                "supplierid": 1,
+                "categoryid": 1,
+                "quantityperunit": "24 - 12 oz bottles",
+                "unitprice": 19.0,
+                "unitsinstock": 17,
+                "unitsonorder": 40,
+                "reorderlevel": 25,
+                "discontinued": 0,
+                "orderid": 10792,
+                "productid__dup1": 2,
+                "unitprice__dup1": 19.0,
+                "quantity": 10,
+                "discount": 0.0,
+                "orderid__dup1": 10792,
+                "customerid": "WOLZA",
+                "employeeid": 1,
+                "orderdate": "1997-12-23T00:00:00",
+                "requireddate": "1998-01-20T00:00:00",
+                "shippeddate": "1997-12-31T00:00:00",
+                "shipvia": 3,
+                "freight": 23.79,
+                "shipname": "Wolski Zajazd",
+                "shipaddress": "ul. Filtrowa 68",
+                "shipcity": "Warszawa",
+                "shipregion": null,
+                "shippostalcode": "01-012",
+                "shipcountry": "Poland",
+                "customerid__dup1": "WOLZA",
+                "companyname": "Wolski  Zajazd",
+                "contactname": "Zbyszek Piestrzeniewicz",
+                "contacttitle": "Owner",
+                "address": "ul. Filtrowa 68",
+                "city": "Warszawa",
+                "region": null,
+                "postalcode": "01-012",
+                "country": "Poland",
+                "phone": "(26) 642-7012",
+                "fax": "(26) 642-7012"
+              },
+              {
+                "productid": 35,
+                "productname": "Steeleye Stout",
+                "supplierid": 16,
+                "categoryid": 1,
+                "quantityperunit": "24 - 12 oz bottles",
+                "unitprice": 18.0,
+                "unitsinstock": 20,
+                "unitsonorder": 0,
+                "reorderlevel": 15,
+                "discontinued": 0,
+                "orderid": 10789,
+                "productid__dup1": 35,
+                "unitprice__dup1": 18.0,
+                "quantity": 15,
+                "discount": 0.0,
+                "orderid__dup1": 10789,
+                "customerid": "FOLIG",
+                "employeeid": 1,
+                "orderdate": "1997-12-22T00:00:00",
+                "requireddate": "1998-01-19T00:00:00",
+                "shippeddate": "1997-12-31T00:00:00",
+                "shipvia": 2,
+                "freight": 100.6,
+                "shipname": "Folies gourmandes",
+                "shipaddress": "184, chausse de Tournai",
+                "shipcity": "Lille",
+                "shipregion": null,
+                "shippostalcode": "59000",
+                "shipcountry": "France",
+                "customerid__dup1": "FOLIG",
+                "companyname": "Folies gourmandes",
+                "contactname": "Martine Ranc",
+                "contacttitle": "Assistant Sales Agent",
+                "address": "184, chausse de Tournai",
+                "city": "Lille",
+                "region": null,
+                "postalcode": "59000",
+                "country": "France",
+                "phone": "20.16.10.16",
+                "fax": "20.16.10.17"
+              },
+              {
+                "productid": 35,
+                "productname": "Steeleye Stout",
+                "supplierid": 16,
+                "categoryid": 1,
+                "quantityperunit": "24 - 12 oz bottles",
+                "unitprice": 18.0,
+                "unitsinstock": 20,
+                "unitsonorder": 0,
+                "reorderlevel": 15,
+                "discontinued": 0,
+                "orderid": 10578,
+                "productid__dup1": 35,
+                "unitprice__dup1": 18.0,
+                "quantity": 20,
+                "discount": 0.0,
+                "orderid__dup1": 10578,
+                "customerid": "BSBEV",
+                "employeeid": 4,
+                "orderdate": "1997-06-24T00:00:00",
+                "requireddate": "1997-07-22T00:00:00",
+                "shippeddate": "1997-07-25T00:00:00",
+                "shipvia": 3,
+                "freight": 29.6,
+                "shipname": "B-s Beverages",
+                "shipaddress": "Fauntleroy Circus",
+                "shipcity": "London",
+                "shipregion": null,
+                "shippostalcode": "EC2 5NT",
+                "shipcountry": "UK",
+                "customerid__dup1": "BSBEV",
+                "companyname": "B's Beverages",
+                "contactname": "Victoria Ashworth",
+                "contacttitle": "Sales Representative",
+                "address": "Fauntleroy Circus",
+                "city": "London",
+                "region": null,
+                "postalcode": "EC2 5NT",
+                "country": "UK",
+                "phone": "(171) 555-1212",
+                "fax": NaN
+              },
+              {
+                "productid": 70,
+                "productname": "Outback Lager",
+                "supplierid": 7,
+                "categoryid": 1,
+                "quantityperunit": "24 - 355 ml bottles",
+                "unitprice": 15.0,
+                "unitsinstock": 15,
+                "unitsonorder": 10,
+                "reorderlevel": 30,
+                "discontinued": 0,
+                "orderid": 10824,
+                "productid__dup1": 70,
+                "unitprice__dup1": 15.0,
+                "quantity": 9,
+                "discount": 0.0,
+                "orderid__dup1": 10824,
+                "customerid": "FOLKO",
+                "employeeid": 8,
+                "orderdate": "1998-01-09T00:00:00",
+                "requireddate": "1998-02-06T00:00:00",
+                "shippeddate": "1998-01-30T00:00:00",
+                "shipvia": 1,
+                "freight": 1.23,
+                "shipname": "Folk och f HB",
+                "shipaddress": "kergatan 24",
+                "shipcity": "Brcke",
+                "shipregion": null,
+                "shippostalcode": "S-844 67",
+                "shipcountry": "Sweden",
+                "customerid__dup1": "FOLKO",
+                "companyname": "Folk och f HB",
+                "contactname": "Maria Larsson",
+                "contacttitle": "Owner",
+                "address": "kergatan 24",
+                "city": "Brcke",
+                "region": null,
+                "postalcode": "S-844 67",
+                "country": "Sweden",
+                "phone": "0695-34 67 21",
+                "fax": NaN
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "strftime('%Y', o.shippeddate) = '1997'",
+          "sql": "SELECT *\nFROM products p\nJOIN \"order details\" od ON p.productid = od.productid\nJOIN orders o ON od.orderid = o.orderid\nJOIN customers c ON o.customerid = c.customerid\nWHERE (p.categoryid = 1) AND (c.region = 'Eastern' OR c.region IS NULL) AND (strftime('%Y', o.shippeddate) = '1997')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 4,
+            "column_count": 40,
+            "preview": [
+              {
+                "productid": 39,
+                "productname": "Chartreuse verte",
+                "supplierid": 18,
+                "categoryid": 1,
+                "quantityperunit": "750 cc per bottle",
+                "unitprice": 18.0,
+                "unitsinstock": 69,
+                "unitsonorder": 0,
+                "reorderlevel": 5,
+                "discontinued": 0,
+                "orderid": 10784,
+                "productid__dup1": 39,
+                "unitprice__dup1": 18.0,
+                "quantity": 2,
+                "discount": 0.0,
+                "orderid__dup1": 10784,
+                "customerid": "MAGAA",
+                "employeeid": 4,
+                "orderdate": "1997-12-18T00:00:00",
+                "requireddate": "1998-01-15T00:00:00",
+                "shippeddate": "1997-12-22T00:00:00",
+                "shipvia": 3,
+                "freight": 70.09,
+                "shipname": "Magazzini Alimentari Riuniti",
+                "shipaddress": "Via Ludovico il Moro 22",
+                "shipcity": "Bergamo",
+                "shipregion": null,
+                "shippostalcode": "24100",
+                "shipcountry": "Italy",
+                "customerid__dup1": "MAGAA",
+                "companyname": "Magazzini Alimentari Riuniti",
+                "contactname": "Giovanni Rovelli",
+                "contacttitle": "Marketing Manager",
+                "address": "Via Ludovico il Moro 22",
+                "city": "Bergamo",
+                "region": null,
+                "postalcode": "24100",
+                "country": "Italy",
+                "phone": "035-640230",
+                "fax": "035-640231"
+              },
+              {
+                "productid": 2,
+                "productname": "Chang",
+                "supplierid": 1,
+                "categoryid": 1,
+                "quantityperunit": "24 - 12 oz bottles",
+                "unitprice": 19.0,
+                "unitsinstock": 17,
+                "unitsonorder": 40,
+                "reorderlevel": 25,
+                "discontinued": 0,
+                "orderid": 10792,
+                "productid__dup1": 2,
+                "unitprice__dup1": 19.0,
+                "quantity": 10,
+                "discount": 0.0,
+                "orderid__dup1": 10792,
+                "customerid": "WOLZA",
+                "employeeid": 1,
+                "orderdate": "1997-12-23T00:00:00",
+                "requireddate": "1998-01-20T00:00:00",
+                "shippeddate": "1997-12-31T00:00:00",
+                "shipvia": 3,
+                "freight": 23.79,
+                "shipname": "Wolski Zajazd",
+                "shipaddress": "ul. Filtrowa 68",
+                "shipcity": "Warszawa",
+                "shipregion": null,
+                "shippostalcode": "01-012",
+                "shipcountry": "Poland",
+                "customerid__dup1": "WOLZA",
+                "companyname": "Wolski  Zajazd",
+                "contactname": "Zbyszek Piestrzeniewicz",
+                "contacttitle": "Owner",
+                "address": "ul. Filtrowa 68",
+                "city": "Warszawa",
+                "region": null,
+                "postalcode": "01-012",
+                "country": "Poland",
+                "phone": "(26) 642-7012",
+                "fax": "(26) 642-7012"
+              },
+              {
+                "productid": 35,
+                "productname": "Steeleye Stout",
+                "supplierid": 16,
+                "categoryid": 1,
+                "quantityperunit": "24 - 12 oz bottles",
+                "unitprice": 18.0,
+                "unitsinstock": 20,
+                "unitsonorder": 0,
+                "reorderlevel": 15,
+                "discontinued": 0,
+                "orderid": 10789,
+                "productid__dup1": 35,
+                "unitprice__dup1": 18.0,
+                "quantity": 15,
+                "discount": 0.0,
+                "orderid__dup1": 10789,
+                "customerid": "FOLIG",
+                "employeeid": 1,
+                "orderdate": "1997-12-22T00:00:00",
+                "requireddate": "1998-01-19T00:00:00",
+                "shippeddate": "1997-12-31T00:00:00",
+                "shipvia": 2,
+                "freight": 100.6,
+                "shipname": "Folies gourmandes",
+                "shipaddress": "184, chausse de Tournai",
+                "shipcity": "Lille",
+                "shipregion": null,
+                "shippostalcode": "59000",
+                "shipcountry": "France",
+                "customerid__dup1": "FOLIG",
+                "companyname": "Folies gourmandes",
+                "contactname": "Martine Ranc",
+                "contacttitle": "Assistant Sales Agent",
+                "address": "184, chausse de Tournai",
+                "city": "Lille",
+                "region": null,
+                "postalcode": "59000",
+                "country": "France",
+                "phone": "20.16.10.16",
+                "fax": "20.16.10.17"
+              },
+              {
+                "productid": 35,
+                "productname": "Steeleye Stout",
+                "supplierid": 16,
+                "categoryid": 1,
+                "quantityperunit": "24 - 12 oz bottles",
+                "unitprice": 18.0,
+                "unitsinstock": 20,
+                "unitsonorder": 0,
+                "reorderlevel": 15,
+                "discontinued": 0,
+                "orderid": 10578,
+                "productid__dup1": 35,
+                "unitprice__dup1": 18.0,
+                "quantity": 20,
+                "discount": 0.0,
+                "orderid__dup1": 10578,
+                "customerid": "BSBEV",
+                "employeeid": 4,
+                "orderdate": "1997-06-24T00:00:00",
+                "requireddate": "1997-07-22T00:00:00",
+                "shippeddate": "1997-07-25T00:00:00",
+                "shipvia": 3,
+                "freight": 29.6,
+                "shipname": "B-s Beverages",
+                "shipaddress": "Fauntleroy Circus",
+                "shipcity": "London",
+                "shipregion": null,
+                "shippostalcode": "EC2 5NT",
+                "shipcountry": "UK",
+                "customerid__dup1": "BSBEV",
+                "companyname": "B's Beverages",
+                "contactname": "Victoria Ashworth",
+                "contacttitle": "Sales Representative",
+                "address": "Fauntleroy Circus",
+                "city": "London",
+                "region": null,
+                "postalcode": "EC2 5NT",
+                "country": "UK",
+                "phone": "(171) 555-1212",
+                "fax": NaN
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT p.productid, o.orderid, od.unitprice, od.quantity\nFROM products p\nJOIN \"order details\" od ON p.productid = od.productid\nJOIN orders o ON od.orderid = o.orderid\nJOIN customers c ON o.customerid = c.customerid\nWHERE (p.categoryid = 1) AND (c.region = 'Eastern' OR c.region IS NULL) AND (strftime('%Y', o.shippeddate) = '1997')",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 4,
+            "column_count": 4,
+            "preview": [
+              {
+                "productid": 39,
+                "orderid": 10784,
+                "unitprice": 18.0,
+                "quantity": 2
+              },
+              {
+                "productid": 2,
+                "orderid": 10792,
+                "unitprice": 19.0,
+                "quantity": 10
+              },
+              {
+                "productid": 35,
+                "orderid": 10789,
+                "unitprice": 18.0,
+                "quantity": 15
+              },
+              {
+                "productid": 35,
+                "orderid": 10578,
+                "unitprice": 18.0,
+                "quantity": 20
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "This block calculates the total sales revenue for the filtered products.",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT p.productid, o.orderid, od.unitprice, od.quantity\nFROM products p\nJOIN \"order details\" od ON p.productid = od.productid\nJOIN orders o ON od.orderid = o.orderid\nJOIN customers c ON o.customerid = c.customerid\nWHERE (p.categoryid = 1) AND (c.region = 'Eastern' OR c.region IS NULL) AND (strftime('%Y', o.shippeddate) = '1997')) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 4,
+            "column_count": 4,
+            "preview": [
+              {
+                "productid": 39,
+                "orderid": 10784,
+                "unitprice": 18.0,
+                "quantity": 2
+              },
+              {
+                "productid": 2,
+                "orderid": 10792,
+                "unitprice": 19.0,
+                "quantity": 10
+              },
+              {
+                "productid": 35,
+                "orderid": 10789,
+                "unitprice": 18.0,
+                "quantity": 15
+              },
+              {
+                "productid": 35,
+                "orderid": 10578,
+                "unitprice": 18.0,
+                "quantity": 20
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT SUM(leaf_1.unitprice * leaf_1.quantity) AS total_sales_revenue\nFROM (SELECT p.productid, o.orderid, od.unitprice, od.quantity\nFROM products p\nJOIN \"order details\" od ON p.productid = od.productid\nJOIN orders o ON od.orderid = o.orderid\nJOIN customers c ON o.customerid = c.customerid\nWHERE (p.categoryid = 1) AND (c.region = 'Eastern' OR c.region IS NULL) AND (strftime('%Y', o.shippeddate) = '1997')) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "total_sales_revenue": 856.0
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 20,
+  "sample_retry": 1,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.5472207792207793,
+    "nearest": {
+      "sample_index": 14,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "similarity": 0.5472207792207793,
+      "sql": "SELECT SUM(line_total) AS total_sales\nFROM (SELECT c.categoryname, p.productname, od.unitprice, od.quantity, o.shippeddate, (od.unitprice * od.quantity) AS line_total\nFROM categories c\nJOIN products p ON c.categoryid = p.categoryid\nJOIN \"order details\" od ON p.productid = od.productid\nJOIN orders o ON od.orderid = o.orderid\nWHERE (c.categoryname = 'Beverages') AND (strftime('%Y', o.shippeddate) = '1997')) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 856.0,
+    "nearest": {
+      "sample_index": 39,
+      "answer_mode": "aggregate",
+      "target_join_count": 2,
+      "numeric_answer": 948.9,
+      "delta": 92.89999999999998,
+      "sql": "SELECT SUM(sales_value)\nFROM (SELECT c.categoryname, p.productname, od.unitprice, od.quantity, (od.unitprice * od.quantity) AS sales_value\nFROM categories AS c\nJOIN products AS p ON c.categoryid = p.categoryid\nJOIN \"order details\" AS od ON p.productid = od.productid\nWHERE (c.categoryname = 'Confections') AND (STRFTIME('%Y', (SELECT o.orderdate FROM orders AS o WHERE o.orderid = od.orderid)) = '1997')) AS leaf_1"
+    },
+    "min_value": 7.0,
+    "tolerance": 3.0,
+    "reason": "ok"
+  },
+  "question": "What is the total sales revenue for products in category 1 shipped in 1997 to customers in the Eastern region or customers with no region specified?",
+  "answer": "856"
+}

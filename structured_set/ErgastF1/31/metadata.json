@@ -1,0 +1,1233 @@
+{
+  "sample_index": 31,
+  "db_name": "ErgastF1",
+  "answer_mode": "aggregate",
+  "target_join_count": 3,
+  "actual_join_count": 3,
+  "numeric_answer": 3.0,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 3,
+    "min_hops": 3,
+    "max_hops": 3,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Calculate the average points per race for constructors who have raced in circuits located in Australia, Germany, United Kingdom, or USA",
+  "manifest": {
+    "db_name": "ErgastF1",
+    "sample_dir": "structured_set/ErgastF1/31",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "circuits",
+        "remote_row_count": 73,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 6,
+        "columns": [
+          {
+            "name": "circuitid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "circuitref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "location",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lat",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "lng",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "alt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructorresults",
+        "remote_row_count": 11082,
+        "snapshot_row_count": 113,
+        "target_limit": 113,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "constructorresultsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "status",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructors",
+        "remote_row_count": 208,
+        "snapshot_row_count": 61,
+        "target_limit": 61,
+        "relational_rows_added": 191,
+        "columns": [
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "nationality",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructorstandings",
+        "remote_row_count": 11836,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "constructorstandingsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "wins",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "drivers",
+        "remote_row_count": 840,
+        "snapshot_row_count": 87,
+        "target_limit": 87,
+        "relational_rows_added": 632,
+        "columns": [
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "code",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "forename",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "surname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "dob",
+            "mysql_type": "date",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "nationality",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "driverstandings",
+        "remote_row_count": 31578,
+        "snapshot_row_count": 78,
+        "target_limit": 78,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "driverstandingsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "wins",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "laptimes",
+        "remote_row_count": 420369,
+        "snapshot_row_count": 81,
+        "target_limit": 81,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "pitstops",
+        "remote_row_count": 6070,
+        "snapshot_row_count": 112,
+        "target_limit": 112,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stop",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "time",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "duration",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "qualifying",
+        "remote_row_count": 7397,
+        "snapshot_row_count": 61,
+        "target_limit": 61,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "qualifyid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "q1",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "q2",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "q3",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "races",
+        "remote_row_count": 976,
+        "snapshot_row_count": 100,
+        "target_limit": 100,
+        "relational_rows_added": 1646,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "round",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "circuitid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "date",
+            "mysql_type": "date",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "time",
+            "mysql_type": "time",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "results",
+        "remote_row_count": 23657,
+        "snapshot_row_count": 119,
+        "target_limit": 119,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "resultid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "grid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "positionorder",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "laps",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "fastestlap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "fastestlaptime",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fastestlapspeed",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "statusid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "seasons",
+        "remote_row_count": 68,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "status",
+        "remote_row_count": 134,
+        "snapshot_row_count": 75,
+        "target_limit": 75,
+        "relational_rows_added": 10,
+        "columns": [
+          {
+            "name": "statusid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "status",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "target",
+        "remote_row_count": 31578,
+        "snapshot_row_count": 80,
+        "target_limit": 80,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "targetid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "win",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Calculate the average points per race for constructors who have raced in circuits located in Australia, Germany, United Kingdom, or USA",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT c.constructorid, c.name, r.raceid, r.name AS race_name, cr.points FROM constructors AS c JOIN constructorresults AS cr ON c.constructorid = cr.constructorid JOIN races AS r ON cr.raceid = r.raceid JOIN circuits AS ci ON r.circuitid = ci.circuitid WHERE (ci.country IN ('Australia', 'Germany', 'United Kingdom', 'USA'))",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT c.constructorid, c.name, r.raceid, r.name AS race_name, cr.points",
+        "from_clause": "FROM constructors AS c",
+        "join_clauses": [
+          "JOIN constructorresults AS cr ON c.constructorid = cr.constructorid",
+          "JOIN races AS r ON cr.raceid = r.raceid",
+          "JOIN circuits AS ci ON r.circuitid = ci.circuitid"
+        ],
+        "where_clauses": [
+          "ci.country IN ('Australia', 'Germany', 'United Kingdom', 'USA')"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "This block returns the constructor ID, constructor name, race ID, race name, and points for each constructor who has raced in circuits located in Australia, Germany, United Kingdom, or USA"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT AVG(points)",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "This block calculates the average points per race for constructors who have raced in circuits located in Australia, Germany, United Kingdom, or USA"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "This block returns the constructor ID, constructor name, race ID, race name, and points for each constructor who has raced in circuits located in Australia, Germany, United Kingdom, or USA",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM constructors AS c\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 5,
+            "preview": [
+              {
+                "constructorid": 1,
+                "constructorref": "mclaren",
+                "name": "McLaren",
+                "nationality": "British",
+                "url": "http://en.wikipedia.org/wiki/McLaren"
+              },
+              {
+                "constructorid": 2,
+                "constructorref": "bmw_sauber",
+                "name": "BMW Sauber",
+                "nationality": "German",
+                "url": "http://en.wikipedia.org/wiki/BMW_Sauber"
+              },
+              {
+                "constructorid": 3,
+                "constructorref": "williams",
+                "name": "Williams",
+                "nationality": "British",
+                "url": "http://en.wikipedia.org/wiki/Williams_Grand_Prix_Engineering"
+              },
+              {
+                "constructorid": 4,
+                "constructorref": "renault",
+                "name": "Renault",
+                "nationality": "French",
+                "url": "http://en.wikipedia.org/wiki/Renault_F1"
+              },
+              {
+                "constructorid": 5,
+                "constructorref": "toro_rosso",
+                "name": "Toro Rosso",
+                "nationality": "Italian",
+                "url": "http://en.wikipedia.org/wiki/Scuderia_Toro_Rosso"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN constructorresults AS cr ON c.constructorid = cr.constructorid",
+          "sql": "SELECT *\nFROM constructors AS c\nJOIN constructorresults AS cr ON c.constructorid = cr.constructorid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 10,
+            "preview": [
+              {
+                "constructorid": 10,
+                "constructorref": "force_india",
+                "name": "Force India",
+                "nationality": "Indian",
+                "url": "http://en.wikipedia.org/wiki/Force_India",
+                "constructorresultsid": 64,
+                "raceid": 23,
+                "constructorid__dup1": 10,
+                "points": 0.0,
+                "status": null
+              },
+              {
+                "constructorid": 1,
+                "constructorref": "mclaren",
+                "name": "McLaren",
+                "nationality": "British",
+                "url": "http://en.wikipedia.org/wiki/McLaren",
+                "constructorresultsid": 95,
+                "raceid": 27,
+                "constructorid__dup1": 1,
+                "points": 14.0,
+                "status": null
+              },
+              {
+                "constructorid": 11,
+                "constructorref": "honda",
+                "name": "Honda",
+                "nationality": "Japanese",
+                "url": "http://en.wikipedia.org/wiki/Honda_Racing_F1",
+                "constructorresultsid": 248,
+                "raceid": 41,
+                "constructorid__dup1": 11,
+                "points": 0.0,
+                "status": null
+              },
+              {
+                "constructorid": 1,
+                "constructorref": "mclaren",
+                "name": "McLaren",
+                "nationality": "British",
+                "url": "http://en.wikipedia.org/wiki/McLaren",
+                "constructorresultsid": 418,
+                "raceid": 57,
+                "constructorid__dup1": 1,
+                "points": 5.0,
+                "status": null
+              },
+              {
+                "constructorid": 2,
+                "constructorref": "bmw_sauber",
+                "name": "BMW Sauber",
+                "nationality": "German",
+                "url": "http://en.wikipedia.org/wiki/BMW_Sauber",
+                "constructorresultsid": 421,
+                "raceid": 57,
+                "constructorid__dup1": 2,
+                "points": 1.0,
+                "status": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN races AS r ON cr.raceid = r.raceid",
+          "sql": "SELECT *\nFROM constructors AS c\nJOIN constructorresults AS cr ON c.constructorid = cr.constructorid\nJOIN races AS r ON cr.raceid = r.raceid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 18,
+            "preview": [
+              {
+                "constructorid": 10,
+                "constructorref": "force_india",
+                "name": "Force India",
+                "nationality": "Indian",
+                "url": "http://en.wikipedia.org/wiki/Force_India",
+                "constructorresultsid": 64,
+                "raceid": 23,
+                "constructorid__dup1": 10,
+                "points": 0.0,
+                "status": null,
+                "raceid__dup1": 23,
+                "year": 2008,
+                "round": 6,
+                "circuitid": 6,
+                "name__dup1": "Monaco Grand Prix",
+                "date": "2008-05-25",
+                "time": "12:00:00",
+                "url__dup1": "http://en.wikipedia.org/wiki/2008_Monaco_Grand_Prix"
+              },
+              {
+                "constructorid": 4,
+                "constructorref": "renault",
+                "name": "Renault",
+                "nationality": "French",
+                "url": "http://en.wikipedia.org/wiki/Renault_F1",
+                "constructorresultsid": 1167,
+                "raceid": 130,
+                "constructorid__dup1": 4,
+                "points": 3.0,
+                "status": null,
+                "raceid__dup1": 130,
+                "year": 2002,
+                "round": 7,
+                "circuitid": 6,
+                "name__dup1": "Monaco Grand Prix",
+                "date": "2002-05-26",
+                "time": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/2002_Monaco_Grand_Prix"
+              },
+              {
+                "constructorid": 20,
+                "constructorref": "prost",
+                "name": "Prost",
+                "nationality": "French",
+                "url": "http://en.wikipedia.org/wiki/Prost_Grand_Prix",
+                "constructorresultsid": 1562,
+                "raceid": 166,
+                "constructorid__dup1": 20,
+                "points": 0.0,
+                "status": null,
+                "raceid__dup1": 166,
+                "year": 2000,
+                "round": 9,
+                "circuitid": 8,
+                "name__dup1": "French Grand Prix",
+                "date": "2000-07-02",
+                "time": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/2000_French_Grand_Prix"
+              },
+              {
+                "constructorid": 25,
+                "constructorref": "tyrrell",
+                "name": "Tyrrell",
+                "nationality": "British",
+                "url": "http://en.wikipedia.org/wiki/Tyrrell_Racing",
+                "constructorresultsid": 1849,
+                "raceid": 192,
+                "constructorid__dup1": 25,
+                "points": 0.0,
+                "status": null,
+                "raceid__dup1": 192,
+                "year": 1998,
+                "round": 2,
+                "circuitid": 18,
+                "name__dup1": "Brazilian Grand Prix",
+                "date": "1998-03-29",
+                "time": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/1998_Brazilian_Grand_Prix"
+              },
+              {
+                "constructorid": 3,
+                "constructorref": "williams",
+                "name": "Williams",
+                "nationality": "British",
+                "url": "http://en.wikipedia.org/wiki/Williams_Grand_Prix_Engineering",
+                "constructorresultsid": 3896,
+                "raceid": 8,
+                "constructorid__dup1": 3,
+                "points": 4.0,
+                "status": null,
+                "raceid__dup1": 8,
+                "year": 2009,
+                "round": 8,
+                "circuitid": 9,
+                "name__dup1": "British Grand Prix",
+                "date": "2009-06-21",
+                "time": "12:00:00",
+                "url__dup1": "http://en.wikipedia.org/wiki/2009_British_Grand_Prix"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN circuits AS ci ON r.circuitid = ci.circuitid",
+          "sql": "SELECT *\nFROM constructors AS c\nJOIN constructorresults AS cr ON c.constructorid = cr.constructorid\nJOIN races AS r ON cr.raceid = r.raceid\nJOIN circuits AS ci ON r.circuitid = ci.circuitid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 27,
+            "preview": [
+              {
+                "constructorid": 10,
+                "constructorref": "force_india",
+                "name": "Force India",
+                "nationality": "Indian",
+                "url": "http://en.wikipedia.org/wiki/Force_India",
+                "constructorresultsid": 64,
+                "raceid": 23,
+                "constructorid__dup1": 10,
+                "points": 0.0,
+                "status": null,
+                "raceid__dup1": 23,
+                "year": 2008,
+                "round": 6,
+                "circuitid": 6,
+                "name__dup1": "Monaco Grand Prix",
+                "date": "2008-05-25",
+                "time": "12:00:00",
+                "url__dup1": "http://en.wikipedia.org/wiki/2008_Monaco_Grand_Prix",
+                "circuitid__dup1": 6,
+                "circuitref": "monaco",
+                "name__dup2": "Circuit de Monaco",
+                "location": "Monte-Carlo",
+                "country": "Monaco",
+                "lat": 43.7347,
+                "lng": 7.42056,
+                "alt": null,
+                "url__dup2": "http://en.wikipedia.org/wiki/Circuit_de_Monaco"
+              },
+              {
+                "constructorid": 4,
+                "constructorref": "renault",
+                "name": "Renault",
+                "nationality": "French",
+                "url": "http://en.wikipedia.org/wiki/Renault_F1",
+                "constructorresultsid": 1167,
+                "raceid": 130,
+                "constructorid__dup1": 4,
+                "points": 3.0,
+                "status": null,
+                "raceid__dup1": 130,
+                "year": 2002,
+                "round": 7,
+                "circuitid": 6,
+                "name__dup1": "Monaco Grand Prix",
+                "date": "2002-05-26",
+                "time": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/2002_Monaco_Grand_Prix",
+                "circuitid__dup1": 6,
+                "circuitref": "monaco",
+                "name__dup2": "Circuit de Monaco",
+                "location": "Monte-Carlo",
+                "country": "Monaco",
+                "lat": 43.7347,
+                "lng": 7.42056,
+                "alt": null,
+                "url__dup2": "http://en.wikipedia.org/wiki/Circuit_de_Monaco"
+              },
+              {
+                "constructorid": 20,
+                "constructorref": "prost",
+                "name": "Prost",
+                "nationality": "French",
+                "url": "http://en.wikipedia.org/wiki/Prost_Grand_Prix",
+                "constructorresultsid": 1562,
+                "raceid": 166,
+                "constructorid__dup1": 20,
+                "points": 0.0,
+                "status": null,
+                "raceid__dup1": 166,
+                "year": 2000,
+                "round": 9,
+                "circuitid": 8,
+                "name__dup1": "French Grand Prix",
+                "date": "2000-07-02",
+                "time": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/2000_French_Grand_Prix",
+                "circuitid__dup1": 8,
+                "circuitref": "magny_cours",
+                "name__dup2": "Circuit de Nevers Magny-Cours",
+                "location": "Magny Cours",
+                "country": "France",
+                "lat": 46.8642,
+                "lng": 3.16361,
+                "alt": null,
+                "url__dup2": "http://en.wikipedia.org/wiki/Circuit_de_Nevers_Magny-Cours"
+              },
+              {
+                "constructorid": 25,
+                "constructorref": "tyrrell",
+                "name": "Tyrrell",
+                "nationality": "British",
+                "url": "http://en.wikipedia.org/wiki/Tyrrell_Racing",
+                "constructorresultsid": 1849,
+                "raceid": 192,
+                "constructorid__dup1": 25,
+                "points": 0.0,
+                "status": null,
+                "raceid__dup1": 192,
+                "year": 1998,
+                "round": 2,
+                "circuitid": 18,
+                "name__dup1": "Brazilian Grand Prix",
+                "date": "1998-03-29",
+                "time": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/1998_Brazilian_Grand_Prix",
+                "circuitid__dup1": 18,
+                "circuitref": "interlagos",
+                "name__dup2": "Autódromo José Carlos Pace",
+                "location": "São Paulo",
+                "country": "Brazil",
+                "lat": -23.7036,
+                "lng": -46.6997,
+                "alt": null,
+                "url__dup2": "http://en.wikipedia.org/wiki/Aut%C3%B3dromo_Jos%C3%A9_Carlos_Pace"
+              },
+              {
+                "constructorid": 3,
+                "constructorref": "williams",
+                "name": "Williams",
+                "nationality": "British",
+                "url": "http://en.wikipedia.org/wiki/Williams_Grand_Prix_Engineering",
+                "constructorresultsid": 3896,
+                "raceid": 8,
+                "constructorid__dup1": 3,
+                "points": 4.0,
+                "status": null,
+                "raceid__dup1": 8,
+                "year": 2009,
+                "round": 8,
+                "circuitid": 9,
+                "name__dup1": "British Grand Prix",
+                "date": "2009-06-21",
+                "time": "12:00:00",
+                "url__dup1": "http://en.wikipedia.org/wiki/2009_British_Grand_Prix",
+                "circuitid__dup1": 9,
+                "circuitref": "silverstone",
+                "name__dup2": "Silverstone Circuit",
+                "location": "Silverstone",
+                "country": "UK",
+                "lat": 52.0786,
+                "lng": -1.01694,
+                "alt": null,
+                "url__dup2": "http://en.wikipedia.org/wiki/Silverstone_Circuit"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "ci.country IN ('Australia', 'Germany', 'United Kingdom', 'USA')",
+          "sql": "SELECT *\nFROM constructors AS c\nJOIN constructorresults AS cr ON c.constructorid = cr.constructorid\nJOIN races AS r ON cr.raceid = r.raceid\nJOIN circuits AS ci ON r.circuitid = ci.circuitid\nWHERE (ci.country IN ('Australia', 'Germany', 'United Kingdom', 'USA'))\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 27,
+            "preview": [
+              {
+                "constructorid": 37,
+                "constructorref": "march",
+                "name": "March",
+                "nationality": "British",
+                "url": "http://en.wikipedia.org/wiki/March_Engineering",
+                "constructorresultsid": 12167,
+                "raceid": 631,
+                "constructorid__dup1": 37,
+                "points": 3.0,
+                "status": null,
+                "raceid__dup1": 631,
+                "year": 1972,
+                "round": 12,
+                "circuitid": 46,
+                "name__dup1": "United States Grand Prix",
+                "date": "1972-10-08",
+                "time": null,
+                "url__dup1": "http://en.wikipedia.org/wiki/1972_United_States_Grand_Prix",
+                "circuitid__dup1": 46,
+                "circuitref": "watkins_glen",
+                "name__dup2": "Watkins Glen",
+                "location": "New York State",
+                "country": "USA",
+                "lat": 42.3369,
+                "lng": -76.9272,
+                "alt": null,
+                "url__dup2": "http://en.wikipedia.org/wiki/Watkins_Glen_International"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT c.constructorid, c.name, r.raceid, r.name AS race_name, cr.points\nFROM constructors AS c\nJOIN constructorresults AS cr ON c.constructorid = cr.constructorid\nJOIN races AS r ON cr.raceid = r.raceid\nJOIN circuits AS ci ON r.circuitid = ci.circuitid\nWHERE (ci.country IN ('Australia', 'Germany', 'United Kingdom', 'USA'))",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 5,
+            "preview": [
+              {
+                "constructorid": 37,
+                "name": "March",
+                "raceid": 631,
+                "race_name": "United States Grand Prix",
+                "points": 3.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "This block calculates the average points per race for constructors who have raced in circuits located in Australia, Germany, United Kingdom, or USA",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT c.constructorid, c.name, r.raceid, r.name AS race_name, cr.points\nFROM constructors AS c\nJOIN constructorresults AS cr ON c.constructorid = cr.constructorid\nJOIN races AS r ON cr.raceid = r.raceid\nJOIN circuits AS ci ON r.circuitid = ci.circuitid\nWHERE (ci.country IN ('Australia', 'Germany', 'United Kingdom', 'USA'))) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 5,
+            "preview": [
+              {
+                "constructorid": 37,
+                "name": "March",
+                "raceid": 631,
+                "race_name": "United States Grand Prix",
+                "points": 3.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT AVG(points)\nFROM (SELECT c.constructorid, c.name, r.raceid, r.name AS race_name, cr.points\nFROM constructors AS c\nJOIN constructorresults AS cr ON c.constructorid = cr.constructorid\nJOIN races AS r ON cr.raceid = r.raceid\nJOIN circuits AS ci ON r.circuitid = ci.circuitid\nWHERE (ci.country IN ('Australia', 'Germany', 'United Kingdom', 'USA'))) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "AVG(points)": 3.0
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 8,
+  "sample_retry": 1,
+  "detail_fallback_used": false,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.7136666666666667,
+    "nearest": {
+      "sample_index": 1,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "similarity": 0.7136666666666667,
+      "sql": "SELECT AVG(leaf_1.points) AS average_points_per_constructor\nFROM (SELECT c.name AS constructor_name, cr.points\nFROM constructorresults cr\nJOIN constructors c ON cr.constructorid = c.constructorid\nJOIN races r ON cr.raceid = r.raceid\nJOIN circuits ci ON r.circuitid = ci.circuitid\nWHERE (ci.country = 'Australia')) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 3.0,
+    "nearest": null,
+    "reason": "numeric answer <= 7.0"
+  },
+  "question": "What is the average number of points scored by each constructor across all races held in Australia, Germany, the United Kingdom, or the USA?",
+  "answer": "3"
+}

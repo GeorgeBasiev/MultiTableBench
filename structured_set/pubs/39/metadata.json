@@ -1,0 +1,1036 @@
+{
+  "sample_index": 39,
+  "db_name": "pubs",
+  "answer_mode": "aggregate",
+  "target_join_count": 2,
+  "actual_join_count": 2,
+  "numeric_answer": 0.0,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 2,
+    "min_hops": 2,
+    "max_hops": 2,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "What is the total revenue generated from sales of titles where the author's royalty percentage is between 30% and 50%?",
+  "manifest": {
+    "db_name": "pubs",
+    "sample_dir": "structured_set/pubs/39",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "authors",
+        "remote_row_count": 23,
+        "snapshot_row_count": 23,
+        "target_limit": 23,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "au_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_lname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_fname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "zip",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contract",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "discounts",
+        "remote_row_count": 3,
+        "snapshot_row_count": 3,
+        "target_limit": 3,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "discounttype",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lowqty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "highqty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discount",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          }
+        ]
+      },
+      {
+        "table_name": "employee",
+        "remote_row_count": 43,
+        "snapshot_row_count": 43,
+        "target_limit": 43,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "emp_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "minit",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "job_id",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "job_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hire_date",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "jobs",
+        "remote_row_count": 14,
+        "snapshot_row_count": 14,
+        "target_limit": 14,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "job_id",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "job_desc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "min_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "max_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "publishers",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pub_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "pub_info",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "logo",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          },
+          {
+            "name": "pr_info",
+            "mysql_type": "longtext",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "roysched",
+        "remote_row_count": 86,
+        "snapshot_row_count": 86,
+        "target_limit": 86,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lorange",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hirange",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "royalty",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "sales",
+        "remote_row_count": 21,
+        "snapshot_row_count": 21,
+        "target_limit": 21,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ord_num",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ord_date",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "qty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "payterms",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "stores",
+        "remote_row_count": 6,
+        "snapshot_row_count": 6,
+        "target_limit": 6,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "zip",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "titleauthor",
+        "remote_row_count": 25,
+        "snapshot_row_count": 25,
+        "target_limit": 25,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "au_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_ord",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "royaltyper",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "titles",
+        "remote_row_count": 18,
+        "snapshot_row_count": 18,
+        "target_limit": 18,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "type",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "price",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "advance",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "royalty",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ytd_sales",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pubdate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "What is the total revenue generated from sales of titles where the author's royalty percentage is between 30% and 50%?",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT s.ord_num, s.ord_date, s.qty, t.title, t.price, ta.royaltyper FROM sales s JOIN titles t ON s.title_id = t.title_id JOIN titleauthor ta ON t.title_id = ta.title_id WHERE ta.royaltyper BETWEEN 30 AND 50 ORDER BY s.ord_num",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT s.qty, t.price, ta.royaltyper",
+        "from_clause": "FROM sales s",
+        "join_clauses": [
+          "JOIN titles t ON s.title_id = t.title_id",
+          "JOIN titleauthor ta ON t.title_id = ta.title_id"
+        ],
+        "where_clauses": [
+          "ta.royaltyper BETWEEN 30 AND 50"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "This block retrieves the quantity, price, and royalty percentage for each sale of a title where the author's royalty percentage is between 30% and 50%."
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT SUM(leaf_1.qty * leaf_1.price * (leaf_1.royaltyper / 100)) AS total_revenue",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "This block calculates the total revenue generated from sales of titles where the author's royalty percentage is between 30% and 50%."
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "This block retrieves the quantity, price, and royalty percentage for each sale of a title where the author's royalty percentage is between 30% and 50%.",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM sales s\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 6,
+            "preview": [
+              {
+                "stor_id": "6380",
+                "ord_num": "6871",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 5,
+                "payterms": "Net 60",
+                "title_id": "BU1032"
+              },
+              {
+                "stor_id": "6380",
+                "ord_num": "722a",
+                "ord_date": "1994-09-13T00:00:00",
+                "qty": 3,
+                "payterms": "Net 60",
+                "title_id": "PS2091"
+              },
+              {
+                "stor_id": "7066",
+                "ord_num": "A2976",
+                "ord_date": "1993-05-24T00:00:00",
+                "qty": 50,
+                "payterms": "Net 30",
+                "title_id": "PC8888"
+              },
+              {
+                "stor_id": "7066",
+                "ord_num": "QA7442.3",
+                "ord_date": "1994-09-13T00:00:00",
+                "qty": 75,
+                "payterms": "ON invoice",
+                "title_id": "PS2091"
+              },
+              {
+                "stor_id": "7067",
+                "ord_num": "D4482",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 10,
+                "payterms": "Net 60",
+                "title_id": "PS2091"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN titles t ON s.title_id = t.title_id",
+          "sql": "SELECT *\nFROM sales s\nJOIN titles t ON s.title_id = t.title_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 16,
+            "preview": [
+              {
+                "stor_id": "6380",
+                "ord_num": "6871",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 5,
+                "payterms": "Net 60",
+                "title_id": "BU1032",
+                "title_id__dup1": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00"
+              },
+              {
+                "stor_id": "6380",
+                "ord_num": "722a",
+                "ord_date": "1994-09-13T00:00:00",
+                "qty": 3,
+                "payterms": "Net 60",
+                "title_id": "PS2091",
+                "title_id__dup1": "PS2091",
+                "title": "Is Anger the Enemy?",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 10.95,
+                "advance": 2275.0,
+                "royalty": 12,
+                "ytd_sales": 2045,
+                "notes": "Carefully researched study of the effects of strong emotions on the body. Metabolic charts included.",
+                "pubdate": "1991-06-15T00:00:00"
+              },
+              {
+                "stor_id": "7066",
+                "ord_num": "A2976",
+                "ord_date": "1993-05-24T00:00:00",
+                "qty": 50,
+                "payterms": "Net 30",
+                "title_id": "PC8888",
+                "title_id__dup1": "PC8888",
+                "title": "Secrets of Silicon Valley",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 20.0,
+                "advance": 8000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Muckraking reporting on the world's largest computer hardware and software manufacturers.",
+                "pubdate": "1994-06-12T00:00:00"
+              },
+              {
+                "stor_id": "7066",
+                "ord_num": "QA7442.3",
+                "ord_date": "1994-09-13T00:00:00",
+                "qty": 75,
+                "payterms": "ON invoice",
+                "title_id": "PS2091",
+                "title_id__dup1": "PS2091",
+                "title": "Is Anger the Enemy?",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 10.95,
+                "advance": 2275.0,
+                "royalty": 12,
+                "ytd_sales": 2045,
+                "notes": "Carefully researched study of the effects of strong emotions on the body. Metabolic charts included.",
+                "pubdate": "1991-06-15T00:00:00"
+              },
+              {
+                "stor_id": "7067",
+                "ord_num": "D4482",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 10,
+                "payterms": "Net 60",
+                "title_id": "PS2091",
+                "title_id__dup1": "PS2091",
+                "title": "Is Anger the Enemy?",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 10.95,
+                "advance": 2275.0,
+                "royalty": 12,
+                "ytd_sales": 2045,
+                "notes": "Carefully researched study of the effects of strong emotions on the body. Metabolic charts included.",
+                "pubdate": "1991-06-15T00:00:00"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN titleauthor ta ON t.title_id = ta.title_id",
+          "sql": "SELECT *\nFROM sales s\nJOIN titles t ON s.title_id = t.title_id\nJOIN titleauthor ta ON t.title_id = ta.title_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 20,
+            "preview": [
+              {
+                "stor_id": "6380",
+                "ord_num": "6871",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 5,
+                "payterms": "Net 60",
+                "title_id": "BU1032",
+                "title_id__dup1": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "213-46-8915",
+                "title_id__dup2": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40
+              },
+              {
+                "stor_id": "6380",
+                "ord_num": "6871",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 5,
+                "payterms": "Net 60",
+                "title_id": "BU1032",
+                "title_id__dup1": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "409-56-7008",
+                "title_id__dup2": "BU1032",
+                "au_ord": 1,
+                "royaltyper": 60
+              },
+              {
+                "stor_id": "6380",
+                "ord_num": "722a",
+                "ord_date": "1994-09-13T00:00:00",
+                "qty": 3,
+                "payterms": "Net 60",
+                "title_id": "PS2091",
+                "title_id__dup1": "PS2091",
+                "title": "Is Anger the Enemy?",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 10.95,
+                "advance": 2275.0,
+                "royalty": 12,
+                "ytd_sales": 2045,
+                "notes": "Carefully researched study of the effects of strong emotions on the body. Metabolic charts included.",
+                "pubdate": "1991-06-15T00:00:00",
+                "au_id": "899-46-2035",
+                "title_id__dup2": "PS2091",
+                "au_ord": 2,
+                "royaltyper": 50
+              },
+              {
+                "stor_id": "6380",
+                "ord_num": "722a",
+                "ord_date": "1994-09-13T00:00:00",
+                "qty": 3,
+                "payterms": "Net 60",
+                "title_id": "PS2091",
+                "title_id__dup1": "PS2091",
+                "title": "Is Anger the Enemy?",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 10.95,
+                "advance": 2275.0,
+                "royalty": 12,
+                "ytd_sales": 2045,
+                "notes": "Carefully researched study of the effects of strong emotions on the body. Metabolic charts included.",
+                "pubdate": "1991-06-15T00:00:00",
+                "au_id": "998-72-3567",
+                "title_id__dup2": "PS2091",
+                "au_ord": 1,
+                "royaltyper": 50
+              },
+              {
+                "stor_id": "7066",
+                "ord_num": "A2976",
+                "ord_date": "1993-05-24T00:00:00",
+                "qty": 50,
+                "payterms": "Net 30",
+                "title_id": "PC8888",
+                "title_id__dup1": "PC8888",
+                "title": "Secrets of Silicon Valley",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 20.0,
+                "advance": 8000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Muckraking reporting on the world's largest computer hardware and software manufacturers.",
+                "pubdate": "1994-06-12T00:00:00",
+                "au_id": "427-17-2319",
+                "title_id__dup2": "PC8888",
+                "au_ord": 1,
+                "royaltyper": 50
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "ta.royaltyper BETWEEN 30 AND 50",
+          "sql": "SELECT *\nFROM sales s\nJOIN titles t ON s.title_id = t.title_id\nJOIN titleauthor ta ON t.title_id = ta.title_id\nWHERE (ta.royaltyper BETWEEN 30 AND 50)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 20,
+            "preview": [
+              {
+                "stor_id": "6380",
+                "ord_num": "6871",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 5,
+                "payterms": "Net 60",
+                "title_id": "BU1032",
+                "title_id__dup1": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "213-46-8915",
+                "title_id__dup2": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40
+              },
+              {
+                "stor_id": "8042",
+                "ord_num": "423LL930",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 10,
+                "payterms": "ON invoice",
+                "title_id": "BU1032",
+                "title_id__dup1": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "213-46-8915",
+                "title_id__dup2": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40
+              },
+              {
+                "stor_id": "8042",
+                "ord_num": "P723",
+                "ord_date": "1993-03-11T00:00:00",
+                "qty": 25,
+                "payterms": "Net 30",
+                "title_id": "BU1111",
+                "title_id__dup1": "BU1111",
+                "title": "Cooking with Computers: Surreptitious Balance Sheets",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 11.95,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 3876,
+                "notes": "Helpful hints on how to use your electronic resources to the best advantage.",
+                "pubdate": "1991-06-09T00:00:00",
+                "au_id": "267-41-2394",
+                "title_id__dup2": "BU1111",
+                "au_ord": 2,
+                "royaltyper": 40
+              },
+              {
+                "stor_id": "7067",
+                "ord_num": "P2121",
+                "ord_date": "1992-06-15T00:00:00",
+                "qty": 20,
+                "payterms": "Net 30",
+                "title_id": "TC7777",
+                "title_id__dup1": "TC7777",
+                "title": "Sushi, Anyone?",
+                "type": "trad_cook",
+                "pub_id": "0877",
+                "price": 14.99,
+                "advance": 8000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Detailed instructions on how to make authentic Japanese sushi in your spare time.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "267-41-2394",
+                "title_id__dup2": "TC7777",
+                "au_ord": 2,
+                "royaltyper": 30
+              },
+              {
+                "stor_id": "7066",
+                "ord_num": "A2976",
+                "ord_date": "1993-05-24T00:00:00",
+                "qty": 50,
+                "payterms": "Net 30",
+                "title_id": "PC8888",
+                "title_id__dup1": "PC8888",
+                "title": "Secrets of Silicon Valley",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 20.0,
+                "advance": 8000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Muckraking reporting on the world's largest computer hardware and software manufacturers.",
+                "pubdate": "1994-06-12T00:00:00",
+                "au_id": "427-17-2319",
+                "title_id__dup2": "PC8888",
+                "au_ord": 1,
+                "royaltyper": 50
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT s.qty, t.price, ta.royaltyper\nFROM sales s\nJOIN titles t ON s.title_id = t.title_id\nJOIN titleauthor ta ON t.title_id = ta.title_id\nWHERE (ta.royaltyper BETWEEN 30 AND 50)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 16,
+            "column_count": 3,
+            "preview": [
+              {
+                "qty": 5,
+                "price": 19.99,
+                "royaltyper": 40
+              },
+              {
+                "qty": 10,
+                "price": 19.99,
+                "royaltyper": 40
+              },
+              {
+                "qty": 25,
+                "price": 11.95,
+                "royaltyper": 40
+              },
+              {
+                "qty": 20,
+                "price": 14.99,
+                "royaltyper": 30
+              },
+              {
+                "qty": 50,
+                "price": 20.0,
+                "royaltyper": 50
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "This block calculates the total revenue generated from sales of titles where the author's royalty percentage is between 30% and 50%.",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT s.qty, t.price, ta.royaltyper\nFROM sales s\nJOIN titles t ON s.title_id = t.title_id\nJOIN titleauthor ta ON t.title_id = ta.title_id\nWHERE (ta.royaltyper BETWEEN 30 AND 50)) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 3,
+            "preview": [
+              {
+                "qty": 5,
+                "price": 19.99,
+                "royaltyper": 40
+              },
+              {
+                "qty": 10,
+                "price": 19.99,
+                "royaltyper": 40
+              },
+              {
+                "qty": 25,
+                "price": 11.95,
+                "royaltyper": 40
+              },
+              {
+                "qty": 20,
+                "price": 14.99,
+                "royaltyper": 30
+              },
+              {
+                "qty": 50,
+                "price": 20.0,
+                "royaltyper": 50
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT SUM(leaf_1.qty * leaf_1.price * (leaf_1.royaltyper / 100)) AS total_revenue\nFROM (SELECT s.qty, t.price, ta.royaltyper\nFROM sales s\nJOIN titles t ON s.title_id = t.title_id\nJOIN titleauthor ta ON t.title_id = ta.title_id\nWHERE (ta.royaltyper BETWEEN 30 AND 50)) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "total_revenue": 0.0
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 1,
+  "sample_retry": 1,
+  "detail_fallback_used": false,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.600316430020284,
+    "nearest": {
+      "sample_index": 21,
+      "answer_mode": "aggregate",
+      "target_join_count": 2,
+      "similarity": 0.600316430020284,
+      "sql": "SELECT SUM(revenue)\nFROM (SELECT t.title_id, t.title, s.qty, t.price, ta.royaltyper, (s.qty * t.price) AS revenue\nFROM titles AS t\nJOIN sales AS s ON t.title_id = s.title_id\nJOIN titleauthor AS ta ON t.title_id = ta.title_id\nWHERE (t.pub_id = '1389')) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 0.0,
+    "nearest": null,
+    "reason": "numeric answer <= 7.0"
+  },
+  "question": "What is the total revenue calculated by summing the product of quantity, price, and royalty percentage (between 30% and 50%) for all sales?",
+  "answer": "0"
+}

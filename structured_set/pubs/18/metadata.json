@@ -1,0 +1,1499 @@
+{
+  "sample_index": 18,
+  "db_name": "pubs",
+  "answer_mode": "aggregate",
+  "target_join_count": 3,
+  "actual_join_count": 3,
+  "numeric_answer": 3044.5,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 3,
+    "min_hops": 3,
+    "max_hops": 3,
+    "require_group_by": true,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "total revenue from sales of books by authors with contracts and 100% royalty",
+  "manifest": {
+    "db_name": "pubs",
+    "sample_dir": "structured_set/pubs/18",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "authors",
+        "remote_row_count": 23,
+        "snapshot_row_count": 23,
+        "target_limit": 23,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "au_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_lname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_fname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "zip",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contract",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "discounts",
+        "remote_row_count": 3,
+        "snapshot_row_count": 3,
+        "target_limit": 3,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "discounttype",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lowqty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "highqty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discount",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          }
+        ]
+      },
+      {
+        "table_name": "employee",
+        "remote_row_count": 43,
+        "snapshot_row_count": 43,
+        "target_limit": 43,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "emp_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "minit",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "job_id",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "job_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hire_date",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "jobs",
+        "remote_row_count": 14,
+        "snapshot_row_count": 14,
+        "target_limit": 14,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "job_id",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "job_desc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "min_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "max_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "publishers",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pub_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "pub_info",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "logo",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          },
+          {
+            "name": "pr_info",
+            "mysql_type": "longtext",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "roysched",
+        "remote_row_count": 86,
+        "snapshot_row_count": 86,
+        "target_limit": 86,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lorange",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hirange",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "royalty",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "sales",
+        "remote_row_count": 21,
+        "snapshot_row_count": 21,
+        "target_limit": 21,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ord_num",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ord_date",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "qty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "payterms",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "stores",
+        "remote_row_count": 6,
+        "snapshot_row_count": 6,
+        "target_limit": 6,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "zip",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "titleauthor",
+        "remote_row_count": 25,
+        "snapshot_row_count": 25,
+        "target_limit": 25,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "au_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_ord",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "royaltyper",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "titles",
+        "remote_row_count": 18,
+        "snapshot_row_count": 18,
+        "target_limit": 18,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "type",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "price",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "advance",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "royalty",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ytd_sales",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pubdate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "total revenue from sales of books by authors with contracts and 100% royalty",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT leaf_1.title_id, leaf_1.title, leaf_1.au_id, leaf_1.au_lname, leaf_1.au_fname, leaf_1.qty, leaf_1.price, leaf_1.qty * leaf_1.price AS revenue\nFROM (SELECT titles.title_id, titles.title, authors.au_id, authors.au_lname, authors.au_fname, sales.qty, titles.price\nFROM titles\nJOIN titleauthor ON titles.title_id = titleauthor.title_id\nJOIN authors ON titleauthor.au_id = authors.au_id\nJOIN sales ON titles.title_id = sales.title_id\nWHERE (authors.contract = 1) AND (titleauthor.royaltyper = 100)) AS leaf_1",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT titles.title_id, titles.title, authors.au_id, authors.au_lname, authors.au_fname, sales.qty, titles.price",
+        "from_clause": "FROM titles",
+        "join_clauses": [
+          "JOIN titleauthor ON titles.title_id = titleauthor.title_id",
+          "JOIN authors ON titleauthor.au_id = authors.au_id",
+          "JOIN sales ON titles.title_id = sales.title_id"
+        ],
+        "where_clauses": [
+          "authors.contract = 1",
+          "titleauthor.royaltyper = 100"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "returns title_id, title, author_id, author last name, author first name, quantity sold, and price for each book sold by authors with contracts and 100% royalty"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT SUM(leaf_1.qty * leaf_1.price) AS total_revenue",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "returns the total revenue from sales of books by authors with contracts and 100% royalty"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "returns title_id, title, author_id, author last name, author first name, quantity sold, and price for each book sold by authors with contracts and 100% royalty",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM titles\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 10,
+            "preview": [
+              {
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00"
+              },
+              {
+                "title_id": "BU1111",
+                "title": "Cooking with Computers: Surreptitious Balance Sheets",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 11.95,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 3876,
+                "notes": "Helpful hints on how to use your electronic resources to the best advantage.",
+                "pubdate": "1991-06-09T00:00:00"
+              },
+              {
+                "title_id": "BU2075",
+                "title": "You Can Combat Computer Stress!",
+                "type": "business",
+                "pub_id": "0736",
+                "price": 2.99,
+                "advance": 10125.0,
+                "royalty": 24,
+                "ytd_sales": 18722,
+                "notes": "The latest medical and psychological techniques for living with the electronic office. Easy-to-understand explanations.",
+                "pubdate": "1991-06-30T00:00:00"
+              },
+              {
+                "title_id": "BU7832",
+                "title": "Straight Talk About Computers",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Annotated analysis of what computers can do for you: a no-hype guide for the critical user.",
+                "pubdate": "1991-06-22T00:00:00"
+              },
+              {
+                "title_id": "MC2222",
+                "title": "Silicon Valley Gastronomic Treats",
+                "type": "mod_cook",
+                "pub_id": "0877",
+                "price": 19.99,
+                "advance": 0.0,
+                "royalty": 12,
+                "ytd_sales": 2032,
+                "notes": "Favorite recipes for quick, easy, and elegant meals.",
+                "pubdate": "1991-06-09T00:00:00"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN titleauthor ON titles.title_id = titleauthor.title_id",
+          "sql": "SELECT *\nFROM titles\nJOIN titleauthor ON titles.title_id = titleauthor.title_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 14,
+            "preview": [
+              {
+                "title_id": "PS3333",
+                "title": "Prolonged Data Deprivation: Four Case Studies",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 19.99,
+                "advance": 2000.0,
+                "royalty": 10,
+                "ytd_sales": 4072,
+                "notes": "What happens when the data runs dry?  Searching evaluations of information-shortage effects.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "172-32-1176",
+                "title_id__dup1": "PS3333",
+                "au_ord": 1,
+                "royaltyper": 100
+              },
+              {
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "213-46-8915",
+                "title_id__dup1": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40
+              },
+              {
+                "title_id": "BU2075",
+                "title": "You Can Combat Computer Stress!",
+                "type": "business",
+                "pub_id": "0736",
+                "price": 2.99,
+                "advance": 10125.0,
+                "royalty": 24,
+                "ytd_sales": 18722,
+                "notes": "The latest medical and psychological techniques for living with the electronic office. Easy-to-understand explanations.",
+                "pubdate": "1991-06-30T00:00:00",
+                "au_id": "213-46-8915",
+                "title_id__dup1": "BU2075",
+                "au_ord": 1,
+                "royaltyper": 100
+              },
+              {
+                "title_id": "PC1035",
+                "title": "But Is It User Friendly?",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 22.95,
+                "advance": 7000.0,
+                "royalty": 16,
+                "ytd_sales": 8780,
+                "notes": "A survey of software for the naive user, focusing on the 'friendliness' of each.",
+                "pubdate": "1991-06-30T00:00:00",
+                "au_id": "238-95-7766",
+                "title_id__dup1": "PC1035",
+                "au_ord": 1,
+                "royaltyper": 100
+              },
+              {
+                "title_id": "BU1111",
+                "title": "Cooking with Computers: Surreptitious Balance Sheets",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 11.95,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 3876,
+                "notes": "Helpful hints on how to use your electronic resources to the best advantage.",
+                "pubdate": "1991-06-09T00:00:00",
+                "au_id": "267-41-2394",
+                "title_id__dup1": "BU1111",
+                "au_ord": 2,
+                "royaltyper": 40
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN authors ON titleauthor.au_id = authors.au_id",
+          "sql": "SELECT *\nFROM titles\nJOIN titleauthor ON titles.title_id = titleauthor.title_id\nJOIN authors ON titleauthor.au_id = authors.au_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 23,
+            "preview": [
+              {
+                "title_id": "PS3333",
+                "title": "Prolonged Data Deprivation: Four Case Studies",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 19.99,
+                "advance": 2000.0,
+                "royalty": 10,
+                "ytd_sales": 4072,
+                "notes": "What happens when the data runs dry?  Searching evaluations of information-shortage effects.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "172-32-1176",
+                "title_id__dup1": "PS3333",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "au_id__dup1": "172-32-1176",
+                "au_lname": "White",
+                "au_fname": "Johnson",
+                "phone": "408 496-7223",
+                "address": "10932 Bigge Rd.",
+                "city": "Menlo Park",
+                "state": "CA",
+                "zip": "94025",
+                "contract": 1
+              },
+              {
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "213-46-8915",
+                "title_id__dup1": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40,
+                "au_id__dup1": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1
+              },
+              {
+                "title_id": "BU2075",
+                "title": "You Can Combat Computer Stress!",
+                "type": "business",
+                "pub_id": "0736",
+                "price": 2.99,
+                "advance": 10125.0,
+                "royalty": 24,
+                "ytd_sales": 18722,
+                "notes": "The latest medical and psychological techniques for living with the electronic office. Easy-to-understand explanations.",
+                "pubdate": "1991-06-30T00:00:00",
+                "au_id": "213-46-8915",
+                "title_id__dup1": "BU2075",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "au_id__dup1": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1
+              },
+              {
+                "title_id": "PC1035",
+                "title": "But Is It User Friendly?",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 22.95,
+                "advance": 7000.0,
+                "royalty": 16,
+                "ytd_sales": 8780,
+                "notes": "A survey of software for the naive user, focusing on the 'friendliness' of each.",
+                "pubdate": "1991-06-30T00:00:00",
+                "au_id": "238-95-7766",
+                "title_id__dup1": "PC1035",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "au_id__dup1": "238-95-7766",
+                "au_lname": "Carson",
+                "au_fname": "Cheryl",
+                "phone": "415 548-7723",
+                "address": "589 Darwin Ln.",
+                "city": "Berkeley",
+                "state": "CA",
+                "zip": "94705",
+                "contract": 1
+              },
+              {
+                "title_id": "BU1111",
+                "title": "Cooking with Computers: Surreptitious Balance Sheets",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 11.95,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 3876,
+                "notes": "Helpful hints on how to use your electronic resources to the best advantage.",
+                "pubdate": "1991-06-09T00:00:00",
+                "au_id": "267-41-2394",
+                "title_id__dup1": "BU1111",
+                "au_ord": 2,
+                "royaltyper": 40,
+                "au_id__dup1": "267-41-2394",
+                "au_lname": "O'Leary",
+                "au_fname": "Michael",
+                "phone": "408 286-2428",
+                "address": "22 Cleveland Av. #14",
+                "city": "San Jose",
+                "state": "CA",
+                "zip": "95128",
+                "contract": 1
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN sales ON titles.title_id = sales.title_id",
+          "sql": "SELECT *\nFROM titles\nJOIN titleauthor ON titles.title_id = titleauthor.title_id\nJOIN authors ON titleauthor.au_id = authors.au_id\nJOIN sales ON titles.title_id = sales.title_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 29,
+            "preview": [
+              {
+                "title_id": "PS3333",
+                "title": "Prolonged Data Deprivation: Four Case Studies",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 19.99,
+                "advance": 2000.0,
+                "royalty": 10,
+                "ytd_sales": 4072,
+                "notes": "What happens when the data runs dry?  Searching evaluations of information-shortage effects.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "172-32-1176",
+                "title_id__dup1": "PS3333",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "au_id__dup1": "172-32-1176",
+                "au_lname": "White",
+                "au_fname": "Johnson",
+                "phone": "408 496-7223",
+                "address": "10932 Bigge Rd.",
+                "city": "Menlo Park",
+                "state": "CA",
+                "zip": "94025",
+                "contract": 1,
+                "stor_id": "7131",
+                "ord_num": "P3087a",
+                "ord_date": "1993-05-29T00:00:00",
+                "qty": 15,
+                "payterms": "Net 60",
+                "title_id__dup2": "PS3333"
+              },
+              {
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "213-46-8915",
+                "title_id__dup1": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40,
+                "au_id__dup1": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "stor_id": "6380",
+                "ord_num": "6871",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 5,
+                "payterms": "Net 60",
+                "title_id__dup2": "BU1032"
+              },
+              {
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "213-46-8915",
+                "title_id__dup1": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40,
+                "au_id__dup1": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "stor_id": "8042",
+                "ord_num": "423LL930",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 10,
+                "payterms": "ON invoice",
+                "title_id__dup2": "BU1032"
+              },
+              {
+                "title_id": "BU2075",
+                "title": "You Can Combat Computer Stress!",
+                "type": "business",
+                "pub_id": "0736",
+                "price": 2.99,
+                "advance": 10125.0,
+                "royalty": 24,
+                "ytd_sales": 18722,
+                "notes": "The latest medical and psychological techniques for living with the electronic office. Easy-to-understand explanations.",
+                "pubdate": "1991-06-30T00:00:00",
+                "au_id": "213-46-8915",
+                "title_id__dup1": "BU2075",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "au_id__dup1": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "stor_id": "7896",
+                "ord_num": "X999",
+                "ord_date": "1993-02-21T00:00:00",
+                "qty": 35,
+                "payterms": "ON invoice",
+                "title_id__dup2": "BU2075"
+              },
+              {
+                "title_id": "PC1035",
+                "title": "But Is It User Friendly?",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 22.95,
+                "advance": 7000.0,
+                "royalty": 16,
+                "ytd_sales": 8780,
+                "notes": "A survey of software for the naive user, focusing on the 'friendliness' of each.",
+                "pubdate": "1991-06-30T00:00:00",
+                "au_id": "238-95-7766",
+                "title_id__dup1": "PC1035",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "au_id__dup1": "238-95-7766",
+                "au_lname": "Carson",
+                "au_fname": "Cheryl",
+                "phone": "415 548-7723",
+                "address": "589 Darwin Ln.",
+                "city": "Berkeley",
+                "state": "CA",
+                "zip": "94705",
+                "contract": 1,
+                "stor_id": "8042",
+                "ord_num": "QA879.1",
+                "ord_date": "1993-05-22T00:00:00",
+                "qty": 30,
+                "payterms": "Net 30",
+                "title_id__dup2": "PC1035"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "authors.contract = 1",
+          "sql": "SELECT *\nFROM titles\nJOIN titleauthor ON titles.title_id = titleauthor.title_id\nJOIN authors ON titleauthor.au_id = authors.au_id\nJOIN sales ON titles.title_id = sales.title_id\nWHERE (authors.contract = 1)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 29,
+            "preview": [
+              {
+                "title_id": "PS3333",
+                "title": "Prolonged Data Deprivation: Four Case Studies",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 19.99,
+                "advance": 2000.0,
+                "royalty": 10,
+                "ytd_sales": 4072,
+                "notes": "What happens when the data runs dry?  Searching evaluations of information-shortage effects.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "172-32-1176",
+                "title_id__dup1": "PS3333",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "au_id__dup1": "172-32-1176",
+                "au_lname": "White",
+                "au_fname": "Johnson",
+                "phone": "408 496-7223",
+                "address": "10932 Bigge Rd.",
+                "city": "Menlo Park",
+                "state": "CA",
+                "zip": "94025",
+                "contract": 1,
+                "stor_id": "7131",
+                "ord_num": "P3087a",
+                "ord_date": "1993-05-29T00:00:00",
+                "qty": 15,
+                "payterms": "Net 60",
+                "title_id__dup2": "PS3333"
+              },
+              {
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "213-46-8915",
+                "title_id__dup1": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40,
+                "au_id__dup1": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "stor_id": "6380",
+                "ord_num": "6871",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 5,
+                "payterms": "Net 60",
+                "title_id__dup2": "BU1032"
+              },
+              {
+                "title_id": "BU1032",
+                "title": "The Busy Executive's Database Guide",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "An overview of available database systems with emphasis on common business applications. Illustrated.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "213-46-8915",
+                "title_id__dup1": "BU1032",
+                "au_ord": 2,
+                "royaltyper": 40,
+                "au_id__dup1": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "stor_id": "8042",
+                "ord_num": "423LL930",
+                "ord_date": "1994-09-14T00:00:00",
+                "qty": 10,
+                "payterms": "ON invoice",
+                "title_id__dup2": "BU1032"
+              },
+              {
+                "title_id": "BU2075",
+                "title": "You Can Combat Computer Stress!",
+                "type": "business",
+                "pub_id": "0736",
+                "price": 2.99,
+                "advance": 10125.0,
+                "royalty": 24,
+                "ytd_sales": 18722,
+                "notes": "The latest medical and psychological techniques for living with the electronic office. Easy-to-understand explanations.",
+                "pubdate": "1991-06-30T00:00:00",
+                "au_id": "213-46-8915",
+                "title_id__dup1": "BU2075",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "au_id__dup1": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "stor_id": "7896",
+                "ord_num": "X999",
+                "ord_date": "1993-02-21T00:00:00",
+                "qty": 35,
+                "payterms": "ON invoice",
+                "title_id__dup2": "BU2075"
+              },
+              {
+                "title_id": "PC1035",
+                "title": "But Is It User Friendly?",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 22.95,
+                "advance": 7000.0,
+                "royalty": 16,
+                "ytd_sales": 8780,
+                "notes": "A survey of software for the naive user, focusing on the 'friendliness' of each.",
+                "pubdate": "1991-06-30T00:00:00",
+                "au_id": "238-95-7766",
+                "title_id__dup1": "PC1035",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "au_id__dup1": "238-95-7766",
+                "au_lname": "Carson",
+                "au_fname": "Cheryl",
+                "phone": "415 548-7723",
+                "address": "589 Darwin Ln.",
+                "city": "Berkeley",
+                "state": "CA",
+                "zip": "94705",
+                "contract": 1,
+                "stor_id": "8042",
+                "ord_num": "QA879.1",
+                "ord_date": "1993-05-22T00:00:00",
+                "qty": 30,
+                "payterms": "Net 30",
+                "title_id__dup2": "PC1035"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "titleauthor.royaltyper = 100",
+          "sql": "SELECT *\nFROM titles\nJOIN titleauthor ON titles.title_id = titleauthor.title_id\nJOIN authors ON titleauthor.au_id = authors.au_id\nJOIN sales ON titles.title_id = sales.title_id\nWHERE (authors.contract = 1) AND (titleauthor.royaltyper = 100)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 29,
+            "preview": [
+              {
+                "title_id": "PS3333",
+                "title": "Prolonged Data Deprivation: Four Case Studies",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 19.99,
+                "advance": 2000.0,
+                "royalty": 10,
+                "ytd_sales": 4072,
+                "notes": "What happens when the data runs dry?  Searching evaluations of information-shortage effects.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "172-32-1176",
+                "title_id__dup1": "PS3333",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "au_id__dup1": "172-32-1176",
+                "au_lname": "White",
+                "au_fname": "Johnson",
+                "phone": "408 496-7223",
+                "address": "10932 Bigge Rd.",
+                "city": "Menlo Park",
+                "state": "CA",
+                "zip": "94025",
+                "contract": 1,
+                "stor_id": "7131",
+                "ord_num": "P3087a",
+                "ord_date": "1993-05-29T00:00:00",
+                "qty": 15,
+                "payterms": "Net 60",
+                "title_id__dup2": "PS3333"
+              },
+              {
+                "title_id": "BU2075",
+                "title": "You Can Combat Computer Stress!",
+                "type": "business",
+                "pub_id": "0736",
+                "price": 2.99,
+                "advance": 10125.0,
+                "royalty": 24,
+                "ytd_sales": 18722,
+                "notes": "The latest medical and psychological techniques for living with the electronic office. Easy-to-understand explanations.",
+                "pubdate": "1991-06-30T00:00:00",
+                "au_id": "213-46-8915",
+                "title_id__dup1": "BU2075",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "au_id__dup1": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "phone": "415 986-7020",
+                "address": "309 63rd St. #411",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94618",
+                "contract": 1,
+                "stor_id": "7896",
+                "ord_num": "X999",
+                "ord_date": "1993-02-21T00:00:00",
+                "qty": 35,
+                "payterms": "ON invoice",
+                "title_id__dup2": "BU2075"
+              },
+              {
+                "title_id": "PC1035",
+                "title": "But Is It User Friendly?",
+                "type": "popular_comp",
+                "pub_id": "1389",
+                "price": 22.95,
+                "advance": 7000.0,
+                "royalty": 16,
+                "ytd_sales": 8780,
+                "notes": "A survey of software for the naive user, focusing on the 'friendliness' of each.",
+                "pubdate": "1991-06-30T00:00:00",
+                "au_id": "238-95-7766",
+                "title_id__dup1": "PC1035",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "au_id__dup1": "238-95-7766",
+                "au_lname": "Carson",
+                "au_fname": "Cheryl",
+                "phone": "415 548-7723",
+                "address": "589 Darwin Ln.",
+                "city": "Berkeley",
+                "state": "CA",
+                "zip": "94705",
+                "contract": 1,
+                "stor_id": "8042",
+                "ord_num": "QA879.1",
+                "ord_date": "1993-05-22T00:00:00",
+                "qty": 30,
+                "payterms": "Net 30",
+                "title_id__dup2": "PC1035"
+              },
+              {
+                "title_id": "BU7832",
+                "title": "Straight Talk About Computers",
+                "type": "business",
+                "pub_id": "1389",
+                "price": 19.99,
+                "advance": 5000.0,
+                "royalty": 10,
+                "ytd_sales": 4095,
+                "notes": "Annotated analysis of what computers can do for you: a no-hype guide for the critical user.",
+                "pubdate": "1991-06-22T00:00:00",
+                "au_id": "274-80-9391",
+                "title_id__dup1": "BU7832",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "au_id__dup1": "274-80-9391",
+                "au_lname": "Straight",
+                "au_fname": "Dean",
+                "phone": "415 834-2919",
+                "address": "5420 College Av.",
+                "city": "Oakland",
+                "state": "CA",
+                "zip": "94609",
+                "contract": 1,
+                "stor_id": "7896",
+                "ord_num": "QQ2299",
+                "ord_date": "1993-10-28T00:00:00",
+                "qty": 15,
+                "payterms": "Net 60",
+                "title_id__dup2": "BU7832"
+              },
+              {
+                "title_id": "PS7777",
+                "title": "Emotional Security: A New Algorithm",
+                "type": "psychology",
+                "pub_id": "0736",
+                "price": 7.99,
+                "advance": 4000.0,
+                "royalty": 10,
+                "ytd_sales": 3336,
+                "notes": "Protecting yourself and your loved ones from undue emotional stress in the modern world. Use of computer and nutritional aids emphasized.",
+                "pubdate": "1991-06-12T00:00:00",
+                "au_id": "486-29-1786",
+                "title_id__dup1": "PS7777",
+                "au_ord": 1,
+                "royaltyper": 100,
+                "au_id__dup1": "486-29-1786",
+                "au_lname": "Locksley",
+                "au_fname": "Charlene",
+                "phone": "415 585-4620",
+                "address": "18 Broadway Av.",
+                "city": "San Francisco",
+                "state": "CA",
+                "zip": "94130",
+                "contract": 1,
+                "stor_id": "7131",
+                "ord_num": "P3087a",
+                "ord_date": "1993-05-29T00:00:00",
+                "qty": 25,
+                "payterms": "Net 60",
+                "title_id__dup2": "PS7777"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT titles.title_id, titles.title, authors.au_id, authors.au_lname, authors.au_fname, sales.qty, titles.price\nFROM titles\nJOIN titleauthor ON titles.title_id = titleauthor.title_id\nJOIN authors ON titleauthor.au_id = authors.au_id\nJOIN sales ON titles.title_id = sales.title_id\nWHERE (authors.contract = 1) AND (titleauthor.royaltyper = 100)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 9,
+            "column_count": 7,
+            "preview": [
+              {
+                "title_id": "PS3333",
+                "title": "Prolonged Data Deprivation: Four Case Studies",
+                "au_id": "172-32-1176",
+                "au_lname": "White",
+                "au_fname": "Johnson",
+                "qty": 15,
+                "price": 19.99
+              },
+              {
+                "title_id": "BU2075",
+                "title": "You Can Combat Computer Stress!",
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "qty": 35,
+                "price": 2.99
+              },
+              {
+                "title_id": "PC1035",
+                "title": "But Is It User Friendly?",
+                "au_id": "238-95-7766",
+                "au_lname": "Carson",
+                "au_fname": "Cheryl",
+                "qty": 30,
+                "price": 22.95
+              },
+              {
+                "title_id": "BU7832",
+                "title": "Straight Talk About Computers",
+                "au_id": "274-80-9391",
+                "au_lname": "Straight",
+                "au_fname": "Dean",
+                "qty": 15,
+                "price": 19.99
+              },
+              {
+                "title_id": "PS7777",
+                "title": "Emotional Security: A New Algorithm",
+                "au_id": "486-29-1786",
+                "au_lname": "Locksley",
+                "au_fname": "Charlene",
+                "qty": 25,
+                "price": 7.99
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "returns the total revenue from sales of books by authors with contracts and 100% royalty",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT titles.title_id, titles.title, authors.au_id, authors.au_lname, authors.au_fname, sales.qty, titles.price\nFROM titles\nJOIN titleauthor ON titles.title_id = titleauthor.title_id\nJOIN authors ON titleauthor.au_id = authors.au_id\nJOIN sales ON titles.title_id = sales.title_id\nWHERE (authors.contract = 1) AND (titleauthor.royaltyper = 100)) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 7,
+            "preview": [
+              {
+                "title_id": "PS3333",
+                "title": "Prolonged Data Deprivation: Four Case Studies",
+                "au_id": "172-32-1176",
+                "au_lname": "White",
+                "au_fname": "Johnson",
+                "qty": 15,
+                "price": 19.99
+              },
+              {
+                "title_id": "BU2075",
+                "title": "You Can Combat Computer Stress!",
+                "au_id": "213-46-8915",
+                "au_lname": "Green",
+                "au_fname": "Marjorie",
+                "qty": 35,
+                "price": 2.99
+              },
+              {
+                "title_id": "PC1035",
+                "title": "But Is It User Friendly?",
+                "au_id": "238-95-7766",
+                "au_lname": "Carson",
+                "au_fname": "Cheryl",
+                "qty": 30,
+                "price": 22.95
+              },
+              {
+                "title_id": "BU7832",
+                "title": "Straight Talk About Computers",
+                "au_id": "274-80-9391",
+                "au_lname": "Straight",
+                "au_fname": "Dean",
+                "qty": 15,
+                "price": 19.99
+              },
+              {
+                "title_id": "PS7777",
+                "title": "Emotional Security: A New Algorithm",
+                "au_id": "486-29-1786",
+                "au_lname": "Locksley",
+                "au_fname": "Charlene",
+                "qty": 25,
+                "price": 7.99
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT SUM(leaf_1.qty * leaf_1.price) AS total_revenue\nFROM (SELECT titles.title_id, titles.title, authors.au_id, authors.au_lname, authors.au_fname, sales.qty, titles.price\nFROM titles\nJOIN titleauthor ON titles.title_id = titleauthor.title_id\nJOIN authors ON titleauthor.au_id = authors.au_id\nJOIN sales ON titles.title_id = sales.title_id\nWHERE (authors.contract = 1) AND (titleauthor.royaltyper = 100)) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "total_revenue": 3044.5
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 4,
+  "sample_retry": 4,
+  "detail_fallback_used": false,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.7772061688311689,
+    "nearest": {
+      "sample_index": 29,
+      "answer_mode": "aggregate",
+      "target_join_count": 4,
+      "similarity": 0.7772061688311689,
+      "sql": "SELECT SUM(leaf_1.qty * leaf_1.price) AS total_contract_revenue\nFROM (SELECT titles.title_id, titles.title, authors.au_id, authors.au_lname, authors.au_fname, sales.qty, titles.price\nFROM titles\nJOIN publishers ON titles.pub_id = publishers.pub_id\nJOIN titleauthor ON titles.title_id = titleauthor.title_id\nJOIN authors ON titleauthor.au_id = authors.au_id\nJOIN sales ON titles.title_id = sales.title_id\nWHERE (publishers.pub_name = 'Algodata Infosystems') AND (authors.contract = 1) AND (titleauthor.royaltyper = 100)) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 3044.5,
+    "nearest": {
+      "sample_index": 6,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "numeric_answer": 2586.95,
+      "delta": 457.5500000000002,
+      "sql": "SELECT SUM(revenue) AS total_revenue\nFROM (SELECT t.title_id, t.title, t.price, s.qty, ta.royaltyper, (t.price * s.qty * ta.royaltyper / 100) AS revenue\nFROM titles AS t\nJOIN sales AS s ON t.title_id = s.title_id\nJOIN titleauthor AS ta ON t.title_id = ta.title_id\nJOIN publishers AS p ON t.pub_id = p.pub_id\nWHERE (p.pub_id = 1389) AND (p.state = 'CA')) AS leaf_1"
+    },
+    "min_value": 7.0,
+    "tolerance": 3.0,
+    "reason": "ok"
+  },
+  "question": "What is the total revenue generated from all book sales where the author is under a full contract and receives 100% of the royalties?",
+  "answer": "3044.5"
+}

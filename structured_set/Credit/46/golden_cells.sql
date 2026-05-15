@@ -1,0 +1,1 @@
+SELECT c.corp_no, c.corp_name, p.provider_name, ch.charge_amt FROM charge AS ch JOIN provider AS p ON ch.provider_no = p.provider_no JOIN region AS r ON p.region_no = r.region_no JOIN member AS m ON ch.member_no = m.member_no JOIN corporation AS c ON m.corp_no = c.corp_no WHERE (r.region_name = 'North American' OR r.region_name = 'Scandanavian')

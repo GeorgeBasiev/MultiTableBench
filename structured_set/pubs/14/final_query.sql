@@ -1,0 +1,7 @@
+SELECT SUM((leaf_1.price * leaf_1.qty) * (1 - COALESCE(leaf_1.discount, 0) / 100)) AS total_revenue
+FROM (SELECT titles.title_id, titles.title, titles.price, sales.qty, discounts.discount, sales.stor_id, stores.stor_name, stores.city, stores.state
+FROM titles
+JOIN sales ON titles.title_id = sales.title_id
+JOIN stores ON sales.stor_id = stores.stor_id
+LEFT JOIN discounts ON sales.stor_id = discounts.stor_id
+WHERE (titles.pub_id = 1389)) AS leaf_1

@@ -1,0 +1,1 @@
+SELECT p.productid, od.unitprice, od.quantity, od.discount, o.orderdate FROM products AS p JOIN "order details" AS od ON p.productid = od.productid JOIN orders AS o ON od.orderid = o.orderid WHERE (p.categoryid = (SELECT categoryid FROM categories WHERE categoryname = 'Confections')) AND (strftime('%Y', o.orderdate) = '1997')

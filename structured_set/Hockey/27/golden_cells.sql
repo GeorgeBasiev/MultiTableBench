@@ -1,0 +1,1 @@
+SELECT s.playerid, m.firstname, m.lastname, s.year, s.g, s.a, s.gp FROM scoring AS s JOIN master AS m ON s.playerid = m.playerid JOIN teams AS t ON s.tmid = t.tmid WHERE (t.confid = 'EC') AND (s.year >= 1930 AND s.year <= 2023)

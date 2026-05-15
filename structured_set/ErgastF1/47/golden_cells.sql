@@ -1,0 +1,1 @@
+SELECT constructors.constructorid, constructors.nationality, constructorresults.points, races.year FROM constructors JOIN constructorresults ON constructors.constructorid = constructorresults.constructorid JOIN races ON constructorresults.raceid = races.raceid WHERE (races.year >= 2004)

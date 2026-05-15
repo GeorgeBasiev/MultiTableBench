@@ -1,0 +1,2 @@
+SELECT leaf_1.firstname || ' ' || leaf_1.lastname AS employee_name
+FROM (SELECT employeeid, firstname, lastname, order_count FROM (SELECT e.employeeid, e.firstname, e.lastname, COUNT(o.orderid) AS order_count FROM employees AS e JOIN orders AS o ON e.employeeid = o.employeeid JOIN "order details" AS od ON o.orderid = od.orderid JOIN products AS p ON od.productid = p.productid JOIN categories AS c ON p.categoryid = c.categoryid WHERE (c.categoryname = 'Beverages') AND (STRFTIME('%Y', o.orderdate) = '1997') GROUP BY e.employeeid) ORDER BY order_count DESC LIMIT 1) AS leaf_1

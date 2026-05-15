@@ -1,0 +1,6 @@
+SELECT SUM(leaf_1.charge_amt)
+FROM (SELECT c.charge_amt, m.member_no, m.region_no AS member_region, p.region_no AS provider_region
+FROM charge c
+JOIN member m ON c.member_no = m.member_no
+JOIN provider p ON c.provider_no = p.provider_no
+WHERE (m.region_no = p.region_no) AND (c.charge_no IN (SELECT charge_no FROM payment WHERE payment_no IS NOT NULL))) AS leaf_1

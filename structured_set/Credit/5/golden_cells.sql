@@ -1,0 +1,1 @@
+SELECT p.payment_no, p.payment_dt, p.payment_amt, r.region_name, c.charge_amt FROM payment AS p JOIN member AS m ON p.member_no = m.member_no JOIN region AS r ON m.region_no = r.region_no JOIN charge AS c ON p.member_no = c.member_no GROUP BY p.payment_no, p.payment_dt, p.payment_amt, r.region_name, c.charge_amt HAVING (AVG(c.charge_amt) > 100)

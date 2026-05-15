@@ -1,0 +1,872 @@
+{
+  "sample_index": 11,
+  "db_name": "pubs",
+  "answer_mode": "text",
+  "target_join_count": 3,
+  "actual_join_count": 3,
+  "numeric_answer": null,
+  "constraints": {
+    "answer_mode": "text",
+    "target_join_count": 3,
+    "min_hops": 3,
+    "max_hops": 3,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Find the city of the publisher that has the highest job level employee with the job description 'Business Operations Manager'",
+  "manifest": {
+    "db_name": "pubs",
+    "sample_dir": "structured_set/pubs/11",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "authors",
+        "remote_row_count": 23,
+        "snapshot_row_count": 23,
+        "target_limit": 23,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "au_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_lname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_fname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "zip",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contract",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "discounts",
+        "remote_row_count": 3,
+        "snapshot_row_count": 3,
+        "target_limit": 3,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "discounttype",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lowqty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "highqty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discount",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          }
+        ]
+      },
+      {
+        "table_name": "employee",
+        "remote_row_count": 43,
+        "snapshot_row_count": 43,
+        "target_limit": 43,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "emp_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "minit",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "job_id",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "job_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hire_date",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "jobs",
+        "remote_row_count": 14,
+        "snapshot_row_count": 14,
+        "target_limit": 14,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "job_id",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "job_desc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "min_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "max_lvl",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "publishers",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pub_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "pub_info",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "logo",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          },
+          {
+            "name": "pr_info",
+            "mysql_type": "longtext",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "roysched",
+        "remote_row_count": 86,
+        "snapshot_row_count": 71,
+        "target_limit": 71,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lorange",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hirange",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "royalty",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "sales",
+        "remote_row_count": 21,
+        "snapshot_row_count": 21,
+        "target_limit": 21,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ord_num",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ord_date",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "qty",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "payterms",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "stores",
+        "remote_row_count": 6,
+        "snapshot_row_count": 6,
+        "target_limit": 6,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "stor_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stor_address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "zip",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "titleauthor",
+        "remote_row_count": 25,
+        "snapshot_row_count": 25,
+        "target_limit": 25,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "au_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "au_ord",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "royaltyper",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "titles",
+        "remote_row_count": 18,
+        "snapshot_row_count": 18,
+        "target_limit": 18,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "title_id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "type",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pub_id",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "price",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "advance",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "royalty",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ytd_sales",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pubdate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Find the city of the publisher that has the highest job level employee with the job description 'Business Operations Manager'",
+    "answer_mode": "text",
+    "final_block_name": "root",
+    "detail_query": "SELECT e.emp_id, e.fname, e.lname, e.job_lvl, p.city\nFROM employee e\nJOIN jobs j ON e.job_id = j.job_id\nJOIN publishers p ON e.pub_id = p.pub_id\nWHERE j.job_desc = 'Business Operations Manager'\nORDER BY e.job_lvl DESC\nLIMIT 1",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT e.pub_id, e.job_lvl",
+        "from_clause": "FROM employee e",
+        "join_clauses": [
+          "JOIN jobs j ON e.job_id = j.job_id"
+        ],
+        "where_clauses": [
+          "j.job_desc = 'Business Operations Manager'"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "This block returns the pub_id and job_lvl for employees with the job description 'Business Operations Manager'"
+      },
+      {
+        "name": "leaf_2",
+        "role": "leaf",
+        "select_clause": "SELECT MAX(job_lvl) AS max_job_lvl",
+        "from_clause": "FROM {{leaf_1}}",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "This block returns the maximum job level from the leaf_1 block"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT p.city",
+        "from_clause": "FROM publishers p",
+        "join_clauses": [
+          "JOIN (SELECT e.pub_id FROM employee e JOIN jobs j ON e.job_id = j.job_id WHERE j.job_desc = 'Business Operations Manager' AND e.job_lvl = (SELECT MAX(job_lvl) FROM (SELECT e.pub_id, e.job_lvl FROM employee e JOIN jobs j ON e.job_id = j.job_id WHERE j.job_desc = 'Business Operations Manager'))) AS e ON p.pub_id = e.pub_id"
+        ],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "This block returns the city of the publisher with the highest job level employee with the job description 'Business Operations Manager'"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "This block returns the pub_id and job_lvl for employees with the job description 'Business Operations Manager'",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM employee e\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 8,
+            "preview": [
+              {
+                "emp_id": "A-C71970F",
+                "fname": "Aria",
+                "minit": "",
+                "lname": "Cruz",
+                "job_id": 10,
+                "job_lvl": 87,
+                "pub_id": "1389",
+                "hire_date": "1991-10-26T00:00:00"
+              },
+              {
+                "emp_id": "A-R89858F",
+                "fname": "Annette",
+                "minit": "",
+                "lname": "Roulet",
+                "job_id": 6,
+                "job_lvl": 152,
+                "pub_id": "9999",
+                "hire_date": "1990-02-21T00:00:00"
+              },
+              {
+                "emp_id": "AMD15433F",
+                "fname": "Ann",
+                "minit": "M",
+                "lname": "Devon",
+                "job_id": 3,
+                "job_lvl": 200,
+                "pub_id": "9952",
+                "hire_date": "1991-07-16T00:00:00"
+              },
+              {
+                "emp_id": "ARD36773F",
+                "fname": "Anabela",
+                "minit": "R",
+                "lname": "Domingues",
+                "job_id": 8,
+                "job_lvl": 100,
+                "pub_id": "0877",
+                "hire_date": "1993-01-27T00:00:00"
+              },
+              {
+                "emp_id": "CFH28514M",
+                "fname": "Carlos",
+                "minit": "F",
+                "lname": "Hernadez",
+                "job_id": 5,
+                "job_lvl": 211,
+                "pub_id": "9999",
+                "hire_date": "1989-04-21T00:00:00"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN jobs j ON e.job_id = j.job_id",
+          "sql": "SELECT *\nFROM employee e\nJOIN jobs j ON e.job_id = j.job_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 12,
+            "preview": [
+              {
+                "emp_id": "A-C71970F",
+                "fname": "Aria",
+                "minit": "",
+                "lname": "Cruz",
+                "job_id": 10,
+                "job_lvl": 87,
+                "pub_id": "1389",
+                "hire_date": "1991-10-26T00:00:00",
+                "job_id__dup1": 10,
+                "job_desc": "Productions Manager",
+                "min_lvl": 75,
+                "max_lvl": 165
+              },
+              {
+                "emp_id": "A-R89858F",
+                "fname": "Annette",
+                "minit": "",
+                "lname": "Roulet",
+                "job_id": 6,
+                "job_lvl": 152,
+                "pub_id": "9999",
+                "hire_date": "1990-02-21T00:00:00",
+                "job_id__dup1": 6,
+                "job_desc": "Managing Editor",
+                "min_lvl": 140,
+                "max_lvl": 225
+              },
+              {
+                "emp_id": "AMD15433F",
+                "fname": "Ann",
+                "minit": "M",
+                "lname": "Devon",
+                "job_id": 3,
+                "job_lvl": 200,
+                "pub_id": "9952",
+                "hire_date": "1991-07-16T00:00:00",
+                "job_id__dup1": 3,
+                "job_desc": "Business Operations Manager",
+                "min_lvl": 175,
+                "max_lvl": 225
+              },
+              {
+                "emp_id": "ARD36773F",
+                "fname": "Anabela",
+                "minit": "R",
+                "lname": "Domingues",
+                "job_id": 8,
+                "job_lvl": 100,
+                "pub_id": "0877",
+                "hire_date": "1993-01-27T00:00:00",
+                "job_id__dup1": 8,
+                "job_desc": "Public Relations Manager",
+                "min_lvl": 100,
+                "max_lvl": 175
+              },
+              {
+                "emp_id": "CFH28514M",
+                "fname": "Carlos",
+                "minit": "F",
+                "lname": "Hernadez",
+                "job_id": 5,
+                "job_lvl": 211,
+                "pub_id": "9999",
+                "hire_date": "1989-04-21T00:00:00",
+                "job_id__dup1": 5,
+                "job_desc": "Publisher",
+                "min_lvl": 150,
+                "max_lvl": 250
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "j.job_desc = 'Business Operations Manager'",
+          "sql": "SELECT *\nFROM employee e\nJOIN jobs j ON e.job_id = j.job_id\nWHERE (j.job_desc = 'Business Operations Manager')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 12,
+            "preview": [
+              {
+                "emp_id": "AMD15433F",
+                "fname": "Ann",
+                "minit": "M",
+                "lname": "Devon",
+                "job_id": 3,
+                "job_lvl": 200,
+                "pub_id": "9952",
+                "hire_date": "1991-07-16T00:00:00",
+                "job_id__dup1": 3,
+                "job_desc": "Business Operations Manager",
+                "min_lvl": 175,
+                "max_lvl": 225
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT e.pub_id, e.job_lvl\nFROM employee e\nJOIN jobs j ON e.job_id = j.job_id\nWHERE (j.job_desc = 'Business Operations Manager')",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 2,
+            "preview": [
+              {
+                "pub_id": "9952",
+                "job_lvl": 200
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "leaf_2",
+      "notes": "This block returns the maximum job level from the leaf_1 block",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT e.pub_id, e.job_lvl\nFROM employee e\nJOIN jobs j ON e.job_id = j.job_id\nWHERE (j.job_desc = 'Business Operations Manager'))\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 2,
+            "preview": [
+              {
+                "pub_id": "9952",
+                "job_lvl": 200
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT MAX(job_lvl) AS max_job_lvl\nFROM (SELECT e.pub_id, e.job_lvl\nFROM employee e\nJOIN jobs j ON e.job_id = j.job_id\nWHERE (j.job_desc = 'Business Operations Manager'))",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "max_job_lvl": 200
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "This block returns the city of the publisher with the highest job level employee with the job description 'Business Operations Manager'",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM publishers p\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 5,
+            "preview": [
+              {
+                "pub_id": "0736",
+                "pub_name": "New Moon Books",
+                "city": "Boston",
+                "state": "MA",
+                "country": "USA"
+              },
+              {
+                "pub_id": "0877",
+                "pub_name": "Binnet & Hardley",
+                "city": "Washington",
+                "state": "DC",
+                "country": "USA"
+              },
+              {
+                "pub_id": "1389",
+                "pub_name": "Algodata Infosystems",
+                "city": "Berkeley",
+                "state": "CA",
+                "country": "USA"
+              },
+              {
+                "pub_id": "1622",
+                "pub_name": "Five Lakes Publishing",
+                "city": "Chicago",
+                "state": "IL",
+                "country": "USA"
+              },
+              {
+                "pub_id": "1756",
+                "pub_name": "Ramona Publishers",
+                "city": "Dallas",
+                "state": "TX",
+                "country": "USA"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN (SELECT e.pub_id FROM employee e JOIN jobs j ON e.job_id = j.job_id WHERE j.job_desc = 'Business Operations Manager' AND e.job_lvl = (SELECT MAX(job_lvl) FROM (SELECT e.pub_id, e.job_lvl FROM employee e JOIN jobs j ON e.job_id = j.job_id WHERE j.job_desc = 'Business Operations Manager'))) AS e ON p.pub_id = e.pub_id",
+          "sql": "SELECT *\nFROM publishers p\nJOIN (SELECT e.pub_id FROM employee e JOIN jobs j ON e.job_id = j.job_id WHERE j.job_desc = 'Business Operations Manager' AND e.job_lvl = (SELECT MAX(job_lvl) FROM (SELECT e.pub_id, e.job_lvl FROM employee e JOIN jobs j ON e.job_id = j.job_id WHERE j.job_desc = 'Business Operations Manager'))) AS e ON p.pub_id = e.pub_id\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 6,
+            "preview": [
+              {
+                "pub_id": "9952",
+                "pub_name": "Scootney Books",
+                "city": "New York",
+                "state": "NY",
+                "country": "USA",
+                "pub_id__dup1": "9952"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT p.city\nFROM publishers p\nJOIN (SELECT e.pub_id FROM employee e JOIN jobs j ON e.job_id = j.job_id WHERE j.job_desc = 'Business Operations Manager' AND e.job_lvl = (SELECT MAX(job_lvl) FROM (SELECT e.pub_id, e.job_lvl FROM employee e JOIN jobs j ON e.job_id = j.job_id WHERE j.job_desc = 'Business Operations Manager'))) AS e ON p.pub_id = e.pub_id",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "city": "New York"
+              }
+            ],
+            "scalar": true,
+            "text_scalar": true
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 10,
+  "sample_retry": 1,
+  "detail_fallback_used": false,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.77,
+    "nearest": {
+      "sample_index": 50,
+      "answer_mode": "text",
+      "target_join_count": 4,
+      "similarity": 0.77,
+      "sql": "SELECT p.city\nFROM (SELECT e.pub_id, e.job_lvl\nFROM employee e\nJOIN jobs j ON e.job_id = j.job_id\nWHERE (j.job_desc = 'Business Operations Manager')) AS e\nJOIN (SELECT pub_id, city\nFROM publishers) AS p ON e.pub_id = p.pub_id\nJOIN (SELECT MAX(job_lvl) AS max_job_lvl\nFROM ((SELECT e.pub_id, e.job_lvl\nFROM employee e\nJOIN jobs j ON e.job_id = j.job_id\nWHERE (j.job_desc = 'Business Operations Manager')))) AS m ON e.job_lvl = m.max_job_lvl"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": null,
+    "nearest": null,
+    "reason": "not numeric"
+  },
+  "question": "What are the cities where the publishers are located that employ the highest-level Business Operations Managers?",
+  "answer": "New York"
+}

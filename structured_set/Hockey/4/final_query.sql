@@ -1,0 +1,7 @@
+SELECT AVG(leaf_1.goalswinner)
+FROM (SELECT sp.year, sp.round, sp.series, sp.tmidwinner, sp.goalswinner, c.coachid, a.award
+FROM seriespost AS sp
+JOIN teams AS t ON sp.tmidwinner = t.tmid
+JOIN coaches AS c ON t.tmid = c.tmid
+JOIN awardscoaches AS a ON c.coachid = a.coachid
+WHERE (sp.round = 'QF') AND (a.award = 'First Team All-Star')) AS leaf_1

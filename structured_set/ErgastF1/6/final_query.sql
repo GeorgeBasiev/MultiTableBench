@@ -1,0 +1,8 @@
+SELECT AVG(leaf_1.points)
+FROM (SELECT d.driverid, d.forename, d.surname, r.raceid, r.name, res.points
+FROM drivers AS d
+JOIN results AS res ON d.driverid = res.driverid
+JOIN races AS r ON res.raceid = r.raceid
+JOIN circuits AS c ON r.circuitid = c.circuitid
+WHERE (d.nationality IN ('British', 'German', 'Finnish')) AND (c.country IN ('UK', 'Australia', 'France', 'Germany', 'Italy', 'Spain', 'USA', 'Brazil', 'Japan', 'Canada', 'Austria', 'Hungary', 'Belgium', 'Monaco', 'Netherlands', 'Singapore', 'South Africa', 'Malaysia', 'China', 'Bahrain', 'Azerbaijan', 'Mexico', 'Vietnam'))
+GROUP BY d.driverid, d.forename, d.surname, r.raceid, r.name, res.points) AS leaf_1

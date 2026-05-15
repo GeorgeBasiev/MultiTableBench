@@ -1,0 +1,1125 @@
+{
+  "sample_index": 4,
+  "db_name": "ErgastF1",
+  "answer_mode": "aggregate",
+  "target_join_count": 3,
+  "actual_join_count": 3,
+  "numeric_answer": 1.0,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 3,
+    "min_hops": 3,
+    "max_hops": 3,
+    "require_group_by": true,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Average number of pit stops per race for drivers from British constructors",
+  "manifest": {
+    "db_name": "ErgastF1",
+    "sample_dir": "structured_set/ErgastF1/4",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "circuits",
+        "remote_row_count": 73,
+        "snapshot_row_count": 73,
+        "target_limit": 73,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "circuitid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "circuitref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "location",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lat",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "lng",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "alt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructorresults",
+        "remote_row_count": 11082,
+        "snapshot_row_count": 90,
+        "target_limit": 90,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "constructorresultsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "status",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructors",
+        "remote_row_count": 208,
+        "snapshot_row_count": 96,
+        "target_limit": 96,
+        "relational_rows_added": 55,
+        "columns": [
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "nationality",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructorstandings",
+        "remote_row_count": 11836,
+        "snapshot_row_count": 109,
+        "target_limit": 109,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "constructorstandingsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "wins",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "drivers",
+        "remote_row_count": 840,
+        "snapshot_row_count": 65,
+        "target_limit": 65,
+        "relational_rows_added": 623,
+        "columns": [
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "code",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "forename",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "surname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "dob",
+            "mysql_type": "date",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "nationality",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "driverstandings",
+        "remote_row_count": 31578,
+        "snapshot_row_count": 80,
+        "target_limit": 80,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "driverstandingsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "wins",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "laptimes",
+        "remote_row_count": 420369,
+        "snapshot_row_count": 107,
+        "target_limit": 107,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "pitstops",
+        "remote_row_count": 6070,
+        "snapshot_row_count": 98,
+        "target_limit": 98,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stop",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "time",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "duration",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "qualifying",
+        "remote_row_count": 7397,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "qualifyid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "q1",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "q2",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "q3",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "races",
+        "remote_row_count": 976,
+        "snapshot_row_count": 109,
+        "target_limit": 109,
+        "relational_rows_added": 1632,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "round",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "circuitid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "date",
+            "mysql_type": "date",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "time",
+            "mysql_type": "time",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "results",
+        "remote_row_count": 23657,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "resultid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "grid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "positionorder",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "laps",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "fastestlap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "fastestlaptime",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fastestlapspeed",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "statusid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "seasons",
+        "remote_row_count": 68,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "status",
+        "remote_row_count": 134,
+        "snapshot_row_count": 107,
+        "target_limit": 107,
+        "relational_rows_added": 4,
+        "columns": [
+          {
+            "name": "statusid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "status",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "target",
+        "remote_row_count": 31578,
+        "snapshot_row_count": 92,
+        "target_limit": 92,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "targetid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "win",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Average number of pit stops per race for drivers from British constructors",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT r.raceid, r.year, r.round, r.name AS race_name, d.driverid, d.forename, d.surname, c.name AS constructor_name, ps.stop AS pit_stop_number, ps.lap, ps.time, ps.duration FROM pitstops ps JOIN results r ON ps.raceid = r.raceid AND ps.driverid = r.driverid JOIN drivers d ON r.driverid = d.driverid JOIN constructors c ON r.constructorid = c.constructorid WHERE c.nationality = 'British' GROUP BY ps.raceid, ps.driverid, ps.stop",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT r.raceid, d.driverid, COUNT(ps.stop) AS pit_stop_count",
+        "from_clause": "FROM pitstops ps",
+        "join_clauses": [
+          "JOIN results r ON ps.raceid = r.raceid AND ps.driverid = r.driverid",
+          "JOIN drivers d ON r.driverid = d.driverid",
+          "JOIN constructors c ON r.constructorid = c.constructorid"
+        ],
+        "where_clauses": [
+          "c.nationality = 'British'"
+        ],
+        "group_by_clause": "GROUP BY r.raceid, d.driverid",
+        "having_clauses": [],
+        "notes": "Counts the number of pit stops for each driver from British constructors in each race"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT AVG(leaf_1.pit_stop_count)",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Calculates the average number of pit stops per race for drivers from British constructors"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "Counts the number of pit stops for each driver from British constructors in each race",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM pitstops ps\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 7,
+            "preview": [
+              {
+                "raceid": 978,
+                "driverid": 836,
+                "stop": 1,
+                "lap": 2,
+                "time": "13:10:06",
+                "duration": "29.861",
+                "milliseconds": 29861
+              },
+              {
+                "raceid": 942,
+                "driverid": 830,
+                "stop": 1,
+                "lap": 18,
+                "time": "14:40:12",
+                "duration": "25.527",
+                "milliseconds": 25527
+              },
+              {
+                "raceid": 861,
+                "driverid": 155,
+                "stop": 3,
+                "lap": 40,
+                "time": "18:21:24",
+                "duration": "23.662",
+                "milliseconds": 23662
+              },
+              {
+                "raceid": 970,
+                "driverid": 828,
+                "stop": 2,
+                "lap": 4,
+                "time": "14:13:14",
+                "duration": "17.341",
+                "milliseconds": 17341
+              },
+              {
+                "raceid": 970,
+                "driverid": 807,
+                "stop": 1,
+                "lap": 1,
+                "time": "14:05:25",
+                "duration": "23.550",
+                "milliseconds": 23550
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN results r ON ps.raceid = r.raceid AND ps.driverid = r.driverid",
+          "sql": "SELECT *\nFROM pitstops ps\nJOIN results r ON ps.raceid = r.raceid AND ps.driverid = r.driverid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 25,
+            "preview": [
+              {
+                "raceid": 851,
+                "driverid": 13,
+                "stop": 4,
+                "lap": 58,
+                "time": "15:33:53",
+                "duration": "21.157",
+                "milliseconds": 21157,
+                "resultid": 21021,
+                "raceid__dup1": 851,
+                "driverid__dup1": 13,
+                "constructorid": 6,
+                "number": 6,
+                "grid": 4,
+                "position": 6,
+                "positiontext": "6",
+                "positionorder": 6,
+                "points": 8.0,
+                "laps": 70,
+                "time__dup1": "+1:23.176",
+                "milliseconds__dup1": 6485513,
+                "fastestlap": 61,
+                "rank": 1,
+                "fastestlaptime": "1:23.415",
+                "fastestlapspeed": "189.073",
+                "statusid": 1
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN drivers d ON r.driverid = d.driverid",
+          "sql": "SELECT *\nFROM pitstops ps\nJOIN results r ON ps.raceid = r.raceid AND ps.driverid = r.driverid\nJOIN drivers d ON r.driverid = d.driverid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 34,
+            "preview": [
+              {
+                "raceid": 851,
+                "driverid": 13,
+                "stop": 4,
+                "lap": 58,
+                "time": "15:33:53",
+                "duration": "21.157",
+                "milliseconds": 21157,
+                "resultid": 21021,
+                "raceid__dup1": 851,
+                "driverid__dup1": 13,
+                "constructorid": 6,
+                "number": 6,
+                "grid": 4,
+                "position": 6,
+                "positiontext": "6",
+                "positionorder": 6,
+                "points": 8.0,
+                "laps": 70,
+                "time__dup1": "+1:23.176",
+                "milliseconds__dup1": 6485513,
+                "fastestlap": 61,
+                "rank": 1,
+                "fastestlaptime": "1:23.415",
+                "fastestlapspeed": "189.073",
+                "statusid": 1,
+                "driverid__dup2": 13,
+                "driverref": "massa",
+                "number__dup1": 19,
+                "code": "MAS",
+                "forename": "Felipe",
+                "surname": "Massa",
+                "dob": "1981-04-25",
+                "nationality": "Brazilian",
+                "url": "http://en.wikipedia.org/wiki/Felipe_Massa"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN constructors c ON r.constructorid = c.constructorid",
+          "sql": "SELECT *\nFROM pitstops ps\nJOIN results r ON ps.raceid = r.raceid AND ps.driverid = r.driverid\nJOIN drivers d ON r.driverid = d.driverid\nJOIN constructors c ON r.constructorid = c.constructorid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 39,
+            "preview": [
+              {
+                "raceid": 851,
+                "driverid": 13,
+                "stop": 4,
+                "lap": 58,
+                "time": "15:33:53",
+                "duration": "21.157",
+                "milliseconds": 21157,
+                "resultid": 21021,
+                "raceid__dup1": 851,
+                "driverid__dup1": 13,
+                "constructorid": 6,
+                "number": 6,
+                "grid": 4,
+                "position": 6,
+                "positiontext": "6",
+                "positionorder": 6,
+                "points": 8.0,
+                "laps": 70,
+                "time__dup1": "+1:23.176",
+                "milliseconds__dup1": 6485513,
+                "fastestlap": 61,
+                "rank": 1,
+                "fastestlaptime": "1:23.415",
+                "fastestlapspeed": "189.073",
+                "statusid": 1,
+                "driverid__dup2": 13,
+                "driverref": "massa",
+                "number__dup1": 19,
+                "code": "MAS",
+                "forename": "Felipe",
+                "surname": "Massa",
+                "dob": "1981-04-25",
+                "nationality": "Brazilian",
+                "url": "http://en.wikipedia.org/wiki/Felipe_Massa",
+                "constructorid__dup1": 6,
+                "constructorref": "ferrari",
+                "name": "Ferrari",
+                "nationality__dup1": "Italian",
+                "url__dup1": "http://en.wikipedia.org/wiki/Scuderia_Ferrari"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.nationality = 'British'",
+          "sql": "SELECT *\nFROM pitstops ps\nJOIN results r ON ps.raceid = r.raceid AND ps.driverid = r.driverid\nJOIN drivers d ON r.driverid = d.driverid\nJOIN constructors c ON r.constructorid = c.constructorid\nWHERE (c.nationality = 'British')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 39,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.nationality IN ('British', 'German')",
+          "sql": "SELECT *\nFROM pitstops ps\nJOIN results r ON ps.raceid = r.raceid AND ps.driverid = r.driverid\nJOIN drivers d ON r.driverid = d.driverid\nJOIN constructors c ON r.constructorid = c.constructorid\nWHERE (c.nationality IN ('British', 'German'))\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 39,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.nationality = 'British' OR c.nationality = 'German'",
+          "sql": "SELECT *\nFROM pitstops ps\nJOIN results r ON ps.raceid = r.raceid AND ps.driverid = r.driverid\nJOIN drivers d ON r.driverid = d.driverid\nJOIN constructors c ON r.constructorid = c.constructorid\nWHERE (c.nationality = 'British' OR c.nationality = 'German')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 39,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.nationality = 'British'",
+          "sql": "SELECT *\nFROM pitstops ps\nJOIN results r ON ps.raceid = r.raceid AND ps.driverid = r.driverid\nJOIN drivers d ON r.driverid = d.driverid\nJOIN constructors c ON r.constructorid = c.constructorid\nWHERE (c.nationality = 'British')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 39,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.nationality = 'British' OR c.nationality = 'German'",
+          "sql": "SELECT *\nFROM pitstops ps\nJOIN results r ON ps.raceid = r.raceid AND ps.driverid = r.driverid\nJOIN drivers d ON r.driverid = d.driverid\nJOIN constructors c ON r.constructorid = c.constructorid\nWHERE (c.nationality = 'British' OR c.nationality = 'German')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 39,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.nationality = 'British' OR c.nationality = 'German' OR c.nationality = 'Italian'",
+          "sql": "SELECT *\nFROM pitstops ps\nJOIN results r ON ps.raceid = r.raceid AND ps.driverid = r.driverid\nJOIN drivers d ON r.driverid = d.driverid\nJOIN constructors c ON r.constructorid = c.constructorid\nWHERE (c.nationality = 'British' OR c.nationality = 'German' OR c.nationality = 'Italian')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 39,
+            "preview": [
+              {
+                "raceid": 851,
+                "driverid": 13,
+                "stop": 4,
+                "lap": 58,
+                "time": "15:33:53",
+                "duration": "21.157",
+                "milliseconds": 21157,
+                "resultid": 21021,
+                "raceid__dup1": 851,
+                "driverid__dup1": 13,
+                "constructorid": 6,
+                "number": 6,
+                "grid": 4,
+                "position": 6,
+                "positiontext": "6",
+                "positionorder": 6,
+                "points": 8.0,
+                "laps": 70,
+                "time__dup1": "+1:23.176",
+                "milliseconds__dup1": 6485513,
+                "fastestlap": 61,
+                "rank": 1,
+                "fastestlaptime": "1:23.415",
+                "fastestlapspeed": "189.073",
+                "statusid": 1,
+                "driverid__dup2": 13,
+                "driverref": "massa",
+                "number__dup1": 19,
+                "code": "MAS",
+                "forename": "Felipe",
+                "surname": "Massa",
+                "dob": "1981-04-25",
+                "nationality": "Brazilian",
+                "url": "http://en.wikipedia.org/wiki/Felipe_Massa",
+                "constructorid__dup1": 6,
+                "constructorref": "ferrari",
+                "name": "Ferrari",
+                "nationality__dup1": "Italian",
+                "url__dup1": "http://en.wikipedia.org/wiki/Scuderia_Ferrari"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT r.raceid, d.driverid, COUNT(ps.stop) AS pit_stop_count\nFROM pitstops ps\nJOIN results r ON ps.raceid = r.raceid AND ps.driverid = r.driverid\nJOIN drivers d ON r.driverid = d.driverid\nJOIN constructors c ON r.constructorid = c.constructorid\nWHERE (c.nationality = 'British' OR c.nationality = 'German' OR c.nationality = 'Italian')\nGROUP BY r.raceid, d.driverid",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 3,
+            "preview": [
+              {
+                "raceid": 851,
+                "driverid": 13,
+                "pit_stop_count": 1
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "Calculates the average number of pit stops per race for drivers from British constructors",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT r.raceid, d.driverid, COUNT(ps.stop) AS pit_stop_count\nFROM pitstops ps\nJOIN results r ON ps.raceid = r.raceid AND ps.driverid = r.driverid\nJOIN drivers d ON r.driverid = d.driverid\nJOIN constructors c ON r.constructorid = c.constructorid\nWHERE (c.nationality = 'British' OR c.nationality = 'German' OR c.nationality = 'Italian')\nGROUP BY r.raceid, d.driverid) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 3,
+            "preview": [
+              {
+                "raceid": 851,
+                "driverid": 13,
+                "pit_stop_count": 1
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT AVG(leaf_1.pit_stop_count)\nFROM (SELECT r.raceid, d.driverid, COUNT(ps.stop) AS pit_stop_count\nFROM pitstops ps\nJOIN results r ON ps.raceid = r.raceid AND ps.driverid = r.driverid\nJOIN drivers d ON r.driverid = d.driverid\nJOIN constructors c ON r.constructorid = c.constructorid\nWHERE (c.nationality = 'British' OR c.nationality = 'German' OR c.nationality = 'Italian')\nGROUP BY r.raceid, d.driverid) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "AVG(leaf_1.pit_stop_count)": 1.0
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 1,
+  "sample_retry": 1,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.3542807017543859,
+    "nearest": {
+      "sample_index": 2,
+      "answer_mode": "aggregate",
+      "target_join_count": 4,
+      "similarity": 0.3542807017543859,
+      "sql": "SELECT AVG(leaf_1.avg_points)\nFROM (SELECT d.driverid, r.raceid, AVG(r.points) AS avg_points\nFROM drivers AS d\nJOIN results AS r ON d.driverid = r.driverid\nJOIN races AS ra ON r.raceid = ra.raceid\nJOIN constructors AS c ON r.constructorid = c.constructorid\nJOIN constructorstandings AS cs ON c.constructorid = cs.constructorid\nWHERE (ra.year >= 2009) AND (cs.wins >= 0)\nGROUP BY d.driverid, r.raceid) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 1.0,
+    "nearest": null,
+    "reason": "numeric answer <= 7.0"
+  },
+  "question": "What is the average number of pit stops per driver per race for drivers who raced for British, German, or Italian constructors?",
+  "answer": "1"
+}

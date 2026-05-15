@@ -1,0 +1,6 @@
+SELECT AVG(price) AS avg_price
+FROM (SELECT t.title_id, t.title, t.price, a.au_id, a.au_lname, a.au_fname, a.contract
+FROM titles AS t
+JOIN titleauthor AS ta ON t.title_id = ta.title_id
+JOIN authors AS a ON ta.au_id = a.au_id
+WHERE (a.contract = 1)) AS leaf_1

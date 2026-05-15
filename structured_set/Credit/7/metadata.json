@@ -1,0 +1,1385 @@
+{
+  "sample_index": 7,
+  "db_name": "Credit",
+  "answer_mode": "aggregate",
+  "target_join_count": 2,
+  "actual_join_count": 2,
+  "numeric_answer": 591493.0,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 2,
+    "min_hops": 2,
+    "max_hops": 2,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "total payments made by members in the North American region in August 1999",
+  "manifest": {
+    "db_name": "Credit",
+    "sample_dir": "structured_set/Credit/7",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "category",
+        "remote_row_count": 10,
+        "snapshot_row_count": 10,
+        "target_limit": 10,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "category_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "category_desc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "category_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "charge",
+        "remote_row_count": 1600000,
+        "snapshot_row_count": 65,
+        "target_limit": 65,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "charge_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "provider_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "category_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "charge_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "charge_amt",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "statement_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "charge_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "corporation",
+        "remote_row_count": 500,
+        "snapshot_row_count": 108,
+        "target_limit": 108,
+        "relational_rows_added": 23,
+        "columns": [
+          {
+            "name": "corp_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "corp_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "expr_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "corp_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "member",
+        "remote_row_count": 10000,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 546,
+        "columns": [
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lastname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "middleinitial",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "photograph",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          },
+          {
+            "name": "issue_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "expr_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "corp_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "prev_balance",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "curr_balance",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "member_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "payment",
+        "remote_row_count": 15554,
+        "snapshot_row_count": 69,
+        "target_limit": 69,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "payment_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "payment_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "payment_amt",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "statement_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "payment_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "provider",
+        "remote_row_count": 500,
+        "snapshot_row_count": 75,
+        "target_limit": 75,
+        "relational_rows_added": 45,
+        "columns": [
+          {
+            "name": "provider_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "provider_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "issue_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "expr_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "provider_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "region",
+        "remote_row_count": 9,
+        "snapshot_row_count": 9,
+        "target_limit": 9,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "region_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "region_name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "street",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "state_prov",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mail_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone_no",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "statement",
+        "remote_row_count": 20000,
+        "snapshot_row_count": 70,
+        "target_limit": 70,
+        "relational_rows_added": 54,
+        "columns": [
+          {
+            "name": "statement_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "member_no",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "statement_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "due_dt",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "statement_amt",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "statement_code",
+            "mysql_type": "char",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "total payments made by members in the North American region in August 1999",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT leaf_1.payment_no, leaf_1.payment_dt, leaf_1.payment_amt, leaf_1.region_name FROM (SELECT p.payment_no, p.payment_dt, p.payment_amt, r.region_name FROM payment AS p JOIN member AS m ON p.member_no = m.member_no JOIN region AS r ON m.region_no = r.region_no WHERE (r.region_name = 'North American') AND (strftime('%Y-%m', p.payment_dt) = '1999-08')) AS leaf_1",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT p.payment_no, p.payment_dt, p.payment_amt, r.region_name",
+        "from_clause": "FROM payment AS p",
+        "join_clauses": [
+          "JOIN member AS m ON p.member_no = m.member_no",
+          "JOIN region AS r ON m.region_no = r.region_no"
+        ],
+        "where_clauses": [
+          "r.region_name = 'North American'",
+          "strftime('%Y-%m', p.payment_dt) = '1999-08'"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "payments made by members in the North American region in August 1999"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT SUM(leaf_1.payment_amt)",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "total payments made by members in the North American region in August 1999"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "payments made by members in the North American region in August 1999",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM payment AS p\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 6,
+            "preview": [
+              {
+                "payment_no": 23,
+                "member_no": 316,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 4465.0,
+                "statement_no": 0,
+                "payment_code": ""
+              },
+              {
+                "payment_no": 283,
+                "member_no": 1136,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 6929.0,
+                "statement_no": 0,
+                "payment_code": ""
+              },
+              {
+                "payment_no": 310,
+                "member_no": 1215,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 29.0,
+                "statement_no": 0,
+                "payment_code": ""
+              },
+              {
+                "payment_no": 315,
+                "member_no": 1229,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 4738.0,
+                "statement_no": 0,
+                "payment_code": ""
+              },
+              {
+                "payment_no": 348,
+                "member_no": 1292,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 651.0,
+                "statement_no": 0,
+                "payment_code": ""
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN member AS m ON p.member_no = m.member_no",
+          "sql": "SELECT *\nFROM payment AS p\nJOIN member AS m ON p.member_no = m.member_no\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 24,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "LEFT JOIN member AS m ON p.member_no = m.member_no",
+          "sql": "SELECT *\nFROM payment AS p\nLEFT JOIN member AS m ON p.member_no = m.member_no\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 24,
+            "preview": [
+              {
+                "payment_no": 23,
+                "member_no": 316,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 4465.0,
+                "statement_no": 0,
+                "payment_code": "",
+                "member_no__dup1": null,
+                "lastname": null,
+                "firstname": null,
+                "middleinitial": null,
+                "street": null,
+                "city": null,
+                "state_prov": null,
+                "country": null,
+                "mail_code": null,
+                "phone_no": null,
+                "photograph": null,
+                "issue_dt": null,
+                "expr_dt": null,
+                "region_no": null,
+                "corp_no": null,
+                "prev_balance": null,
+                "curr_balance": null,
+                "member_code": null
+              },
+              {
+                "payment_no": 283,
+                "member_no": 1136,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 6929.0,
+                "statement_no": 0,
+                "payment_code": "",
+                "member_no__dup1": null,
+                "lastname": null,
+                "firstname": null,
+                "middleinitial": null,
+                "street": null,
+                "city": null,
+                "state_prov": null,
+                "country": null,
+                "mail_code": null,
+                "phone_no": null,
+                "photograph": null,
+                "issue_dt": null,
+                "expr_dt": null,
+                "region_no": null,
+                "corp_no": null,
+                "prev_balance": null,
+                "curr_balance": null,
+                "member_code": null
+              },
+              {
+                "payment_no": 310,
+                "member_no": 1215,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 29.0,
+                "statement_no": 0,
+                "payment_code": "",
+                "member_no__dup1": null,
+                "lastname": null,
+                "firstname": null,
+                "middleinitial": null,
+                "street": null,
+                "city": null,
+                "state_prov": null,
+                "country": null,
+                "mail_code": null,
+                "phone_no": null,
+                "photograph": null,
+                "issue_dt": null,
+                "expr_dt": null,
+                "region_no": null,
+                "corp_no": null,
+                "prev_balance": null,
+                "curr_balance": null,
+                "member_code": null
+              },
+              {
+                "payment_no": 315,
+                "member_no": 1229,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 4738.0,
+                "statement_no": 0,
+                "payment_code": "",
+                "member_no__dup1": null,
+                "lastname": null,
+                "firstname": null,
+                "middleinitial": null,
+                "street": null,
+                "city": null,
+                "state_prov": null,
+                "country": null,
+                "mail_code": null,
+                "phone_no": null,
+                "photograph": null,
+                "issue_dt": null,
+                "expr_dt": null,
+                "region_no": null,
+                "corp_no": null,
+                "prev_balance": null,
+                "curr_balance": null,
+                "member_code": null
+              },
+              {
+                "payment_no": 348,
+                "member_no": 1292,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 651.0,
+                "statement_no": 0,
+                "payment_code": "",
+                "member_no__dup1": null,
+                "lastname": null,
+                "firstname": null,
+                "middleinitial": null,
+                "street": null,
+                "city": null,
+                "state_prov": null,
+                "country": null,
+                "mail_code": null,
+                "phone_no": null,
+                "photograph": null,
+                "issue_dt": null,
+                "expr_dt": null,
+                "region_no": null,
+                "corp_no": null,
+                "prev_balance": null,
+                "curr_balance": null,
+                "member_code": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN region AS r ON m.region_no = r.region_no",
+          "sql": "SELECT *\nFROM payment AS p\nLEFT JOIN member AS m ON p.member_no = m.member_no\nJOIN region AS r ON m.region_no = r.region_no\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 33,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "LEFT JOIN region AS r ON m.region_no = r.region_no",
+          "sql": "SELECT *\nFROM payment AS p\nLEFT JOIN member AS m ON p.member_no = m.member_no\nLEFT JOIN region AS r ON m.region_no = r.region_no\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 33,
+            "preview": [
+              {
+                "payment_no": 23,
+                "member_no": 316,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 4465.0,
+                "statement_no": 0,
+                "payment_code": "",
+                "member_no__dup1": null,
+                "lastname": null,
+                "firstname": null,
+                "middleinitial": null,
+                "street": null,
+                "city": null,
+                "state_prov": null,
+                "country": null,
+                "mail_code": null,
+                "phone_no": null,
+                "photograph": null,
+                "issue_dt": null,
+                "expr_dt": null,
+                "region_no": null,
+                "corp_no": null,
+                "prev_balance": null,
+                "curr_balance": null,
+                "member_code": null,
+                "region_no__dup1": null,
+                "region_name": null,
+                "street__dup1": null,
+                "city__dup1": null,
+                "state_prov__dup1": null,
+                "country__dup1": null,
+                "mail_code__dup1": null,
+                "phone_no__dup1": null,
+                "region_code": null
+              },
+              {
+                "payment_no": 283,
+                "member_no": 1136,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 6929.0,
+                "statement_no": 0,
+                "payment_code": "",
+                "member_no__dup1": null,
+                "lastname": null,
+                "firstname": null,
+                "middleinitial": null,
+                "street": null,
+                "city": null,
+                "state_prov": null,
+                "country": null,
+                "mail_code": null,
+                "phone_no": null,
+                "photograph": null,
+                "issue_dt": null,
+                "expr_dt": null,
+                "region_no": null,
+                "corp_no": null,
+                "prev_balance": null,
+                "curr_balance": null,
+                "member_code": null,
+                "region_no__dup1": null,
+                "region_name": null,
+                "street__dup1": null,
+                "city__dup1": null,
+                "state_prov__dup1": null,
+                "country__dup1": null,
+                "mail_code__dup1": null,
+                "phone_no__dup1": null,
+                "region_code": null
+              },
+              {
+                "payment_no": 310,
+                "member_no": 1215,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 29.0,
+                "statement_no": 0,
+                "payment_code": "",
+                "member_no__dup1": null,
+                "lastname": null,
+                "firstname": null,
+                "middleinitial": null,
+                "street": null,
+                "city": null,
+                "state_prov": null,
+                "country": null,
+                "mail_code": null,
+                "phone_no": null,
+                "photograph": null,
+                "issue_dt": null,
+                "expr_dt": null,
+                "region_no": null,
+                "corp_no": null,
+                "prev_balance": null,
+                "curr_balance": null,
+                "member_code": null,
+                "region_no__dup1": null,
+                "region_name": null,
+                "street__dup1": null,
+                "city__dup1": null,
+                "state_prov__dup1": null,
+                "country__dup1": null,
+                "mail_code__dup1": null,
+                "phone_no__dup1": null,
+                "region_code": null
+              },
+              {
+                "payment_no": 315,
+                "member_no": 1229,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 4738.0,
+                "statement_no": 0,
+                "payment_code": "",
+                "member_no__dup1": null,
+                "lastname": null,
+                "firstname": null,
+                "middleinitial": null,
+                "street": null,
+                "city": null,
+                "state_prov": null,
+                "country": null,
+                "mail_code": null,
+                "phone_no": null,
+                "photograph": null,
+                "issue_dt": null,
+                "expr_dt": null,
+                "region_no": null,
+                "corp_no": null,
+                "prev_balance": null,
+                "curr_balance": null,
+                "member_code": null,
+                "region_no__dup1": null,
+                "region_name": null,
+                "street__dup1": null,
+                "city__dup1": null,
+                "state_prov__dup1": null,
+                "country__dup1": null,
+                "mail_code__dup1": null,
+                "phone_no__dup1": null,
+                "region_code": null
+              },
+              {
+                "payment_no": 348,
+                "member_no": 1292,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 651.0,
+                "statement_no": 0,
+                "payment_code": "",
+                "member_no__dup1": null,
+                "lastname": null,
+                "firstname": null,
+                "middleinitial": null,
+                "street": null,
+                "city": null,
+                "state_prov": null,
+                "country": null,
+                "mail_code": null,
+                "phone_no": null,
+                "photograph": null,
+                "issue_dt": null,
+                "expr_dt": null,
+                "region_no": null,
+                "corp_no": null,
+                "prev_balance": null,
+                "curr_balance": null,
+                "member_code": null,
+                "region_no__dup1": null,
+                "region_name": null,
+                "street__dup1": null,
+                "city__dup1": null,
+                "state_prov__dup1": null,
+                "country__dup1": null,
+                "mail_code__dup1": null,
+                "phone_no__dup1": null,
+                "region_code": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "r.region_name = 'North American'",
+          "sql": "SELECT *\nFROM payment AS p\nLEFT JOIN member AS m ON p.member_no = m.member_no\nLEFT JOIN region AS r ON m.region_no = r.region_no\nWHERE (r.region_name = 'North American')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 33,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "r.region_name LIKE 'North American%'",
+          "sql": "SELECT *\nFROM payment AS p\nLEFT JOIN member AS m ON p.member_no = m.member_no\nLEFT JOIN region AS r ON m.region_no = r.region_no\nWHERE (r.region_name LIKE 'North American%')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 33,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "r.region_name = 'North American'",
+          "sql": "SELECT *\nFROM payment AS p\nLEFT JOIN member AS m ON p.member_no = m.member_no\nLEFT JOIN region AS r ON m.region_no = r.region_no\nWHERE (r.region_name = 'North American')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 33,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "r.region_name IN ('North American', 'South American')",
+          "sql": "SELECT *\nFROM payment AS p\nLEFT JOIN member AS m ON p.member_no = m.member_no\nLEFT JOIN region AS r ON m.region_no = r.region_no\nWHERE (r.region_name IN ('North American', 'South American'))\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 33,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "r.region_name = 'North American' OR r.region_name = 'South American'",
+          "sql": "SELECT *\nFROM payment AS p\nLEFT JOIN member AS m ON p.member_no = m.member_no\nLEFT JOIN region AS r ON m.region_no = r.region_no\nWHERE (r.region_name = 'North American' OR r.region_name = 'South American')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 33,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "r.region_name = 'North American'",
+          "sql": "SELECT *\nFROM payment AS p\nLEFT JOIN member AS m ON p.member_no = m.member_no\nLEFT JOIN region AS r ON m.region_no = r.region_no\nWHERE (r.region_name = 'North American')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 33,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where_skipped",
+          "clause": "r.region_name = 'North American'",
+          "last_candidate": "r.region_name IN ('North American', 'South American')",
+          "reason": "where predicate made the probe empty"
+        },
+        {
+          "stage": "where",
+          "clause": "strftime('%Y-%m', p.payment_dt) = '1999-08'",
+          "sql": "SELECT *\nFROM payment AS p\nLEFT JOIN member AS m ON p.member_no = m.member_no\nLEFT JOIN region AS r ON m.region_no = r.region_no\nWHERE (strftime('%Y-%m', p.payment_dt) = '1999-08')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 33,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "strftime('%Y-%m', p.payment_dt) = '1999-08' OR strftime('%Y-%m', p.payment_dt) = '1999-09'",
+          "sql": "SELECT *\nFROM payment AS p\nLEFT JOIN member AS m ON p.member_no = m.member_no\nLEFT JOIN region AS r ON m.region_no = r.region_no\nWHERE (strftime('%Y-%m', p.payment_dt) = '1999-08' OR strftime('%Y-%m', p.payment_dt) = '1999-09')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 33,
+            "preview": [
+              {
+                "payment_no": 23,
+                "member_no": 316,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 4465.0,
+                "statement_no": 0,
+                "payment_code": "",
+                "member_no__dup1": null,
+                "lastname": null,
+                "firstname": null,
+                "middleinitial": null,
+                "street": null,
+                "city": null,
+                "state_prov": null,
+                "country": null,
+                "mail_code": null,
+                "phone_no": null,
+                "photograph": null,
+                "issue_dt": null,
+                "expr_dt": null,
+                "region_no": null,
+                "corp_no": null,
+                "prev_balance": null,
+                "curr_balance": null,
+                "member_code": null,
+                "region_no__dup1": null,
+                "region_name": null,
+                "street__dup1": null,
+                "city__dup1": null,
+                "state_prov__dup1": null,
+                "country__dup1": null,
+                "mail_code__dup1": null,
+                "phone_no__dup1": null,
+                "region_code": null
+              },
+              {
+                "payment_no": 283,
+                "member_no": 1136,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 6929.0,
+                "statement_no": 0,
+                "payment_code": "",
+                "member_no__dup1": null,
+                "lastname": null,
+                "firstname": null,
+                "middleinitial": null,
+                "street": null,
+                "city": null,
+                "state_prov": null,
+                "country": null,
+                "mail_code": null,
+                "phone_no": null,
+                "photograph": null,
+                "issue_dt": null,
+                "expr_dt": null,
+                "region_no": null,
+                "corp_no": null,
+                "prev_balance": null,
+                "curr_balance": null,
+                "member_code": null,
+                "region_no__dup1": null,
+                "region_name": null,
+                "street__dup1": null,
+                "city__dup1": null,
+                "state_prov__dup1": null,
+                "country__dup1": null,
+                "mail_code__dup1": null,
+                "phone_no__dup1": null,
+                "region_code": null
+              },
+              {
+                "payment_no": 310,
+                "member_no": 1215,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 29.0,
+                "statement_no": 0,
+                "payment_code": "",
+                "member_no__dup1": null,
+                "lastname": null,
+                "firstname": null,
+                "middleinitial": null,
+                "street": null,
+                "city": null,
+                "state_prov": null,
+                "country": null,
+                "mail_code": null,
+                "phone_no": null,
+                "photograph": null,
+                "issue_dt": null,
+                "expr_dt": null,
+                "region_no": null,
+                "corp_no": null,
+                "prev_balance": null,
+                "curr_balance": null,
+                "member_code": null,
+                "region_no__dup1": null,
+                "region_name": null,
+                "street__dup1": null,
+                "city__dup1": null,
+                "state_prov__dup1": null,
+                "country__dup1": null,
+                "mail_code__dup1": null,
+                "phone_no__dup1": null,
+                "region_code": null
+              },
+              {
+                "payment_no": 315,
+                "member_no": 1229,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 4738.0,
+                "statement_no": 0,
+                "payment_code": "",
+                "member_no__dup1": null,
+                "lastname": null,
+                "firstname": null,
+                "middleinitial": null,
+                "street": null,
+                "city": null,
+                "state_prov": null,
+                "country": null,
+                "mail_code": null,
+                "phone_no": null,
+                "photograph": null,
+                "issue_dt": null,
+                "expr_dt": null,
+                "region_no": null,
+                "corp_no": null,
+                "prev_balance": null,
+                "curr_balance": null,
+                "member_code": null,
+                "region_no__dup1": null,
+                "region_name": null,
+                "street__dup1": null,
+                "city__dup1": null,
+                "state_prov__dup1": null,
+                "country__dup1": null,
+                "mail_code__dup1": null,
+                "phone_no__dup1": null,
+                "region_code": null
+              },
+              {
+                "payment_no": 348,
+                "member_no": 1292,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 651.0,
+                "statement_no": 0,
+                "payment_code": "",
+                "member_no__dup1": null,
+                "lastname": null,
+                "firstname": null,
+                "middleinitial": null,
+                "street": null,
+                "city": null,
+                "state_prov": null,
+                "country": null,
+                "mail_code": null,
+                "phone_no": null,
+                "photograph": null,
+                "issue_dt": null,
+                "expr_dt": null,
+                "region_no": null,
+                "corp_no": null,
+                "prev_balance": null,
+                "curr_balance": null,
+                "member_code": null,
+                "region_no__dup1": null,
+                "region_name": null,
+                "street__dup1": null,
+                "city__dup1": null,
+                "state_prov__dup1": null,
+                "country__dup1": null,
+                "mail_code__dup1": null,
+                "phone_no__dup1": null,
+                "region_code": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT p.payment_no, p.payment_dt, p.payment_amt, r.region_name\nFROM payment AS p\nLEFT JOIN member AS m ON p.member_no = m.member_no\nLEFT JOIN region AS r ON m.region_no = r.region_no\nWHERE (strftime('%Y-%m', p.payment_dt) = '1999-08' OR strftime('%Y-%m', p.payment_dt) = '1999-09')",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 39,
+            "column_count": 4,
+            "preview": [
+              {
+                "payment_no": 23,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 4465.0,
+                "region_name": null
+              },
+              {
+                "payment_no": 283,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 6929.0,
+                "region_name": null
+              },
+              {
+                "payment_no": 310,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 29.0,
+                "region_name": null
+              },
+              {
+                "payment_no": 315,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 4738.0,
+                "region_name": null
+              },
+              {
+                "payment_no": 348,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 651.0,
+                "region_name": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "total payments made by members in the North American region in August 1999",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT p.payment_no, p.payment_dt, p.payment_amt, r.region_name\nFROM payment AS p\nLEFT JOIN member AS m ON p.member_no = m.member_no\nLEFT JOIN region AS r ON m.region_no = r.region_no\nWHERE (strftime('%Y-%m', p.payment_dt) = '1999-08' OR strftime('%Y-%m', p.payment_dt) = '1999-09')) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 4,
+            "preview": [
+              {
+                "payment_no": 23,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 4465.0,
+                "region_name": null
+              },
+              {
+                "payment_no": 283,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 6929.0,
+                "region_name": null
+              },
+              {
+                "payment_no": 310,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 29.0,
+                "region_name": null
+              },
+              {
+                "payment_no": 315,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 4738.0,
+                "region_name": null
+              },
+              {
+                "payment_no": 348,
+                "payment_dt": "1999-09-02T00:00:00",
+                "payment_amt": 651.0,
+                "region_name": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT SUM(leaf_1.payment_amt)\nFROM (SELECT p.payment_no, p.payment_dt, p.payment_amt, r.region_name\nFROM payment AS p\nLEFT JOIN member AS m ON p.member_no = m.member_no\nLEFT JOIN region AS r ON m.region_no = r.region_no\nWHERE (strftime('%Y-%m', p.payment_dt) = '1999-08' OR strftime('%Y-%m', p.payment_dt) = '1999-09')) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "SUM(leaf_1.payment_amt)": 591493.0
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 2,
+  "sample_retry": 1,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.5624954954954956,
+    "nearest": {
+      "sample_index": 5,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "similarity": 0.5624954954954956,
+      "sql": "SELECT SUM(leaf_1.payment_amt)\nFROM (SELECT p.payment_no, p.payment_dt, p.payment_amt, r.region_name\nFROM payment AS p\nJOIN member AS m ON p.member_no = m.member_no\nJOIN region AS r ON m.region_no = r.region_no\nJOIN charge AS c ON p.member_no = c.member_no\nGROUP BY p.payment_no, p.payment_dt, p.payment_amt, r.region_name\nHAVING (AVG(c.charge_amt) > 100)) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 591493.0,
+    "nearest": {
+      "sample_index": 5,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "numeric_answer": 7459.0,
+      "delta": 584034.0,
+      "sql": "SELECT SUM(leaf_1.payment_amt)\nFROM (SELECT p.payment_no, p.payment_dt, p.payment_amt, r.region_name\nFROM payment AS p\nJOIN member AS m ON p.member_no = m.member_no\nJOIN region AS r ON m.region_no = r.region_no\nJOIN charge AS c ON p.member_no = c.member_no\nGROUP BY p.payment_no, p.payment_dt, p.payment_amt, r.region_name\nHAVING (AVG(c.charge_amt) > 100)) AS leaf_1"
+    },
+    "min_value": 7.0,
+    "tolerance": 3.0,
+    "reason": "ok"
+  },
+  "question": "What is the total payment amount for payments made in August or September of 1999?",
+  "answer": "591493"
+}

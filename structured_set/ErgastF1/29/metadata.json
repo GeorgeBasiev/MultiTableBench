@@ -1,0 +1,2147 @@
+{
+  "sample_index": 29,
+  "db_name": "ErgastF1",
+  "answer_mode": "aggregate",
+  "target_join_count": 4,
+  "actual_join_count": 4,
+  "numeric_answer": 0.0,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 4,
+    "min_hops": 4,
+    "max_hops": 4,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Calculate the average number of pit stops per race for drivers from Germany who have achieved a top-10 qualifying position in at least one race",
+  "manifest": {
+    "db_name": "ErgastF1",
+    "sample_dir": "structured_set/ErgastF1/29",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "circuits",
+        "remote_row_count": 73,
+        "snapshot_row_count": 73,
+        "target_limit": 73,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "circuitid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "circuitref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "location",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lat",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "lng",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "alt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructorresults",
+        "remote_row_count": 11082,
+        "snapshot_row_count": 86,
+        "target_limit": 86,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "constructorresultsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "status",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructors",
+        "remote_row_count": 208,
+        "snapshot_row_count": 67,
+        "target_limit": 67,
+        "relational_rows_added": 121,
+        "columns": [
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "nationality",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructorstandings",
+        "remote_row_count": 11836,
+        "snapshot_row_count": 94,
+        "target_limit": 94,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "constructorstandingsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "wins",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "drivers",
+        "remote_row_count": 840,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 618,
+        "columns": [
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "code",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "forename",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "surname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "dob",
+            "mysql_type": "date",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "nationality",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "driverstandings",
+        "remote_row_count": 31578,
+        "snapshot_row_count": 83,
+        "target_limit": 83,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "driverstandingsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "wins",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "laptimes",
+        "remote_row_count": 420369,
+        "snapshot_row_count": 99,
+        "target_limit": 99,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "pitstops",
+        "remote_row_count": 6070,
+        "snapshot_row_count": 77,
+        "target_limit": 77,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stop",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "time",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "duration",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "qualifying",
+        "remote_row_count": 7397,
+        "snapshot_row_count": 86,
+        "target_limit": 86,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "qualifyid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "q1",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "q2",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "q3",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "races",
+        "remote_row_count": 976,
+        "snapshot_row_count": 115,
+        "target_limit": 115,
+        "relational_rows_added": 1640,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "round",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "circuitid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "date",
+            "mysql_type": "date",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "time",
+            "mysql_type": "time",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "results",
+        "remote_row_count": 23657,
+        "snapshot_row_count": 71,
+        "target_limit": 71,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "resultid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "grid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "positionorder",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "laps",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "fastestlap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "fastestlaptime",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fastestlapspeed",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "statusid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "seasons",
+        "remote_row_count": 68,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "status",
+        "remote_row_count": 134,
+        "snapshot_row_count": 115,
+        "target_limit": 115,
+        "relational_rows_added": 3,
+        "columns": [
+          {
+            "name": "statusid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "status",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "target",
+        "remote_row_count": 31578,
+        "snapshot_row_count": 71,
+        "target_limit": 71,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "targetid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "win",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Calculate the average number of pit stops per race for drivers from Germany who have achieved a top-10 qualifying position in at least one race",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT r.raceid, r.name AS race_name, d.driverid, d.forename, d.surname, COUNT(p.stop) AS pit_stops FROM races AS r JOIN results AS res ON r.raceid = res.raceid JOIN drivers AS d ON res.driverid = d.driverid JOIN qualifying AS q ON d.driverid = q.driverid AND r.raceid = q.raceid JOIN pitstops AS p ON d.driverid = p.driverid AND r.raceid = p.raceid WHERE d.nationality = 'German' AND q.position <= 10 GROUP BY r.raceid, d.driverid",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT r.raceid, d.driverid, COUNT(p.stop) AS pit_stops",
+        "from_clause": "FROM races AS r",
+        "join_clauses": [
+          "JOIN results AS res ON r.raceid = res.raceid",
+          "JOIN drivers AS d ON res.driverid = d.driverid",
+          "JOIN qualifying AS q ON d.driverid = q.driverid AND r.raceid = q.raceid",
+          "JOIN pitstops AS p ON d.driverid = p.driverid AND r.raceid = p.raceid"
+        ],
+        "where_clauses": [
+          "d.nationality = 'German'",
+          "q.position <= 10"
+        ],
+        "group_by_clause": "GROUP BY r.raceid, d.driverid",
+        "having_clauses": [],
+        "notes": "Counts pit stops for German drivers with top-10 qualifying positions per race"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT AVG(leaf_1.pit_stops)",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Calculates the average number of pit stops per race for qualifying German drivers"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "Counts pit stops for German drivers with top-10 qualifying positions per race",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM races AS r\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 8,
+            "preview": [
+              {
+                "raceid": 6,
+                "year": 2009,
+                "round": 6,
+                "circuitid": 6,
+                "name": "Monaco Grand Prix",
+                "date": "2009-05-24",
+                "time": "12:00:00",
+                "url": "http://en.wikipedia.org/wiki/2009_Monaco_Grand_Prix"
+              },
+              {
+                "raceid": 10,
+                "year": 2009,
+                "round": 10,
+                "circuitid": 11,
+                "name": "Hungarian Grand Prix",
+                "date": "2009-07-26",
+                "time": "12:00:00",
+                "url": "http://en.wikipedia.org/wiki/2009_Hungarian_Grand_Prix"
+              },
+              {
+                "raceid": 11,
+                "year": 2009,
+                "round": 11,
+                "circuitid": 12,
+                "name": "European Grand Prix",
+                "date": "2009-08-23",
+                "time": "12:00:00",
+                "url": "http://en.wikipedia.org/wiki/2009_European_Grand_Prix"
+              },
+              {
+                "raceid": 14,
+                "year": 2009,
+                "round": 14,
+                "circuitid": 15,
+                "name": "Singapore Grand Prix",
+                "date": "2009-09-27",
+                "time": "12:00:00",
+                "url": "http://en.wikipedia.org/wiki/2009_Singapore_Grand_Prix"
+              },
+              {
+                "raceid": 16,
+                "year": 2009,
+                "round": 16,
+                "circuitid": 18,
+                "name": "Brazilian Grand Prix",
+                "date": "2009-10-18",
+                "time": "16:00:00",
+                "url": "http://en.wikipedia.org/wiki/2009_Brazilian_Grand_Prix"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN results AS res ON r.raceid = res.raceid",
+          "sql": "SELECT *\nFROM races AS r\nJOIN results AS res ON r.raceid = res.raceid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 26,
+            "preview": [
+              {
+                "raceid": 56,
+                "year": 2006,
+                "round": 4,
+                "circuitid": 21,
+                "name": "San Marino Grand Prix",
+                "date": "2006-04-23",
+                "time": "14:00:00",
+                "url": "http://en.wikipedia.org/wiki/2006_San_Marino_Grand_Prix",
+                "resultid": 827,
+                "raceid__dup1": 56,
+                "driverid": 32,
+                "constructorid": 9,
+                "number": 15,
+                "grid": 17,
+                "position": NaN,
+                "positiontext": "R",
+                "positionorder": 19,
+                "points": 0.0,
+                "laps": 40,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": 30.0,
+                "rank": 16.0,
+                "fastestlaptime": "1:26.759",
+                "fastestlapspeed": "205.770",
+                "statusid": 9
+              },
+              {
+                "raceid": 57,
+                "year": 2006,
+                "round": 5,
+                "circuitid": 20,
+                "name": "European Grand Prix",
+                "date": "2006-05-07",
+                "time": "14:00:00",
+                "url": "http://en.wikipedia.org/wiki/2006_European_Grand_Prix",
+                "resultid": 831,
+                "raceid__dup1": 57,
+                "driverid": 30,
+                "constructorid": 6,
+                "number": 5,
+                "grid": 2,
+                "position": 1.0,
+                "positiontext": "1",
+                "positionorder": 1,
+                "points": 10.0,
+                "laps": 60,
+                "time__dup1": "1:35:58.765",
+                "milliseconds": 5758765.0,
+                "fastestlap": 39.0,
+                "rank": 1.0,
+                "fastestlaptime": "1:32.099",
+                "fastestlapspeed": "201.226",
+                "statusid": 1
+              },
+              {
+                "raceid": 66,
+                "year": 2006,
+                "round": 14,
+                "circuitid": 5,
+                "name": "Turkish Grand Prix",
+                "date": "2006-08-27",
+                "time": "15:00:00",
+                "url": "http://en.wikipedia.org/wiki/2006_Turkish_Grand_Prix",
+                "resultid": 1042,
+                "raceid__dup1": 66,
+                "driverid": 2,
+                "constructorid": 2,
+                "number": 16,
+                "grid": 5,
+                "position": 14.0,
+                "positiontext": "14",
+                "positionorder": 14,
+                "points": 0.0,
+                "laps": 56,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": 56.0,
+                "rank": 16.0,
+                "fastestlaptime": "1:30.335",
+                "fastestlapspeed": "212.728",
+                "statusid": 12
+              },
+              {
+                "raceid": 100,
+                "year": 2004,
+                "round": 11,
+                "circuitid": 9,
+                "name": "British Grand Prix",
+                "date": "2004-07-11",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/2004_British_Grand_Prix",
+                "resultid": 1725,
+                "raceid__dup1": 100,
+                "driverid": 11,
+                "constructorid": 16,
+                "number": 10,
+                "grid": 8,
+                "position": 11.0,
+                "positiontext": "11",
+                "positionorder": 11,
+                "points": 0.0,
+                "laps": 60,
+                "time__dup1": "+33.736",
+                "milliseconds": 5116436.0,
+                "fastestlap": 12.0,
+                "rank": 14.0,
+                "fastestlaptime": "1:20.790",
+                "fastestlapspeed": "229.082",
+                "statusid": 1
+              },
+              {
+                "raceid": 108,
+                "year": 2003,
+                "round": 1,
+                "circuitid": 1,
+                "name": "Australian Grand Prix",
+                "date": "2003-03-09",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/2003_Australian_Grand_Prix",
+                "resultid": 1885,
+                "raceid__dup1": 108,
+                "driverid": 50,
+                "constructorid": 18,
+                "number": 19,
+                "grid": 20,
+                "position": 11.0,
+                "positiontext": "11",
+                "positionorder": 11,
+                "points": 0.0,
+                "laps": 57,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": NaN,
+                "rank": NaN,
+                "fastestlaptime": NaN,
+                "fastestlapspeed": NaN,
+                "statusid": 11
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN drivers AS d ON res.driverid = d.driverid",
+          "sql": "SELECT *\nFROM races AS r\nJOIN results AS res ON r.raceid = res.raceid\nJOIN drivers AS d ON res.driverid = d.driverid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 35,
+            "preview": [
+              {
+                "raceid": 56,
+                "year": 2006,
+                "round": 4,
+                "circuitid": 21,
+                "name": "San Marino Grand Prix",
+                "date": "2006-04-23",
+                "time": "14:00:00",
+                "url": "http://en.wikipedia.org/wiki/2006_San_Marino_Grand_Prix",
+                "resultid": 827,
+                "raceid__dup1": 56,
+                "driverid": 32,
+                "constructorid": 9,
+                "number": 15,
+                "grid": 17,
+                "position": NaN,
+                "positiontext": "R",
+                "positionorder": 19,
+                "points": 0.0,
+                "laps": 40,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": 30.0,
+                "rank": 16.0,
+                "fastestlaptime": "1:26.759",
+                "fastestlapspeed": "205.770",
+                "statusid": 9,
+                "driverid__dup1": 32,
+                "driverref": "klien",
+                "number__dup1": null,
+                "code": "KLI",
+                "forename": "Christian",
+                "surname": "Klien",
+                "dob": "1983-02-07",
+                "nationality": "Austrian",
+                "url__dup1": "http://en.wikipedia.org/wiki/Christian_Klien"
+              },
+              {
+                "raceid": 66,
+                "year": 2006,
+                "round": 14,
+                "circuitid": 5,
+                "name": "Turkish Grand Prix",
+                "date": "2006-08-27",
+                "time": "15:00:00",
+                "url": "http://en.wikipedia.org/wiki/2006_Turkish_Grand_Prix",
+                "resultid": 1042,
+                "raceid__dup1": 66,
+                "driverid": 2,
+                "constructorid": 2,
+                "number": 16,
+                "grid": 5,
+                "position": 14.0,
+                "positiontext": "14",
+                "positionorder": 14,
+                "points": 0.0,
+                "laps": 56,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": 56.0,
+                "rank": 16.0,
+                "fastestlaptime": "1:30.335",
+                "fastestlapspeed": "212.728",
+                "statusid": 12,
+                "driverid__dup1": 2,
+                "driverref": "heidfeld",
+                "number__dup1": null,
+                "code": "HEI",
+                "forename": "Nick",
+                "surname": "Heidfeld",
+                "dob": "1977-05-10",
+                "nationality": "German",
+                "url__dup1": "http://en.wikipedia.org/wiki/Nick_Heidfeld"
+              },
+              {
+                "raceid": 100,
+                "year": 2004,
+                "round": 11,
+                "circuitid": 9,
+                "name": "British Grand Prix",
+                "date": "2004-07-11",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/2004_British_Grand_Prix",
+                "resultid": 1725,
+                "raceid__dup1": 100,
+                "driverid": 11,
+                "constructorid": 16,
+                "number": 10,
+                "grid": 8,
+                "position": 11.0,
+                "positiontext": "11",
+                "positionorder": 11,
+                "points": 0.0,
+                "laps": 60,
+                "time__dup1": "+33.736",
+                "milliseconds": 5116436.0,
+                "fastestlap": 12.0,
+                "rank": 14.0,
+                "fastestlaptime": "1:20.790",
+                "fastestlapspeed": "229.082",
+                "statusid": 1,
+                "driverid__dup1": 11,
+                "driverref": "sato",
+                "number__dup1": null,
+                "code": "SAT",
+                "forename": "Takuma",
+                "surname": "Sato",
+                "dob": "1977-01-28",
+                "nationality": "Japanese",
+                "url__dup1": "http://en.wikipedia.org/wiki/Takuma_Sato"
+              },
+              {
+                "raceid": 110,
+                "year": 2003,
+                "round": 3,
+                "circuitid": 18,
+                "name": "Brazilian Grand Prix",
+                "date": "2003-04-06",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/2003_Brazilian_Grand_Prix",
+                "resultid": 1918,
+                "raceid__dup1": 110,
+                "driverid": 14,
+                "constructorid": 1,
+                "number": 5,
+                "grid": 2,
+                "position": 4.0,
+                "positiontext": "4",
+                "positionorder": 4,
+                "points": 5.0,
+                "laps": 54,
+                "time__dup1": "+8.096",
+                "milliseconds": 5486296.0,
+                "fastestlap": NaN,
+                "rank": NaN,
+                "fastestlaptime": NaN,
+                "fastestlapspeed": NaN,
+                "statusid": 1,
+                "driverid__dup1": 14,
+                "driverref": "coulthard",
+                "number__dup1": null,
+                "code": "COU",
+                "forename": "David",
+                "surname": "Coulthard",
+                "dob": "1971-03-27",
+                "nationality": "British",
+                "url__dup1": "http://en.wikipedia.org/wiki/David_Coulthard"
+              },
+              {
+                "raceid": 118,
+                "year": 2003,
+                "round": 11,
+                "circuitid": 9,
+                "name": "British Grand Prix",
+                "date": "2003-07-20",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/2003_British_Grand_Prix",
+                "resultid": 2080,
+                "raceid__dup1": 118,
+                "driverid": 15,
+                "constructorid": 4,
+                "number": 7,
+                "grid": 2,
+                "position": 6.0,
+                "positiontext": "6",
+                "positionorder": 6,
+                "points": 3.0,
+                "laps": 60,
+                "time__dup1": "+43.067",
+                "milliseconds": 5360621.0,
+                "fastestlap": NaN,
+                "rank": NaN,
+                "fastestlaptime": NaN,
+                "fastestlapspeed": NaN,
+                "statusid": 1,
+                "driverid__dup1": 15,
+                "driverref": "trulli",
+                "number__dup1": null,
+                "code": "TRU",
+                "forename": "Jarno",
+                "surname": "Trulli",
+                "dob": "1974-07-13",
+                "nationality": "Italian",
+                "url__dup1": "http://en.wikipedia.org/wiki/Jarno_Trulli"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN qualifying AS q ON d.driverid = q.driverid AND r.raceid = q.raceid",
+          "sql": "SELECT *\nFROM races AS r\nJOIN results AS res ON r.raceid = res.raceid\nJOIN drivers AS d ON res.driverid = d.driverid\nJOIN qualifying AS q ON d.driverid = q.driverid AND r.raceid = q.raceid\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 44,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "LEFT JOIN qualifying AS q ON d.driverid = q.driverid AND r.raceid = q.raceid",
+          "sql": "SELECT *\nFROM races AS r\nJOIN results AS res ON r.raceid = res.raceid\nJOIN drivers AS d ON res.driverid = d.driverid\nLEFT JOIN qualifying AS q ON d.driverid = q.driverid AND r.raceid = q.raceid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 44,
+            "preview": [
+              {
+                "raceid": 56,
+                "year": 2006,
+                "round": 4,
+                "circuitid": 21,
+                "name": "San Marino Grand Prix",
+                "date": "2006-04-23",
+                "time": "14:00:00",
+                "url": "http://en.wikipedia.org/wiki/2006_San_Marino_Grand_Prix",
+                "resultid": 827,
+                "raceid__dup1": 56,
+                "driverid": 32,
+                "constructorid": 9,
+                "number": 15,
+                "grid": 17,
+                "position": NaN,
+                "positiontext": "R",
+                "positionorder": 19,
+                "points": 0.0,
+                "laps": 40,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": 30.0,
+                "rank": 16.0,
+                "fastestlaptime": "1:26.759",
+                "fastestlapspeed": "205.770",
+                "statusid": 9,
+                "driverid__dup1": 32,
+                "driverref": "klien",
+                "number__dup1": null,
+                "code": "KLI",
+                "forename": "Christian",
+                "surname": "Klien",
+                "dob": "1983-02-07",
+                "nationality": "Austrian",
+                "url__dup1": "http://en.wikipedia.org/wiki/Christian_Klien",
+                "qualifyid": null,
+                "raceid__dup2": null,
+                "driverid__dup2": null,
+                "constructorid__dup1": null,
+                "number__dup2": null,
+                "position__dup1": null,
+                "q1": null,
+                "q2": null,
+                "q3": null
+              },
+              {
+                "raceid": 66,
+                "year": 2006,
+                "round": 14,
+                "circuitid": 5,
+                "name": "Turkish Grand Prix",
+                "date": "2006-08-27",
+                "time": "15:00:00",
+                "url": "http://en.wikipedia.org/wiki/2006_Turkish_Grand_Prix",
+                "resultid": 1042,
+                "raceid__dup1": 66,
+                "driverid": 2,
+                "constructorid": 2,
+                "number": 16,
+                "grid": 5,
+                "position": 14.0,
+                "positiontext": "14",
+                "positionorder": 14,
+                "points": 0.0,
+                "laps": 56,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": 56.0,
+                "rank": 16.0,
+                "fastestlaptime": "1:30.335",
+                "fastestlapspeed": "212.728",
+                "statusid": 12,
+                "driverid__dup1": 2,
+                "driverref": "heidfeld",
+                "number__dup1": null,
+                "code": "HEI",
+                "forename": "Nick",
+                "surname": "Heidfeld",
+                "dob": "1977-05-10",
+                "nationality": "German",
+                "url__dup1": "http://en.wikipedia.org/wiki/Nick_Heidfeld",
+                "qualifyid": null,
+                "raceid__dup2": null,
+                "driverid__dup2": null,
+                "constructorid__dup1": null,
+                "number__dup2": null,
+                "position__dup1": null,
+                "q1": null,
+                "q2": null,
+                "q3": null
+              },
+              {
+                "raceid": 100,
+                "year": 2004,
+                "round": 11,
+                "circuitid": 9,
+                "name": "British Grand Prix",
+                "date": "2004-07-11",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/2004_British_Grand_Prix",
+                "resultid": 1725,
+                "raceid__dup1": 100,
+                "driverid": 11,
+                "constructorid": 16,
+                "number": 10,
+                "grid": 8,
+                "position": 11.0,
+                "positiontext": "11",
+                "positionorder": 11,
+                "points": 0.0,
+                "laps": 60,
+                "time__dup1": "+33.736",
+                "milliseconds": 5116436.0,
+                "fastestlap": 12.0,
+                "rank": 14.0,
+                "fastestlaptime": "1:20.790",
+                "fastestlapspeed": "229.082",
+                "statusid": 1,
+                "driverid__dup1": 11,
+                "driverref": "sato",
+                "number__dup1": null,
+                "code": "SAT",
+                "forename": "Takuma",
+                "surname": "Sato",
+                "dob": "1977-01-28",
+                "nationality": "Japanese",
+                "url__dup1": "http://en.wikipedia.org/wiki/Takuma_Sato",
+                "qualifyid": null,
+                "raceid__dup2": null,
+                "driverid__dup2": null,
+                "constructorid__dup1": null,
+                "number__dup2": null,
+                "position__dup1": null,
+                "q1": null,
+                "q2": null,
+                "q3": null
+              },
+              {
+                "raceid": 110,
+                "year": 2003,
+                "round": 3,
+                "circuitid": 18,
+                "name": "Brazilian Grand Prix",
+                "date": "2003-04-06",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/2003_Brazilian_Grand_Prix",
+                "resultid": 1918,
+                "raceid__dup1": 110,
+                "driverid": 14,
+                "constructorid": 1,
+                "number": 5,
+                "grid": 2,
+                "position": 4.0,
+                "positiontext": "4",
+                "positionorder": 4,
+                "points": 5.0,
+                "laps": 54,
+                "time__dup1": "+8.096",
+                "milliseconds": 5486296.0,
+                "fastestlap": NaN,
+                "rank": NaN,
+                "fastestlaptime": NaN,
+                "fastestlapspeed": NaN,
+                "statusid": 1,
+                "driverid__dup1": 14,
+                "driverref": "coulthard",
+                "number__dup1": null,
+                "code": "COU",
+                "forename": "David",
+                "surname": "Coulthard",
+                "dob": "1971-03-27",
+                "nationality": "British",
+                "url__dup1": "http://en.wikipedia.org/wiki/David_Coulthard",
+                "qualifyid": null,
+                "raceid__dup2": null,
+                "driverid__dup2": null,
+                "constructorid__dup1": null,
+                "number__dup2": null,
+                "position__dup1": null,
+                "q1": null,
+                "q2": null,
+                "q3": null
+              },
+              {
+                "raceid": 118,
+                "year": 2003,
+                "round": 11,
+                "circuitid": 9,
+                "name": "British Grand Prix",
+                "date": "2003-07-20",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/2003_British_Grand_Prix",
+                "resultid": 2080,
+                "raceid__dup1": 118,
+                "driverid": 15,
+                "constructorid": 4,
+                "number": 7,
+                "grid": 2,
+                "position": 6.0,
+                "positiontext": "6",
+                "positionorder": 6,
+                "points": 3.0,
+                "laps": 60,
+                "time__dup1": "+43.067",
+                "milliseconds": 5360621.0,
+                "fastestlap": NaN,
+                "rank": NaN,
+                "fastestlaptime": NaN,
+                "fastestlapspeed": NaN,
+                "statusid": 1,
+                "driverid__dup1": 15,
+                "driverref": "trulli",
+                "number__dup1": null,
+                "code": "TRU",
+                "forename": "Jarno",
+                "surname": "Trulli",
+                "dob": "1974-07-13",
+                "nationality": "Italian",
+                "url__dup1": "http://en.wikipedia.org/wiki/Jarno_Trulli",
+                "qualifyid": null,
+                "raceid__dup2": null,
+                "driverid__dup2": null,
+                "constructorid__dup1": null,
+                "number__dup2": null,
+                "position__dup1": null,
+                "q1": null,
+                "q2": null,
+                "q3": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN pitstops AS p ON d.driverid = p.driverid AND r.raceid = p.raceid",
+          "sql": "SELECT *\nFROM races AS r\nJOIN results AS res ON r.raceid = res.raceid\nJOIN drivers AS d ON res.driverid = d.driverid\nLEFT JOIN qualifying AS q ON d.driverid = q.driverid AND r.raceid = q.raceid\nJOIN pitstops AS p ON d.driverid = p.driverid AND r.raceid = p.raceid\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 51,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "LEFT JOIN pitstops AS p ON d.driverid = p.driverid AND r.raceid = p.raceid",
+          "sql": "SELECT *\nFROM races AS r\nJOIN results AS res ON r.raceid = res.raceid\nJOIN drivers AS d ON res.driverid = d.driverid\nLEFT JOIN qualifying AS q ON d.driverid = q.driverid AND r.raceid = q.raceid\nLEFT JOIN pitstops AS p ON d.driverid = p.driverid AND r.raceid = p.raceid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 51,
+            "preview": [
+              {
+                "raceid": 56,
+                "year": 2006,
+                "round": 4,
+                "circuitid": 21,
+                "name": "San Marino Grand Prix",
+                "date": "2006-04-23",
+                "time": "14:00:00",
+                "url": "http://en.wikipedia.org/wiki/2006_San_Marino_Grand_Prix",
+                "resultid": 827,
+                "raceid__dup1": 56,
+                "driverid": 32,
+                "constructorid": 9,
+                "number": 15,
+                "grid": 17,
+                "position": NaN,
+                "positiontext": "R",
+                "positionorder": 19,
+                "points": 0.0,
+                "laps": 40,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": 30.0,
+                "rank": 16.0,
+                "fastestlaptime": "1:26.759",
+                "fastestlapspeed": "205.770",
+                "statusid": 9,
+                "driverid__dup1": 32,
+                "driverref": "klien",
+                "number__dup1": null,
+                "code": "KLI",
+                "forename": "Christian",
+                "surname": "Klien",
+                "dob": "1983-02-07",
+                "nationality": "Austrian",
+                "url__dup1": "http://en.wikipedia.org/wiki/Christian_Klien",
+                "qualifyid": null,
+                "raceid__dup2": null,
+                "driverid__dup2": null,
+                "constructorid__dup1": null,
+                "number__dup2": null,
+                "position__dup1": null,
+                "q1": null,
+                "q2": null,
+                "q3": null,
+                "raceid__dup3": null,
+                "driverid__dup3": null,
+                "stop": null,
+                "lap": null,
+                "time__dup2": null,
+                "duration": null,
+                "milliseconds__dup1": null
+              },
+              {
+                "raceid": 66,
+                "year": 2006,
+                "round": 14,
+                "circuitid": 5,
+                "name": "Turkish Grand Prix",
+                "date": "2006-08-27",
+                "time": "15:00:00",
+                "url": "http://en.wikipedia.org/wiki/2006_Turkish_Grand_Prix",
+                "resultid": 1042,
+                "raceid__dup1": 66,
+                "driverid": 2,
+                "constructorid": 2,
+                "number": 16,
+                "grid": 5,
+                "position": 14.0,
+                "positiontext": "14",
+                "positionorder": 14,
+                "points": 0.0,
+                "laps": 56,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": 56.0,
+                "rank": 16.0,
+                "fastestlaptime": "1:30.335",
+                "fastestlapspeed": "212.728",
+                "statusid": 12,
+                "driverid__dup1": 2,
+                "driverref": "heidfeld",
+                "number__dup1": null,
+                "code": "HEI",
+                "forename": "Nick",
+                "surname": "Heidfeld",
+                "dob": "1977-05-10",
+                "nationality": "German",
+                "url__dup1": "http://en.wikipedia.org/wiki/Nick_Heidfeld",
+                "qualifyid": null,
+                "raceid__dup2": null,
+                "driverid__dup2": null,
+                "constructorid__dup1": null,
+                "number__dup2": null,
+                "position__dup1": null,
+                "q1": null,
+                "q2": null,
+                "q3": null,
+                "raceid__dup3": null,
+                "driverid__dup3": null,
+                "stop": null,
+                "lap": null,
+                "time__dup2": null,
+                "duration": null,
+                "milliseconds__dup1": null
+              },
+              {
+                "raceid": 100,
+                "year": 2004,
+                "round": 11,
+                "circuitid": 9,
+                "name": "British Grand Prix",
+                "date": "2004-07-11",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/2004_British_Grand_Prix",
+                "resultid": 1725,
+                "raceid__dup1": 100,
+                "driverid": 11,
+                "constructorid": 16,
+                "number": 10,
+                "grid": 8,
+                "position": 11.0,
+                "positiontext": "11",
+                "positionorder": 11,
+                "points": 0.0,
+                "laps": 60,
+                "time__dup1": "+33.736",
+                "milliseconds": 5116436.0,
+                "fastestlap": 12.0,
+                "rank": 14.0,
+                "fastestlaptime": "1:20.790",
+                "fastestlapspeed": "229.082",
+                "statusid": 1,
+                "driverid__dup1": 11,
+                "driverref": "sato",
+                "number__dup1": null,
+                "code": "SAT",
+                "forename": "Takuma",
+                "surname": "Sato",
+                "dob": "1977-01-28",
+                "nationality": "Japanese",
+                "url__dup1": "http://en.wikipedia.org/wiki/Takuma_Sato",
+                "qualifyid": null,
+                "raceid__dup2": null,
+                "driverid__dup2": null,
+                "constructorid__dup1": null,
+                "number__dup2": null,
+                "position__dup1": null,
+                "q1": null,
+                "q2": null,
+                "q3": null,
+                "raceid__dup3": null,
+                "driverid__dup3": null,
+                "stop": null,
+                "lap": null,
+                "time__dup2": null,
+                "duration": null,
+                "milliseconds__dup1": null
+              },
+              {
+                "raceid": 110,
+                "year": 2003,
+                "round": 3,
+                "circuitid": 18,
+                "name": "Brazilian Grand Prix",
+                "date": "2003-04-06",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/2003_Brazilian_Grand_Prix",
+                "resultid": 1918,
+                "raceid__dup1": 110,
+                "driverid": 14,
+                "constructorid": 1,
+                "number": 5,
+                "grid": 2,
+                "position": 4.0,
+                "positiontext": "4",
+                "positionorder": 4,
+                "points": 5.0,
+                "laps": 54,
+                "time__dup1": "+8.096",
+                "milliseconds": 5486296.0,
+                "fastestlap": NaN,
+                "rank": NaN,
+                "fastestlaptime": NaN,
+                "fastestlapspeed": NaN,
+                "statusid": 1,
+                "driverid__dup1": 14,
+                "driverref": "coulthard",
+                "number__dup1": null,
+                "code": "COU",
+                "forename": "David",
+                "surname": "Coulthard",
+                "dob": "1971-03-27",
+                "nationality": "British",
+                "url__dup1": "http://en.wikipedia.org/wiki/David_Coulthard",
+                "qualifyid": null,
+                "raceid__dup2": null,
+                "driverid__dup2": null,
+                "constructorid__dup1": null,
+                "number__dup2": null,
+                "position__dup1": null,
+                "q1": null,
+                "q2": null,
+                "q3": null,
+                "raceid__dup3": null,
+                "driverid__dup3": null,
+                "stop": null,
+                "lap": null,
+                "time__dup2": null,
+                "duration": null,
+                "milliseconds__dup1": null
+              },
+              {
+                "raceid": 118,
+                "year": 2003,
+                "round": 11,
+                "circuitid": 9,
+                "name": "British Grand Prix",
+                "date": "2003-07-20",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/2003_British_Grand_Prix",
+                "resultid": 2080,
+                "raceid__dup1": 118,
+                "driverid": 15,
+                "constructorid": 4,
+                "number": 7,
+                "grid": 2,
+                "position": 6.0,
+                "positiontext": "6",
+                "positionorder": 6,
+                "points": 3.0,
+                "laps": 60,
+                "time__dup1": "+43.067",
+                "milliseconds": 5360621.0,
+                "fastestlap": NaN,
+                "rank": NaN,
+                "fastestlaptime": NaN,
+                "fastestlapspeed": NaN,
+                "statusid": 1,
+                "driverid__dup1": 15,
+                "driverref": "trulli",
+                "number__dup1": null,
+                "code": "TRU",
+                "forename": "Jarno",
+                "surname": "Trulli",
+                "dob": "1974-07-13",
+                "nationality": "Italian",
+                "url__dup1": "http://en.wikipedia.org/wiki/Jarno_Trulli",
+                "qualifyid": null,
+                "raceid__dup2": null,
+                "driverid__dup2": null,
+                "constructorid__dup1": null,
+                "number__dup2": null,
+                "position__dup1": null,
+                "q1": null,
+                "q2": null,
+                "q3": null,
+                "raceid__dup3": null,
+                "driverid__dup3": null,
+                "stop": null,
+                "lap": null,
+                "time__dup2": null,
+                "duration": null,
+                "milliseconds__dup1": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "d.nationality = 'German'",
+          "sql": "SELECT *\nFROM races AS r\nJOIN results AS res ON r.raceid = res.raceid\nJOIN drivers AS d ON res.driverid = d.driverid\nLEFT JOIN qualifying AS q ON d.driverid = q.driverid AND r.raceid = q.raceid\nLEFT JOIN pitstops AS p ON d.driverid = p.driverid AND r.raceid = p.raceid\nWHERE (d.nationality = 'German')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 3,
+            "column_count": 51,
+            "preview": [
+              {
+                "raceid": 66,
+                "year": 2006,
+                "round": 14,
+                "circuitid": 5,
+                "name": "Turkish Grand Prix",
+                "date": "2006-08-27",
+                "time": "15:00:00",
+                "url": "http://en.wikipedia.org/wiki/2006_Turkish_Grand_Prix",
+                "resultid": 1042,
+                "raceid__dup1": 66,
+                "driverid": 2,
+                "constructorid": 2,
+                "number": 16,
+                "grid": 5,
+                "position": 14,
+                "positiontext": "14",
+                "positionorder": 14,
+                "points": 0.0,
+                "laps": 56,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": 56.0,
+                "rank": 16.0,
+                "fastestlaptime": "1:30.335",
+                "fastestlapspeed": "212.728",
+                "statusid": 12,
+                "driverid__dup1": 2,
+                "driverref": "heidfeld",
+                "number__dup1": null,
+                "code": "HEI",
+                "forename": "Nick",
+                "surname": "Heidfeld",
+                "dob": "1977-05-10",
+                "nationality": "German",
+                "url__dup1": "http://en.wikipedia.org/wiki/Nick_Heidfeld",
+                "qualifyid": null,
+                "raceid__dup2": null,
+                "driverid__dup2": null,
+                "constructorid__dup1": null,
+                "number__dup2": null,
+                "position__dup1": null,
+                "q1": null,
+                "q2": null,
+                "q3": null,
+                "raceid__dup3": null,
+                "driverid__dup3": null,
+                "stop": null,
+                "lap": null,
+                "time__dup2": null,
+                "duration": null,
+                "milliseconds__dup1": null
+              },
+              {
+                "raceid": 156,
+                "year": 2001,
+                "round": 16,
+                "circuitid": 19,
+                "name": "United States Grand Prix",
+                "date": "2001-09-30",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/2001_United_States_Grand_Prix",
+                "resultid": 2896,
+                "raceid__dup1": 156,
+                "driverid": 49,
+                "constructorid": 20,
+                "number": 22,
+                "grid": 15,
+                "position": 10,
+                "positiontext": "10",
+                "positionorder": 10,
+                "points": 0.0,
+                "laps": 72,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": NaN,
+                "rank": NaN,
+                "fastestlaptime": NaN,
+                "fastestlapspeed": NaN,
+                "statusid": 11,
+                "driverid__dup1": 49,
+                "driverref": "frentzen",
+                "number__dup1": null,
+                "code": NaN,
+                "forename": "Heinz-Harald",
+                "surname": "Frentzen",
+                "dob": "1967-05-18",
+                "nationality": "German",
+                "url__dup1": "http://en.wikipedia.org/wiki/Heinz-Harald_Frentzen",
+                "qualifyid": null,
+                "raceid__dup2": null,
+                "driverid__dup2": null,
+                "constructorid__dup1": null,
+                "number__dup2": null,
+                "position__dup1": null,
+                "q1": null,
+                "q2": null,
+                "q3": null,
+                "raceid__dup3": null,
+                "driverid__dup3": null,
+                "stop": null,
+                "lap": null,
+                "time__dup2": null,
+                "duration": null,
+                "milliseconds__dup1": null
+              },
+              {
+                "raceid": 14,
+                "year": 2009,
+                "round": 14,
+                "circuitid": 15,
+                "name": "Singapore Grand Prix",
+                "date": "2009-09-27",
+                "time": "12:00:00",
+                "url": "http://en.wikipedia.org/wiki/2009_Singapore_Grand_Prix",
+                "resultid": 7815,
+                "raceid__dup1": 14,
+                "driverid": 10,
+                "constructorid": 7,
+                "number": 10,
+                "grid": 6,
+                "position": 2,
+                "positiontext": "2",
+                "positionorder": 2,
+                "points": 8.0,
+                "laps": 61,
+                "time__dup1": "+9.634",
+                "milliseconds": 6975971.0,
+                "fastestlap": 34.0,
+                "rank": 6.0,
+                "fastestlaptime": "1:48.396",
+                "fastestlapspeed": "168.482",
+                "statusid": 1,
+                "driverid__dup1": 10,
+                "driverref": "glock",
+                "number__dup1": null,
+                "code": "GLO",
+                "forename": "Timo",
+                "surname": "Glock",
+                "dob": "1982-03-18",
+                "nationality": "German",
+                "url__dup1": "http://en.wikipedia.org/wiki/Timo_Glock",
+                "qualifyid": null,
+                "raceid__dup2": null,
+                "driverid__dup2": null,
+                "constructorid__dup1": null,
+                "number__dup2": null,
+                "position__dup1": null,
+                "q1": null,
+                "q2": null,
+                "q3": null,
+                "raceid__dup3": null,
+                "driverid__dup3": null,
+                "stop": null,
+                "lap": null,
+                "time__dup2": null,
+                "duration": null,
+                "milliseconds__dup1": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "q.position <= 10",
+          "sql": "SELECT *\nFROM races AS r\nJOIN results AS res ON r.raceid = res.raceid\nJOIN drivers AS d ON res.driverid = d.driverid\nLEFT JOIN qualifying AS q ON d.driverid = q.driverid AND r.raceid = q.raceid\nLEFT JOIN pitstops AS p ON d.driverid = p.driverid AND r.raceid = p.raceid\nWHERE (d.nationality = 'German') AND (q.position <= 10)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 51,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "q.position IS NULL OR q.position <= 10",
+          "sql": "SELECT *\nFROM races AS r\nJOIN results AS res ON r.raceid = res.raceid\nJOIN drivers AS d ON res.driverid = d.driverid\nLEFT JOIN qualifying AS q ON d.driverid = q.driverid AND r.raceid = q.raceid\nLEFT JOIN pitstops AS p ON d.driverid = p.driverid AND r.raceid = p.raceid\nWHERE (d.nationality = 'German') AND (q.position IS NULL OR q.position <= 10)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 3,
+            "column_count": 51,
+            "preview": [
+              {
+                "raceid": 66,
+                "year": 2006,
+                "round": 14,
+                "circuitid": 5,
+                "name": "Turkish Grand Prix",
+                "date": "2006-08-27",
+                "time": "15:00:00",
+                "url": "http://en.wikipedia.org/wiki/2006_Turkish_Grand_Prix",
+                "resultid": 1042,
+                "raceid__dup1": 66,
+                "driverid": 2,
+                "constructorid": 2,
+                "number": 16,
+                "grid": 5,
+                "position": 14,
+                "positiontext": "14",
+                "positionorder": 14,
+                "points": 0.0,
+                "laps": 56,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": 56.0,
+                "rank": 16.0,
+                "fastestlaptime": "1:30.335",
+                "fastestlapspeed": "212.728",
+                "statusid": 12,
+                "driverid__dup1": 2,
+                "driverref": "heidfeld",
+                "number__dup1": null,
+                "code": "HEI",
+                "forename": "Nick",
+                "surname": "Heidfeld",
+                "dob": "1977-05-10",
+                "nationality": "German",
+                "url__dup1": "http://en.wikipedia.org/wiki/Nick_Heidfeld",
+                "qualifyid": null,
+                "raceid__dup2": null,
+                "driverid__dup2": null,
+                "constructorid__dup1": null,
+                "number__dup2": null,
+                "position__dup1": null,
+                "q1": null,
+                "q2": null,
+                "q3": null,
+                "raceid__dup3": null,
+                "driverid__dup3": null,
+                "stop": null,
+                "lap": null,
+                "time__dup2": null,
+                "duration": null,
+                "milliseconds__dup1": null
+              },
+              {
+                "raceid": 156,
+                "year": 2001,
+                "round": 16,
+                "circuitid": 19,
+                "name": "United States Grand Prix",
+                "date": "2001-09-30",
+                "time": NaN,
+                "url": "http://en.wikipedia.org/wiki/2001_United_States_Grand_Prix",
+                "resultid": 2896,
+                "raceid__dup1": 156,
+                "driverid": 49,
+                "constructorid": 20,
+                "number": 22,
+                "grid": 15,
+                "position": 10,
+                "positiontext": "10",
+                "positionorder": 10,
+                "points": 0.0,
+                "laps": 72,
+                "time__dup1": NaN,
+                "milliseconds": NaN,
+                "fastestlap": NaN,
+                "rank": NaN,
+                "fastestlaptime": NaN,
+                "fastestlapspeed": NaN,
+                "statusid": 11,
+                "driverid__dup1": 49,
+                "driverref": "frentzen",
+                "number__dup1": null,
+                "code": NaN,
+                "forename": "Heinz-Harald",
+                "surname": "Frentzen",
+                "dob": "1967-05-18",
+                "nationality": "German",
+                "url__dup1": "http://en.wikipedia.org/wiki/Heinz-Harald_Frentzen",
+                "qualifyid": null,
+                "raceid__dup2": null,
+                "driverid__dup2": null,
+                "constructorid__dup1": null,
+                "number__dup2": null,
+                "position__dup1": null,
+                "q1": null,
+                "q2": null,
+                "q3": null,
+                "raceid__dup3": null,
+                "driverid__dup3": null,
+                "stop": null,
+                "lap": null,
+                "time__dup2": null,
+                "duration": null,
+                "milliseconds__dup1": null
+              },
+              {
+                "raceid": 14,
+                "year": 2009,
+                "round": 14,
+                "circuitid": 15,
+                "name": "Singapore Grand Prix",
+                "date": "2009-09-27",
+                "time": "12:00:00",
+                "url": "http://en.wikipedia.org/wiki/2009_Singapore_Grand_Prix",
+                "resultid": 7815,
+                "raceid__dup1": 14,
+                "driverid": 10,
+                "constructorid": 7,
+                "number": 10,
+                "grid": 6,
+                "position": 2,
+                "positiontext": "2",
+                "positionorder": 2,
+                "points": 8.0,
+                "laps": 61,
+                "time__dup1": "+9.634",
+                "milliseconds": 6975971.0,
+                "fastestlap": 34.0,
+                "rank": 6.0,
+                "fastestlaptime": "1:48.396",
+                "fastestlapspeed": "168.482",
+                "statusid": 1,
+                "driverid__dup1": 10,
+                "driverref": "glock",
+                "number__dup1": null,
+                "code": "GLO",
+                "forename": "Timo",
+                "surname": "Glock",
+                "dob": "1982-03-18",
+                "nationality": "German",
+                "url__dup1": "http://en.wikipedia.org/wiki/Timo_Glock",
+                "qualifyid": null,
+                "raceid__dup2": null,
+                "driverid__dup2": null,
+                "constructorid__dup1": null,
+                "number__dup2": null,
+                "position__dup1": null,
+                "q1": null,
+                "q2": null,
+                "q3": null,
+                "raceid__dup3": null,
+                "driverid__dup3": null,
+                "stop": null,
+                "lap": null,
+                "time__dup2": null,
+                "duration": null,
+                "milliseconds__dup1": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT r.raceid, d.driverid, COUNT(p.stop) AS pit_stops\nFROM races AS r\nJOIN results AS res ON r.raceid = res.raceid\nJOIN drivers AS d ON res.driverid = d.driverid\nLEFT JOIN qualifying AS q ON d.driverid = q.driverid AND r.raceid = q.raceid\nLEFT JOIN pitstops AS p ON d.driverid = p.driverid AND r.raceid = p.raceid\nWHERE (d.nationality = 'German') AND (q.position IS NULL OR q.position <= 10)\nGROUP BY r.raceid, d.driverid",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 3,
+            "column_count": 3,
+            "preview": [
+              {
+                "raceid": 14,
+                "driverid": 10,
+                "pit_stops": 0
+              },
+              {
+                "raceid": 66,
+                "driverid": 2,
+                "pit_stops": 0
+              },
+              {
+                "raceid": 156,
+                "driverid": 49,
+                "pit_stops": 0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "Calculates the average number of pit stops per race for qualifying German drivers",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT r.raceid, d.driverid, COUNT(p.stop) AS pit_stops\nFROM races AS r\nJOIN results AS res ON r.raceid = res.raceid\nJOIN drivers AS d ON res.driverid = d.driverid\nLEFT JOIN qualifying AS q ON d.driverid = q.driverid AND r.raceid = q.raceid\nLEFT JOIN pitstops AS p ON d.driverid = p.driverid AND r.raceid = p.raceid\nWHERE (d.nationality = 'German') AND (q.position IS NULL OR q.position <= 10)\nGROUP BY r.raceid, d.driverid) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 3,
+            "column_count": 3,
+            "preview": [
+              {
+                "raceid": 14,
+                "driverid": 10,
+                "pit_stops": 0
+              },
+              {
+                "raceid": 66,
+                "driverid": 2,
+                "pit_stops": 0
+              },
+              {
+                "raceid": 156,
+                "driverid": 49,
+                "pit_stops": 0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT AVG(leaf_1.pit_stops)\nFROM (SELECT r.raceid, d.driverid, COUNT(p.stop) AS pit_stops\nFROM races AS r\nJOIN results AS res ON r.raceid = res.raceid\nJOIN drivers AS d ON res.driverid = d.driverid\nLEFT JOIN qualifying AS q ON d.driverid = q.driverid AND r.raceid = q.raceid\nLEFT JOIN pitstops AS p ON d.driverid = p.driverid AND r.raceid = p.raceid\nWHERE (d.nationality = 'German') AND (q.position IS NULL OR q.position <= 10)\nGROUP BY r.raceid, d.driverid) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "AVG(leaf_1.pit_stops)": 0.0
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 1,
+  "sample_retry": 1,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.5084561403508773,
+    "nearest": {
+      "sample_index": 9,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "similarity": 0.5084561403508773,
+      "sql": "SELECT AVG(leaf_1.pit_stops)\nFROM (SELECT d.driverid, r.raceid, COUNT(p.stop) AS pit_stops\nFROM drivers d\nJOIN results r ON d.driverid = r.driverid\nJOIN pitstops p ON r.raceid = p.raceid\nJOIN target t ON d.driverid = t.driverid\nGROUP BY d.driverid, r.raceid) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 0.0,
+    "nearest": null,
+    "reason": "numeric answer <= 7.0"
+  },
+  "question": "What is the average number of pit stops per race for German drivers who either did not qualify or qualified in the top 10 positions?",
+  "answer": "0"
+}

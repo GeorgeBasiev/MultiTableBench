@@ -1,0 +1,2264 @@
+{
+  "sample_index": 39,
+  "db_name": "northwind",
+  "answer_mode": "aggregate",
+  "target_join_count": 2,
+  "actual_join_count": 2,
+  "numeric_answer": 22988.55,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 2,
+    "min_hops": 2,
+    "max_hops": 2,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "total revenue from orders shipped in 1997 that were placed by customers from Western regions",
+  "manifest": {
+    "db_name": "northwind",
+    "sample_dir": "structured_set/northwind/39",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "alphabetical list of products",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "productid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "supplierid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "categoryid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "quantityperunit",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitprice",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitsinstock",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitsonorder",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "reorderlevel",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discontinued",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "categoryname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "categories",
+        "remote_row_count": 8,
+        "snapshot_row_count": 8,
+        "target_limit": 8,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "categoryid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "categoryname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "description",
+            "mysql_type": "mediumtext",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "picture",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          }
+        ]
+      },
+      {
+        "table_name": "category sales for 1997",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "categoryname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "categorysales",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "current product list",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "productid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "customer and suppliers by city",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "city",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "contactname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "relationship",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "customercustomerdemo",
+        "remote_row_count": 0,
+        "snapshot_row_count": 0,
+        "target_limit": 0,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "customerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "customertypeid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "customerdemographics",
+        "remote_row_count": 0,
+        "snapshot_row_count": 0,
+        "target_limit": 0,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "customertypeid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "customerdesc",
+            "mysql_type": "mediumtext",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "customers",
+        "remote_row_count": 91,
+        "snapshot_row_count": 91,
+        "target_limit": 91,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "customerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contactname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contacttitle",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postalcode",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fax",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "employees",
+        "remote_row_count": 9,
+        "snapshot_row_count": 9,
+        "target_limit": 9,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "employeeid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lastname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "title",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "titleofcourtesy",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthdate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hiredate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postalcode",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "homephone",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "extension",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "photo",
+            "mysql_type": "longblob",
+            "sqlite_type": "BLOB"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "mediumtext",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "reportsto",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "photopath",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "salary",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          }
+        ]
+      },
+      {
+        "table_name": "employeeterritories",
+        "remote_row_count": 49,
+        "snapshot_row_count": 49,
+        "target_limit": 49,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "employeeid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "territoryid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "invoices",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "shipname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipaddress",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipcity",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipregion",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shippostalcode",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipcountry",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "customerid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "customername",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "address",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "city",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "region",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "postalcode",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "country",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "salesperson",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderdate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "requireddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shippeddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shippername",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitprice",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "quantity",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discount",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "extendedprice",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "freight",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "order details",
+        "remote_row_count": 2155,
+        "snapshot_row_count": 105,
+        "target_limit": 105,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitprice",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "quantity",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discount",
+            "mysql_type": "double",
+            "sqlite_type": "REAL"
+          }
+        ]
+      },
+      {
+        "table_name": "order details extended",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitprice",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "quantity",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discount",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "extendedprice",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "order subtotals",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "subtotal",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "orders",
+        "remote_row_count": 830,
+        "snapshot_row_count": 95,
+        "target_limit": 95,
+        "relational_rows_added": 80,
+        "columns": [
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "customerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "employeeid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderdate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "requireddate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shippeddate",
+            "mysql_type": "datetime",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shipvia",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "freight",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "shipname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shipaddress",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shipcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shipregion",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shippostalcode",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shipcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "orders qry",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "customerid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "employeeid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderdate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "requireddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shippeddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipvia",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "freight",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipaddress",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipcity",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipregion",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shippostalcode",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shipcountry",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "address",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "city",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "region",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "postalcode",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "country",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "product sales for 1997",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "categoryname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productsales",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "products",
+        "remote_row_count": 77,
+        "snapshot_row_count": 71,
+        "target_limit": 71,
+        "relational_rows_added": 5,
+        "columns": [
+          {
+            "name": "productid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "supplierid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "categoryid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "quantityperunit",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "unitprice",
+            "mysql_type": "decimal",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "unitsinstock",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitsonorder",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "reorderlevel",
+            "mysql_type": "smallint",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discontinued",
+            "mysql_type": "tinyint",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "products above average price",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitprice",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "products by category",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "categoryname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "quantityperunit",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "unitsinstock",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "discontinued",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "quarterly orders",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "customerid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "city",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "country",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "region",
+        "remote_row_count": 4,
+        "snapshot_row_count": 4,
+        "target_limit": 4,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "regionid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "regiondescription",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "sales by category",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "categoryid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "categoryname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "productsales",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "sales totals by amount",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "saleamount",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "shippeddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "shippers",
+        "remote_row_count": 3,
+        "snapshot_row_count": 3,
+        "target_limit": 3,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "shipperid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "summary of sales by quarter",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "shippeddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "subtotal",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "summary of sales by year",
+        "remote_row_count": 1,
+        "snapshot_row_count": 1,
+        "target_limit": 1,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "shippeddate",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "orderid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "subtotal",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "suppliers",
+        "remote_row_count": 29,
+        "snapshot_row_count": 29,
+        "target_limit": 29,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "supplierid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "companyname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contactname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "contacttitle",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "address",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "city",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "region",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postalcode",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "phone",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fax",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "homepage",
+            "mysql_type": "mediumtext",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "territories",
+        "remote_row_count": 53,
+        "snapshot_row_count": 53,
+        "target_limit": 53,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "territoryid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "territorydescription",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "regionid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "total revenue from orders shipped in 1997 that were placed by customers from Western regions",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT c.customerid, c.companyname, o.orderid, o.orderdate, o.shippeddate, od.unitprice, od.quantity, od.discount, (od.unitprice * od.quantity * (1 - od.discount)) AS order_revenue\nFROM customers c\nJOIN orders o ON c.customerid = o.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region = 'Western') AND (strftime('%Y', o.shippeddate) = '1997')",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT c.customerid, c.companyname, o.orderid, o.orderdate, o.shippeddate, od.unitprice, od.quantity, od.discount, (od.unitprice * od.quantity * (1 - od.discount)) AS order_revenue",
+        "from_clause": "FROM customers c",
+        "join_clauses": [
+          "JOIN orders o ON c.customerid = o.customerid",
+          "JOIN \"order details\" od ON o.orderid = od.orderid"
+        ],
+        "where_clauses": [
+          "c.region = 'Western'",
+          "strftime('%Y', o.shippeddate) = '1997'"
+        ],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "orders placed by Western customers shipped in 1997 with order revenue calculated"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT SUM(leaf_1.order_revenue) AS total_revenue",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "total revenue from Western customers' orders shipped in 1997"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "orders placed by Western customers shipped in 1997 with order revenue calculated",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM customers c\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 11,
+            "preview": [
+              {
+                "customerid": "ALFKI",
+                "companyname": "Alfreds Futterkiste",
+                "contactname": "Maria Anders",
+                "contacttitle": "Sales Representative",
+                "address": "Obere Str. 57",
+                "city": "Berlin",
+                "region": null,
+                "postalcode": "12209",
+                "country": "Germany",
+                "phone": "030-0074321",
+                "fax": "030-0076545"
+              },
+              {
+                "customerid": "ANATR",
+                "companyname": "Ana Trujillo Emparedados y helados",
+                "contactname": "Ana Trujillo",
+                "contacttitle": "Owner",
+                "address": "Avda. de la Constitucin 2222",
+                "city": "Mxico D.F.",
+                "region": null,
+                "postalcode": "05021",
+                "country": "Mexico",
+                "phone": "(5) 555-4729",
+                "fax": "(5) 555-3745"
+              },
+              {
+                "customerid": "ANTON",
+                "companyname": "Antonio Moreno Taquera",
+                "contactname": "Antonio Moreno",
+                "contacttitle": "Owner",
+                "address": "Mataderos  2312",
+                "city": "Mxico D.F.",
+                "region": null,
+                "postalcode": "05023",
+                "country": "Mexico",
+                "phone": "(5) 555-3932",
+                "fax": NaN
+              },
+              {
+                "customerid": "AROUT",
+                "companyname": "Around the Horn",
+                "contactname": "Thomas Hardy",
+                "contacttitle": "Sales Representative",
+                "address": "120 Hanover Sq.",
+                "city": "London",
+                "region": null,
+                "postalcode": "WA1 1DP",
+                "country": "UK",
+                "phone": "(171) 555-7788",
+                "fax": "(171) 555-6750"
+              },
+              {
+                "customerid": "BERGS",
+                "companyname": "Berglunds snabbkp",
+                "contactname": "Christina Berglund",
+                "contacttitle": "Order Administrator",
+                "address": "Berguvsvgen  8",
+                "city": "Lule",
+                "region": null,
+                "postalcode": "S-958 22",
+                "country": "Sweden",
+                "phone": "0921-12 34 65",
+                "fax": "0921-12 34 67"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN orders o ON c.customerid = o.customerid",
+          "sql": "SELECT *\nFROM customers c\nJOIN orders o ON c.customerid = o.customerid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 25,
+            "preview": [
+              {
+                "customerid": "VINET",
+                "companyname": "Vins et alcools Chevalier",
+                "contactname": "Paul Henriot",
+                "contacttitle": "Accounting Manager",
+                "address": "59 rue de l'Abbaye",
+                "city": "Reims",
+                "region": NaN,
+                "postalcode": "51100",
+                "country": "France",
+                "phone": "26.47.15.10",
+                "fax": "26.47.15.11",
+                "orderid": 10248,
+                "customerid__dup1": "VINET",
+                "employeeid": 5,
+                "orderdate": "1996-07-04T00:00:00",
+                "requireddate": "1996-08-01T00:00:00",
+                "shippeddate": "1996-07-16T00:00:00",
+                "shipvia": 3,
+                "freight": 32.38,
+                "shipname": "Vins et alcools Chevalier",
+                "shipaddress": "59 rue de l-Abbaye",
+                "shipcity": "Reims",
+                "shipregion": NaN,
+                "shippostalcode": "51100",
+                "shipcountry": "France"
+              },
+              {
+                "customerid": "TOMSP",
+                "companyname": "Toms Spezialitten",
+                "contactname": "Karin Josephs",
+                "contacttitle": "Marketing Manager",
+                "address": "Luisenstr. 48",
+                "city": "Mnster",
+                "region": NaN,
+                "postalcode": "44087",
+                "country": "Germany",
+                "phone": "0251-031259",
+                "fax": "0251-035695",
+                "orderid": 10249,
+                "customerid__dup1": "TOMSP",
+                "employeeid": 6,
+                "orderdate": "1996-07-05T00:00:00",
+                "requireddate": "1996-08-16T00:00:00",
+                "shippeddate": "1996-07-10T00:00:00",
+                "shipvia": 1,
+                "freight": 11.61,
+                "shipname": "Toms Spezialitten",
+                "shipaddress": "Luisenstr. 48",
+                "shipcity": "Mnster",
+                "shipregion": NaN,
+                "shippostalcode": "44087",
+                "shipcountry": "Germany"
+              },
+              {
+                "customerid": "SUPRD",
+                "companyname": "Suprmes dlices",
+                "contactname": "Pascale Cartrain",
+                "contacttitle": "Accounting Manager",
+                "address": "Boulevard Tirou, 255",
+                "city": "Charleroi",
+                "region": NaN,
+                "postalcode": "B-6000",
+                "country": "Belgium",
+                "phone": "(071) 23 67 22 20",
+                "fax": "(071) 23 67 22 21",
+                "orderid": 10252,
+                "customerid__dup1": "SUPRD",
+                "employeeid": 4,
+                "orderdate": "1996-07-09T00:00:00",
+                "requireddate": "1996-08-06T00:00:00",
+                "shippeddate": "1996-07-11T00:00:00",
+                "shipvia": 2,
+                "freight": 51.3,
+                "shipname": "Suprmes dlices",
+                "shipaddress": "Boulevard Tirou, 255",
+                "shipcity": "Charleroi",
+                "shipregion": NaN,
+                "shippostalcode": "B-6000",
+                "shipcountry": "Belgium"
+              },
+              {
+                "customerid": "RATTC",
+                "companyname": "Rattlesnake Canyon Grocery",
+                "contactname": "Paula Wilson",
+                "contacttitle": "Assistant Sales Representative",
+                "address": "2817 Milton Dr.",
+                "city": "Albuquerque",
+                "region": "NM",
+                "postalcode": "87110",
+                "country": "USA",
+                "phone": "(505) 555-5939",
+                "fax": "(505) 555-3620",
+                "orderid": 10262,
+                "customerid__dup1": "RATTC",
+                "employeeid": 8,
+                "orderdate": "1996-07-22T00:00:00",
+                "requireddate": "1996-08-19T00:00:00",
+                "shippeddate": "1996-07-25T00:00:00",
+                "shipvia": 3,
+                "freight": 48.29,
+                "shipname": "Rattlesnake Canyon Grocery",
+                "shipaddress": "2817 Milton Dr.",
+                "shipcity": "Albuquerque",
+                "shipregion": "NM",
+                "shippostalcode": "87110",
+                "shipcountry": "USA"
+              },
+              {
+                "customerid": "ERNSH",
+                "companyname": "Ernst Handel",
+                "contactname": "Roland Mendel",
+                "contacttitle": "Sales Manager",
+                "address": "Kirchgasse 6",
+                "city": "Graz",
+                "region": NaN,
+                "postalcode": "8010",
+                "country": "Austria",
+                "phone": "7675-3425",
+                "fax": "7675-3426",
+                "orderid": 10263,
+                "customerid__dup1": "ERNSH",
+                "employeeid": 9,
+                "orderdate": "1996-07-23T00:00:00",
+                "requireddate": "1996-08-20T00:00:00",
+                "shippeddate": "1996-07-31T00:00:00",
+                "shipvia": 3,
+                "freight": 146.06,
+                "shipname": "Ernst Handel",
+                "shipaddress": "Kirchgasse 6",
+                "shipcity": "Graz",
+                "shipregion": NaN,
+                "shippostalcode": "8010",
+                "shipcountry": "Austria"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN \"order details\" od ON o.orderid = od.orderid",
+          "sql": "SELECT *\nFROM customers c\nJOIN orders o ON c.customerid = o.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 30,
+            "preview": [
+              {
+                "customerid": "CHOPS",
+                "companyname": "Chop-suey Chinese",
+                "contactname": "Yang Wang",
+                "contacttitle": "Owner",
+                "address": "Hauptstr. 29",
+                "city": "Bern",
+                "region": null,
+                "postalcode": "3012",
+                "country": "Switzerland",
+                "phone": "0452-076545",
+                "fax": NaN,
+                "orderid": 10370,
+                "customerid__dup1": "CHOPS",
+                "employeeid": 6,
+                "orderdate": "1996-12-03T00:00:00",
+                "requireddate": "1996-12-31T00:00:00",
+                "shippeddate": "1996-12-27T00:00:00",
+                "shipvia": 2,
+                "freight": 1.17,
+                "shipname": "Chop-suey Chinese",
+                "shipaddress": "Hauptstr. 31",
+                "shipcity": "Bern",
+                "shipregion": null,
+                "shippostalcode": "3012",
+                "shipcountry": "Switzerland",
+                "orderid__dup1": 10370,
+                "productid": 1,
+                "unitprice": 14.4,
+                "quantity": 15,
+                "discount": 0.0
+              },
+              {
+                "customerid": "OTTIK",
+                "companyname": "Ottilies Kseladen",
+                "contactname": "Henriette Pfalzheim",
+                "contacttitle": "Owner",
+                "address": "Mehrheimerstr. 369",
+                "city": "Kln",
+                "region": null,
+                "postalcode": "50739",
+                "country": "Germany",
+                "phone": "0221-0644327",
+                "fax": "0221-0765721",
+                "orderid": 10407,
+                "customerid__dup1": "OTTIK",
+                "employeeid": 2,
+                "orderdate": "1997-01-07T00:00:00",
+                "requireddate": "1997-02-04T00:00:00",
+                "shippeddate": "1997-01-30T00:00:00",
+                "shipvia": 2,
+                "freight": 91.48,
+                "shipname": "Ottilies Kseladen",
+                "shipaddress": "Mehrheimerstr. 369",
+                "shipcity": "Kln",
+                "shipregion": null,
+                "shippostalcode": "50739",
+                "shipcountry": "Germany",
+                "orderid__dup1": 10407,
+                "productid": 71,
+                "unitprice": 17.2,
+                "quantity": 15,
+                "discount": 0.0
+              },
+              {
+                "customerid": "VICTE",
+                "companyname": "Victuailles en stock",
+                "contactname": "Mary Saveley",
+                "contacttitle": "Sales Agent",
+                "address": "2, rue du Commerce",
+                "city": "Lyon",
+                "region": null,
+                "postalcode": "69004",
+                "country": "France",
+                "phone": "78.32.54.86",
+                "fax": "78.32.54.87",
+                "orderid": 10478,
+                "customerid__dup1": "VICTE",
+                "employeeid": 2,
+                "orderdate": "1997-03-18T00:00:00",
+                "requireddate": "1997-04-01T00:00:00",
+                "shippeddate": "1997-03-26T00:00:00",
+                "shipvia": 3,
+                "freight": 4.81,
+                "shipname": "Victuailles en stock",
+                "shipaddress": "2, rue du Commerce",
+                "shipcity": "Lyon",
+                "shipregion": null,
+                "shippostalcode": "69004",
+                "shipcountry": "France",
+                "orderid__dup1": 10478,
+                "productid": 10,
+                "unitprice": 24.8,
+                "quantity": 20,
+                "discount": 0.0
+              },
+              {
+                "customerid": "GODOS",
+                "companyname": "Godos Cocina Tpica",
+                "contactname": "Jos Pedro Freyre",
+                "contacttitle": "Sales Manager",
+                "address": "C/ Romero, 33",
+                "city": "Sevilla",
+                "region": null,
+                "postalcode": "41101",
+                "country": "Spain",
+                "phone": "(95) 555 82 82",
+                "fax": NaN,
+                "orderid": 10872,
+                "customerid__dup1": "GODOS",
+                "employeeid": 5,
+                "orderdate": "1998-02-05T00:00:00",
+                "requireddate": "1998-03-05T00:00:00",
+                "shippeddate": "1998-02-09T00:00:00",
+                "shipvia": 2,
+                "freight": 175.32,
+                "shipname": "Godos Cocina Tpica",
+                "shipaddress": "C/ Romero, 33",
+                "shipcity": "Sevilla",
+                "shipregion": null,
+                "shippostalcode": "41101",
+                "shipcountry": "Spain",
+                "orderid__dup1": 10872,
+                "productid": 65,
+                "unitprice": 21.05,
+                "quantity": 21,
+                "discount": 0.0
+              },
+              {
+                "customerid": "FURIB",
+                "companyname": "Furia Bacalhau e Frutos do Mar",
+                "contactname": "Lino Rodriguez",
+                "contacttitle": "Sales Manager",
+                "address": "Jardim das rosas n. 32",
+                "city": "Lisboa",
+                "region": null,
+                "postalcode": "1675",
+                "country": "Portugal",
+                "phone": "(1) 354-2534",
+                "fax": "(1) 354-2535",
+                "orderid": 10604,
+                "customerid__dup1": "FURIB",
+                "employeeid": 1,
+                "orderdate": "1997-07-18T00:00:00",
+                "requireddate": "1997-08-15T00:00:00",
+                "shippeddate": "1997-07-29T00:00:00",
+                "shipvia": 1,
+                "freight": 7.46,
+                "shipname": "Furia Bacalhau e Frutos do Mar",
+                "shipaddress": "Jardim das rosas n. 32",
+                "shipcity": "Lisboa",
+                "shipregion": null,
+                "shippostalcode": "1675",
+                "shipcountry": "Portugal",
+                "orderid__dup1": 10604,
+                "productid": 48,
+                "unitprice": 12.75,
+                "quantity": 6,
+                "discount": 0.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.region = 'Western'",
+          "sql": "SELECT *\nFROM customers c\nJOIN orders o ON c.customerid = o.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region = 'Western')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 30,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "c.region = 'Western' OR c.region IS NULL",
+          "sql": "SELECT *\nFROM customers c\nJOIN orders o ON c.customerid = o.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region = 'Western' OR c.region IS NULL)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 30,
+            "preview": [
+              {
+                "customerid": "CHOPS",
+                "companyname": "Chop-suey Chinese",
+                "contactname": "Yang Wang",
+                "contacttitle": "Owner",
+                "address": "Hauptstr. 29",
+                "city": "Bern",
+                "region": null,
+                "postalcode": "3012",
+                "country": "Switzerland",
+                "phone": "0452-076545",
+                "fax": NaN,
+                "orderid": 10370,
+                "customerid__dup1": "CHOPS",
+                "employeeid": 6,
+                "orderdate": "1996-12-03T00:00:00",
+                "requireddate": "1996-12-31T00:00:00",
+                "shippeddate": "1996-12-27T00:00:00",
+                "shipvia": 2,
+                "freight": 1.17,
+                "shipname": "Chop-suey Chinese",
+                "shipaddress": "Hauptstr. 31",
+                "shipcity": "Bern",
+                "shipregion": null,
+                "shippostalcode": "3012",
+                "shipcountry": "Switzerland",
+                "orderid__dup1": 10370,
+                "productid": 1,
+                "unitprice": 14.4,
+                "quantity": 15,
+                "discount": 0.0
+              },
+              {
+                "customerid": "OTTIK",
+                "companyname": "Ottilies Kseladen",
+                "contactname": "Henriette Pfalzheim",
+                "contacttitle": "Owner",
+                "address": "Mehrheimerstr. 369",
+                "city": "Kln",
+                "region": null,
+                "postalcode": "50739",
+                "country": "Germany",
+                "phone": "0221-0644327",
+                "fax": "0221-0765721",
+                "orderid": 10407,
+                "customerid__dup1": "OTTIK",
+                "employeeid": 2,
+                "orderdate": "1997-01-07T00:00:00",
+                "requireddate": "1997-02-04T00:00:00",
+                "shippeddate": "1997-01-30T00:00:00",
+                "shipvia": 2,
+                "freight": 91.48,
+                "shipname": "Ottilies Kseladen",
+                "shipaddress": "Mehrheimerstr. 369",
+                "shipcity": "Kln",
+                "shipregion": null,
+                "shippostalcode": "50739",
+                "shipcountry": "Germany",
+                "orderid__dup1": 10407,
+                "productid": 71,
+                "unitprice": 17.2,
+                "quantity": 15,
+                "discount": 0.0
+              },
+              {
+                "customerid": "VICTE",
+                "companyname": "Victuailles en stock",
+                "contactname": "Mary Saveley",
+                "contacttitle": "Sales Agent",
+                "address": "2, rue du Commerce",
+                "city": "Lyon",
+                "region": null,
+                "postalcode": "69004",
+                "country": "France",
+                "phone": "78.32.54.86",
+                "fax": "78.32.54.87",
+                "orderid": 10478,
+                "customerid__dup1": "VICTE",
+                "employeeid": 2,
+                "orderdate": "1997-03-18T00:00:00",
+                "requireddate": "1997-04-01T00:00:00",
+                "shippeddate": "1997-03-26T00:00:00",
+                "shipvia": 3,
+                "freight": 4.81,
+                "shipname": "Victuailles en stock",
+                "shipaddress": "2, rue du Commerce",
+                "shipcity": "Lyon",
+                "shipregion": null,
+                "shippostalcode": "69004",
+                "shipcountry": "France",
+                "orderid__dup1": 10478,
+                "productid": 10,
+                "unitprice": 24.8,
+                "quantity": 20,
+                "discount": 0.0
+              },
+              {
+                "customerid": "GODOS",
+                "companyname": "Godos Cocina Tpica",
+                "contactname": "Jos Pedro Freyre",
+                "contacttitle": "Sales Manager",
+                "address": "C/ Romero, 33",
+                "city": "Sevilla",
+                "region": null,
+                "postalcode": "41101",
+                "country": "Spain",
+                "phone": "(95) 555 82 82",
+                "fax": NaN,
+                "orderid": 10872,
+                "customerid__dup1": "GODOS",
+                "employeeid": 5,
+                "orderdate": "1998-02-05T00:00:00",
+                "requireddate": "1998-03-05T00:00:00",
+                "shippeddate": "1998-02-09T00:00:00",
+                "shipvia": 2,
+                "freight": 175.32,
+                "shipname": "Godos Cocina Tpica",
+                "shipaddress": "C/ Romero, 33",
+                "shipcity": "Sevilla",
+                "shipregion": null,
+                "shippostalcode": "41101",
+                "shipcountry": "Spain",
+                "orderid__dup1": 10872,
+                "productid": 65,
+                "unitprice": 21.05,
+                "quantity": 21,
+                "discount": 0.0
+              },
+              {
+                "customerid": "FURIB",
+                "companyname": "Furia Bacalhau e Frutos do Mar",
+                "contactname": "Lino Rodriguez",
+                "contacttitle": "Sales Manager",
+                "address": "Jardim das rosas n. 32",
+                "city": "Lisboa",
+                "region": null,
+                "postalcode": "1675",
+                "country": "Portugal",
+                "phone": "(1) 354-2534",
+                "fax": "(1) 354-2535",
+                "orderid": 10604,
+                "customerid__dup1": "FURIB",
+                "employeeid": 1,
+                "orderdate": "1997-07-18T00:00:00",
+                "requireddate": "1997-08-15T00:00:00",
+                "shippeddate": "1997-07-29T00:00:00",
+                "shipvia": 1,
+                "freight": 7.46,
+                "shipname": "Furia Bacalhau e Frutos do Mar",
+                "shipaddress": "Jardim das rosas n. 32",
+                "shipcity": "Lisboa",
+                "shipregion": null,
+                "shippostalcode": "1675",
+                "shipcountry": "Portugal",
+                "orderid__dup1": 10604,
+                "productid": 48,
+                "unitprice": 12.75,
+                "quantity": 6,
+                "discount": 0.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "strftime('%Y', o.shippeddate) = '1997'",
+          "sql": "SELECT *\nFROM customers c\nJOIN orders o ON c.customerid = o.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region = 'Western' OR c.region IS NULL) AND (strftime('%Y', o.shippeddate) = '1997')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 30,
+            "preview": [
+              {
+                "customerid": "OTTIK",
+                "companyname": "Ottilies Kseladen",
+                "contactname": "Henriette Pfalzheim",
+                "contacttitle": "Owner",
+                "address": "Mehrheimerstr. 369",
+                "city": "Kln",
+                "region": null,
+                "postalcode": "50739",
+                "country": "Germany",
+                "phone": "0221-0644327",
+                "fax": "0221-0765721",
+                "orderid": 10407,
+                "customerid__dup1": "OTTIK",
+                "employeeid": 2,
+                "orderdate": "1997-01-07T00:00:00",
+                "requireddate": "1997-02-04T00:00:00",
+                "shippeddate": "1997-01-30T00:00:00",
+                "shipvia": 2,
+                "freight": 91.48,
+                "shipname": "Ottilies Kseladen",
+                "shipaddress": "Mehrheimerstr. 369",
+                "shipcity": "Kln",
+                "shipregion": null,
+                "shippostalcode": "50739",
+                "shipcountry": "Germany",
+                "orderid__dup1": 10407,
+                "productid": 71,
+                "unitprice": 17.2,
+                "quantity": 15,
+                "discount": 0.0
+              },
+              {
+                "customerid": "VICTE",
+                "companyname": "Victuailles en stock",
+                "contactname": "Mary Saveley",
+                "contacttitle": "Sales Agent",
+                "address": "2, rue du Commerce",
+                "city": "Lyon",
+                "region": null,
+                "postalcode": "69004",
+                "country": "France",
+                "phone": "78.32.54.86",
+                "fax": "78.32.54.87",
+                "orderid": 10478,
+                "customerid__dup1": "VICTE",
+                "employeeid": 2,
+                "orderdate": "1997-03-18T00:00:00",
+                "requireddate": "1997-04-01T00:00:00",
+                "shippeddate": "1997-03-26T00:00:00",
+                "shipvia": 3,
+                "freight": 4.81,
+                "shipname": "Victuailles en stock",
+                "shipaddress": "2, rue du Commerce",
+                "shipcity": "Lyon",
+                "shipregion": null,
+                "shippostalcode": "69004",
+                "shipcountry": "France",
+                "orderid__dup1": 10478,
+                "productid": 10,
+                "unitprice": 24.8,
+                "quantity": 20,
+                "discount": 0.0
+              },
+              {
+                "customerid": "FURIB",
+                "companyname": "Furia Bacalhau e Frutos do Mar",
+                "contactname": "Lino Rodriguez",
+                "contacttitle": "Sales Manager",
+                "address": "Jardim das rosas n. 32",
+                "city": "Lisboa",
+                "region": null,
+                "postalcode": "1675",
+                "country": "Portugal",
+                "phone": "(1) 354-2534",
+                "fax": "(1) 354-2535",
+                "orderid": 10604,
+                "customerid__dup1": "FURIB",
+                "employeeid": 1,
+                "orderdate": "1997-07-18T00:00:00",
+                "requireddate": "1997-08-15T00:00:00",
+                "shippeddate": "1997-07-29T00:00:00",
+                "shipvia": 1,
+                "freight": 7.46,
+                "shipname": "Furia Bacalhau e Frutos do Mar",
+                "shipaddress": "Jardim das rosas n. 32",
+                "shipcity": "Lisboa",
+                "shipregion": null,
+                "shippostalcode": "1675",
+                "shipcountry": "Portugal",
+                "orderid__dup1": 10604,
+                "productid": 48,
+                "unitprice": 12.75,
+                "quantity": 6,
+                "discount": 0.0
+              },
+              {
+                "customerid": "LEHMS",
+                "companyname": "Lehmanns Marktstand",
+                "contactname": "Renate Messner",
+                "contacttitle": "Sales Representative",
+                "address": "Magazinweg 7",
+                "city": "Frankfurt a.M.",
+                "region": null,
+                "postalcode": "60528",
+                "country": "Germany",
+                "phone": "069-0245984",
+                "fax": "069-0245874",
+                "orderid": 10536,
+                "customerid__dup1": "LEHMS",
+                "employeeid": 3,
+                "orderdate": "1997-05-14T00:00:00",
+                "requireddate": "1997-06-11T00:00:00",
+                "shippeddate": "1997-06-06T00:00:00",
+                "shipvia": 2,
+                "freight": 58.88,
+                "shipname": "Lehmanns Marktstand",
+                "shipaddress": "Magazinweg 7",
+                "shipcity": "Frankfurt a.M.",
+                "shipregion": null,
+                "shippostalcode": "60528",
+                "shipcountry": "Germany",
+                "orderid__dup1": 10536,
+                "productid": 60,
+                "unitprice": 34.0,
+                "quantity": 35,
+                "discount": 0.0
+              },
+              {
+                "customerid": "ANTON",
+                "companyname": "Antonio Moreno Taquera",
+                "contactname": "Antonio Moreno",
+                "contacttitle": "Owner",
+                "address": "Mataderos  2312",
+                "city": "Mxico D.F.",
+                "region": null,
+                "postalcode": "05023",
+                "country": "Mexico",
+                "phone": "(5) 555-3932",
+                "fax": NaN,
+                "orderid": 10677,
+                "customerid__dup1": "ANTON",
+                "employeeid": 1,
+                "orderdate": "1997-09-22T00:00:00",
+                "requireddate": "1997-10-20T00:00:00",
+                "shippeddate": "1997-09-26T00:00:00",
+                "shipvia": 3,
+                "freight": 4.03,
+                "shipname": "Antonio Moreno Taquera",
+                "shipaddress": "Mataderos 2312",
+                "shipcity": "Mxico D.F.",
+                "shipregion": null,
+                "shippostalcode": "5023",
+                "shipcountry": "Mexico",
+                "orderid__dup1": 10677,
+                "productid": 26,
+                "unitprice": 31.23,
+                "quantity": 30,
+                "discount": 0.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT c.customerid, c.companyname, o.orderid, o.orderdate, o.shippeddate, od.unitprice, od.quantity, od.discount, (od.unitprice * od.quantity * (1 - od.discount)) AS order_revenue\nFROM customers c\nJOIN orders o ON c.customerid = o.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region = 'Western' OR c.region IS NULL) AND (strftime('%Y', o.shippeddate) = '1997')",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 33,
+            "column_count": 9,
+            "preview": [
+              {
+                "customerid": "OTTIK",
+                "companyname": "Ottilies Kseladen",
+                "orderid": 10407,
+                "orderdate": "1997-01-07T00:00:00",
+                "shippeddate": "1997-01-30T00:00:00",
+                "unitprice": 17.2,
+                "quantity": 15,
+                "discount": 0.0,
+                "order_revenue": 258.0
+              },
+              {
+                "customerid": "VICTE",
+                "companyname": "Victuailles en stock",
+                "orderid": 10478,
+                "orderdate": "1997-03-18T00:00:00",
+                "shippeddate": "1997-03-26T00:00:00",
+                "unitprice": 24.8,
+                "quantity": 20,
+                "discount": 0.0,
+                "order_revenue": 496.0
+              },
+              {
+                "customerid": "FURIB",
+                "companyname": "Furia Bacalhau e Frutos do Mar",
+                "orderid": 10604,
+                "orderdate": "1997-07-18T00:00:00",
+                "shippeddate": "1997-07-29T00:00:00",
+                "unitprice": 12.75,
+                "quantity": 6,
+                "discount": 0.0,
+                "order_revenue": 76.5
+              },
+              {
+                "customerid": "LEHMS",
+                "companyname": "Lehmanns Marktstand",
+                "orderid": 10536,
+                "orderdate": "1997-05-14T00:00:00",
+                "shippeddate": "1997-06-06T00:00:00",
+                "unitprice": 34.0,
+                "quantity": 35,
+                "discount": 0.0,
+                "order_revenue": 1190.0
+              },
+              {
+                "customerid": "ANTON",
+                "companyname": "Antonio Moreno Taquera",
+                "orderid": 10677,
+                "orderdate": "1997-09-22T00:00:00",
+                "shippeddate": "1997-09-26T00:00:00",
+                "unitprice": 31.23,
+                "quantity": 30,
+                "discount": 0.0,
+                "order_revenue": 936.9
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "total revenue from Western customers' orders shipped in 1997",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT c.customerid, c.companyname, o.orderid, o.orderdate, o.shippeddate, od.unitprice, od.quantity, od.discount, (od.unitprice * od.quantity * (1 - od.discount)) AS order_revenue\nFROM customers c\nJOIN orders o ON c.customerid = o.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region = 'Western' OR c.region IS NULL) AND (strftime('%Y', o.shippeddate) = '1997')) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 9,
+            "preview": [
+              {
+                "customerid": "OTTIK",
+                "companyname": "Ottilies Kseladen",
+                "orderid": 10407,
+                "orderdate": "1997-01-07T00:00:00",
+                "shippeddate": "1997-01-30T00:00:00",
+                "unitprice": 17.2,
+                "quantity": 15,
+                "discount": 0.0,
+                "order_revenue": 258.0
+              },
+              {
+                "customerid": "VICTE",
+                "companyname": "Victuailles en stock",
+                "orderid": 10478,
+                "orderdate": "1997-03-18T00:00:00",
+                "shippeddate": "1997-03-26T00:00:00",
+                "unitprice": 24.8,
+                "quantity": 20,
+                "discount": 0.0,
+                "order_revenue": 496.0
+              },
+              {
+                "customerid": "FURIB",
+                "companyname": "Furia Bacalhau e Frutos do Mar",
+                "orderid": 10604,
+                "orderdate": "1997-07-18T00:00:00",
+                "shippeddate": "1997-07-29T00:00:00",
+                "unitprice": 12.75,
+                "quantity": 6,
+                "discount": 0.0,
+                "order_revenue": 76.5
+              },
+              {
+                "customerid": "LEHMS",
+                "companyname": "Lehmanns Marktstand",
+                "orderid": 10536,
+                "orderdate": "1997-05-14T00:00:00",
+                "shippeddate": "1997-06-06T00:00:00",
+                "unitprice": 34.0,
+                "quantity": 35,
+                "discount": 0.0,
+                "order_revenue": 1190.0
+              },
+              {
+                "customerid": "ANTON",
+                "companyname": "Antonio Moreno Taquera",
+                "orderid": 10677,
+                "orderdate": "1997-09-22T00:00:00",
+                "shippeddate": "1997-09-26T00:00:00",
+                "unitprice": 31.23,
+                "quantity": 30,
+                "discount": 0.0,
+                "order_revenue": 936.9
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT SUM(leaf_1.order_revenue) AS total_revenue\nFROM (SELECT c.customerid, c.companyname, o.orderid, o.orderdate, o.shippeddate, od.unitprice, od.quantity, od.discount, (od.unitprice * od.quantity * (1 - od.discount)) AS order_revenue\nFROM customers c\nJOIN orders o ON c.customerid = o.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region = 'Western' OR c.region IS NULL) AND (strftime('%Y', o.shippeddate) = '1997')) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "total_revenue": 22988.55
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 16,
+  "sample_retry": 3,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.6215272727272727,
+    "nearest": {
+      "sample_index": 7,
+      "answer_mode": "aggregate",
+      "target_join_count": 2,
+      "similarity": 0.6215272727272727,
+      "sql": "SELECT AVG(subtotal + freight) AS avg_order_value\nFROM (SELECT c.customerid, c.companyname, o.orderid, o.orderdate, o.freight, SUM(od.unitprice * od.quantity) AS subtotal\nFROM customers c\nJOIN orders o ON c.customerid = o.customerid\nJOIN \"order details\" od ON o.orderid = od.orderid\nWHERE (c.region = 'Eastern' OR c.region IS NULL) AND (strftime('%Y', o.orderdate) = '1996')\nGROUP BY c.customerid, c.companyname, o.orderid, o.orderdate, o.freight) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 22988.55,
+    "nearest": {
+      "sample_index": 33,
+      "answer_mode": "aggregate",
+      "target_join_count": 4,
+      "numeric_answer": 26746.0,
+      "delta": 3757.4500000000007,
+      "sql": "SELECT SUM(leaf_1.order_value) AS total_revenue\nFROM (SELECT e.employeeid, e.firstname, e.lastname, o.orderid, o.shippeddate, SUM(od.quantity * od.unitprice) AS order_value\nFROM employees e\nJOIN orders o ON e.employeeid = o.employeeid\nJOIN \"order details\" od ON o.orderid = od.orderid\nJOIN employeeterritories et ON e.employeeid = et.employeeid\nJOIN territories t ON et.territoryid = t.territoryid\nWHERE (t.regionid = 2) AND (strftime('%Y', o.shippeddate) = '1997')\nGROUP BY e.employeeid, e.firstname, e.lastname, o.orderid, o.shippeddate) AS leaf_1"
+    },
+    "min_value": 7.0,
+    "tolerance": 3.0,
+    "reason": "ok"
+  },
+  "question": "What is the total revenue generated from orders shipped in 1997 to customers in the Western region or customers with no region specified?",
+  "answer": "22988.55"
+}

@@ -1,0 +1,1 @@
+SELECT m.firstname, m.lastname, c.charge_amt FROM charge AS c JOIN member AS m ON c.member_no = m.member_no JOIN category AS cat ON c.category_no = cat.category_no JOIN corporation AS corp ON m.corp_no = corp.corp_no JOIN region AS r ON corp.region_no = r.region_no WHERE (cat.category_desc = 'Lodging') ORDER BY charge_amt DESC LIMIT 1

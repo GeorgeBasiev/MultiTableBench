@@ -1,0 +1,1 @@
+SELECT s.stor_id, s.ord_num, s.ord_date, s.qty, s.payterms, t.title_id, t.title, t.price, ta.royaltyper, (s.qty * t.price) AS revenue FROM sales AS s JOIN titles AS t ON s.title_id = t.title_id JOIN titleauthor AS ta ON t.title_id = ta.title_id WHERE s.stor_id IN (SELECT stor_id FROM stores WHERE state = 'CA')

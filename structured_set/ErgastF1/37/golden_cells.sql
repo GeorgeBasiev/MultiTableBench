@@ -1,0 +1,1 @@
+SELECT r.year, r.round, c.name AS constructor_name, COUNT(p.stop) AS pit_stop_count FROM races r JOIN results re ON r.raceid = re.raceid JOIN constructors c ON re.constructorid = c.constructorid JOIN pitstops p ON r.raceid = p.raceid WHERE (r.year IN (SELECT DISTINCT ra.year FROM races ra)) GROUP BY r.year, r.round, c.name HAVING (COUNT(p.stop) > 0)

@@ -1,0 +1,9 @@
+SELECT AVG(leaf_1.gf)
+FROM (SELECT t.year, t.tmid, t.name, t.w, t.l, t.gf, t.ga, COUNT(DISTINCT a.coachid) AS all_star_coaches
+FROM teams AS t
+JOIN teamvsteam AS tvt ON t.tmid = tvt.tmid AND t.year = tvt.year
+JOIN coaches AS c ON t.tmid = c.tmid
+JOIN awardscoaches AS a ON c.coachid = a.coachid
+WHERE (t.confid = 'CC')
+GROUP BY t.year, t.tmid, t.name, t.w, t.l, t.gf, t.ga
+HAVING (COUNT(DISTINCT a.coachid) >= 1)) AS leaf_1

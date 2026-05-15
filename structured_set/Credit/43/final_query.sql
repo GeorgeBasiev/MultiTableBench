@@ -1,0 +1,8 @@
+SELECT SUM(leaf_1.charge_amt) AS total_charge_amount
+FROM ((SELECT c.charge_no, c.charge_amt, c.charge_dt, m.member_no, m.lastname, m.firstname, r.region_name AS member_region, corr.region_no AS corp_region_no
+FROM charge AS c
+JOIN member AS m ON c.member_no = m.member_no
+JOIN region AS r ON m.region_no = r.region_no
+JOIN corporation AS corr ON m.corp_no = corr.corp_no
+JOIN category AS cat ON c.category_no = cat.category_no
+WHERE (cat.category_desc IN ('Travel', 'Meals', 'Lodging')) AND (corr.region_no IN (2, 3, 4)))) AS leaf_1

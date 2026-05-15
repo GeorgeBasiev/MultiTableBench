@@ -1,0 +1,7 @@
+SELECT provider_name
+FROM (SELECT provider_name, total_charge FROM (SELECT p.provider_name, SUM(c.charge_amt) AS total_charge
+FROM charge c
+JOIN provider p ON c.provider_no = p.provider_no
+JOIN category cat ON c.category_no = cat.category_no
+WHERE (cat.category_desc = 'Meals')
+GROUP BY p.provider_name) ORDER BY total_charge DESC LIMIT 1) AS leaf_1

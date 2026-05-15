@@ -1,0 +1,3035 @@
+{
+  "sample_index": 30,
+  "db_name": "Hockey",
+  "answer_mode": "aggregate",
+  "target_join_count": 4,
+  "actual_join_count": 4,
+  "numeric_answer": 46.0,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 4,
+    "min_hops": 4,
+    "max_hops": 4,
+    "require_group_by": true,
+    "require_having": true,
+    "require_nested_subquery": true
+  },
+  "question_intent": "average number of games won by teams that have at least one coach who has won the Jack Adams award, and have played at least 10 games against teams in the Eastern Conference",
+  "manifest": {
+    "db_name": "Hockey",
+    "sample_dir": "structured_set/Hockey/30",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "abbrev",
+        "remote_row_count": 58,
+        "snapshot_row_count": 58,
+        "target_limit": 58,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "type",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "code",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fullname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardscoaches",
+        "remote_row_count": 77,
+        "snapshot_row_count": 69,
+        "target_limit": 69,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsmisc",
+        "remote_row_count": 124,
+        "snapshot_row_count": 94,
+        "target_limit": 94,
+        "relational_rows_added": 3,
+        "columns": [
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsplayers",
+        "remote_row_count": 2091,
+        "snapshot_row_count": 93,
+        "target_limit": 93,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "coaches",
+        "remote_row_count": 1812,
+        "snapshot_row_count": 111,
+        "target_limit": 111,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "combinedshutouts",
+        "remote_row_count": 54,
+        "snapshot_row_count": 54,
+        "target_limit": 54,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "month",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "date",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "r/p",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie1",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie2",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goalies",
+        "remote_row_count": 4278,
+        "snapshot_row_count": 105,
+        "target_limit": 105,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "min",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "l",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "t/ol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "eng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postmin",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posteng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliessc",
+        "remote_row_count": 31,
+        "snapshot_row_count": 31,
+        "target_limit": 31,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "min",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliesshootout",
+        "remote_row_count": 480,
+        "snapshot_row_count": 102,
+        "target_limit": 102,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "hof",
+        "remote_row_count": 365,
+        "snapshot_row_count": 108,
+        "target_limit": 108,
+        "relational_rows_added": 1,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "category",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "master",
+        "remote_row_count": 7761,
+        "snapshot_row_count": 97,
+        "target_limit": 97,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenote",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namegiven",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenick",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "height",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "weight",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shootcatch",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "legendsid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ihdbid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hrefid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoring",
+        "remote_row_count": 45967,
+        "snapshot_row_count": 100,
+        "target_limit": 100,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gtg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posta",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpts",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "post+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postshg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsc",
+        "remote_row_count": 284,
+        "snapshot_row_count": 101,
+        "target_limit": 101,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringshootout",
+        "remote_row_count": 2072,
+        "snapshot_row_count": 64,
+        "target_limit": 64,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "s",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gdg",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsup",
+        "remote_row_count": 137,
+        "snapshot_row_count": 61,
+        "target_limit": 61,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "seriespost",
+        "remote_row_count": 832,
+        "snapshot_row_count": 84,
+        "target_limit": 84,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "round",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "series",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalswinner",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalsloser",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teams",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 78,
+        "target_limit": 78,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "franchid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "confid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "divid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "playoff",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sow",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamshalf",
+        "remote_row_count": 41,
+        "snapshot_row_count": 41,
+        "target_limit": 41,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "half",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "teamsplits",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 83,
+        "target_limit": 83,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ht",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sept",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "dect",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "janw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "jant",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "febw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mart",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamspost",
+        "remote_row_count": 927,
+        "snapshot_row_count": 92,
+        "target_limit": 92,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamssc",
+        "remote_row_count": 30,
+        "snapshot_row_count": 30,
+        "target_limit": 30,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamvsteam",
+        "remote_row_count": 25602,
+        "snapshot_row_count": 61,
+        "target_limit": 61,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "average number of games won by teams that have at least one coach who has won the Jack Adams award, and have played at least 10 games against teams in the Eastern Conference",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT c.coachid, c.year, c.tmid, c.g, c.w, c.l, c.t, COUNT(DISTINCT a.award) AS jack_adams_awards, COUNT(DISTINCT tv.oppid) AS games_against_eastern_conf FROM coaches AS c JOIN awardscoaches AS a ON c.coachid = a.coachid JOIN teamvsteam AS tv ON c.tmid = tv.tmid AND c.year = tv.year JOIN teams AS ot ON tv.oppid = ot.tmid JOIN abbrev AS ca ON ot.confid = ca.code WHERE (ca.fullname = 'Eastern Conference') AND (tv.w >= 10) GROUP BY c.coachid, c.year, c.tmid, c.g, c.w, c.l, c.t HAVING (COUNT(DISTINCT a.award) >= 1)",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT c.coachid, c.year, c.tmid, c.g, c.w, c.l, c.t, COUNT(DISTINCT a.award) AS jack_adams_awards, COUNT(DISTINCT tv.oppid) AS games_against_eastern_conf",
+        "from_clause": "FROM coaches AS c",
+        "join_clauses": [
+          "JOIN awardscoaches AS a ON c.coachid = a.coachid",
+          "JOIN teamvsteam AS tv ON c.tmid = tv.tmid AND c.year = tv.year",
+          "JOIN teams AS ot ON tv.oppid = ot.tmid",
+          "JOIN abbrev AS ca ON ot.confid = ca.code"
+        ],
+        "where_clauses": [
+          "ca.fullname = 'Eastern Conference'",
+          "tv.w >= 10"
+        ],
+        "group_by_clause": "GROUP BY c.coachid, c.year, c.tmid, c.g, c.w, c.l, c.t",
+        "having_clauses": [
+          "COUNT(DISTINCT a.award) >= 1"
+        ],
+        "notes": "coaches with at least one Jack Adams award, and games against Eastern Conference teams with at least 10 wins"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT AVG(leaf_1.w) AS avg_games_won",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "average number of games won by coaches with at least one Jack Adams award, and have played at least 10 games against teams in the Eastern Conference"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "coaches with at least one Jack Adams award, and games against Eastern Conference teams with at least 10 wins",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM coaches AS c\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 14,
+            "preview": [
+              {
+                "coachid": "johnsma01c",
+                "year": 1973,
+                "tmid": "CLF",
+                "lgid": "NHL",
+                "stint": 2,
+                "notes": null,
+                "g": 21,
+                "w": 2,
+                "l": 17,
+                "t": 2,
+                "postg": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": NaN
+              },
+              {
+                "coachid": "babcomi01c",
+                "year": 2006,
+                "tmid": "DET",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 82,
+                "w": 50,
+                "l": 19,
+                "t": 13,
+                "postg": "18",
+                "postw": "10",
+                "postl": "8",
+                "postt": "0"
+              },
+              {
+                "coachid": "murrate01c",
+                "year": 1998,
+                "tmid": "FLO",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 82,
+                "w": 30,
+                "l": 34,
+                "t": 18,
+                "postg": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": NaN
+              },
+              {
+                "coachid": "ruelcl01c",
+                "year": 1979,
+                "tmid": "MTL",
+                "lgid": "NHL",
+                "stint": 2,
+                "notes": null,
+                "g": 50,
+                "w": 32,
+                "l": 11,
+                "t": 7,
+                "postg": "10",
+                "postw": "6",
+                "postl": "4",
+                "postt": "0"
+              },
+              {
+                "coachid": "dandule01c",
+                "year": 1923,
+                "tmid": "MTL",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 24,
+                "w": 13,
+                "l": 11,
+                "t": 0,
+                "postg": "6",
+                "postw": "6",
+                "postl": "0",
+                "postt": "0"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN awardscoaches AS a ON c.coachid = a.coachid",
+          "sql": "SELECT *\nFROM coaches AS c\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 19,
+            "preview": [
+              {
+                "coachid": "burnspa01c",
+                "year": 1988,
+                "tmid": "MTL",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 80,
+                "w": 53,
+                "l": 18,
+                "t": 9,
+                "postg": "21",
+                "postw": "14",
+                "postl": "7",
+                "postt": "0",
+                "coachid__dup1": "burnspa01c",
+                "award": "Jack Adams",
+                "year__dup1": 1988,
+                "lgid__dup1": "NHL",
+                "note": null
+              },
+              {
+                "coachid": "burnspa01c",
+                "year": 1998,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 82,
+                "w": 39,
+                "l": 30,
+                "t": 13,
+                "postg": "12",
+                "postw": "6",
+                "postl": "6",
+                "postt": "0",
+                "coachid__dup1": "burnspa01c",
+                "award": "Jack Adams",
+                "year__dup1": 1988,
+                "lgid__dup1": "NHL",
+                "note": null
+              },
+              {
+                "coachid": "keenami01c",
+                "year": 1985,
+                "tmid": "PHI",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 80,
+                "w": 53,
+                "l": 23,
+                "t": 4,
+                "postg": "5",
+                "postw": "2",
+                "postl": "3",
+                "postt": "0",
+                "coachid__dup1": "keenami01c",
+                "award": "Jack Adams",
+                "year__dup1": 1984,
+                "lgid__dup1": "NHL",
+                "note": null
+              },
+              {
+                "coachid": "keenami01c",
+                "year": 2001,
+                "tmid": "FLO",
+                "lgid": "NHL",
+                "stint": 2,
+                "notes": null,
+                "g": 56,
+                "w": 16,
+                "l": 32,
+                "t": 8,
+                "postg": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": NaN,
+                "coachid__dup1": "keenami01c",
+                "award": "Jack Adams",
+                "year__dup1": 1984,
+                "lgid__dup1": "NHL",
+                "note": null
+              },
+              {
+                "coachid": "keenami01c",
+                "year": 2007,
+                "tmid": "CAL",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 82,
+                "w": 42,
+                "l": 30,
+                "t": 10,
+                "postg": "7",
+                "postw": "3",
+                "postl": "4",
+                "postt": "0",
+                "coachid__dup1": "keenami01c",
+                "award": "Jack Adams",
+                "year__dup1": 1984,
+                "lgid__dup1": "NHL",
+                "note": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN teamvsteam AS tv ON c.tmid = tv.tmid AND c.year = tv.year",
+          "sql": "SELECT *\nFROM coaches AS c\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nJOIN teamvsteam AS tv ON c.tmid = tv.tmid AND c.year = tv.year\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 4,
+            "column_count": 27,
+            "preview": [
+              {
+                "coachid": "boudrbr01c",
+                "year": 2011,
+                "tmid": "WAS",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 22,
+                "w": 12,
+                "l": 9,
+                "t": 1,
+                "postg": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": NaN,
+                "coachid__dup1": "boudrbr01c",
+                "award": "Jack Adams",
+                "year__dup1": 2007,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "year__dup2": 2011,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "WAS",
+                "oppid": "CAL",
+                "w__dup1": 1,
+                "l__dup1": 0,
+                "t__dup1": NaN,
+                "otl": "0"
+              },
+              {
+                "coachid": "nolante01c",
+                "year": 2007,
+                "tmid": "NYI",
+                "lgid": "NHL",
+                "stint": 3,
+                "notes": null,
+                "g": 71,
+                "w": 28,
+                "l": 34,
+                "t": 9,
+                "postg": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": NaN,
+                "coachid__dup1": "nolante01c",
+                "award": "Jack Adams",
+                "year__dup1": 1996,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "year__dup2": 2007,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "NYI",
+                "oppid": "SJS",
+                "w__dup1": 1,
+                "l__dup1": 0,
+                "t__dup1": NaN,
+                "otl": "0"
+              },
+              {
+                "coachid": "murrabr01c",
+                "year": 1984,
+                "tmid": "WAS",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 80,
+                "w": 46,
+                "l": 25,
+                "t": 9,
+                "postg": "5",
+                "postw": "2",
+                "postl": "3",
+                "postt": "0",
+                "coachid__dup1": "murrabr01c",
+                "award": "Jack Adams",
+                "year__dup1": 1983,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "year__dup2": 1984,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "WAS",
+                "oppid": "PHI",
+                "w__dup1": 1,
+                "l__dup1": 5,
+                "t__dup1": 1.0,
+                "otl": NaN
+              },
+              {
+                "coachid": "keenami01c",
+                "year": 2007,
+                "tmid": "CAL",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 82,
+                "w": 42,
+                "l": 30,
+                "t": 10,
+                "postg": "7",
+                "postw": "3",
+                "postl": "4",
+                "postt": "0",
+                "coachid__dup1": "keenami01c",
+                "award": "Jack Adams",
+                "year__dup1": 1984,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "year__dup2": 2007,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "CAL",
+                "oppid": "STL",
+                "w__dup1": 3,
+                "l__dup1": 1,
+                "t__dup1": NaN,
+                "otl": "0"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN teams AS ot ON tv.oppid = ot.tmid",
+          "sql": "SELECT *\nFROM coaches AS c\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nJOIN teamvsteam AS tv ON c.tmid = tv.tmid AND c.year = tv.year\nJOIN teams AS ot ON tv.oppid = ot.tmid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 54,
+            "preview": [
+              {
+                "coachid": "boudrbr01c",
+                "year": 2011,
+                "tmid": "WAS",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 22,
+                "w": 12,
+                "l": 9,
+                "t": 1,
+                "postg": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": NaN,
+                "coachid__dup1": "boudrbr01c",
+                "award": "Jack Adams",
+                "year__dup1": 2007,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "year__dup2": 2011,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "WAS",
+                "oppid": "CAL",
+                "w__dup1": 1,
+                "l__dup1": 0,
+                "t__dup1": NaN,
+                "otl": "0",
+                "year__dup3": 1997,
+                "lgid__dup3": "NHL",
+                "tmid__dup2": "CAL",
+                "franchid": "CAL",
+                "confid": "WC",
+                "divid": "PC",
+                "rank": 5,
+                "playoff": NaN,
+                "g__dup1": 82,
+                "w__dup2": 26,
+                "l__dup2": 41,
+                "t__dup2": 15.0,
+                "otl__dup1": NaN,
+                "pts": 67,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 217,
+                "ga": 252,
+                "name": "Calgary Flames",
+                "pim": "1859",
+                "benchminor": "10",
+                "ppg": "43",
+                "ppc": "356",
+                "sha": "13",
+                "pkg": "69",
+                "pkc": "430",
+                "shf": "18"
+              },
+              {
+                "coachid": "nolante01c",
+                "year": 2007,
+                "tmid": "NYI",
+                "lgid": "NHL",
+                "stint": 3,
+                "notes": null,
+                "g": 71,
+                "w": 28,
+                "l": 34,
+                "t": 9,
+                "postg": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": NaN,
+                "coachid__dup1": "nolante01c",
+                "award": "Jack Adams",
+                "year__dup1": 1996,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "year__dup2": 2007,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "NYI",
+                "oppid": "SJS",
+                "w__dup1": 1,
+                "l__dup1": 0,
+                "t__dup1": NaN,
+                "otl": "0",
+                "year__dup3": 2005,
+                "lgid__dup3": "NHL",
+                "tmid__dup2": "SJS",
+                "franchid": "SJS",
+                "confid": "WC",
+                "divid": "PC",
+                "rank": 2,
+                "playoff": "CSF",
+                "g__dup1": 82,
+                "w__dup2": 44,
+                "l__dup2": 27,
+                "t__dup2": NaN,
+                "otl__dup1": "11",
+                "pts": 99,
+                "sow": "1",
+                "sol": "7",
+                "gf": 266,
+                "ga": 242,
+                "name": "San Jose Sharks",
+                "pim": "1058",
+                "benchminor": "14",
+                "ppg": "91",
+                "ppc": "500",
+                "sha": "11",
+                "pkg": "77",
+                "pkc": "399",
+                "shf": "10"
+              },
+              {
+                "coachid": "murrabr01c",
+                "year": 1984,
+                "tmid": "WAS",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 80,
+                "w": 46,
+                "l": 25,
+                "t": 9,
+                "postg": "5",
+                "postw": "2",
+                "postl": "3",
+                "postt": "0",
+                "coachid__dup1": "murrabr01c",
+                "award": "Jack Adams",
+                "year__dup1": 1983,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "year__dup2": 1984,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "WAS",
+                "oppid": "PHI",
+                "w__dup1": 1,
+                "l__dup1": 5,
+                "t__dup1": 1.0,
+                "otl": NaN,
+                "year__dup3": 2007,
+                "lgid__dup3": "NHL",
+                "tmid__dup2": "PHI",
+                "franchid": "PHI",
+                "confid": "EC",
+                "divid": "AT",
+                "rank": 4,
+                "playoff": "CF",
+                "g__dup1": 82,
+                "w__dup2": 42,
+                "l__dup2": 29,
+                "t__dup2": NaN,
+                "otl__dup1": "11",
+                "pts": 95,
+                "sow": "3",
+                "sol": "6",
+                "gf": 248,
+                "ga": 233,
+                "name": "Philadelphia Flyers",
+                "pim": "1471",
+                "benchminor": "14",
+                "ppg": "84",
+                "ppc": "385",
+                "sha": "6",
+                "pkg": "65",
+                "pkc": "388",
+                "shf": "13"
+              },
+              {
+                "coachid": "keenami01c",
+                "year": 2007,
+                "tmid": "CAL",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 82,
+                "w": 42,
+                "l": 30,
+                "t": 10,
+                "postg": "7",
+                "postw": "3",
+                "postl": "4",
+                "postt": "0",
+                "coachid__dup1": "keenami01c",
+                "award": "Jack Adams",
+                "year__dup1": 1984,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "year__dup2": 2007,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "CAL",
+                "oppid": "STL",
+                "w__dup1": 3,
+                "l__dup1": 1,
+                "t__dup1": NaN,
+                "otl": "0",
+                "year__dup3": 1974,
+                "lgid__dup3": "NHL",
+                "tmid__dup2": "STL",
+                "franchid": "STL",
+                "confid": "CC",
+                "divid": "SM",
+                "rank": 2,
+                "playoff": "PRE",
+                "g__dup1": 80,
+                "w__dup2": 35,
+                "l__dup2": 31,
+                "t__dup2": 14.0,
+                "otl__dup1": NaN,
+                "pts": 84,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 269,
+                "ga": 267,
+                "name": "St. Louis Blues",
+                "pim": "1275",
+                "benchminor": "14",
+                "ppg": "50",
+                "ppc": "286",
+                "sha": "5",
+                "pkg": "77",
+                "pkc": "329",
+                "shf": "6"
+              },
+              {
+                "coachid": "keenami01c",
+                "year": 2007,
+                "tmid": "CAL",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 82,
+                "w": 42,
+                "l": 30,
+                "t": 10,
+                "postg": "7",
+                "postw": "3",
+                "postl": "4",
+                "postt": "0",
+                "coachid__dup1": "keenami01c",
+                "award": "Jack Adams",
+                "year__dup1": 1984,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "year__dup2": 2007,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "CAL",
+                "oppid": "STL",
+                "w__dup1": 3,
+                "l__dup1": 1,
+                "t__dup1": NaN,
+                "otl": "0",
+                "year__dup3": 1975,
+                "lgid__dup3": "NHL",
+                "tmid__dup2": "STL",
+                "franchid": "STL",
+                "confid": "CC",
+                "divid": "SM",
+                "rank": 3,
+                "playoff": "PRE",
+                "g__dup1": 80,
+                "w__dup2": 29,
+                "l__dup2": 37,
+                "t__dup2": 14.0,
+                "otl__dup1": NaN,
+                "pts": 72,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 249,
+                "ga": 290,
+                "name": "St. Louis Blues",
+                "pim": "1274",
+                "benchminor": "16",
+                "ppg": "55",
+                "ppc": "298",
+                "sha": "3",
+                "pkg": "98",
+                "pkc": "376",
+                "shf": "21"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN abbrev AS ca ON ot.confid = ca.code",
+          "sql": "SELECT *\nFROM coaches AS c\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nJOIN teamvsteam AS tv ON c.tmid = tv.tmid AND c.year = tv.year\nJOIN teams AS ot ON tv.oppid = ot.tmid\nJOIN abbrev AS ca ON ot.confid = ca.code\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 57,
+            "preview": [
+              {
+                "coachid": "boudrbr01c",
+                "year": 2011,
+                "tmid": "WAS",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 22,
+                "w": 12,
+                "l": 9,
+                "t": 1,
+                "postg": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": NaN,
+                "coachid__dup1": "boudrbr01c",
+                "award": "Jack Adams",
+                "year__dup1": 2007,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "year__dup2": 2011,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "WAS",
+                "oppid": "CAL",
+                "w__dup1": 1,
+                "l__dup1": 0,
+                "t__dup1": NaN,
+                "otl": "0",
+                "year__dup3": 1997,
+                "lgid__dup3": "NHL",
+                "tmid__dup2": "CAL",
+                "franchid": "CAL",
+                "confid": "WC",
+                "divid": "PC",
+                "rank": 5,
+                "playoff": NaN,
+                "g__dup1": 82,
+                "w__dup2": 26,
+                "l__dup2": 41,
+                "t__dup2": 15.0,
+                "otl__dup1": NaN,
+                "pts": 67,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 217,
+                "ga": 252,
+                "name": "Calgary Flames",
+                "pim": "1859",
+                "benchminor": "10",
+                "ppg": "43",
+                "ppc": "356",
+                "sha": "13",
+                "pkg": "69",
+                "pkc": "430",
+                "shf": "18",
+                "type": "Conference",
+                "code": "WC",
+                "fullname": "Western Conference"
+              },
+              {
+                "coachid": "nolante01c",
+                "year": 2007,
+                "tmid": "NYI",
+                "lgid": "NHL",
+                "stint": 3,
+                "notes": null,
+                "g": 71,
+                "w": 28,
+                "l": 34,
+                "t": 9,
+                "postg": NaN,
+                "postw": NaN,
+                "postl": NaN,
+                "postt": NaN,
+                "coachid__dup1": "nolante01c",
+                "award": "Jack Adams",
+                "year__dup1": 1996,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "year__dup2": 2007,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "NYI",
+                "oppid": "SJS",
+                "w__dup1": 1,
+                "l__dup1": 0,
+                "t__dup1": NaN,
+                "otl": "0",
+                "year__dup3": 2005,
+                "lgid__dup3": "NHL",
+                "tmid__dup2": "SJS",
+                "franchid": "SJS",
+                "confid": "WC",
+                "divid": "PC",
+                "rank": 2,
+                "playoff": "CSF",
+                "g__dup1": 82,
+                "w__dup2": 44,
+                "l__dup2": 27,
+                "t__dup2": NaN,
+                "otl__dup1": "11",
+                "pts": 99,
+                "sow": "1",
+                "sol": "7",
+                "gf": 266,
+                "ga": 242,
+                "name": "San Jose Sharks",
+                "pim": "1058",
+                "benchminor": "14",
+                "ppg": "91",
+                "ppc": "500",
+                "sha": "11",
+                "pkg": "77",
+                "pkc": "399",
+                "shf": "10",
+                "type": "Conference",
+                "code": "WC",
+                "fullname": "Western Conference"
+              },
+              {
+                "coachid": "murrabr01c",
+                "year": 1984,
+                "tmid": "WAS",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 80,
+                "w": 46,
+                "l": 25,
+                "t": 9,
+                "postg": "5",
+                "postw": "2",
+                "postl": "3",
+                "postt": "0",
+                "coachid__dup1": "murrabr01c",
+                "award": "Jack Adams",
+                "year__dup1": 1983,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "year__dup2": 1984,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "WAS",
+                "oppid": "PHI",
+                "w__dup1": 1,
+                "l__dup1": 5,
+                "t__dup1": 1.0,
+                "otl": NaN,
+                "year__dup3": 2007,
+                "lgid__dup3": "NHL",
+                "tmid__dup2": "PHI",
+                "franchid": "PHI",
+                "confid": "EC",
+                "divid": "AT",
+                "rank": 4,
+                "playoff": "CF",
+                "g__dup1": 82,
+                "w__dup2": 42,
+                "l__dup2": 29,
+                "t__dup2": NaN,
+                "otl__dup1": "11",
+                "pts": 95,
+                "sow": "3",
+                "sol": "6",
+                "gf": 248,
+                "ga": 233,
+                "name": "Philadelphia Flyers",
+                "pim": "1471",
+                "benchminor": "14",
+                "ppg": "84",
+                "ppc": "385",
+                "sha": "6",
+                "pkg": "65",
+                "pkc": "388",
+                "shf": "13",
+                "type": "Conference",
+                "code": "EC",
+                "fullname": "Eastern Conference"
+              },
+              {
+                "coachid": "keenami01c",
+                "year": 2007,
+                "tmid": "CAL",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 82,
+                "w": 42,
+                "l": 30,
+                "t": 10,
+                "postg": "7",
+                "postw": "3",
+                "postl": "4",
+                "postt": "0",
+                "coachid__dup1": "keenami01c",
+                "award": "Jack Adams",
+                "year__dup1": 1984,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "year__dup2": 2007,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "CAL",
+                "oppid": "STL",
+                "w__dup1": 3,
+                "l__dup1": 1,
+                "t__dup1": NaN,
+                "otl": "0",
+                "year__dup3": 1974,
+                "lgid__dup3": "NHL",
+                "tmid__dup2": "STL",
+                "franchid": "STL",
+                "confid": "CC",
+                "divid": "SM",
+                "rank": 2,
+                "playoff": "PRE",
+                "g__dup1": 80,
+                "w__dup2": 35,
+                "l__dup2": 31,
+                "t__dup2": 14.0,
+                "otl__dup1": NaN,
+                "pts": 84,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 269,
+                "ga": 267,
+                "name": "St. Louis Blues",
+                "pim": "1275",
+                "benchminor": "14",
+                "ppg": "50",
+                "ppc": "286",
+                "sha": "5",
+                "pkg": "77",
+                "pkc": "329",
+                "shf": "6",
+                "type": "Conference",
+                "code": "CC",
+                "fullname": "Campbell Conference"
+              },
+              {
+                "coachid": "keenami01c",
+                "year": 2007,
+                "tmid": "CAL",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 82,
+                "w": 42,
+                "l": 30,
+                "t": 10,
+                "postg": "7",
+                "postw": "3",
+                "postl": "4",
+                "postt": "0",
+                "coachid__dup1": "keenami01c",
+                "award": "Jack Adams",
+                "year__dup1": 1984,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "year__dup2": 2007,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "CAL",
+                "oppid": "STL",
+                "w__dup1": 3,
+                "l__dup1": 1,
+                "t__dup1": NaN,
+                "otl": "0",
+                "year__dup3": 1975,
+                "lgid__dup3": "NHL",
+                "tmid__dup2": "STL",
+                "franchid": "STL",
+                "confid": "CC",
+                "divid": "SM",
+                "rank": 3,
+                "playoff": "PRE",
+                "g__dup1": 80,
+                "w__dup2": 29,
+                "l__dup2": 37,
+                "t__dup2": 14.0,
+                "otl__dup1": NaN,
+                "pts": 72,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 249,
+                "ga": 290,
+                "name": "St. Louis Blues",
+                "pim": "1274",
+                "benchminor": "16",
+                "ppg": "55",
+                "ppc": "298",
+                "sha": "3",
+                "pkg": "98",
+                "pkc": "376",
+                "shf": "21",
+                "type": "Conference",
+                "code": "CC",
+                "fullname": "Campbell Conference"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "ca.fullname = 'Eastern Conference'",
+          "sql": "SELECT *\nFROM coaches AS c\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nJOIN teamvsteam AS tv ON c.tmid = tv.tmid AND c.year = tv.year\nJOIN teams AS ot ON tv.oppid = ot.tmid\nJOIN abbrev AS ca ON ot.confid = ca.code\nWHERE (ca.fullname = 'Eastern Conference')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 57,
+            "preview": [
+              {
+                "coachid": "murrabr01c",
+                "year": 1984,
+                "tmid": "WAS",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 80,
+                "w": 46,
+                "l": 25,
+                "t": 9,
+                "postg": "5",
+                "postw": "2",
+                "postl": "3",
+                "postt": "0",
+                "coachid__dup1": "murrabr01c",
+                "award": "Jack Adams",
+                "year__dup1": 1983,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "year__dup2": 1984,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "WAS",
+                "oppid": "PHI",
+                "w__dup1": 1,
+                "l__dup1": 5,
+                "t__dup1": 1,
+                "otl": null,
+                "year__dup3": 2007,
+                "lgid__dup3": "NHL",
+                "tmid__dup2": "PHI",
+                "franchid": "PHI",
+                "confid": "EC",
+                "divid": "AT",
+                "rank": 4,
+                "playoff": "CF",
+                "g__dup1": 82,
+                "w__dup2": 42,
+                "l__dup2": 29,
+                "t__dup2": null,
+                "otl__dup1": "11",
+                "pts": 95,
+                "sow": "3",
+                "sol": "6",
+                "gf": 248,
+                "ga": 233,
+                "name": "Philadelphia Flyers",
+                "pim": "1471",
+                "benchminor": "14",
+                "ppg": "84",
+                "ppc": "385",
+                "sha": "6",
+                "pkg": "65",
+                "pkc": "388",
+                "shf": "13",
+                "type": "Conference",
+                "code": "EC",
+                "fullname": "Eastern Conference"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "tv.w >= 10",
+          "sql": "SELECT *\nFROM coaches AS c\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nJOIN teamvsteam AS tv ON c.tmid = tv.tmid AND c.year = tv.year\nJOIN teams AS ot ON tv.oppid = ot.tmid\nJOIN abbrev AS ca ON ot.confid = ca.code\nWHERE (ca.fullname = 'Eastern Conference') AND (tv.w >= 10)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 57,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "tv.w >= 0",
+          "sql": "SELECT *\nFROM coaches AS c\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nJOIN teamvsteam AS tv ON c.tmid = tv.tmid AND c.year = tv.year\nJOIN teams AS ot ON tv.oppid = ot.tmid\nJOIN abbrev AS ca ON ot.confid = ca.code\nWHERE (ca.fullname = 'Eastern Conference') AND (tv.w >= 0)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 57,
+            "preview": [
+              {
+                "coachid": "murrabr01c",
+                "year": 1984,
+                "tmid": "WAS",
+                "lgid": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g": 80,
+                "w": 46,
+                "l": 25,
+                "t": 9,
+                "postg": "5",
+                "postw": "2",
+                "postl": "3",
+                "postt": "0",
+                "coachid__dup1": "murrabr01c",
+                "award": "Jack Adams",
+                "year__dup1": 1983,
+                "lgid__dup1": "NHL",
+                "note": null,
+                "year__dup2": 1984,
+                "lgid__dup2": "NHL",
+                "tmid__dup1": "WAS",
+                "oppid": "PHI",
+                "w__dup1": 1,
+                "l__dup1": 5,
+                "t__dup1": 1,
+                "otl": null,
+                "year__dup3": 2007,
+                "lgid__dup3": "NHL",
+                "tmid__dup2": "PHI",
+                "franchid": "PHI",
+                "confid": "EC",
+                "divid": "AT",
+                "rank": 4,
+                "playoff": "CF",
+                "g__dup1": 82,
+                "w__dup2": 42,
+                "l__dup2": 29,
+                "t__dup2": null,
+                "otl__dup1": "11",
+                "pts": 95,
+                "sow": "3",
+                "sol": "6",
+                "gf": 248,
+                "ga": 233,
+                "name": "Philadelphia Flyers",
+                "pim": "1471",
+                "benchminor": "14",
+                "ppg": "84",
+                "ppc": "385",
+                "sha": "6",
+                "pkg": "65",
+                "pkc": "388",
+                "shf": "13",
+                "type": "Conference",
+                "code": "EC",
+                "fullname": "Eastern Conference"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "having",
+          "clause": "COUNT(DISTINCT a.award) >= 1",
+          "sql": "SELECT c.coachid, c.year, c.tmid, c.g, c.w, c.l, c.t, COUNT(DISTINCT a.award) AS jack_adams_awards, COUNT(DISTINCT tv.oppid) AS games_against_eastern_conf\nFROM coaches AS c\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nJOIN teamvsteam AS tv ON c.tmid = tv.tmid AND c.year = tv.year\nJOIN teams AS ot ON tv.oppid = ot.tmid\nJOIN abbrev AS ca ON ot.confid = ca.code\nWHERE (ca.fullname = 'Eastern Conference') AND (tv.w >= 0)\nGROUP BY c.coachid, c.year, c.tmid, c.g, c.w, c.l, c.t\nHAVING (COUNT(DISTINCT a.award) >= 1)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 9,
+            "preview": [
+              {
+                "coachid": "murrabr01c",
+                "year": 1984,
+                "tmid": "WAS",
+                "g": 80,
+                "w": 46,
+                "l": 25,
+                "t": 9,
+                "jack_adams_awards": 1,
+                "games_against_eastern_conf": 1
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT c.coachid, c.year, c.tmid, c.g, c.w, c.l, c.t, COUNT(DISTINCT a.award) AS jack_adams_awards, COUNT(DISTINCT tv.oppid) AS games_against_eastern_conf\nFROM coaches AS c\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nJOIN teamvsteam AS tv ON c.tmid = tv.tmid AND c.year = tv.year\nJOIN teams AS ot ON tv.oppid = ot.tmid\nJOIN abbrev AS ca ON ot.confid = ca.code\nWHERE (ca.fullname = 'Eastern Conference') AND (tv.w >= 0)\nGROUP BY c.coachid, c.year, c.tmid, c.g, c.w, c.l, c.t\nHAVING (COUNT(DISTINCT a.award) >= 1)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 9,
+            "preview": [
+              {
+                "coachid": "murrabr01c",
+                "year": 1984,
+                "tmid": "WAS",
+                "g": 80,
+                "w": 46,
+                "l": 25,
+                "t": 9,
+                "jack_adams_awards": 1,
+                "games_against_eastern_conf": 1
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "average number of games won by coaches with at least one Jack Adams award, and have played at least 10 games against teams in the Eastern Conference",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT c.coachid, c.year, c.tmid, c.g, c.w, c.l, c.t, COUNT(DISTINCT a.award) AS jack_adams_awards, COUNT(DISTINCT tv.oppid) AS games_against_eastern_conf\nFROM coaches AS c\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nJOIN teamvsteam AS tv ON c.tmid = tv.tmid AND c.year = tv.year\nJOIN teams AS ot ON tv.oppid = ot.tmid\nJOIN abbrev AS ca ON ot.confid = ca.code\nWHERE (ca.fullname = 'Eastern Conference') AND (tv.w >= 0)\nGROUP BY c.coachid, c.year, c.tmid, c.g, c.w, c.l, c.t\nHAVING (COUNT(DISTINCT a.award) >= 1)) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 9,
+            "preview": [
+              {
+                "coachid": "murrabr01c",
+                "year": 1984,
+                "tmid": "WAS",
+                "g": 80,
+                "w": 46,
+                "l": 25,
+                "t": 9,
+                "jack_adams_awards": 1,
+                "games_against_eastern_conf": 1
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT AVG(leaf_1.w) AS avg_games_won\nFROM (SELECT c.coachid, c.year, c.tmid, c.g, c.w, c.l, c.t, COUNT(DISTINCT a.award) AS jack_adams_awards, COUNT(DISTINCT tv.oppid) AS games_against_eastern_conf\nFROM coaches AS c\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nJOIN teamvsteam AS tv ON c.tmid = tv.tmid AND c.year = tv.year\nJOIN teams AS ot ON tv.oppid = ot.tmid\nJOIN abbrev AS ca ON ot.confid = ca.code\nWHERE (ca.fullname = 'Eastern Conference') AND (tv.w >= 0)\nGROUP BY c.coachid, c.year, c.tmid, c.g, c.w, c.l, c.t\nHAVING (COUNT(DISTINCT a.award) >= 1)) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "avg_games_won": 46.0
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 8,
+  "sample_retry": 1,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.5428050314465409,
+    "nearest": {
+      "sample_index": 28,
+      "answer_mode": "aggregate",
+      "target_join_count": 4,
+      "similarity": 0.5428050314465409,
+      "sql": "SELECT AVG(leaf_1.gf)\nFROM (SELECT t.tmid, t.year, t.name, t.w, t.gf, COUNT(DISTINCT c.coachid) AS all_star_coaches\nFROM teams AS t\nJOIN teamvsteam AS tvt ON t.tmid = tvt.tmid AND t.year = tvt.year\nJOIN coaches AS c ON t.tmid = c.tmid\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nJOIN abbrev AS ab ON t.confid = ab.code\nWHERE (ab.code = 'EC' OR ab.code = 'WA')\nGROUP BY t.tmid, t.year, t.name, t.w, t.gf\nHAVING (COUNT(DISTINCT c.coachid) >= 1)) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 46.0,
+    "nearest": {
+      "sample_index": 25,
+      "answer_mode": "aggregate",
+      "target_join_count": 4,
+      "numeric_answer": 33.333333333333336,
+      "delta": 12.666666666666664,
+      "sql": "SELECT AVG(leaf_1.games_won)\nFROM (SELECT t.tmid AS team_id, t.w AS games_won, COUNT(tv.oppid) AS games_lost\nFROM teams AS t\nJOIN teamvsteam AS tv ON t.tmid = tv.tmid\nJOIN teams AS ot ON tv.oppid = ot.tmid\nJOIN abbrev AS ca ON t.confid = ca.code\nJOIN abbrev AS oa ON ot.confid = oa.code\nWHERE (ca.fullname = 'Campbell Conference') AND (oa.fullname = 'Eastern Conference') AND (tv.l < 10)\nGROUP BY t.tmid, t.w\nHAVING (COUNT(tv.oppid) > 0)) AS leaf_1"
+    },
+    "min_value": 7.0,
+    "tolerance": 3.0,
+    "reason": "ok"
+  },
+  "question": "What is the average number of games won by coaches who have received at least one Jack Adams Award and coached at least one game against a team from the Eastern Conference?",
+  "answer": "46"
+}

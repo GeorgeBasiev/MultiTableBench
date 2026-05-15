@@ -1,0 +1,1576 @@
+{
+  "sample_index": 33,
+  "db_name": "ErgastF1",
+  "answer_mode": "aggregate",
+  "target_join_count": 4,
+  "actual_join_count": 4,
+  "numeric_answer": 81375.0,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 4,
+    "min_hops": 4,
+    "max_hops": 4,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "average lap time for drivers from the UK who have won at least one race, excluding races in the UK",
+  "manifest": {
+    "db_name": "ErgastF1",
+    "sample_dir": "structured_set/ErgastF1/33",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "circuits",
+        "remote_row_count": 73,
+        "snapshot_row_count": 73,
+        "target_limit": 73,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "circuitid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "circuitref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "location",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "country",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lat",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "lng",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "alt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructorresults",
+        "remote_row_count": 11082,
+        "snapshot_row_count": 90,
+        "target_limit": 90,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "constructorresultsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "status",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructors",
+        "remote_row_count": 208,
+        "snapshot_row_count": 119,
+        "target_limit": 119,
+        "relational_rows_added": 39,
+        "columns": [
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "nationality",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "constructorstandings",
+        "remote_row_count": 11836,
+        "snapshot_row_count": 64,
+        "target_limit": 64,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "constructorstandingsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "wins",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "drivers",
+        "remote_row_count": 840,
+        "snapshot_row_count": 110,
+        "target_limit": 110,
+        "relational_rows_added": 670,
+        "columns": [
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverref",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "code",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "forename",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "surname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "dob",
+            "mysql_type": "date",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "nationality",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "driverstandings",
+        "remote_row_count": 31578,
+        "snapshot_row_count": 106,
+        "target_limit": 106,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "driverstandingsid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "wins",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "laptimes",
+        "remote_row_count": 420369,
+        "snapshot_row_count": 87,
+        "target_limit": 87,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "pitstops",
+        "remote_row_count": 6070,
+        "snapshot_row_count": 108,
+        "target_limit": 108,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stop",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "time",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "duration",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "qualifying",
+        "remote_row_count": 7397,
+        "snapshot_row_count": 79,
+        "target_limit": 79,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "qualifyid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "q1",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "q2",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "q3",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "races",
+        "remote_row_count": 976,
+        "snapshot_row_count": 110,
+        "target_limit": 110,
+        "relational_rows_added": 1673,
+        "columns": [
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "round",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "circuitid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "date",
+            "mysql_type": "date",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "time",
+            "mysql_type": "time",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "results",
+        "remote_row_count": 23657,
+        "snapshot_row_count": 94,
+        "target_limit": 94,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "resultid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "constructorid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "number",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "grid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "position",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "positiontext",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "positionorder",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "points",
+            "mysql_type": "float",
+            "sqlite_type": "REAL"
+          },
+          {
+            "name": "laps",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "time",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "milliseconds",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "fastestlap",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "fastestlaptime",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fastestlapspeed",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "statusid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "seasons",
+        "remote_row_count": 68,
+        "snapshot_row_count": 68,
+        "target_limit": 68,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "url",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "status",
+        "remote_row_count": 134,
+        "snapshot_row_count": 60,
+        "target_limit": 60,
+        "relational_rows_added": 15,
+        "columns": [
+          {
+            "name": "statusid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "status",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "target",
+        "remote_row_count": 31578,
+        "snapshot_row_count": 97,
+        "target_limit": 97,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "targetid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "raceid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "driverid",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "win",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "average lap time for drivers from the UK who have won at least one race, excluding races in the UK",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT d.forename, d.surname, r.year, r.name AS race_name, c.country, AVG(l.milliseconds) AS avg_lap_time FROM laptimes AS l JOIN drivers AS d ON l.driverid = d.driverid JOIN races AS r ON l.raceid = r.raceid JOIN circuits AS c ON r.circuitid = c.circuitid JOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid WHERE d.nationality = 'British' AND t.win = 1 AND c.country != 'UK' GROUP BY d.forename, d.surname, r.year, r.name, c.country",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT d.driverid, l.raceid, AVG(l.milliseconds) AS avg_lap_time",
+        "from_clause": "FROM laptimes AS l",
+        "join_clauses": [
+          "JOIN drivers AS d ON l.driverid = d.driverid",
+          "JOIN races AS r ON l.raceid = r.raceid",
+          "JOIN circuits AS c ON r.circuitid = c.circuitid",
+          "JOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid"
+        ],
+        "where_clauses": [
+          "d.nationality = 'British'",
+          "t.win = 1",
+          "c.country != 'UK'"
+        ],
+        "group_by_clause": "GROUP BY d.driverid, l.raceid",
+        "having_clauses": [],
+        "notes": "average lap time for British drivers who have won at least one race, excluding races in the UK"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT AVG(leaf_1.avg_lap_time)",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "final scalar block for the average lap time"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "average lap time for British drivers who have won at least one race, excluding races in the UK",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM laptimes AS l\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 6,
+            "preview": [
+              {
+                "raceid": 76,
+                "driverid": 21,
+                "lap": 48,
+                "position": 6,
+                "time": "1:19.422",
+                "milliseconds": 79422
+              },
+              {
+                "raceid": 95,
+                "driverid": 2,
+                "lap": 47,
+                "position": 7,
+                "time": "1:20.305",
+                "milliseconds": 80305
+              },
+              {
+                "raceid": 954,
+                "driverid": 821,
+                "lap": 38,
+                "position": 14,
+                "time": "1:19.603",
+                "milliseconds": 79603
+              },
+              {
+                "raceid": 346,
+                "driverid": 22,
+                "lap": 24,
+                "position": 8,
+                "time": "1:36.285",
+                "milliseconds": 96285
+              },
+              {
+                "raceid": 45,
+                "driverid": 1,
+                "lap": 30,
+                "position": 14,
+                "time": "1:33.741",
+                "milliseconds": 93741
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN drivers AS d ON l.driverid = d.driverid",
+          "sql": "SELECT *\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 15,
+            "preview": [
+              {
+                "raceid": 76,
+                "driverid": 21,
+                "lap": 48,
+                "position": 6,
+                "time": "1:19.422",
+                "milliseconds": 79422,
+                "driverid__dup1": 21,
+                "driverref": "fisichella",
+                "number": NaN,
+                "code": "FIS",
+                "forename": "Giancarlo",
+                "surname": "Fisichella",
+                "dob": "1973-01-14",
+                "nationality": "Italian",
+                "url": "http://en.wikipedia.org/wiki/Giancarlo_Fisichella"
+              },
+              {
+                "raceid": 346,
+                "driverid": 22,
+                "lap": 24,
+                "position": 8,
+                "time": "1:36.285",
+                "milliseconds": 96285,
+                "driverid__dup1": 22,
+                "driverref": "barrichello",
+                "number": NaN,
+                "code": "BAR",
+                "forename": "Rubens",
+                "surname": "Barrichello",
+                "dob": "1972-05-23",
+                "nationality": "Brazilian",
+                "url": "http://en.wikipedia.org/wiki/Rubens_Barrichello"
+              },
+              {
+                "raceid": 198,
+                "driverid": 23,
+                "lap": 56,
+                "position": 18,
+                "time": "1:19.052",
+                "milliseconds": 79052,
+                "driverid__dup1": 23,
+                "driverref": "ralf_schumacher",
+                "number": NaN,
+                "code": "SCH",
+                "forename": "Ralf",
+                "surname": "Schumacher",
+                "dob": "1975-06-30",
+                "nationality": "German",
+                "url": "http://en.wikipedia.org/wiki/Ralf_Schumacher"
+              },
+              {
+                "raceid": 199,
+                "driverid": 22,
+                "lap": 37,
+                "position": 13,
+                "time": "1:42.567",
+                "milliseconds": 102567,
+                "driverid__dup1": 22,
+                "driverref": "barrichello",
+                "number": NaN,
+                "code": "BAR",
+                "forename": "Rubens",
+                "surname": "Barrichello",
+                "dob": "1972-05-23",
+                "nationality": "Brazilian",
+                "url": "http://en.wikipedia.org/wiki/Rubens_Barrichello"
+              },
+              {
+                "raceid": 977,
+                "driverid": 8,
+                "lap": 62,
+                "position": 5,
+                "time": "1:08.029",
+                "milliseconds": 68029,
+                "driverid__dup1": 8,
+                "driverref": "raikkonen",
+                "number": 7.0,
+                "code": "RAI",
+                "forename": "Kimi",
+                "surname": "Räikkönen",
+                "dob": "1979-10-17",
+                "nationality": "Finnish",
+                "url": "http://en.wikipedia.org/wiki/Kimi_R%C3%A4ikk%C3%B6nen"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN races AS r ON l.raceid = r.raceid",
+          "sql": "SELECT *\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 23,
+            "preview": [
+              {
+                "raceid": 205,
+                "driverid": 23,
+                "lap": 24,
+                "position": 12,
+                "time": "1:22.286",
+                "milliseconds": 82286,
+                "driverid__dup1": 23,
+                "driverref": "ralf_schumacher",
+                "number": NaN,
+                "code": "SCH",
+                "forename": "Ralf",
+                "surname": "Schumacher",
+                "dob": "1975-06-30",
+                "nationality": "German",
+                "url": "http://en.wikipedia.org/wiki/Ralf_Schumacher",
+                "raceid__dup1": 205,
+                "year": 1998,
+                "round": 15,
+                "circuitid": 20,
+                "name": "Luxembourg Grand Prix",
+                "date": "1998-09-27",
+                "time__dup1": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/1998_Luxembourg_Grand_Prix"
+              },
+              {
+                "raceid": 157,
+                "driverid": 22,
+                "lap": 42,
+                "position": 5,
+                "time": "1:59.574",
+                "milliseconds": 119574,
+                "driverid__dup1": 22,
+                "driverref": "barrichello",
+                "number": NaN,
+                "code": "BAR",
+                "forename": "Rubens",
+                "surname": "Barrichello",
+                "dob": "1972-05-23",
+                "nationality": "Brazilian",
+                "url": "http://en.wikipedia.org/wiki/Rubens_Barrichello",
+                "raceid__dup1": 157,
+                "year": 2001,
+                "round": 17,
+                "circuitid": 22,
+                "name": "Japanese Grand Prix",
+                "date": "2001-10-14",
+                "time__dup1": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/2001_Japanese_Grand_Prix"
+              },
+              {
+                "raceid": 189,
+                "driverid": 49,
+                "lap": 25,
+                "position": 6,
+                "time": "1:42.962",
+                "milliseconds": 102962,
+                "driverid__dup1": 49,
+                "driverref": "frentzen",
+                "number": NaN,
+                "code": NaN,
+                "forename": "Heinz-Harald",
+                "surname": "Frentzen",
+                "dob": "1967-05-18",
+                "nationality": "German",
+                "url": "http://en.wikipedia.org/wiki/Heinz-Harald_Frentzen",
+                "raceid__dup1": 189,
+                "year": 1999,
+                "round": 15,
+                "circuitid": 2,
+                "name": "Malaysian Grand Prix",
+                "date": "1999-10-17",
+                "time__dup1": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/1999_Malaysian_Grand_Prix"
+              },
+              {
+                "raceid": 865,
+                "driverid": 8,
+                "lap": 66,
+                "position": 10,
+                "time": "1:21.375",
+                "milliseconds": 81375,
+                "driverid__dup1": 8,
+                "driverref": "raikkonen",
+                "number": 7.0,
+                "code": "RAI",
+                "forename": "Kimi",
+                "surname": "Räikkönen",
+                "dob": "1979-10-17",
+                "nationality": "Finnish",
+                "url": "http://en.wikipedia.org/wiki/Kimi_R%C3%A4ikk%C3%B6nen",
+                "raceid__dup1": 865,
+                "year": 2012,
+                "round": 6,
+                "circuitid": 6,
+                "name": "Monaco Grand Prix",
+                "date": "2012-05-27",
+                "time__dup1": "12:00:00",
+                "url__dup1": "http://en.wikipedia.org/wiki/2012_Monaco_Grand_Prix"
+              },
+              {
+                "raceid": 181,
+                "driverid": 49,
+                "lap": 36,
+                "position": 3,
+                "time": "1:37.651",
+                "milliseconds": 97651,
+                "driverid__dup1": 49,
+                "driverref": "frentzen",
+                "number": NaN,
+                "code": NaN,
+                "forename": "Heinz-Harald",
+                "surname": "Frentzen",
+                "dob": "1967-05-18",
+                "nationality": "German",
+                "url": "http://en.wikipedia.org/wiki/Heinz-Harald_Frentzen",
+                "raceid__dup1": 181,
+                "year": 1999,
+                "round": 7,
+                "circuitid": 8,
+                "name": "French Grand Prix",
+                "date": "1999-06-27",
+                "time__dup1": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/1999_French_Grand_Prix"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN circuits AS c ON r.circuitid = c.circuitid",
+          "sql": "SELECT *\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 32,
+            "preview": [
+              {
+                "raceid": 205,
+                "driverid": 23,
+                "lap": 24,
+                "position": 12,
+                "time": "1:22.286",
+                "milliseconds": 82286,
+                "driverid__dup1": 23,
+                "driverref": "ralf_schumacher",
+                "number": NaN,
+                "code": "SCH",
+                "forename": "Ralf",
+                "surname": "Schumacher",
+                "dob": "1975-06-30",
+                "nationality": "German",
+                "url": "http://en.wikipedia.org/wiki/Ralf_Schumacher",
+                "raceid__dup1": 205,
+                "year": 1998,
+                "round": 15,
+                "circuitid": 20,
+                "name": "Luxembourg Grand Prix",
+                "date": "1998-09-27",
+                "time__dup1": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/1998_Luxembourg_Grand_Prix",
+                "circuitid__dup1": 20,
+                "circuitref": "nurburgring",
+                "name__dup1": "Nürburgring",
+                "location": "Nürburg",
+                "country": "Germany",
+                "lat": 50.3356,
+                "lng": 6.9475,
+                "alt": null,
+                "url__dup2": "http://en.wikipedia.org/wiki/N%C3%BCrburgring"
+              },
+              {
+                "raceid": 157,
+                "driverid": 22,
+                "lap": 42,
+                "position": 5,
+                "time": "1:59.574",
+                "milliseconds": 119574,
+                "driverid__dup1": 22,
+                "driverref": "barrichello",
+                "number": NaN,
+                "code": "BAR",
+                "forename": "Rubens",
+                "surname": "Barrichello",
+                "dob": "1972-05-23",
+                "nationality": "Brazilian",
+                "url": "http://en.wikipedia.org/wiki/Rubens_Barrichello",
+                "raceid__dup1": 157,
+                "year": 2001,
+                "round": 17,
+                "circuitid": 22,
+                "name": "Japanese Grand Prix",
+                "date": "2001-10-14",
+                "time__dup1": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/2001_Japanese_Grand_Prix",
+                "circuitid__dup1": 22,
+                "circuitref": "suzuka",
+                "name__dup1": "Suzuka Circuit",
+                "location": "Suzuka",
+                "country": "Japan",
+                "lat": 34.8431,
+                "lng": 136.541,
+                "alt": null,
+                "url__dup2": "http://en.wikipedia.org/wiki/Suzuka_Circuit"
+              },
+              {
+                "raceid": 189,
+                "driverid": 49,
+                "lap": 25,
+                "position": 6,
+                "time": "1:42.962",
+                "milliseconds": 102962,
+                "driverid__dup1": 49,
+                "driverref": "frentzen",
+                "number": NaN,
+                "code": NaN,
+                "forename": "Heinz-Harald",
+                "surname": "Frentzen",
+                "dob": "1967-05-18",
+                "nationality": "German",
+                "url": "http://en.wikipedia.org/wiki/Heinz-Harald_Frentzen",
+                "raceid__dup1": 189,
+                "year": 1999,
+                "round": 15,
+                "circuitid": 2,
+                "name": "Malaysian Grand Prix",
+                "date": "1999-10-17",
+                "time__dup1": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/1999_Malaysian_Grand_Prix",
+                "circuitid__dup1": 2,
+                "circuitref": "sepang",
+                "name__dup1": "Sepang International Circuit",
+                "location": "Kuala Lumpur",
+                "country": "Malaysia",
+                "lat": 2.76083,
+                "lng": 101.738,
+                "alt": null,
+                "url__dup2": "http://en.wikipedia.org/wiki/Sepang_International_Circuit"
+              },
+              {
+                "raceid": 865,
+                "driverid": 8,
+                "lap": 66,
+                "position": 10,
+                "time": "1:21.375",
+                "milliseconds": 81375,
+                "driverid__dup1": 8,
+                "driverref": "raikkonen",
+                "number": 7.0,
+                "code": "RAI",
+                "forename": "Kimi",
+                "surname": "Räikkönen",
+                "dob": "1979-10-17",
+                "nationality": "Finnish",
+                "url": "http://en.wikipedia.org/wiki/Kimi_R%C3%A4ikk%C3%B6nen",
+                "raceid__dup1": 865,
+                "year": 2012,
+                "round": 6,
+                "circuitid": 6,
+                "name": "Monaco Grand Prix",
+                "date": "2012-05-27",
+                "time__dup1": "12:00:00",
+                "url__dup1": "http://en.wikipedia.org/wiki/2012_Monaco_Grand_Prix",
+                "circuitid__dup1": 6,
+                "circuitref": "monaco",
+                "name__dup1": "Circuit de Monaco",
+                "location": "Monte-Carlo",
+                "country": "Monaco",
+                "lat": 43.7347,
+                "lng": 7.42056,
+                "alt": null,
+                "url__dup2": "http://en.wikipedia.org/wiki/Circuit_de_Monaco"
+              },
+              {
+                "raceid": 181,
+                "driverid": 49,
+                "lap": 36,
+                "position": 3,
+                "time": "1:37.651",
+                "milliseconds": 97651,
+                "driverid__dup1": 49,
+                "driverref": "frentzen",
+                "number": NaN,
+                "code": NaN,
+                "forename": "Heinz-Harald",
+                "surname": "Frentzen",
+                "dob": "1967-05-18",
+                "nationality": "German",
+                "url": "http://en.wikipedia.org/wiki/Heinz-Harald_Frentzen",
+                "raceid__dup1": 181,
+                "year": 1999,
+                "round": 7,
+                "circuitid": 8,
+                "name": "French Grand Prix",
+                "date": "1999-06-27",
+                "time__dup1": NaN,
+                "url__dup1": "http://en.wikipedia.org/wiki/1999_French_Grand_Prix",
+                "circuitid__dup1": 8,
+                "circuitref": "magny_cours",
+                "name__dup1": "Circuit de Nevers Magny-Cours",
+                "location": "Magny Cours",
+                "country": "France",
+                "lat": 46.8642,
+                "lng": 3.16361,
+                "alt": null,
+                "url__dup2": "http://en.wikipedia.org/wiki/Circuit_de_Nevers_Magny-Cours"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid",
+          "sql": "SELECT *\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nJOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 36,
+            "preview": [
+              {
+                "raceid": 865,
+                "driverid": 8,
+                "lap": 66,
+                "position": 10,
+                "time": "1:21.375",
+                "milliseconds": 81375,
+                "driverid__dup1": 8,
+                "driverref": "raikkonen",
+                "number": 7,
+                "code": "RAI",
+                "forename": "Kimi",
+                "surname": "Räikkönen",
+                "dob": "1979-10-17",
+                "nationality": "Finnish",
+                "url": "http://en.wikipedia.org/wiki/Kimi_R%C3%A4ikk%C3%B6nen",
+                "raceid__dup1": 865,
+                "year": 2012,
+                "round": 6,
+                "circuitid": 6,
+                "name": "Monaco Grand Prix",
+                "date": "2012-05-27",
+                "time__dup1": "12:00:00",
+                "url__dup1": "http://en.wikipedia.org/wiki/2012_Monaco_Grand_Prix",
+                "circuitid__dup1": 6,
+                "circuitref": "monaco",
+                "name__dup1": "Circuit de Monaco",
+                "location": "Monte-Carlo",
+                "country": "Monaco",
+                "lat": 43.7347,
+                "lng": 7.42056,
+                "alt": null,
+                "url__dup2": "http://en.wikipedia.org/wiki/Circuit_de_Monaco",
+                "targetid": 65054,
+                "raceid__dup2": 865,
+                "driverid__dup2": 8,
+                "win": 0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "d.nationality = 'British'",
+          "sql": "SELECT *\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nJOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid\nWHERE (d.nationality = 'British')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 36,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "d.nationality = 'British' OR d.nationality = 'British' IS NULL",
+          "sql": "SELECT *\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nJOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid\nWHERE (d.nationality = 'British' OR d.nationality = 'British' IS NULL)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 36,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "d.nationality = 'British'",
+          "sql": "SELECT *\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nJOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid\nWHERE (d.nationality = 'British')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 36,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "d.nationality = 'British' OR d.nationality LIKE 'British%' OR d.nationality LIKE '%British'",
+          "sql": "SELECT *\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nJOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid\nWHERE (d.nationality = 'British' OR d.nationality LIKE 'British%' OR d.nationality LIKE '%British')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 36,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "d.nationality = 'British' OR d.nationality LIKE 'British%' OR d.nationality LIKE '%British' OR d.nationality LIKE '%British %'",
+          "sql": "SELECT *\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nJOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid\nWHERE (d.nationality = 'British' OR d.nationality LIKE 'British%' OR d.nationality LIKE '%British' OR d.nationality LIKE '%British %')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 36,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "d.nationality = 'British'",
+          "sql": "SELECT *\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nJOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid\nWHERE (d.nationality = 'British')\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 36,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where_skipped",
+          "clause": "d.nationality = 'British'",
+          "last_candidate": "d.nationality = 'British' OR d.nationality IS NULL",
+          "reason": "where predicate made the probe empty"
+        },
+        {
+          "stage": "where",
+          "clause": "t.win = 1",
+          "sql": "SELECT *\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nJOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid\nWHERE (t.win = 1)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 36,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "t.win >= 1",
+          "sql": "SELECT *\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nJOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid\nWHERE (t.win >= 1)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 36,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "t.win = 1",
+          "sql": "SELECT *\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nJOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid\nWHERE (t.win = 1)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 36,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "t.win = 1 OR t.win IS NULL",
+          "sql": "SELECT *\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nJOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid\nWHERE (t.win = 1 OR t.win IS NULL)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 36,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "t.win = 1",
+          "sql": "SELECT *\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nJOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid\nWHERE (t.win = 1)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 36,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "t.win = 1 OR t.win IS NULL",
+          "sql": "SELECT *\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nJOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid\nWHERE (t.win = 1 OR t.win IS NULL)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 36,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where_skipped",
+          "clause": "t.win = 1",
+          "last_candidate": "t.win = 1",
+          "reason": "where predicate made the probe empty"
+        },
+        {
+          "stage": "where",
+          "clause": "c.country != 'UK'",
+          "sql": "SELECT *\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nJOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid\nWHERE (c.country != 'UK')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 36,
+            "preview": [
+              {
+                "raceid": 865,
+                "driverid": 8,
+                "lap": 66,
+                "position": 10,
+                "time": "1:21.375",
+                "milliseconds": 81375,
+                "driverid__dup1": 8,
+                "driverref": "raikkonen",
+                "number": 7,
+                "code": "RAI",
+                "forename": "Kimi",
+                "surname": "Räikkönen",
+                "dob": "1979-10-17",
+                "nationality": "Finnish",
+                "url": "http://en.wikipedia.org/wiki/Kimi_R%C3%A4ikk%C3%B6nen",
+                "raceid__dup1": 865,
+                "year": 2012,
+                "round": 6,
+                "circuitid": 6,
+                "name": "Monaco Grand Prix",
+                "date": "2012-05-27",
+                "time__dup1": "12:00:00",
+                "url__dup1": "http://en.wikipedia.org/wiki/2012_Monaco_Grand_Prix",
+                "circuitid__dup1": 6,
+                "circuitref": "monaco",
+                "name__dup1": "Circuit de Monaco",
+                "location": "Monte-Carlo",
+                "country": "Monaco",
+                "lat": 43.7347,
+                "lng": 7.42056,
+                "alt": null,
+                "url__dup2": "http://en.wikipedia.org/wiki/Circuit_de_Monaco",
+                "targetid": 65054,
+                "raceid__dup2": 865,
+                "driverid__dup2": 8,
+                "win": 0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT d.driverid, l.raceid, AVG(l.milliseconds) AS avg_lap_time\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nJOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid\nWHERE (c.country != 'UK')\nGROUP BY d.driverid, l.raceid",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 3,
+            "preview": [
+              {
+                "driverid": 8,
+                "raceid": 865,
+                "avg_lap_time": 81375.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "final scalar block for the average lap time",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT d.driverid, l.raceid, AVG(l.milliseconds) AS avg_lap_time\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nJOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid\nWHERE (c.country != 'UK')\nGROUP BY d.driverid, l.raceid) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 3,
+            "preview": [
+              {
+                "driverid": 8,
+                "raceid": 865,
+                "avg_lap_time": 81375.0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT AVG(leaf_1.avg_lap_time)\nFROM (SELECT d.driverid, l.raceid, AVG(l.milliseconds) AS avg_lap_time\nFROM laptimes AS l\nJOIN drivers AS d ON l.driverid = d.driverid\nJOIN races AS r ON l.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nJOIN target AS t ON l.driverid = t.driverid AND l.raceid = t.raceid\nWHERE (c.country != 'UK')\nGROUP BY d.driverid, l.raceid) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "AVG(leaf_1.avg_lap_time)": 81375.0
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 1,
+  "sample_retry": 1,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.431764705882353,
+    "nearest": {
+      "sample_index": 32,
+      "answer_mode": "aggregate",
+      "target_join_count": 3,
+      "similarity": 0.431764705882353,
+      "sql": "SELECT AVG(leaf_1.points) AS avg_points\nFROM (SELECT d.driverid, r.raceid, res.points\nFROM results AS res\nJOIN drivers AS d ON res.driverid = d.driverid\nJOIN races AS r ON res.raceid = r.raceid\nJOIN circuits AS c ON r.circuitid = c.circuitid\nWHERE ((c.country = 'Australia'))\nGROUP BY d.driverid, r.raceid, res.points) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 81375.0,
+    "nearest": {
+      "sample_index": 19,
+      "answer_mode": "aggregate",
+      "target_join_count": 2,
+      "numeric_answer": 61.95454545454545,
+      "delta": 81313.04545454546,
+      "sql": "SELECT AVG(points) AS average_points\nFROM (SELECT d.driverid, r.raceid, cs.points\nFROM drivers d\nJOIN results r ON d.driverid = r.driverid\nJOIN constructorstandings cs ON r.constructorid = cs.constructorid\nWHERE (d.nationality IN ('Australian', 'British'))) AS leaf_1"
+    },
+    "min_value": 7.0,
+    "tolerance": 3.0,
+    "reason": "ok"
+  },
+  "question": "What is the average of the average lap times per driver per race, excluding races held in the UK?",
+  "answer": "81375"
+}

@@ -1,0 +1,1 @@
+SELECT c.constructorid, c.nationality, AVG(cr.points) AS avg_points_per_race FROM constructors AS c JOIN constructorresults AS cr ON c.constructorid = cr.constructorid JOIN races AS r ON cr.raceid = r.raceid GROUP BY c.constructorid

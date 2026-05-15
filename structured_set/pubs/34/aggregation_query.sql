@@ -1,0 +1,8 @@
+SELECT SUM(leaf_1.profit) AS total_profit
+FROM (SELECT publishers.pub_name, titles.title, sales.qty, titles.price, titleauthor.royaltyper, (sales.qty * titles.price * (titleauthor.royaltyper / 100.0)) AS profit
+FROM publishers
+JOIN titles ON publishers.pub_id = titles.pub_id
+JOIN sales ON titles.title_id = sales.title_id
+JOIN titleauthor ON titles.title_id = titleauthor.title_id
+WHERE (publishers.pub_id = '1389')
+GROUP BY publishers.pub_name, titles.title, sales.qty, titles.price, titleauthor.royaltyper) AS leaf_1

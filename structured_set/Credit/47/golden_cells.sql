@@ -1,0 +1,1 @@
+SELECT charge.provider_no, charge.category_no, charge.charge_amt, category.category_desc FROM charge JOIN category ON charge.category_no = category.category_no WHERE (category.category_desc = 'Meals')

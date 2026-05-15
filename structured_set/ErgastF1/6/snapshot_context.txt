@@ -1,0 +1,142 @@
+Database name: ErgastF1
+Tables in snapshot: 14
+
+Table: circuits
+Columns: circuitid (INTEGER), circuitref (TEXT), name (TEXT), location (TEXT), country (TEXT), lat (REAL), lng (REAL), alt (INTEGER), url (TEXT)
+Snapshot rows: 73 / remote rows: 73
+Sample rows:
+|   circuitid | circuitref   | name                           | location     | country   |       lat |      lng |   alt | url                                                        |
+|------------:|:-------------|:-------------------------------|:-------------|:----------|----------:|---------:|------:|:-----------------------------------------------------------|
+|           1 | albert_park  | Albert Park Grand Prix Circuit | Melbourne    | Australia | -37.8497  | 144.968  |    10 | http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit  |
+|           2 | sepang       | Sepang International Circuit   | Kuala Lumpur | Malaysia  |   2.76083 | 101.738  |   nan | http://en.wikipedia.org/wiki/Sepang_International_Circuit  |
+|           3 | bahrain      | Bahrain International Circuit  | Sakhir       | Bahrain   |  26.0325  |  50.5106 |   nan | http://en.wikipedia.org/wiki/Bahrain_International_Circuit |
+
+Table: constructorresults
+Columns: constructorresultsid (INTEGER), raceid (INTEGER), constructorid (INTEGER), points (REAL), status (TEXT)
+Snapshot rows: 104 / remote rows: 11082
+Sample rows:
+|   constructorresultsid |   raceid |   constructorid |   points |   status |
+|-----------------------:|---------:|----------------:|---------:|---------:|
+|                   1433 |      154 |              15 |        0 |      nan |
+|                  12179 |      605 |              34 |        1 |      nan |
+|                  14687 |      888 |             131 |       12 |      nan |
+
+Table: constructors
+Columns: constructorid (INTEGER), constructorref (TEXT), name (TEXT), nationality (TEXT), url (TEXT)
+Snapshot rows: 100 / remote rows: 208
+Sample rows:
+|   constructorid | constructorref   | name     | nationality   | url                                                          |
+|----------------:|:-----------------|:---------|:--------------|:-------------------------------------------------------------|
+|               1 | mclaren          | McLaren  | British       | http://en.wikipedia.org/wiki/McLaren                         |
+|               3 | williams         | Williams | British       | http://en.wikipedia.org/wiki/Williams_Grand_Prix_Engineering |
+|               4 | renault          | Renault  | French        | http://en.wikipedia.org/wiki/Renault_F1                      |
+
+Table: constructorstandings
+Columns: constructorstandingsid (INTEGER), raceid (INTEGER), constructorid (INTEGER), points (REAL), position (INTEGER), positiontext (TEXT), wins (INTEGER)
+Snapshot rows: 94 / remote rows: 11836
+Sample rows:
+|   constructorstandingsid |   raceid |   constructorid |   points |   position |   positiontext |   wins |
+|-------------------------:|---------:|----------------:|---------:|-----------:|---------------:|-------:|
+|                    26413 |      944 |             208 |       76 |          6 |              6 |      0 |
+|                    24448 |      352 |               6 |      334 |          3 |              3 |      4 |
+|                    19057 |      749 |              32 |       15 |          2 |              2 |      1 |
+
+Table: drivers
+Columns: driverid (INTEGER), driverref (TEXT), number (INTEGER), code (TEXT), forename (TEXT), surname (TEXT), dob (TEXT), nationality (TEXT), url (TEXT)
+Snapshot rows: 67 / remote rows: 840
+Sample rows:
+|   driverid | driverref   |   number | code   | forename   | surname    | dob        | nationality   | url                                            |
+|-----------:|:------------|---------:|:-------|:-----------|:-----------|:-----------|:--------------|:-----------------------------------------------|
+|          2 | heidfeld    |      nan | HEI    | Nick       | Heidfeld   | 1977-05-10 | German        | http://en.wikipedia.org/wiki/Nick_Heidfeld     |
+|          4 | alonso      |       14 | ALO    | Fernando   | Alonso     | 1981-07-29 | Spanish       | http://en.wikipedia.org/wiki/Fernando_Alonso   |
+|          5 | kovalainen  |      nan | KOV    | Heikki     | Kovalainen | 1981-10-19 | Finnish       | http://en.wikipedia.org/wiki/Heikki_Kovalainen |
+
+Table: driverstandings
+Columns: driverstandingsid (INTEGER), raceid (INTEGER), driverid (INTEGER), points (REAL), position (INTEGER), positiontext (TEXT), wins (INTEGER)
+Snapshot rows: 97 / remote rows: 31578
+Sample rows:
+|   driverstandingsid |   raceid |   driverid |   points |   position |   positiontext |   wins |
+|--------------------:|---------:|-----------:|---------:|-----------:|---------------:|-------:|
+|               67451 |      942 |        830 |       45 |         10 |             10 |      0 |
+|               45364 |      816 |        680 |        0 |         29 |             29 |      0 |
+|               51953 |      805 |        541 |        0 |         75 |             75 |      0 |
+
+Table: laptimes
+Columns: raceid (INTEGER), driverid (INTEGER), lap (INTEGER), position (INTEGER), time (TEXT), milliseconds (INTEGER)
+Snapshot rows: 95 / remote rows: 420369
+Sample rows:
+|   raceid |   driverid |   lap |   position | time     |   milliseconds |
+|---------:|-----------:|------:|-----------:|:---------|---------------:|
+|      853 |         10 |    16 |         15 | 1:33.456 |          93456 |
+|       59 |         14 |    26 |          6 | 1:19.924 |          79924 |
+|      352 |         17 |    15 |          2 | 1:36.853 |          96853 |
+
+Table: pitstops
+Columns: raceid (INTEGER), driverid (INTEGER), stop (INTEGER), lap (INTEGER), time (TEXT), duration (TEXT), milliseconds (INTEGER)
+Snapshot rows: 65 / remote rows: 6070
+Sample rows:
+|   raceid |   driverid |   stop |   lap | time     | duration   |   milliseconds |
+|---------:|-----------:|-------:|------:|:---------|:-----------|---------------:|
+|      948 |        832 |      2 |    18 | 16:37:05 | 18:09.971  |        1089971 |
+|      977 |          1 |      1 |    31 | 14:38:58 | 20.761     |          20761 |
+|      943 |        828 |      1 |    10 | 13:17:54 | 22.956     |          22956 |
+
+Table: qualifying
+Columns: qualifyid (INTEGER), raceid (INTEGER), driverid (INTEGER), constructorid (INTEGER), number (INTEGER), position (INTEGER), q1 (TEXT), q2 (TEXT), q3 (TEXT)
+Snapshot rows: 96 / remote rows: 7397
+Sample rows:
+|   qualifyid |   raceid |   driverid |   constructorid |   number |   position | q1       | q2       | q3       |
+|------------:|---------:|-----------:|----------------:|---------:|-----------:|:---------|:---------|:---------|
+|        3408 |      340 |         22 |               3 |        9 |         11 | 1:36.664 | 1:35.748 | nan      |
+|         380 |       36 |          3 |               3 |       16 |         12 | 1:27.596 | 1:26.914 | nan      |
+|        6528 |      938 |         13 |               3 |       19 |          5 | 1:25.184 | 1:23.983 | 1:23.940 |
+
+Table: races
+Columns: raceid (INTEGER), year (INTEGER), round (INTEGER), circuitid (INTEGER), name (TEXT), date (TEXT), time (TEXT), url (TEXT)
+Snapshot rows: 69 / remote rows: 976
+Sample rows:
+|   raceid |   year |   round |   circuitid | name                 | date       | time     | url                                                    |
+|---------:|-------:|--------:|------------:|:---------------------|:-----------|:---------|:-------------------------------------------------------|
+|       23 |   2008 |       6 |           6 | Monaco Grand Prix    | 2008-05-25 | 12:00:00 | http://en.wikipedia.org/wiki/2008_Monaco_Grand_Prix    |
+|       58 |   2006 |       6 |           4 | Spanish Grand Prix   | 2006-05-14 | 14:00:00 | http://en.wikipedia.org/wiki/2006_Spanish_Grand_Prix   |
+|       65 |   2006 |      13 |          11 | Hungarian Grand Prix | 2006-08-06 | 14:00:00 | http://en.wikipedia.org/wiki/2006_Hungarian_Grand_Prix |
+
+Table: results
+Columns: resultid (INTEGER), raceid (INTEGER), driverid (INTEGER), constructorid (INTEGER), number (INTEGER), grid (INTEGER), position (INTEGER), positiontext (TEXT), positionorder (INTEGER), points (REAL), laps (INTEGER), time (TEXT), milliseconds (INTEGER), fastestlap (INTEGER), rank (INTEGER), fastestlaptime (TEXT), fastestlapspeed (TEXT), statusid (INTEGER)
+Snapshot rows: 74 / remote rows: 23657
+Sample rows:
+|   resultid |   raceid |   driverid |   constructorid |   number |   grid |   position | positiontext   |   positionorder |   points |   laps | time      |   milliseconds |   fastestlap |   rank |   fastestlaptime |   fastestlapspeed |   statusid |
+|-----------:|---------:|-----------:|----------------:|---------:|-------:|-----------:|:---------------|----------------:|---------:|-------:|:----------|---------------:|-------------:|-------:|-----------------:|------------------:|-----------:|
+|       4097 |      211 |         56 |               6 |        6 |     15 |          3 | 3              |               3 |        4 |     62 | +1:22.108 |    7.28776e+06 |          nan |    nan |              nan |               nan |          1 |
+|       9124 |      393 |        140 |               1 |        2 |      9 |          8 | 8              |               8 |        0 |     74 | nan       |  nan           |          nan |    nan |              nan |               nan |         16 |
+|      11716 |      488 |        177 |              56 |       20 |      0 |        nan | F              |              21 |        0 |      0 | nan       |  nan           |          nan |    nan |              nan |               nan |         81 |
+
+Table: seasons
+Columns: year (INTEGER), url (TEXT)
+Snapshot rows: 68 / remote rows: 68
+Sample rows:
+|   year | url                                                  |
+|-------:|:-----------------------------------------------------|
+|   1950 | http://en.wikipedia.org/wiki/1950_Formula_One_season |
+|   1951 | http://en.wikipedia.org/wiki/1951_Formula_One_season |
+|   1952 | http://en.wikipedia.org/wiki/1952_Formula_One_season |
+
+Table: status
+Columns: statusid (INTEGER), status (TEXT)
+Snapshot rows: 102 / remote rows: 134
+Sample rows:
+|   statusid | status    |
+|-----------:|:----------|
+|          1 | Finished  |
+|          3 | Accident  |
+|          4 | Collision |
+
+Table: target
+Columns: targetid (INTEGER), raceid (INTEGER), driverid (INTEGER), win (INTEGER)
+Snapshot rows: 105 / remote rows: 31578
+Sample rows:
+|   targetid |   raceid |   driverid |   win |
+|-----------:|---------:|-----------:|------:|
+|      49264 |      771 |        496 |     0 |
+|      17358 |      313 |        122 |     0 |
+|      48511 |      733 |        418 |     0 |

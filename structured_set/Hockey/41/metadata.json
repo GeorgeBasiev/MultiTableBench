@@ -1,0 +1,3800 @@
+{
+  "sample_index": 41,
+  "db_name": "Hockey",
+  "answer_mode": "text",
+  "target_join_count": 3,
+  "actual_join_count": 3,
+  "numeric_answer": null,
+  "constraints": {
+    "answer_mode": "text",
+    "target_join_count": 3,
+    "min_hops": 3,
+    "max_hops": 3,
+    "require_group_by": false,
+    "require_having": false,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Find the name of the player who scored the most goals against the team with the most combined shutouts in 1989.",
+  "manifest": {
+    "db_name": "Hockey",
+    "sample_dir": "structured_set/Hockey/41",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "abbrev",
+        "remote_row_count": 58,
+        "snapshot_row_count": 58,
+        "target_limit": 58,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "type",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "code",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fullname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardscoaches",
+        "remote_row_count": 77,
+        "snapshot_row_count": 77,
+        "target_limit": 77,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsmisc",
+        "remote_row_count": 124,
+        "snapshot_row_count": 103,
+        "target_limit": 103,
+        "relational_rows_added": 1,
+        "columns": [
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsplayers",
+        "remote_row_count": 2091,
+        "snapshot_row_count": 65,
+        "target_limit": 65,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "coaches",
+        "remote_row_count": 1812,
+        "snapshot_row_count": 103,
+        "target_limit": 103,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "combinedshutouts",
+        "remote_row_count": 54,
+        "snapshot_row_count": 54,
+        "target_limit": 54,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "month",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "date",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "r/p",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie1",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie2",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goalies",
+        "remote_row_count": 4278,
+        "snapshot_row_count": 65,
+        "target_limit": 65,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "min",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "l",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "t/ol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "eng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postmin",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posteng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliessc",
+        "remote_row_count": 31,
+        "snapshot_row_count": 31,
+        "target_limit": 31,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "min",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliesshootout",
+        "remote_row_count": 480,
+        "snapshot_row_count": 86,
+        "target_limit": 86,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "hof",
+        "remote_row_count": 365,
+        "snapshot_row_count": 113,
+        "target_limit": 113,
+        "relational_rows_added": 4,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "category",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "master",
+        "remote_row_count": 7761,
+        "snapshot_row_count": 64,
+        "target_limit": 64,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenote",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namegiven",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenick",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "height",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "weight",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shootcatch",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "legendsid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ihdbid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hrefid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoring",
+        "remote_row_count": 45967,
+        "snapshot_row_count": 67,
+        "target_limit": 67,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gtg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posta",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpts",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "post+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postshg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsc",
+        "remote_row_count": 284,
+        "snapshot_row_count": 67,
+        "target_limit": 67,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringshootout",
+        "remote_row_count": 2072,
+        "snapshot_row_count": 79,
+        "target_limit": 79,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "s",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gdg",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsup",
+        "remote_row_count": 137,
+        "snapshot_row_count": 81,
+        "target_limit": 81,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "seriespost",
+        "remote_row_count": 832,
+        "snapshot_row_count": 105,
+        "target_limit": 105,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "round",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "series",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalswinner",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalsloser",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teams",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 117,
+        "target_limit": 117,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "franchid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "confid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "divid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "playoff",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sow",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamshalf",
+        "remote_row_count": 41,
+        "snapshot_row_count": 41,
+        "target_limit": 41,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "half",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "teamsplits",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 96,
+        "target_limit": 96,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ht",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sept",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "dect",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "janw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "jant",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "febw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mart",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamspost",
+        "remote_row_count": 927,
+        "snapshot_row_count": 77,
+        "target_limit": 77,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamssc",
+        "remote_row_count": 30,
+        "snapshot_row_count": 30,
+        "target_limit": 30,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamvsteam",
+        "remote_row_count": 25602,
+        "snapshot_row_count": 116,
+        "target_limit": 116,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Find the name of the player who scored the most goals against the team with the most combined shutouts in 1989.",
+    "answer_mode": "text",
+    "final_block_name": "root",
+    "detail_query": "SELECT leaf_1.player_name, leaf_1.goals_against, leaf_1.team_name, leaf_1.shutouts FROM {{leaf_1}} AS leaf_1 ORDER BY leaf_1.shutouts DESC, leaf_1.goals_against DESC",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT m.firstname || ' ' || m.lastname AS player_name, s.g AS goals_against, t.name AS team_name, COUNT(cs.idgoalie1) + COUNT(cs.idgoalie2) AS shutouts",
+        "from_clause": "FROM scoring AS s",
+        "join_clauses": [
+          "JOIN master AS m ON s.playerid = m.playerid",
+          "JOIN teams AS t ON s.tmid = t.tmid AND s.year = t.year",
+          "LEFT JOIN combinedshutouts AS cs ON t.tmid = cs.tmid AND s.year = cs.year"
+        ],
+        "where_clauses": [
+          "s.year = 1989",
+          "s.pos != 'G'"
+        ],
+        "group_by_clause": "GROUP BY s.playerid, m.firstname, m.lastname, t.name",
+        "having_clauses": [],
+        "notes": "Joins scoring, master, and teams to get player names and team names, then left joins combinedshutouts to count shutouts per team. Filters for the year 1989 and excludes goalies."
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT leaf_1.player_name",
+        "from_clause": "FROM (SELECT leaf_1.player_name, leaf_1.goals_against, leaf_1.team_name, leaf_1.shutouts FROM {{leaf_1}} AS leaf_1 ORDER BY leaf_1.shutouts DESC, leaf_1.goals_against DESC LIMIT 1) AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Final scalar block that selects the player name with the most goals against the team with the most combined shutouts in 1989."
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "Joins scoring, master, and teams to get player names and team names, then left joins combinedshutouts to count shutouts per team. Filters for the year 1989 and excludes goalies.",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM scoring AS s\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 31,
+            "preview": [
+              {
+                "playerid": "scottga01",
+                "year": 1923,
+                "stint": 2,
+                "tmid": "HAM",
+                "lgid": "NHL",
+                "pos": "R",
+                "gp": 4,
+                "g": 0,
+                "a": 0,
+                "pts": 0,
+                "pim": 0,
+                "+/-": NaN,
+                "ppg": NaN,
+                "ppa": NaN,
+                "shg": NaN,
+                "sha": NaN,
+                "gwg": NaN,
+                "gtg": NaN,
+                "sog": NaN,
+                "postgp": NaN,
+                "postg": NaN,
+                "posta": NaN,
+                "postpts": NaN,
+                "postpim": NaN,
+                "post+/-": NaN,
+                "postppg": NaN,
+                "postppa": null,
+                "postshg": NaN,
+                "postsha": null,
+                "postgwg": NaN,
+                "postsog": NaN
+              },
+              {
+                "playerid": "devrigr01",
+                "year": 2003,
+                "stint": 1,
+                "tmid": "NYR",
+                "lgid": "NHL",
+                "pos": "D",
+                "gp": 53,
+                "g": 3,
+                "a": 12,
+                "pts": 15,
+                "pim": 37,
+                "+/-": "12",
+                "ppg": "0",
+                "ppa": "1",
+                "shg": "0",
+                "sha": "1",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "58",
+                "postgp": NaN,
+                "postg": NaN,
+                "posta": NaN,
+                "postpts": NaN,
+                "postpim": NaN,
+                "post+/-": NaN,
+                "postppg": NaN,
+                "postppa": null,
+                "postshg": NaN,
+                "postsha": null,
+                "postgwg": NaN,
+                "postsog": NaN
+              },
+              {
+                "playerid": "keonda01",
+                "year": 1974,
+                "stint": 1,
+                "tmid": "TOR",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 78,
+                "g": 16,
+                "a": 43,
+                "pts": 59,
+                "pim": 4,
+                "+/-": "3",
+                "ppg": "1",
+                "ppa": NaN,
+                "shg": "1",
+                "sha": NaN,
+                "gwg": "2",
+                "gtg": "0",
+                "sog": "183",
+                "postgp": "7",
+                "postg": "0",
+                "posta": "5",
+                "postpts": "5",
+                "postpim": "0",
+                "post+/-": NaN,
+                "postppg": "0",
+                "postppa": null,
+                "postshg": "0",
+                "postsha": null,
+                "postgwg": "0",
+                "postsog": NaN
+              },
+              {
+                "playerid": "halwado01",
+                "year": 1983,
+                "stint": 1,
+                "tmid": "VAN",
+                "lgid": "NHL",
+                "pos": "D",
+                "gp": 54,
+                "g": 7,
+                "a": 16,
+                "pts": 23,
+                "pim": 35,
+                "+/-": "1",
+                "ppg": "2",
+                "ppa": NaN,
+                "shg": "0",
+                "sha": NaN,
+                "gwg": "1",
+                "gtg": "0",
+                "sog": "108",
+                "postgp": "4",
+                "postg": "3",
+                "posta": "1",
+                "postpts": "4",
+                "postpim": "2",
+                "post+/-": "-4",
+                "postppg": "2",
+                "postppa": null,
+                "postshg": "0",
+                "postsha": null,
+                "postgwg": "0",
+                "postsog": "10"
+              },
+              {
+                "playerid": "wardja01",
+                "year": 2006,
+                "stint": 1,
+                "tmid": "NYR",
+                "lgid": "NHL",
+                "pos": "R",
+                "gp": 46,
+                "g": 4,
+                "a": 6,
+                "pts": 10,
+                "pim": 26,
+                "+/-": "-3",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "1",
+                "sha": "1",
+                "gwg": "1",
+                "gtg": NaN,
+                "sog": "68",
+                "postgp": NaN,
+                "postg": NaN,
+                "posta": NaN,
+                "postpts": NaN,
+                "postpim": NaN,
+                "post+/-": NaN,
+                "postppg": NaN,
+                "postppa": null,
+                "postshg": NaN,
+                "postsha": null,
+                "postgwg": NaN,
+                "postsog": NaN
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN master AS m ON s.playerid = m.playerid",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 62,
+            "preview": [
+              {
+                "playerid": "mathima01",
+                "year": 1999,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 6,
+                "g": 0,
+                "a": 2,
+                "pts": 2,
+                "pim": 4,
+                "+/-": "-2",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "3",
+                "postgp": NaN,
+                "postg": NaN,
+                "posta": NaN,
+                "postpts": NaN,
+                "postpim": NaN,
+                "post+/-": null,
+                "postppg": NaN,
+                "postppa": null,
+                "postshg": NaN,
+                "postsha": null,
+                "postgwg": NaN,
+                "postsog": null,
+                "playerid__dup1": "mathima01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Marquis",
+                "lastname": "Mathieu",
+                "namenote": null,
+                "namegiven": "Marquis Jean",
+                "namenick": NaN,
+                "height": "71",
+                "weight": "190",
+                "shootcatch": "R",
+                "legendsid": "19277",
+                "ihdbid": "3458",
+                "hrefid": "mathima01",
+                "firstnhl": "1998",
+                "lastnhl": "2000",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "C",
+                "birthyear": "1973",
+                "birthmon": "5",
+                "birthday": "31",
+                "birthcountry": "USA",
+                "birthstate": "CT",
+                "birthcity": "Hartford",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null
+              },
+              {
+                "playerid": "thomper01",
+                "year": 1977,
+                "stint": 2,
+                "tmid": "DET",
+                "lgid": "NHL",
+                "pos": "L",
+                "gp": 14,
+                "g": 5,
+                "a": 1,
+                "pts": 6,
+                "pim": 2,
+                "+/-": "-4",
+                "ppg": "1",
+                "ppa": NaN,
+                "shg": "0",
+                "sha": NaN,
+                "gwg": "0",
+                "gtg": "1",
+                "sog": "27",
+                "postgp": "7",
+                "postg": "2",
+                "posta": "1",
+                "postpts": "3",
+                "postpim": "2",
+                "post+/-": null,
+                "postppg": "1",
+                "postppa": null,
+                "postshg": "0",
+                "postsha": null,
+                "postgwg": "1",
+                "postsog": null,
+                "playerid__dup1": "thomper01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Errol",
+                "lastname": "Thompson",
+                "namenote": null,
+                "namegiven": "Loran Errol",
+                "namenick": "Spud",
+                "height": "69",
+                "weight": "185",
+                "shootcatch": "L",
+                "legendsid": "14534",
+                "ihdbid": "5383",
+                "hrefid": "thomper01",
+                "firstnhl": "1970",
+                "lastnhl": "1980",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "L",
+                "birthyear": "1950",
+                "birthmon": "5",
+                "birthday": "28",
+                "birthcountry": "Canada",
+                "birthstate": "PE",
+                "birthcity": "Summerside",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN teams AS t ON s.tmid = t.tmid AND s.year = t.year",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nJOIN teams AS t ON s.tmid = t.tmid AND s.year = t.year\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 89,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN teams AS t ON s.tmid = t.tmid",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 89,
+            "preview": [
+              {
+                "playerid": "mathima01",
+                "year": 1999,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 6,
+                "g": 0,
+                "a": 2,
+                "pts": 2,
+                "pim": 4,
+                "+/-": "-2",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "3",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "mathima01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Marquis",
+                "lastname": "Mathieu",
+                "namenote": null,
+                "namegiven": "Marquis Jean",
+                "namenick": null,
+                "height": "71",
+                "weight": "190",
+                "shootcatch": "R",
+                "legendsid": "19277",
+                "ihdbid": "3458",
+                "hrefid": "mathima01",
+                "firstnhl": "1998",
+                "lastnhl": "2000",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "C",
+                "birthyear": "1973",
+                "birthmon": "5",
+                "birthday": "31",
+                "birthcountry": "USA",
+                "birthstate": "CT",
+                "birthcity": "Hartford",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": 1924,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 6,
+                "playoff": NaN,
+                "g__dup1": 30,
+                "w": 6,
+                "l": 24,
+                "t": 0.0,
+                "otl": NaN,
+                "pts__dup1": 12,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 49,
+                "ga": 119,
+                "name": "Boston Bruins",
+                "pim__dup1": "231",
+                "benchminor": NaN,
+                "ppg__dup1": NaN,
+                "ppc": NaN,
+                "sha__dup1": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN
+              },
+              {
+                "playerid": "mathima01",
+                "year": 1999,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 6,
+                "g": 0,
+                "a": 2,
+                "pts": 2,
+                "pim": 4,
+                "+/-": "-2",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "3",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "mathima01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Marquis",
+                "lastname": "Mathieu",
+                "namenote": null,
+                "namegiven": "Marquis Jean",
+                "namenick": null,
+                "height": "71",
+                "weight": "190",
+                "shootcatch": "R",
+                "legendsid": "19277",
+                "ihdbid": "3458",
+                "hrefid": "mathima01",
+                "firstnhl": "1998",
+                "lastnhl": "2000",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "C",
+                "birthyear": "1973",
+                "birthmon": "5",
+                "birthday": "31",
+                "birthcountry": "USA",
+                "birthstate": "CT",
+                "birthcity": "Hartford",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": 1945,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 2,
+                "playoff": "F",
+                "g__dup1": 50,
+                "w": 24,
+                "l": 18,
+                "t": 8.0,
+                "otl": NaN,
+                "pts__dup1": 56,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 167,
+                "ga": 156,
+                "name": "Boston Bruins",
+                "pim__dup1": "273",
+                "benchminor": NaN,
+                "ppg__dup1": NaN,
+                "ppc": NaN,
+                "sha__dup1": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN
+              },
+              {
+                "playerid": "mathima01",
+                "year": 1999,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 6,
+                "g": 0,
+                "a": 2,
+                "pts": 2,
+                "pim": 4,
+                "+/-": "-2",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "3",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "mathima01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Marquis",
+                "lastname": "Mathieu",
+                "namenote": null,
+                "namegiven": "Marquis Jean",
+                "namenick": null,
+                "height": "71",
+                "weight": "190",
+                "shootcatch": "R",
+                "legendsid": "19277",
+                "ihdbid": "3458",
+                "hrefid": "mathima01",
+                "firstnhl": "1998",
+                "lastnhl": "2000",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "C",
+                "birthyear": "1973",
+                "birthmon": "5",
+                "birthday": "31",
+                "birthcountry": "USA",
+                "birthstate": "CT",
+                "birthcity": "Hartford",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": 1947,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 3,
+                "playoff": "SF",
+                "g__dup1": 60,
+                "w": 23,
+                "l": 24,
+                "t": 13.0,
+                "otl": NaN,
+                "pts__dup1": 59,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 167,
+                "ga": 168,
+                "name": "Boston Bruins",
+                "pim__dup1": "515",
+                "benchminor": NaN,
+                "ppg__dup1": NaN,
+                "ppc": NaN,
+                "sha__dup1": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN
+              },
+              {
+                "playerid": "mathima01",
+                "year": 1999,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 6,
+                "g": 0,
+                "a": 2,
+                "pts": 2,
+                "pim": 4,
+                "+/-": "-2",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "3",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "mathima01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Marquis",
+                "lastname": "Mathieu",
+                "namenote": null,
+                "namegiven": "Marquis Jean",
+                "namenick": null,
+                "height": "71",
+                "weight": "190",
+                "shootcatch": "R",
+                "legendsid": "19277",
+                "ihdbid": "3458",
+                "hrefid": "mathima01",
+                "firstnhl": "1998",
+                "lastnhl": "2000",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "C",
+                "birthyear": "1973",
+                "birthmon": "5",
+                "birthday": "31",
+                "birthcountry": "USA",
+                "birthstate": "CT",
+                "birthcity": "Hartford",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": 1973,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": NaN,
+                "divid": "ED",
+                "rank": 1,
+                "playoff": "F",
+                "g__dup1": 78,
+                "w": 52,
+                "l": 17,
+                "t": 9.0,
+                "otl": NaN,
+                "pts__dup1": 113,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 349,
+                "ga": 221,
+                "name": "Boston Bruins",
+                "pim__dup1": "968",
+                "benchminor": "8",
+                "ppg__dup1": "65",
+                "ppc": "225",
+                "sha__dup1": "2",
+                "pkg": "48",
+                "pkc": "258",
+                "shf": "12"
+              },
+              {
+                "playerid": "mathima01",
+                "year": 1999,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 6,
+                "g": 0,
+                "a": 2,
+                "pts": 2,
+                "pim": 4,
+                "+/-": "-2",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "3",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "mathima01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Marquis",
+                "lastname": "Mathieu",
+                "namenote": null,
+                "namegiven": "Marquis Jean",
+                "namenick": null,
+                "height": "71",
+                "weight": "190",
+                "shootcatch": "R",
+                "legendsid": "19277",
+                "ihdbid": "3458",
+                "hrefid": "mathima01",
+                "firstnhl": "1998",
+                "lastnhl": "2000",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "C",
+                "birthyear": "1973",
+                "birthmon": "5",
+                "birthday": "31",
+                "birthcountry": "USA",
+                "birthstate": "CT",
+                "birthcity": "Hartford",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": "EC",
+                "divid": "NE",
+                "rank": 1,
+                "playoff": "CQF",
+                "g__dup1": 82,
+                "w": 49,
+                "l": 29,
+                "t": NaN,
+                "otl": "4",
+                "pts__dup1": 102,
+                "sow": "9",
+                "sol": "3",
+                "gf": 269,
+                "ga": 202,
+                "name": "Boston Bruins",
+                "pim__dup1": "1101",
+                "benchminor": "8",
+                "ppg__dup1": "43",
+                "ppc": "250",
+                "sha__dup1": "1",
+                "pkg": "43",
+                "pkc": "260",
+                "shf": "8"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "LEFT JOIN combinedshutouts AS cs ON t.tmid = cs.tmid AND s.year = cs.year",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nLEFT JOIN combinedshutouts AS cs ON t.tmid = cs.tmid AND s.year = cs.year\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 97,
+            "preview": [
+              {
+                "playerid": "mathima01",
+                "year": 1999,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 6,
+                "g": 0,
+                "a": 2,
+                "pts": 2,
+                "pim": 4,
+                "+/-": "-2",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "3",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "mathima01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Marquis",
+                "lastname": "Mathieu",
+                "namenote": null,
+                "namegiven": "Marquis Jean",
+                "namenick": null,
+                "height": "71",
+                "weight": "190",
+                "shootcatch": "R",
+                "legendsid": "19277",
+                "ihdbid": "3458",
+                "hrefid": "mathima01",
+                "firstnhl": "1998",
+                "lastnhl": "2000",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "C",
+                "birthyear": "1973",
+                "birthmon": "5",
+                "birthday": "31",
+                "birthcountry": "USA",
+                "birthstate": "CT",
+                "birthcity": "Hartford",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": 1924,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 6,
+                "playoff": NaN,
+                "g__dup1": 30,
+                "w": 6,
+                "l": 24,
+                "t": 0.0,
+                "otl": NaN,
+                "pts__dup1": 12,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 49,
+                "ga": 119,
+                "name": "Boston Bruins",
+                "pim__dup1": "231",
+                "benchminor": NaN,
+                "ppg__dup1": NaN,
+                "ppc": NaN,
+                "sha__dup1": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN,
+                "year__dup2": null,
+                "month": null,
+                "date": null,
+                "tmid__dup2": null,
+                "oppid": null,
+                "r/p": null,
+                "idgoalie1": null,
+                "idgoalie2": null
+              },
+              {
+                "playerid": "mathima01",
+                "year": 1999,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 6,
+                "g": 0,
+                "a": 2,
+                "pts": 2,
+                "pim": 4,
+                "+/-": "-2",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "3",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "mathima01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Marquis",
+                "lastname": "Mathieu",
+                "namenote": null,
+                "namegiven": "Marquis Jean",
+                "namenick": null,
+                "height": "71",
+                "weight": "190",
+                "shootcatch": "R",
+                "legendsid": "19277",
+                "ihdbid": "3458",
+                "hrefid": "mathima01",
+                "firstnhl": "1998",
+                "lastnhl": "2000",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "C",
+                "birthyear": "1973",
+                "birthmon": "5",
+                "birthday": "31",
+                "birthcountry": "USA",
+                "birthstate": "CT",
+                "birthcity": "Hartford",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": 1945,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 2,
+                "playoff": "F",
+                "g__dup1": 50,
+                "w": 24,
+                "l": 18,
+                "t": 8.0,
+                "otl": NaN,
+                "pts__dup1": 56,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 167,
+                "ga": 156,
+                "name": "Boston Bruins",
+                "pim__dup1": "273",
+                "benchminor": NaN,
+                "ppg__dup1": NaN,
+                "ppc": NaN,
+                "sha__dup1": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN,
+                "year__dup2": null,
+                "month": null,
+                "date": null,
+                "tmid__dup2": null,
+                "oppid": null,
+                "r/p": null,
+                "idgoalie1": null,
+                "idgoalie2": null
+              },
+              {
+                "playerid": "mathima01",
+                "year": 1999,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 6,
+                "g": 0,
+                "a": 2,
+                "pts": 2,
+                "pim": 4,
+                "+/-": "-2",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "3",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "mathima01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Marquis",
+                "lastname": "Mathieu",
+                "namenote": null,
+                "namegiven": "Marquis Jean",
+                "namenick": null,
+                "height": "71",
+                "weight": "190",
+                "shootcatch": "R",
+                "legendsid": "19277",
+                "ihdbid": "3458",
+                "hrefid": "mathima01",
+                "firstnhl": "1998",
+                "lastnhl": "2000",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "C",
+                "birthyear": "1973",
+                "birthmon": "5",
+                "birthday": "31",
+                "birthcountry": "USA",
+                "birthstate": "CT",
+                "birthcity": "Hartford",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": 1947,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 3,
+                "playoff": "SF",
+                "g__dup1": 60,
+                "w": 23,
+                "l": 24,
+                "t": 13.0,
+                "otl": NaN,
+                "pts__dup1": 59,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 167,
+                "ga": 168,
+                "name": "Boston Bruins",
+                "pim__dup1": "515",
+                "benchminor": NaN,
+                "ppg__dup1": NaN,
+                "ppc": NaN,
+                "sha__dup1": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN,
+                "year__dup2": null,
+                "month": null,
+                "date": null,
+                "tmid__dup2": null,
+                "oppid": null,
+                "r/p": null,
+                "idgoalie1": null,
+                "idgoalie2": null
+              },
+              {
+                "playerid": "mathima01",
+                "year": 1999,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 6,
+                "g": 0,
+                "a": 2,
+                "pts": 2,
+                "pim": 4,
+                "+/-": "-2",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "3",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "mathima01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Marquis",
+                "lastname": "Mathieu",
+                "namenote": null,
+                "namegiven": "Marquis Jean",
+                "namenick": null,
+                "height": "71",
+                "weight": "190",
+                "shootcatch": "R",
+                "legendsid": "19277",
+                "ihdbid": "3458",
+                "hrefid": "mathima01",
+                "firstnhl": "1998",
+                "lastnhl": "2000",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "C",
+                "birthyear": "1973",
+                "birthmon": "5",
+                "birthday": "31",
+                "birthcountry": "USA",
+                "birthstate": "CT",
+                "birthcity": "Hartford",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": 1973,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": NaN,
+                "divid": "ED",
+                "rank": 1,
+                "playoff": "F",
+                "g__dup1": 78,
+                "w": 52,
+                "l": 17,
+                "t": 9.0,
+                "otl": NaN,
+                "pts__dup1": 113,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 349,
+                "ga": 221,
+                "name": "Boston Bruins",
+                "pim__dup1": "968",
+                "benchminor": "8",
+                "ppg__dup1": "65",
+                "ppc": "225",
+                "sha__dup1": "2",
+                "pkg": "48",
+                "pkc": "258",
+                "shf": "12",
+                "year__dup2": null,
+                "month": null,
+                "date": null,
+                "tmid__dup2": null,
+                "oppid": null,
+                "r/p": null,
+                "idgoalie1": null,
+                "idgoalie2": null
+              },
+              {
+                "playerid": "mathima01",
+                "year": 1999,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 6,
+                "g": 0,
+                "a": 2,
+                "pts": 2,
+                "pim": 4,
+                "+/-": "-2",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "3",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "mathima01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Marquis",
+                "lastname": "Mathieu",
+                "namenote": null,
+                "namegiven": "Marquis Jean",
+                "namenick": null,
+                "height": "71",
+                "weight": "190",
+                "shootcatch": "R",
+                "legendsid": "19277",
+                "ihdbid": "3458",
+                "hrefid": "mathima01",
+                "firstnhl": "1998",
+                "lastnhl": "2000",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "C",
+                "birthyear": "1973",
+                "birthmon": "5",
+                "birthday": "31",
+                "birthcountry": "USA",
+                "birthstate": "CT",
+                "birthcity": "Hartford",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": "EC",
+                "divid": "NE",
+                "rank": 1,
+                "playoff": "CQF",
+                "g__dup1": 82,
+                "w": 49,
+                "l": 29,
+                "t": NaN,
+                "otl": "4",
+                "pts__dup1": 102,
+                "sow": "9",
+                "sol": "3",
+                "gf": 269,
+                "ga": 202,
+                "name": "Boston Bruins",
+                "pim__dup1": "1101",
+                "benchminor": "8",
+                "ppg__dup1": "43",
+                "ppc": "250",
+                "sha__dup1": "1",
+                "pkg": "43",
+                "pkc": "260",
+                "shf": "8",
+                "year__dup2": null,
+                "month": null,
+                "date": null,
+                "tmid__dup2": null,
+                "oppid": null,
+                "r/p": null,
+                "idgoalie1": null,
+                "idgoalie2": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year = 1989",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nLEFT JOIN combinedshutouts AS cs ON t.tmid = cs.tmid AND s.year = cs.year\nWHERE (s.year = 1989)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 97,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year IN (1989, 1990)",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nLEFT JOIN combinedshutouts AS cs ON t.tmid = cs.tmid AND s.year = cs.year\nWHERE (s.year IN (1989, 1990))\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 97,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year IN (1989, 1990)",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nLEFT JOIN combinedshutouts AS cs ON t.tmid = cs.tmid AND s.year = cs.year\nWHERE (s.year IN (1989, 1990))\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 97,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year = 1989",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nLEFT JOIN combinedshutouts AS cs ON t.tmid = cs.tmid AND s.year = cs.year\nWHERE (s.year = 1989)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 97,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year = 1988",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nLEFT JOIN combinedshutouts AS cs ON t.tmid = cs.tmid AND s.year = cs.year\nWHERE (s.year = 1988)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 97,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "s.year = 1989",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nLEFT JOIN combinedshutouts AS cs ON t.tmid = cs.tmid AND s.year = cs.year\nWHERE (s.year = 1989)\nLIMIT 5",
+          "result": {
+            "success": false,
+            "empty": true,
+            "error": null,
+            "row_count": 0,
+            "column_count": 97,
+            "preview": [],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where_skipped",
+          "clause": "s.year = 1989",
+          "last_candidate": "s.year >= 1989",
+          "reason": "where predicate made the probe empty"
+        },
+        {
+          "stage": "where",
+          "clause": "s.pos != 'G'",
+          "sql": "SELECT *\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nLEFT JOIN combinedshutouts AS cs ON t.tmid = cs.tmid AND s.year = cs.year\nWHERE (s.pos != 'G')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 97,
+            "preview": [
+              {
+                "playerid": "mathima01",
+                "year": 1999,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 6,
+                "g": 0,
+                "a": 2,
+                "pts": 2,
+                "pim": 4,
+                "+/-": "-2",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "3",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "mathima01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Marquis",
+                "lastname": "Mathieu",
+                "namenote": null,
+                "namegiven": "Marquis Jean",
+                "namenick": null,
+                "height": "71",
+                "weight": "190",
+                "shootcatch": "R",
+                "legendsid": "19277",
+                "ihdbid": "3458",
+                "hrefid": "mathima01",
+                "firstnhl": "1998",
+                "lastnhl": "2000",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "C",
+                "birthyear": "1973",
+                "birthmon": "5",
+                "birthday": "31",
+                "birthcountry": "USA",
+                "birthstate": "CT",
+                "birthcity": "Hartford",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": 1924,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 6,
+                "playoff": NaN,
+                "g__dup1": 30,
+                "w": 6,
+                "l": 24,
+                "t": 0.0,
+                "otl": NaN,
+                "pts__dup1": 12,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 49,
+                "ga": 119,
+                "name": "Boston Bruins",
+                "pim__dup1": "231",
+                "benchminor": NaN,
+                "ppg__dup1": NaN,
+                "ppc": NaN,
+                "sha__dup1": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN,
+                "year__dup2": null,
+                "month": null,
+                "date": null,
+                "tmid__dup2": null,
+                "oppid": null,
+                "r/p": null,
+                "idgoalie1": null,
+                "idgoalie2": null
+              },
+              {
+                "playerid": "mathima01",
+                "year": 1999,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 6,
+                "g": 0,
+                "a": 2,
+                "pts": 2,
+                "pim": 4,
+                "+/-": "-2",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "3",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "mathima01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Marquis",
+                "lastname": "Mathieu",
+                "namenote": null,
+                "namegiven": "Marquis Jean",
+                "namenick": null,
+                "height": "71",
+                "weight": "190",
+                "shootcatch": "R",
+                "legendsid": "19277",
+                "ihdbid": "3458",
+                "hrefid": "mathima01",
+                "firstnhl": "1998",
+                "lastnhl": "2000",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "C",
+                "birthyear": "1973",
+                "birthmon": "5",
+                "birthday": "31",
+                "birthcountry": "USA",
+                "birthstate": "CT",
+                "birthcity": "Hartford",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": 1945,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 2,
+                "playoff": "F",
+                "g__dup1": 50,
+                "w": 24,
+                "l": 18,
+                "t": 8.0,
+                "otl": NaN,
+                "pts__dup1": 56,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 167,
+                "ga": 156,
+                "name": "Boston Bruins",
+                "pim__dup1": "273",
+                "benchminor": NaN,
+                "ppg__dup1": NaN,
+                "ppc": NaN,
+                "sha__dup1": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN,
+                "year__dup2": null,
+                "month": null,
+                "date": null,
+                "tmid__dup2": null,
+                "oppid": null,
+                "r/p": null,
+                "idgoalie1": null,
+                "idgoalie2": null
+              },
+              {
+                "playerid": "mathima01",
+                "year": 1999,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 6,
+                "g": 0,
+                "a": 2,
+                "pts": 2,
+                "pim": 4,
+                "+/-": "-2",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "3",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "mathima01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Marquis",
+                "lastname": "Mathieu",
+                "namenote": null,
+                "namegiven": "Marquis Jean",
+                "namenick": null,
+                "height": "71",
+                "weight": "190",
+                "shootcatch": "R",
+                "legendsid": "19277",
+                "ihdbid": "3458",
+                "hrefid": "mathima01",
+                "firstnhl": "1998",
+                "lastnhl": "2000",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "C",
+                "birthyear": "1973",
+                "birthmon": "5",
+                "birthday": "31",
+                "birthcountry": "USA",
+                "birthstate": "CT",
+                "birthcity": "Hartford",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": 1947,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 3,
+                "playoff": "SF",
+                "g__dup1": 60,
+                "w": 23,
+                "l": 24,
+                "t": 13.0,
+                "otl": NaN,
+                "pts__dup1": 59,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 167,
+                "ga": 168,
+                "name": "Boston Bruins",
+                "pim__dup1": "515",
+                "benchminor": NaN,
+                "ppg__dup1": NaN,
+                "ppc": NaN,
+                "sha__dup1": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN,
+                "year__dup2": null,
+                "month": null,
+                "date": null,
+                "tmid__dup2": null,
+                "oppid": null,
+                "r/p": null,
+                "idgoalie1": null,
+                "idgoalie2": null
+              },
+              {
+                "playerid": "mathima01",
+                "year": 1999,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 6,
+                "g": 0,
+                "a": 2,
+                "pts": 2,
+                "pim": 4,
+                "+/-": "-2",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "3",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "mathima01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Marquis",
+                "lastname": "Mathieu",
+                "namenote": null,
+                "namegiven": "Marquis Jean",
+                "namenick": null,
+                "height": "71",
+                "weight": "190",
+                "shootcatch": "R",
+                "legendsid": "19277",
+                "ihdbid": "3458",
+                "hrefid": "mathima01",
+                "firstnhl": "1998",
+                "lastnhl": "2000",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "C",
+                "birthyear": "1973",
+                "birthmon": "5",
+                "birthday": "31",
+                "birthcountry": "USA",
+                "birthstate": "CT",
+                "birthcity": "Hartford",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": 1973,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": NaN,
+                "divid": "ED",
+                "rank": 1,
+                "playoff": "F",
+                "g__dup1": 78,
+                "w": 52,
+                "l": 17,
+                "t": 9.0,
+                "otl": NaN,
+                "pts__dup1": 113,
+                "sow": NaN,
+                "sol": NaN,
+                "gf": 349,
+                "ga": 221,
+                "name": "Boston Bruins",
+                "pim__dup1": "968",
+                "benchminor": "8",
+                "ppg__dup1": "65",
+                "ppc": "225",
+                "sha__dup1": "2",
+                "pkg": "48",
+                "pkc": "258",
+                "shf": "12",
+                "year__dup2": null,
+                "month": null,
+                "date": null,
+                "tmid__dup2": null,
+                "oppid": null,
+                "r/p": null,
+                "idgoalie1": null,
+                "idgoalie2": null
+              },
+              {
+                "playerid": "mathima01",
+                "year": 1999,
+                "stint": 1,
+                "tmid": "BOS",
+                "lgid": "NHL",
+                "pos": "C",
+                "gp": 6,
+                "g": 0,
+                "a": 2,
+                "pts": 2,
+                "pim": 4,
+                "+/-": "-2",
+                "ppg": "0",
+                "ppa": "0",
+                "shg": "0",
+                "sha": "0",
+                "gwg": "0",
+                "gtg": "0",
+                "sog": "3",
+                "postgp": null,
+                "postg": null,
+                "posta": null,
+                "postpts": null,
+                "postpim": null,
+                "post+/-": null,
+                "postppg": null,
+                "postppa": null,
+                "postshg": null,
+                "postsha": null,
+                "postgwg": null,
+                "postsog": null,
+                "playerid__dup1": "mathima01",
+                "coachid": null,
+                "hofid": null,
+                "firstname": "Marquis",
+                "lastname": "Mathieu",
+                "namenote": null,
+                "namegiven": "Marquis Jean",
+                "namenick": null,
+                "height": "71",
+                "weight": "190",
+                "shootcatch": "R",
+                "legendsid": "19277",
+                "ihdbid": "3458",
+                "hrefid": "mathima01",
+                "firstnhl": "1998",
+                "lastnhl": "2000",
+                "firstwha": null,
+                "lastwha": null,
+                "pos__dup1": "C",
+                "birthyear": "1973",
+                "birthmon": "5",
+                "birthday": "31",
+                "birthcountry": "USA",
+                "birthstate": "CT",
+                "birthcity": "Hartford",
+                "deathyear": null,
+                "deathmon": null,
+                "deathday": null,
+                "deathcountry": null,
+                "deathstate": null,
+                "deathcity": null,
+                "year__dup1": 2011,
+                "lgid__dup1": "NHL",
+                "tmid__dup1": "BOS",
+                "franchid": "BOS",
+                "confid": "EC",
+                "divid": "NE",
+                "rank": 1,
+                "playoff": "CQF",
+                "g__dup1": 82,
+                "w": 49,
+                "l": 29,
+                "t": NaN,
+                "otl": "4",
+                "pts__dup1": 102,
+                "sow": "9",
+                "sol": "3",
+                "gf": 269,
+                "ga": 202,
+                "name": "Boston Bruins",
+                "pim__dup1": "1101",
+                "benchminor": "8",
+                "ppg__dup1": "43",
+                "ppc": "250",
+                "sha__dup1": "1",
+                "pkg": "43",
+                "pkc": "260",
+                "shf": "8",
+                "year__dup2": null,
+                "month": null,
+                "date": null,
+                "tmid__dup2": null,
+                "oppid": null,
+                "r/p": null,
+                "idgoalie1": null,
+                "idgoalie2": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT m.firstname || ' ' || m.lastname AS player_name, s.g AS goals_against, t.name AS team_name, COUNT(cs.idgoalie1) + COUNT(cs.idgoalie2) AS shutouts\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nLEFT JOIN combinedshutouts AS cs ON t.tmid = cs.tmid AND s.year = cs.year\nWHERE (s.pos != 'G')\nGROUP BY s.playerid, m.firstname, m.lastname, t.name",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 2,
+            "column_count": 4,
+            "preview": [
+              {
+                "player_name": "Marquis Mathieu",
+                "goals_against": 0,
+                "team_name": "Boston Bruins",
+                "shutouts": 0
+              },
+              {
+                "player_name": "Errol Thompson",
+                "goals_against": 5,
+                "team_name": "Detroit Red Wings",
+                "shutouts": 0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "Final scalar block that selects the player name with the most goals against the team with the most combined shutouts in 1989.",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT leaf_1.player_name, leaf_1.goals_against, leaf_1.team_name, leaf_1.shutouts FROM (SELECT m.firstname || ' ' || m.lastname AS player_name, s.g AS goals_against, t.name AS team_name, COUNT(cs.idgoalie1) + COUNT(cs.idgoalie2) AS shutouts\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nLEFT JOIN combinedshutouts AS cs ON t.tmid = cs.tmid AND s.year = cs.year\nWHERE (s.pos != 'G')\nGROUP BY s.playerid, m.firstname, m.lastname, t.name) AS leaf_1 ORDER BY leaf_1.shutouts DESC, leaf_1.goals_against DESC LIMIT 1) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 4,
+            "preview": [
+              {
+                "player_name": "Errol Thompson",
+                "goals_against": 5,
+                "team_name": "Detroit Red Wings",
+                "shutouts": 0
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT leaf_1.player_name\nFROM (SELECT leaf_1.player_name, leaf_1.goals_against, leaf_1.team_name, leaf_1.shutouts FROM (SELECT m.firstname || ' ' || m.lastname AS player_name, s.g AS goals_against, t.name AS team_name, COUNT(cs.idgoalie1) + COUNT(cs.idgoalie2) AS shutouts\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nLEFT JOIN combinedshutouts AS cs ON t.tmid = cs.tmid AND s.year = cs.year\nWHERE (s.pos != 'G')\nGROUP BY s.playerid, m.firstname, m.lastname, t.name) AS leaf_1 ORDER BY leaf_1.shutouts DESC, leaf_1.goals_against DESC LIMIT 1) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "player_name": "Errol Thompson"
+              }
+            ],
+            "scalar": true,
+            "text_scalar": true
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 22,
+  "sample_retry": 6,
+  "detail_fallback_used": true,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.49552272727272734,
+    "nearest": {
+      "sample_index": 23,
+      "answer_mode": "text",
+      "target_join_count": 3,
+      "similarity": 0.49552272727272734,
+      "sql": "SELECT CONCAT(firstname, ' ', lastname) AS player_name\nFROM (SELECT * FROM (SELECT s.playerid, m.firstname, m.lastname, s.g\nFROM scoring AS s\nJOIN master AS m ON s.playerid = m.playerid\nJOIN teams AS t ON s.tmid = t.tmid\nJOIN seriespost AS sp ON t.tmid = sp.tmidloser\nWHERE (sp.tmidloser != 'SEA')) ORDER BY g DESC LIMIT 1) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": null,
+    "nearest": null,
+    "reason": "not numeric"
+  },
+  "question": "What is the name of the non-goalie player who has the highest combined number of shutouts (as either the first or second goalie) and, in case of a tie, the highest number of goals allowed?",
+  "answer": "Errol Thompson"
+}

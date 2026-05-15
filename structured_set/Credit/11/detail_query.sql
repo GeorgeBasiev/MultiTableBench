@@ -1,0 +1,1 @@
+SELECT m.member_no, m.lastname, m.firstname, c.category_desc, ch.charge_amt, p.provider_name FROM member m JOIN charge ch ON m.member_no = ch.member_no JOIN category c ON ch.category_no = c.category_no JOIN provider p ON ch.provider_no = p.provider_no JOIN region r ON m.region_no = r.region_no WHERE r.region_name = 'South American' ORDER BY ch.charge_amt DESC LIMIT 1

@@ -1,0 +1,9 @@
+SELECT AVG(leaf_1.avg_points)
+FROM (SELECT c.constructorid, AVG(cr.points) AS avg_points
+FROM constructors AS c
+JOIN constructorresults AS cr ON c.constructorid = cr.constructorid
+JOIN races AS ra ON cr.raceid = ra.raceid
+JOIN circuits AS ci ON ra.circuitid = ci.circuitid
+JOIN constructorstandings AS cs ON c.constructorid = cs.constructorid
+WHERE (ci.country IN (SELECT ci2.country FROM circuits AS ci2 GROUP BY ci2.country HAVING COUNT(ci2.circuitid) >= 3)) AND (cs.wins >= 5)
+GROUP BY c.constructorid) AS leaf_1

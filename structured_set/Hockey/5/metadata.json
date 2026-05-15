@@ -1,0 +1,3791 @@
+{
+  "sample_index": 5,
+  "db_name": "Hockey",
+  "answer_mode": "aggregate",
+  "target_join_count": 3,
+  "actual_join_count": 3,
+  "numeric_answer": 2.6666666666666665,
+  "constraints": {
+    "answer_mode": "aggregate",
+    "target_join_count": 3,
+    "min_hops": 3,
+    "max_hops": 3,
+    "require_group_by": false,
+    "require_having": true,
+    "require_nested_subquery": true
+  },
+  "question_intent": "Average goals against per game for teams that had a goalie with at least 100 minutes played in a game and were coached by a coach who won the Jack Adams award",
+  "manifest": {
+    "db_name": "Hockey",
+    "sample_dir": "structured_set/Hockey/5",
+    "snapshot_min_rows": 60,
+    "snapshot_max_rows": 120,
+    "tables": [
+      {
+        "table_name": "abbrev",
+        "remote_row_count": 58,
+        "snapshot_row_count": 58,
+        "target_limit": 58,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "type",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "code",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "fullname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardscoaches",
+        "remote_row_count": 77,
+        "snapshot_row_count": 77,
+        "target_limit": 77,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsmisc",
+        "remote_row_count": 124,
+        "snapshot_row_count": 100,
+        "target_limit": 100,
+        "relational_rows_added": 3,
+        "columns": [
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "id",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "awardsplayers",
+        "remote_row_count": 2091,
+        "snapshot_row_count": 80,
+        "target_limit": 80,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "award",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "coaches",
+        "remote_row_count": 1812,
+        "snapshot_row_count": 93,
+        "target_limit": 93,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "notes",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "combinedshutouts",
+        "remote_row_count": 54,
+        "snapshot_row_count": 54,
+        "target_limit": 54,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "month",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "date",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "r/p",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie1",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "idgoalie2",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goalies",
+        "remote_row_count": 4278,
+        "snapshot_row_count": 83,
+        "target_limit": 83,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "min",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "l",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "t/ol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "eng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postmin",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posteng",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsho",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postga",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliessc",
+        "remote_row_count": 31,
+        "snapshot_row_count": 31,
+        "target_limit": 31,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "min",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sho",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "goaliesshootout",
+        "remote_row_count": 480,
+        "snapshot_row_count": 92,
+        "target_limit": 92,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sa",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "hof",
+        "remote_row_count": 365,
+        "snapshot_row_count": 91,
+        "target_limit": 91,
+        "relational_rows_added": 8,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "category",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "master",
+        "remote_row_count": 7761,
+        "snapshot_row_count": 106,
+        "target_limit": 106,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "coachid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hofid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastname",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenote",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namegiven",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "namenick",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "height",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "weight",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shootcatch",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "legendsid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ihdbid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hrefid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastnhl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "firstwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lastwha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "birthcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathyear",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathmon",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathday",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcountry",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathstate",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "deathcity",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoring",
+        "remote_row_count": 45967,
+        "snapshot_row_count": 94,
+        "target_limit": 94,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gtg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgp",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "posta",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpts",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postpim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "post+/-",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postshg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postgwg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "postsog",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsc",
+        "remote_row_count": 284,
+        "snapshot_row_count": 83,
+        "target_limit": 83,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pos",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gp",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "a",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringshootout",
+        "remote_row_count": 2072,
+        "snapshot_row_count": 103,
+        "target_limit": 103,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "stint",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "s",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gdg",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "scoringsup",
+        "remote_row_count": 137,
+        "snapshot_row_count": 101,
+        "target_limit": 101,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "playerid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ppa",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "seriespost",
+        "remote_row_count": 832,
+        "snapshot_row_count": 75,
+        "target_limit": 75,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "round",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "series",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidwinner",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "lgidloser",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalswinner",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "goalsloser",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "note",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teams",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 105,
+        "target_limit": 105,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "franchid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "confid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "divid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "playoff",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pts",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "sow",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "name",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamshalf",
+        "remote_row_count": 41,
+        "snapshot_row_count": 41,
+        "target_limit": 41,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "half",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rank",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          }
+        ]
+      },
+      {
+        "table_name": "teamsplits",
+        "remote_row_count": 1519,
+        "snapshot_row_count": 74,
+        "target_limit": 74,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "hw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ht",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "hotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "rw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "rotl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sept",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sepol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "octol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "novol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "dect",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "decol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "janw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "jant",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "janol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "febw",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febl",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febt",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "febol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "mart",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "marol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprw",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprt",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "aprol",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamspost",
+        "remote_row_count": 927,
+        "snapshot_row_count": 99,
+        "target_limit": 99,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "benchminor",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "ppc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "sha",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkg",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "pkc",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "shf",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamssc",
+        "remote_row_count": 30,
+        "snapshot_row_count": 30,
+        "target_limit": 30,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "g",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "gf",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "ga",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "pim",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      },
+      {
+        "table_name": "teamvsteam",
+        "remote_row_count": 25602,
+        "snapshot_row_count": 104,
+        "target_limit": 104,
+        "relational_rows_added": 0,
+        "columns": [
+          {
+            "name": "year",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "lgid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "tmid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "oppid",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          },
+          {
+            "name": "w",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "l",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "t",
+            "mysql_type": "int",
+            "sqlite_type": "INTEGER"
+          },
+          {
+            "name": "otl",
+            "mysql_type": "varchar",
+            "sqlite_type": "TEXT"
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "question_intent": "Average goals against per game for teams that had a goalie with at least 100 minutes played in a game and were coached by a coach who won the Jack Adams award",
+    "answer_mode": "aggregate",
+    "final_block_name": "root",
+    "detail_query": "SELECT t.name AS team_name, g.playerid AS goalie_id, g.min AS minutes_played, c.coachid AS coach_id, a.award AS coach_award, g.ga AS goals_against, g.gp AS games_played, (g.ga / g.gp) AS ga_per_game\nFROM teams AS t\nJOIN goaliessc AS g ON t.tmid = g.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nWHERE (t.lgid = 'NHL') AND (g.min >= 100) AND (a.award = 'Jack Adams')\nGROUP BY t.name, g.playerid, g.min, c.coachid, a.award, g.ga, g.gp\nHAVING (g.ga / g.gp) > 0",
+    "blocks": [
+      {
+        "name": "leaf_1",
+        "role": "leaf",
+        "select_clause": "SELECT t.name AS team_name, AVG(g.ga / g.gp) AS avg_ga_per_game",
+        "from_clause": "FROM teams AS t",
+        "join_clauses": [
+          "JOIN goaliessc AS g ON t.tmid = g.tmid",
+          "JOIN coaches AS c ON t.tmid = c.tmid",
+          "JOIN awardscoaches AS a ON c.coachid = a.coachid"
+        ],
+        "where_clauses": [
+          "t.lgid = 'NHL'",
+          "g.min >= 100",
+          "a.award = 'Jack Adams'"
+        ],
+        "group_by_clause": "GROUP BY t.name",
+        "having_clauses": [
+          "AVG(g.ga / g.gp) > 0"
+        ],
+        "notes": "Calculate the average goals against per game for teams that had a goalie with at least 100 minutes played and were coached by a coach who won the Jack Adams award"
+      },
+      {
+        "name": "root",
+        "role": "root",
+        "select_clause": "SELECT AVG(avg_ga_per_game) AS final_avg_ga_per_game",
+        "from_clause": "FROM {{leaf_1}} AS leaf_1",
+        "join_clauses": [],
+        "where_clauses": [],
+        "group_by_clause": "",
+        "having_clauses": [],
+        "notes": "Calculate the average of the average goals against per game from the leaf block"
+      }
+    ]
+  },
+  "build_logs": [
+    {
+      "block": "leaf_1",
+      "notes": "Calculate the average goals against per game for teams that had a goalie with at least 100 minutes played and were coached by a coach who won the Jack Adams award",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM teams AS t\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 27,
+            "preview": [
+              {
+                "year": 1939,
+                "lgid": "NHL",
+                "tmid": "CHI",
+                "franchid": "CHI",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 4,
+                "playoff": "QF",
+                "g": 48,
+                "w": 23,
+                "l": 19,
+                "t": 6,
+                "otl": null,
+                "pts": 52,
+                "sow": null,
+                "sol": null,
+                "gf": 112,
+                "ga": 120,
+                "name": "Chicago Black Hawks",
+                "pim": "349",
+                "benchminor": NaN,
+                "ppg": NaN,
+                "ppc": NaN,
+                "sha": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN
+              },
+              {
+                "year": 1985,
+                "lgid": "NHL",
+                "tmid": "WAS",
+                "franchid": "WAS",
+                "confid": "WA",
+                "divid": "PT",
+                "rank": 2,
+                "playoff": "DF",
+                "g": 80,
+                "w": 50,
+                "l": 23,
+                "t": 7,
+                "otl": null,
+                "pts": 107,
+                "sow": null,
+                "sol": null,
+                "gf": 315,
+                "ga": 272,
+                "name": "Washington Capitals",
+                "pim": "1418",
+                "benchminor": "12",
+                "ppg": "82",
+                "ppc": "360",
+                "sha": "6",
+                "pkg": "67",
+                "pkc": "348",
+                "shf": "13"
+              },
+              {
+                "year": 1996,
+                "lgid": "NHL",
+                "tmid": "FLO",
+                "franchid": "FLO",
+                "confid": "EC",
+                "divid": "AT",
+                "rank": 3,
+                "playoff": "CQF",
+                "g": 82,
+                "w": 35,
+                "l": 28,
+                "t": 19,
+                "otl": null,
+                "pts": 89,
+                "sow": null,
+                "sol": null,
+                "gf": 221,
+                "ga": 201,
+                "name": "Florida Panthers",
+                "pim": "1628",
+                "benchminor": "20",
+                "ppg": "50",
+                "ppc": "352",
+                "sha": "17",
+                "pkg": "50",
+                "pkc": "346",
+                "shf": "5"
+              },
+              {
+                "year": 1995,
+                "lgid": "NHL",
+                "tmid": "VAN",
+                "franchid": "VAN",
+                "confid": "WC",
+                "divid": "PC",
+                "rank": 3,
+                "playoff": "CQF",
+                "g": 82,
+                "w": 32,
+                "l": 35,
+                "t": 15,
+                "otl": null,
+                "pts": 79,
+                "sow": null,
+                "sol": null,
+                "gf": 278,
+                "ga": 278,
+                "name": "Vancouver Canucks",
+                "pim": "1546",
+                "benchminor": "18",
+                "ppg": "69",
+                "ppc": "411",
+                "sha": "13",
+                "pkg": "78",
+                "pkc": "418",
+                "shf": "18"
+              },
+              {
+                "year": 1991,
+                "lgid": "NHL",
+                "tmid": "BOS",
+                "franchid": "BOS",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "CF",
+                "g": 80,
+                "w": 36,
+                "l": 32,
+                "t": 12,
+                "otl": null,
+                "pts": 84,
+                "sow": null,
+                "sol": null,
+                "gf": 270,
+                "ga": 275,
+                "name": "Boston Bruins",
+                "pim": "1752",
+                "benchminor": "12",
+                "ppg": "77",
+                "ppc": "406",
+                "sha": "14",
+                "pkg": "72",
+                "pkc": "363",
+                "shf": "7"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN goaliessc AS g ON t.tmid = g.tmid",
+          "sql": "SELECT *\nFROM teams AS t\nJOIN goaliessc AS g ON t.tmid = g.tmid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 38,
+            "preview": [
+              {
+                "year": 1925,
+                "lgid": "WCHL",
+                "tmid": "VIC",
+                "franchid": "VIC",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 3,
+                "playoff": "F",
+                "g": 30,
+                "w": 15,
+                "l": 11,
+                "t": 4,
+                "otl": null,
+                "pts": 34,
+                "sow": null,
+                "sol": null,
+                "gf": 68,
+                "ga": 53,
+                "name": "Victoria Cougars",
+                "pim": NaN,
+                "benchminor": NaN,
+                "ppg": NaN,
+                "ppc": NaN,
+                "sha": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN,
+                "playerid": "holmeha01",
+                "year__dup1": 1924,
+                "tmid__dup1": "VIC",
+                "lgid__dup1": "WCHL",
+                "gp": 4,
+                "min": 240,
+                "w__dup1": 3,
+                "l__dup1": 1,
+                "t__dup1": 0,
+                "sho": 0,
+                "ga__dup1": 8
+              },
+              {
+                "year": 1925,
+                "lgid": "WCHL",
+                "tmid": "VIC",
+                "franchid": "VIC",
+                "confid": NaN,
+                "divid": NaN,
+                "rank": 3,
+                "playoff": "F",
+                "g": 30,
+                "w": 15,
+                "l": 11,
+                "t": 4,
+                "otl": null,
+                "pts": 34,
+                "sow": null,
+                "sol": null,
+                "gf": 68,
+                "ga": 53,
+                "name": "Victoria Cougars",
+                "pim": NaN,
+                "benchminor": NaN,
+                "ppg": NaN,
+                "ppc": NaN,
+                "sha": NaN,
+                "pkg": NaN,
+                "pkc": NaN,
+                "shf": NaN,
+                "playerid": "holmeha01",
+                "year__dup1": 1925,
+                "tmid__dup1": "VIC",
+                "lgid__dup1": "WCHL",
+                "gp": 4,
+                "min": 240,
+                "w__dup1": 1,
+                "l__dup1": 3,
+                "t__dup1": 0,
+                "sho": 0,
+                "ga__dup1": 10
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1923,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 4,
+                "min": 240,
+                "w__dup1": 4,
+                "l__dup1": 0,
+                "t__dup1": 0,
+                "sho": 1,
+                "ga__dup1": 4
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1924,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 4,
+                "min": 240,
+                "w__dup1": 1,
+                "l__dup1": 3,
+                "t__dup1": 0,
+                "sho": 0,
+                "ga__dup1": 16
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN coaches AS c ON t.tmid = c.tmid",
+          "sql": "SELECT *\nFROM teams AS t\nJOIN goaliessc AS g ON t.tmid = g.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 52,
+            "preview": [
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "berrybo01c",
+                "year__dup2": 1981,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 46,
+                "l__dup2": 17,
+                "t__dup2": 17,
+                "postg": "5",
+                "postw": "2",
+                "postl": "3",
+                "postt": "0"
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "blaketo01c",
+                "year__dup2": 1967,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 74,
+                "w__dup2": 42,
+                "l__dup2": 22,
+                "t__dup2": 10,
+                "postg": "13",
+                "postw": "12",
+                "postl": "1",
+                "postt": "0"
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "bowmasc01c",
+                "year__dup2": 1975,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 58,
+                "l__dup2": 11,
+                "t__dup2": 11,
+                "postg": "13",
+                "postw": "12",
+                "postl": "1",
+                "postt": "0"
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "burnspa01c",
+                "year__dup2": 1989,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 41,
+                "l__dup2": 28,
+                "t__dup2": 11,
+                "postg": "11",
+                "postw": "5",
+                "postl": "6",
+                "postt": "0"
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "dandule01c",
+                "year__dup2": 1924,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 30,
+                "w__dup2": 17,
+                "l__dup2": 11,
+                "t__dup2": 2,
+                "postg": "6",
+                "postw": "3",
+                "postl": "3",
+                "postt": "0"
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "join",
+          "clause": "JOIN awardscoaches AS a ON c.coachid = a.coachid",
+          "sql": "SELECT *\nFROM teams AS t\nJOIN goaliessc AS g ON t.tmid = g.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 57,
+            "preview": [
+              {
+                "year": 1982,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "DSF",
+                "g": 80,
+                "w": 42,
+                "l": 24,
+                "t": 14,
+                "otl": null,
+                "pts": 98,
+                "sow": null,
+                "sol": null,
+                "gf": 350,
+                "ga": 286,
+                "name": "Montreal Canadiens",
+                "pim": "1116",
+                "benchminor": "10",
+                "ppg": "64",
+                "ppc": "288",
+                "sha": "8",
+                "pkg": "68",
+                "pkc": "260",
+                "shf": "8",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "bowmasc01c",
+                "year__dup2": 1975,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 58,
+                "l__dup2": 11,
+                "t__dup2": 11,
+                "postg": "13",
+                "postw": "12",
+                "postl": "1",
+                "postt": "0",
+                "coachid__dup1": "bowmasc01c",
+                "award": "Jack Adams",
+                "year__dup3": 1976,
+                "lgid__dup3": "NHL",
+                "note": null
+              },
+              {
+                "year": 1982,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "DSF",
+                "g": 80,
+                "w": 42,
+                "l": 24,
+                "t": 14,
+                "otl": null,
+                "pts": 98,
+                "sow": null,
+                "sol": null,
+                "gf": 350,
+                "ga": 286,
+                "name": "Montreal Canadiens",
+                "pim": "1116",
+                "benchminor": "10",
+                "ppg": "64",
+                "ppc": "288",
+                "sha": "8",
+                "pkg": "68",
+                "pkc": "260",
+                "shf": "8",
+                "playerid": "vezinge01",
+                "year__dup1": 1923,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 4,
+                "min": 240,
+                "w__dup1": 4,
+                "l__dup1": 0,
+                "t__dup1": 0,
+                "sho": 1,
+                "ga__dup1": 4,
+                "coachid": "bowmasc01c",
+                "year__dup2": 1975,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 58,
+                "l__dup2": 11,
+                "t__dup2": 11,
+                "postg": "13",
+                "postw": "12",
+                "postl": "1",
+                "postt": "0",
+                "coachid__dup1": "bowmasc01c",
+                "award": "Jack Adams",
+                "year__dup3": 1976,
+                "lgid__dup3": "NHL",
+                "note": null
+              },
+              {
+                "year": 1982,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "DSF",
+                "g": 80,
+                "w": 42,
+                "l": 24,
+                "t": 14,
+                "otl": null,
+                "pts": 98,
+                "sow": null,
+                "sol": null,
+                "gf": 350,
+                "ga": 286,
+                "name": "Montreal Canadiens",
+                "pim": "1116",
+                "benchminor": "10",
+                "ppg": "64",
+                "ppc": "288",
+                "sha": "8",
+                "pkg": "68",
+                "pkc": "260",
+                "shf": "8",
+                "playerid": "vezinge01",
+                "year__dup1": 1924,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 4,
+                "min": 240,
+                "w__dup1": 1,
+                "l__dup1": 3,
+                "t__dup1": 0,
+                "sho": 0,
+                "ga__dup1": 16,
+                "coachid": "bowmasc01c",
+                "year__dup2": 1975,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 58,
+                "l__dup2": 11,
+                "t__dup2": 11,
+                "postg": "13",
+                "postw": "12",
+                "postl": "1",
+                "postt": "0",
+                "coachid__dup1": "bowmasc01c",
+                "award": "Jack Adams",
+                "year__dup3": 1976,
+                "lgid__dup3": "NHL",
+                "note": null
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "bowmasc01c",
+                "year__dup2": 1975,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 58,
+                "l__dup2": 11,
+                "t__dup2": 11,
+                "postg": "13",
+                "postw": "12",
+                "postl": "1",
+                "postt": "0",
+                "coachid__dup1": "bowmasc01c",
+                "award": "Jack Adams",
+                "year__dup3": 1976,
+                "lgid__dup3": "NHL",
+                "note": null
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1923,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 4,
+                "min": 240,
+                "w__dup1": 4,
+                "l__dup1": 0,
+                "t__dup1": 0,
+                "sho": 1,
+                "ga__dup1": 4,
+                "coachid": "bowmasc01c",
+                "year__dup2": 1975,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 58,
+                "l__dup2": 11,
+                "t__dup2": 11,
+                "postg": "13",
+                "postw": "12",
+                "postl": "1",
+                "postt": "0",
+                "coachid__dup1": "bowmasc01c",
+                "award": "Jack Adams",
+                "year__dup3": 1976,
+                "lgid__dup3": "NHL",
+                "note": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "t.lgid = 'NHL'",
+          "sql": "SELECT *\nFROM teams AS t\nJOIN goaliessc AS g ON t.tmid = g.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nWHERE (t.lgid = 'NHL')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 57,
+            "preview": [
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "bowmasc01c",
+                "year__dup2": 1975,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 58,
+                "l__dup2": 11,
+                "t__dup2": 11,
+                "postg": "13",
+                "postw": "12",
+                "postl": "1",
+                "postt": "0",
+                "coachid__dup1": "bowmasc01c",
+                "award": "Jack Adams",
+                "year__dup3": 1976,
+                "lgid__dup3": "NHL",
+                "note": null
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "bowmasc01c",
+                "year__dup2": 1975,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 58,
+                "l__dup2": 11,
+                "t__dup2": 11,
+                "postg": "13",
+                "postw": "12",
+                "postl": "1",
+                "postt": "0",
+                "coachid__dup1": "bowmasc01c",
+                "award": "Jack Adams",
+                "year__dup3": 1995,
+                "lgid__dup3": "NHL",
+                "note": null
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "burnspa01c",
+                "year__dup2": 1989,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 41,
+                "l__dup2": 28,
+                "t__dup2": 11,
+                "postg": "11",
+                "postw": "5",
+                "postl": "6",
+                "postt": "0",
+                "coachid__dup1": "burnspa01c",
+                "award": "Jack Adams",
+                "year__dup3": 1988,
+                "lgid__dup3": "NHL",
+                "note": null
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "burnspa01c",
+                "year__dup2": 1989,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 41,
+                "l__dup2": 28,
+                "t__dup2": 11,
+                "postg": "11",
+                "postw": "5",
+                "postl": "6",
+                "postt": "0",
+                "coachid__dup1": "burnspa01c",
+                "award": "Jack Adams",
+                "year__dup3": 1992,
+                "lgid__dup3": "NHL",
+                "note": null
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "burnspa01c",
+                "year__dup2": 1989,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 41,
+                "l__dup2": 28,
+                "t__dup2": 11,
+                "postg": "11",
+                "postw": "5",
+                "postl": "6",
+                "postt": "0",
+                "coachid__dup1": "burnspa01c",
+                "award": "Jack Adams",
+                "year__dup3": 1997,
+                "lgid__dup3": "NHL",
+                "note": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "g.min >= 100",
+          "sql": "SELECT *\nFROM teams AS t\nJOIN goaliessc AS g ON t.tmid = g.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nWHERE (t.lgid = 'NHL') AND (g.min >= 100)\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 57,
+            "preview": [
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "bowmasc01c",
+                "year__dup2": 1975,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 58,
+                "l__dup2": 11,
+                "t__dup2": 11,
+                "postg": "13",
+                "postw": "12",
+                "postl": "1",
+                "postt": "0",
+                "coachid__dup1": "bowmasc01c",
+                "award": "Jack Adams",
+                "year__dup3": 1976,
+                "lgid__dup3": "NHL",
+                "note": null
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "bowmasc01c",
+                "year__dup2": 1975,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 58,
+                "l__dup2": 11,
+                "t__dup2": 11,
+                "postg": "13",
+                "postw": "12",
+                "postl": "1",
+                "postt": "0",
+                "coachid__dup1": "bowmasc01c",
+                "award": "Jack Adams",
+                "year__dup3": 1995,
+                "lgid__dup3": "NHL",
+                "note": null
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "burnspa01c",
+                "year__dup2": 1989,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 41,
+                "l__dup2": 28,
+                "t__dup2": 11,
+                "postg": "11",
+                "postw": "5",
+                "postl": "6",
+                "postt": "0",
+                "coachid__dup1": "burnspa01c",
+                "award": "Jack Adams",
+                "year__dup3": 1988,
+                "lgid__dup3": "NHL",
+                "note": null
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "burnspa01c",
+                "year__dup2": 1989,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 41,
+                "l__dup2": 28,
+                "t__dup2": 11,
+                "postg": "11",
+                "postw": "5",
+                "postl": "6",
+                "postt": "0",
+                "coachid__dup1": "burnspa01c",
+                "award": "Jack Adams",
+                "year__dup3": 1992,
+                "lgid__dup3": "NHL",
+                "note": null
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "burnspa01c",
+                "year__dup2": 1989,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 41,
+                "l__dup2": 28,
+                "t__dup2": 11,
+                "postg": "11",
+                "postw": "5",
+                "postl": "6",
+                "postt": "0",
+                "coachid__dup1": "burnspa01c",
+                "award": "Jack Adams",
+                "year__dup3": 1997,
+                "lgid__dup3": "NHL",
+                "note": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "where",
+          "clause": "a.award = 'Jack Adams'",
+          "sql": "SELECT *\nFROM teams AS t\nJOIN goaliessc AS g ON t.tmid = g.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nWHERE (t.lgid = 'NHL') AND (g.min >= 100) AND (a.award = 'Jack Adams')\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 5,
+            "column_count": 57,
+            "preview": [
+              {
+                "year": 1982,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "DSF",
+                "g": 80,
+                "w": 42,
+                "l": 24,
+                "t": 14,
+                "otl": null,
+                "pts": 98,
+                "sow": null,
+                "sol": null,
+                "gf": 350,
+                "ga": 286,
+                "name": "Montreal Canadiens",
+                "pim": "1116",
+                "benchminor": "10",
+                "ppg": "64",
+                "ppc": "288",
+                "sha": "8",
+                "pkg": "68",
+                "pkc": "260",
+                "shf": "8",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "bowmasc01c",
+                "year__dup2": 1975,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 58,
+                "l__dup2": 11,
+                "t__dup2": 11,
+                "postg": "13",
+                "postw": "12",
+                "postl": "1",
+                "postt": "0",
+                "coachid__dup1": "bowmasc01c",
+                "award": "Jack Adams",
+                "year__dup3": 1976,
+                "lgid__dup3": "NHL",
+                "note": null
+              },
+              {
+                "year": 1982,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "DSF",
+                "g": 80,
+                "w": 42,
+                "l": 24,
+                "t": 14,
+                "otl": null,
+                "pts": 98,
+                "sow": null,
+                "sol": null,
+                "gf": 350,
+                "ga": 286,
+                "name": "Montreal Canadiens",
+                "pim": "1116",
+                "benchminor": "10",
+                "ppg": "64",
+                "ppc": "288",
+                "sha": "8",
+                "pkg": "68",
+                "pkc": "260",
+                "shf": "8",
+                "playerid": "vezinge01",
+                "year__dup1": 1923,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 4,
+                "min": 240,
+                "w__dup1": 4,
+                "l__dup1": 0,
+                "t__dup1": 0,
+                "sho": 1,
+                "ga__dup1": 4,
+                "coachid": "bowmasc01c",
+                "year__dup2": 1975,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 58,
+                "l__dup2": 11,
+                "t__dup2": 11,
+                "postg": "13",
+                "postw": "12",
+                "postl": "1",
+                "postt": "0",
+                "coachid__dup1": "bowmasc01c",
+                "award": "Jack Adams",
+                "year__dup3": 1976,
+                "lgid__dup3": "NHL",
+                "note": null
+              },
+              {
+                "year": 1982,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 2,
+                "playoff": "DSF",
+                "g": 80,
+                "w": 42,
+                "l": 24,
+                "t": 14,
+                "otl": null,
+                "pts": 98,
+                "sow": null,
+                "sol": null,
+                "gf": 350,
+                "ga": 286,
+                "name": "Montreal Canadiens",
+                "pim": "1116",
+                "benchminor": "10",
+                "ppg": "64",
+                "ppc": "288",
+                "sha": "8",
+                "pkg": "68",
+                "pkc": "260",
+                "shf": "8",
+                "playerid": "vezinge01",
+                "year__dup1": 1924,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 4,
+                "min": 240,
+                "w__dup1": 1,
+                "l__dup1": 3,
+                "t__dup1": 0,
+                "sho": 0,
+                "ga__dup1": 16,
+                "coachid": "bowmasc01c",
+                "year__dup2": 1975,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 58,
+                "l__dup2": 11,
+                "t__dup2": 11,
+                "postg": "13",
+                "postw": "12",
+                "postl": "1",
+                "postt": "0",
+                "coachid__dup1": "bowmasc01c",
+                "award": "Jack Adams",
+                "year__dup3": 1976,
+                "lgid__dup3": "NHL",
+                "note": null
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1918,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 5,
+                "min": 356,
+                "w__dup1": 2,
+                "l__dup1": 2,
+                "t__dup1": 1,
+                "sho": 1,
+                "ga__dup1": 19,
+                "coachid": "bowmasc01c",
+                "year__dup2": 1975,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 58,
+                "l__dup2": 11,
+                "t__dup2": 11,
+                "postg": "13",
+                "postw": "12",
+                "postl": "1",
+                "postt": "0",
+                "coachid__dup1": "bowmasc01c",
+                "award": "Jack Adams",
+                "year__dup3": 1976,
+                "lgid__dup3": "NHL",
+                "note": null
+              },
+              {
+                "year": 1987,
+                "lgid": "NHL",
+                "tmid": "MTL",
+                "franchid": "MTL",
+                "confid": "WA",
+                "divid": "AD",
+                "rank": 1,
+                "playoff": "DF",
+                "g": 80,
+                "w": 45,
+                "l": 22,
+                "t": 13,
+                "otl": null,
+                "pts": 103,
+                "sow": null,
+                "sol": null,
+                "gf": 298,
+                "ga": 238,
+                "name": "Montreal Canadiens",
+                "pim": "1830",
+                "benchminor": "8",
+                "ppg": "63",
+                "ppc": "397",
+                "sha": "17",
+                "pkg": "64",
+                "pkc": "395",
+                "shf": "7",
+                "playerid": "vezinge01",
+                "year__dup1": 1923,
+                "tmid__dup1": "MTL",
+                "lgid__dup1": "NHL",
+                "gp": 4,
+                "min": 240,
+                "w__dup1": 4,
+                "l__dup1": 0,
+                "t__dup1": 0,
+                "sho": 1,
+                "ga__dup1": 4,
+                "coachid": "bowmasc01c",
+                "year__dup2": 1975,
+                "tmid__dup2": "MTL",
+                "lgid__dup2": "NHL",
+                "stint": 1,
+                "notes": null,
+                "g__dup1": 80,
+                "w__dup2": 58,
+                "l__dup2": 11,
+                "t__dup2": 11,
+                "postg": "13",
+                "postw": "12",
+                "postl": "1",
+                "postt": "0",
+                "coachid__dup1": "bowmasc01c",
+                "award": "Jack Adams",
+                "year__dup3": 1976,
+                "lgid__dup3": "NHL",
+                "note": null
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "having",
+          "clause": "AVG(g.ga / g.gp) > 0",
+          "sql": "SELECT t.name AS team_name, AVG(g.ga / g.gp) AS avg_ga_per_game\nFROM teams AS t\nJOIN goaliessc AS g ON t.tmid = g.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nWHERE (t.lgid = 'NHL') AND (g.min >= 100) AND (a.award = 'Jack Adams')\nGROUP BY t.name\nHAVING (AVG(g.ga / g.gp) > 0)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 2,
+            "preview": [
+              {
+                "team_name": "Montreal Canadiens",
+                "avg_ga_per_game": 2.6666666666666665
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT t.name AS team_name, AVG(g.ga / g.gp) AS avg_ga_per_game\nFROM teams AS t\nJOIN goaliessc AS g ON t.tmid = g.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nWHERE (t.lgid = 'NHL') AND (g.min >= 100) AND (a.award = 'Jack Adams')\nGROUP BY t.name\nHAVING (AVG(g.ga / g.gp) > 0)",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 2,
+            "preview": [
+              {
+                "team_name": "Montreal Canadiens",
+                "avg_ga_per_game": 2.6666666666666665
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        }
+      ]
+    },
+    {
+      "block": "root",
+      "notes": "Calculate the average of the average goals against per game from the leaf block",
+      "steps": [
+        {
+          "stage": "from",
+          "sql": "SELECT *\nFROM (SELECT t.name AS team_name, AVG(g.ga / g.gp) AS avg_ga_per_game\nFROM teams AS t\nJOIN goaliessc AS g ON t.tmid = g.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nWHERE (t.lgid = 'NHL') AND (g.min >= 100) AND (a.award = 'Jack Adams')\nGROUP BY t.name\nHAVING (AVG(g.ga / g.gp) > 0)) AS leaf_1\nLIMIT 5",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 2,
+            "preview": [
+              {
+                "team_name": "Montreal Canadiens",
+                "avg_ga_per_game": 2.6666666666666665
+              }
+            ],
+            "scalar": false,
+            "text_scalar": false
+          }
+        },
+        {
+          "stage": "final",
+          "sql": "SELECT AVG(avg_ga_per_game) AS final_avg_ga_per_game\nFROM (SELECT t.name AS team_name, AVG(g.ga / g.gp) AS avg_ga_per_game\nFROM teams AS t\nJOIN goaliessc AS g ON t.tmid = g.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nWHERE (t.lgid = 'NHL') AND (g.min >= 100) AND (a.award = 'Jack Adams')\nGROUP BY t.name\nHAVING (AVG(g.ga / g.gp) > 0)) AS leaf_1",
+          "result": {
+            "success": true,
+            "empty": false,
+            "error": null,
+            "row_count": 1,
+            "column_count": 1,
+            "preview": [
+              {
+                "final_avg_ga_per_game": 2.6666666666666665
+              }
+            ],
+            "scalar": true,
+            "text_scalar": false
+          }
+        }
+      ]
+    }
+  ],
+  "why_not": {
+    "detail_query_non_empty": true,
+    "predicates": []
+  },
+  "attempt": 24,
+  "sample_retry": 2,
+  "detail_fallback_used": false,
+  "join_necessity": {
+    "accepted": true,
+    "reason": "ok",
+    "redundant_joins": []
+  },
+  "diversity": {
+    "accepted": true,
+    "max_similarity": 0.5410042735042736,
+    "nearest": {
+      "sample_index": 2,
+      "answer_mode": "aggregate",
+      "target_join_count": 4,
+      "similarity": 0.5410042735042736,
+      "sql": "SELECT AVG(avg_goals_against) AS final_avg_goals_against\nFROM (SELECT t.name AS team_name, AVG(g.ga) AS avg_goals_against\nFROM teams AS t\nJOIN goaliessc AS g ON t.tmid = g.tmid\nJOIN coaches AS c ON t.tmid = c.tmid\nJOIN awardscoaches AS a ON c.coachid = a.coachid\nJOIN abbrev AS ab ON t.confid = ab.code\nWHERE (t.lgid = 'NHL') AND (t.confid = ab.code) AND (ab.fullname = 'Eastern Conference') AND (a.award = 'Jack Adams')\nGROUP BY t.name) AS leaf_1"
+    }
+  },
+  "numeric_answer_gate": {
+    "accepted": true,
+    "numeric_answer": 2.6666666666666665,
+    "nearest": null,
+    "reason": "numeric answer <= 7.0"
+  },
+  "question": "What is the average of the average goals allowed per game across all NHL teams that had at least 100 minutes of play and were coached by a Jack Adams Award winner, considering only teams with a positive average goals allowed per game?",
+  "answer": "2.66666666667"
+}

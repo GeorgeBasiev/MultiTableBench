@@ -1,0 +1,6 @@
+SELECT e.employeeid, e.firstname, e.lastname, e.city, e.region, o.orderid, o.orderdate, o.shippeddate, p.productid, p.productname, od.quantity, od.unitprice, (od.quantity * od.unitprice) AS revenue
+FROM employees e
+JOIN orders o ON e.employeeid = o.employeeid
+JOIN "order details" od ON o.orderid = od.orderid
+JOIN products p ON od.productid = p.productid
+WHERE (e.region = 'WA') AND (strftime('%Y', o.orderdate) = '1997') AND (strftime('%Y', o.shippeddate) = '1997')

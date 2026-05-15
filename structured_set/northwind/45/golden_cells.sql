@@ -1,0 +1,1 @@
+SELECT o.orderid, c.country AS shipcountry, od.discount FROM orders o JOIN customers c ON o.customerid = c.customerid JOIN "order details" od ON o.orderid = od.orderid WHERE (c.region IS NOT NULL) AND (strftime('%Y', o.shippeddate) = '1996')

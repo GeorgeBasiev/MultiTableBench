@@ -1,0 +1,7 @@
+SELECT AVG(leaf_1.charge_amt)
+FROM (SELECT c.charge_amt, r.region_name
+FROM charge AS c
+JOIN member AS m ON c.member_no = m.member_no
+JOIN region AS r ON m.region_no = r.region_no
+WHERE (r.region_name = 'North American' OR r.region_name = 'South American')
+GROUP BY c.charge_no, r.region_name) AS leaf_1
